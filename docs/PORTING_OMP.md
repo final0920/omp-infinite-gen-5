@@ -87,8 +87,10 @@ dsh 侧靠"注册/反注册"实现 Core8 与 Full 43 的切换。omp 的注册�
 3. `ig5_doctor engine=ghidra`：随包运行时若未下载，会明确报 `missing-runtime`，不是静默降级；
 4. `ig5_open path=<样本> engine=ghidra` 打开一个真实样本，再 `ig5_decompile` 取函数。
 
-运行时资产（`runtimes/ghidra`、`runtimes/x64dbg`、`third_party/sources`）不在源码仓库里，
-沿用上游 `install-dsh.ps1 -DistributionArchive` / `-DistributionRoot` 的离线或联网补齐流程。
+运行时资产（`runtimes/ghidra`、`runtimes/x64dbg`、`third_party/sources`）不在源码仓库里，`.gitignore` 也把它们排除了。
+补齐方式：下载上游 Release 里的完整包（`IG5-<版本>-Windows-x64-*-full-*.zip`），把其中的 `runtimes/`
+与 `third_party/sources/` 解到本仓库根目录即可，omp 启动时按"已加载模块的物理目录"解析运行时，
+不读 `~/.dsh` 的历史副本。上游 `install-dsh.ps1` 只服务于 dsh 的 profile 安装，omp 侧不要执行它的安装步骤。
 
 ## 六、移植中遇到的宿主差异
 
