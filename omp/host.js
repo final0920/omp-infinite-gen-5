@@ -197,10 +197,15 @@ export function createHost(pi, options = {}) {
 	};
 
 	// omp 的注册表没有"卸载工具"，只能调整激活集合；因此 Core/Full 切换落到 setActiveTools。
-	// 一次 toolset 变更会连续触发几十次 register/dispose，必须并到同一轮微任务里，否则每次调用都重设一遍。
+	// 关键约束：setActiveTools 传的是"完整激活列表"，而 MCP 工具是异步挂载的，
+	// 启动早期拿到的名单里还没有 mcp__* —— 这时按名单覆盖激活集合会把 hindsight 这类
+	// MCP 工具整批挤掉。所以只在用户真正切换 toolset 时才同步，且只按 IG5 名字过滤，
+	// 非 IG5 工具一律原样保留。注册阶段的默认态（Core 激活、其余 defaultInactive）本来就对，
+	// 不调用 setActiveTools。
+	let syncArmed = false;
 	let syncPending = false;
 	function scheduleSync() {
-		if (disposed || syncPending) return;
+		if (disposed || !syncArmed || syncPending) return;
 		syncPending = true;
 		queueMicrotask(() => {
 			syncPending = false;
@@ -216,9 +221,11 @@ export function createHost(pi, options = {}) {
 
 	async function syncActiveTools() {
 		if (disposed || typeof pi.setActiveTools !== 'function') return;
+		// 用 getAllTools 当全集（含 MCP 与内建），再并上当前激活表，只剔除"未展开的 IG5 工具"。
+		const universe = (pi.getAllTools?.() ?? []).map((tool) => tool.name);
 		const current = pi.getActiveTools?.() ?? [];
-		const kept = current.filter((name) => !catalog.has(name));
-		const wanted = [...new Set([...kept, ...[...enabled].filter((name) => registered.has(name))])];
+		const all = [...new Set([...universe, ...current])];
+		const wanted = all.filter((name) => !catalog.has(name) || enabled.has(name));
 		await pi.setActiveTools(wanted);
 	}
 
@@ -295,8 +302,19 @@ export function createHost(pi, options = {}) {
 
 	pi.on('resources_discover', () => ({ skillPaths: [path.join(PLUGIN_ROOT, 'skills')] }));
 	pi.on('session_start', async () => {
-		await syncActiveTools();
+		syncArmed = true;
+		await ensureToolsEnabled();
 	});
+
+	/** 只补不删：把本应激活的 IG5 工具并进当前激活表，绝不覆盖掉 MCP/内建工具。 */
+	async function ensureToolsEnabled() {
+		if (disposed || typeof pi.setActiveTools !== 'function') return;
+		const current = pi.getActiveTools?.() ?? [];
+		const present = new Set(current);
+		const missing = [...enabled].filter((name) => registered.has(name) && !present.has(name));
+		if (!missing.length) return;
+		await pi.setActiveTools([...current, ...missing]);
+	}
 	pi.on('session_shutdown', async () => {
 		await dispose();
 	});

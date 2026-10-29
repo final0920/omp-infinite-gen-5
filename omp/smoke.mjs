@@ -51,7 +51,7 @@ function createFakePi() {
 	const tools = new Map();
 	const commands = new Map();
 	const handlers = new Map();
-	const active = new Set(['read', 'bash', 'edit', 'write']);
+	const active = new Set(['read', 'bash', 'edit', 'write', 'mcp__hindsight_retain', 'mcp__hindsight_recall']);
 	const activeHistory = [];
 	const pi = {
 		zod: fakeZod(),
@@ -64,6 +64,8 @@ function createFakePi() {
 		registerTool(definition) {
 			if (tools.has(definition.name)) throw new Error(`重复注册工具 ${definition.name}`);
 			tools.set(definition.name, definition);
+			// 对齐 omp 默认态：非 defaultInactive 的工具注册即激活
+			if (!definition.defaultInactive) active.add(definition.name);
 		},
 		registerCommand(name, options) {
 			commands.set(name, options);
@@ -79,7 +81,11 @@ function createFakePi() {
 			for (const name of names) active.add(name);
 			activeHistory.push(names);
 		},
-		getAllTools: () => [...tools.values()].map((t) => ({ name: t.name, description: t.description, parameters: t.parameters, sourceInfo: {} })),
+		getAllTools: () => [
+			...[...tools.values()].map((t) => ({ name: t.name, description: t.description, parameters: t.parameters, sourceInfo: {} })),
+			// MCP 工具由宿主另行注入，getAllTools 里同样可见（这里用假条目替代）
+			...[...active].filter((n) => n.startsWith('mcp__')).map((n) => ({ name: n, description: 'mcp tool', parameters: {}, sourceInfo: {} })),
+		],
 		sendMessage: (message) => { pi.sentMessages.push(message); },
 		sentMessages: [],
 		async exec() { return { stdout: '', stderr: '', code: 0 }; },
@@ -123,6 +129,10 @@ const extCtx = {
 	sessionManager: { getSessionId: () => 'smoke-session', getBranch: () => [] },
 };
 
+// 真实宿主在扩展加载后才发 session_start，激活集合的同步从那时才上闩
+for (const handler of handlers.get('session_start') ?? []) await handler({ type: 'session_start' }, extCtx);
+await new Promise((resolve) => setImmediate(resolve));
+
 const status = tools.get('ig5_status');
 const statusResult = await runTool(status, {}, extCtx);
 console.log('ig5_status 输出前 200 字:', statusResult.slice(0, 200).replace(/\n/g, ' '));
@@ -133,12 +143,14 @@ await new Promise((resolve) => setImmediate(resolve));
 const fullCount = [...active].filter((n) => n.startsWith('ig5_')).length;
 console.log(`切换 full 后激活工具数: ${fullCount}`);
 assert.equal(fullCount, 43, 'toolset=full 应激活全部 43 个工具');
+assert.ok(active.has('mcp__hindsight_retain') && active.has('mcp__hindsight_recall'), 'toolset 切换不得挤掉 MCP 工具');
 
 await runTool(profile, { toolset: 'core' }, extCtx);
 await new Promise((resolve) => setImmediate(resolve));
 const coreCount = [...active].filter((n) => n.startsWith('ig5_')).length;
 console.log(`切回 core 后激活工具数: ${coreCount}`);
 assert.equal(coreCount, 8, 'toolset=core 应只留 8 个工具');
+assert.ok(active.has('mcp__hindsight_retain'), 'core 切换后 MCP 工具仍必须激活');
 
 await host.dispose();
 console.log(`setActiveTools 调用次数: ${activeHistory.length}`);
