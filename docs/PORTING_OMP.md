@@ -17,7 +17,7 @@ dsh 插件通过 Cordis 的 `apply(ctx, config)` 拿到宿主能力；omp 扩展
 | 注册工具 | `ctx.tools.register(def)` → disposer | `pi.registerTool({…})`；disposer 改为从激活集合里摘除（omp 没有反注册 API） |
 | 工具执行前后拦截 | `ctx.on('tools/pre-execute'\|'tools/post-execute', (exec, next))` | 同一套中间件链，由 `host.js` 在 `execute` 包装里按序调用 |
 | 写操作审批 | `ctx.get('approval').request(...)` 弹宿主审批 | omp 工具自带的 `approval` 层：写工具登记为 `write`，起进程/执行代码的登记为 `exec`，读工具为 `read`。用户在 omp 里批准后才会进 `execute`，所以 `approval.request` 只做载荷超限复核与取消判定 |
-| 技能注册 | `ctx.inject(['skills'])` + `skills.register(skill)` | `pi.on('resources_discover', () => ({ skillPaths: [<root>/skills] }))` |
+| 技能注册 | `ctx.inject(['skills'])` + `skills.register(skill)` | `skills.customDirectories` 写进设置（`install.ps1` 自动登记/摘除）。`resources_discover` 在本版 omp 只有定义没有调用方，注册它是无效的 |
 | 斜杠命令 | `ctx.inject(['commands'])` + `commands.register({name, handler})` | `pi.registerCommand('ig5', {…})`，输出走 `pi.sendMessage`，不可用时退回 `ui.notify` |
 | 生命周期 | `ctx.effect(() => disposer)` | 加载时执行工厂，`session_shutdown` 时按逆序释放 |
 | Web 路由 `/ig5-diag`、`/ig5-jobs`、`/ig5-data` | `ctx.inject(['webServer'])` | omp 无 HTTP 宿主：`inject` 判定服务缺失后不回调，引擎自身走"未挂载"分支 |
@@ -126,7 +126,7 @@ dsh 侧靠"注册/反注册"实现 Core8 与 Full 43 的切换。omp 的注册�
 | 启动期 | 不调用 `setActiveTools`；Core 靠注册期 `defaultInactive=false` 自然激活 | `syncArmed` 闸门 + `session_start` 只上闩 |
 | 受限会话（`--tools`、子代理白名单） | 不得硬塞 IG5 工具，也不得改动其激活表 | `session_start` 不做任何写入；冒烟用例二验证 |
 | 系统提示 / 提示词 | 零注入。三个事件订阅里没有 `before_agent_start`、没有 `context` 改写 | `index.ts`、`host.js` |
-| 技能 | 只贡献自己的 `skills/` 目录，附加而非替换 | `resources_discover` |
+| 技能 | 只贡献自己的 `skills/` 目录，附加而非替换 | `skills.customDirectories`（安装脚本写入），`resources_discover` 仅作前向兼容 |
 | 命令 | 只注册 `/ig5`；与宿主同名冲突时丢这条命令并记日志，不拖垮扩展 | `commandsService.register` |
 | MCP / 模型路由 / 配置 | 不读不写 | 全层无相关代码 |
 | 文件写入 | 只写 `~/.omp/ig5/**`（工程、产物、导出、审计、诊断），不写工作区 | 引擎 `cfg.home` |
@@ -134,4 +134,21 @@ dsh 侧靠"注册/反注册"实现 Core8 与 Full 43 的切换。omp 的注册�
 
 配置项 `essentialCore`（默认 `true`）：Core8 以 `loadMode: "essential"` 常驻顶层，与 dsh 的 Core8 语义对齐；
 设为 `false` 时 43 个工具全部降为 `discoverable`，交给 omp 的 `tools.xdev` 挂载，完全不占用顶层工具位。
+
+## 八、技能为什么要走设置项
+
+最初按 dsh 的思路用 `pi.on('resources_discover', …)` 贡献 `skills/`，但本版 omp 的
+`src/extensibility/extensions/runner.ts` 只定义了 `emitResourcesDiscover`，全仓库没有任何调用方——
+事件注册本身成功，结果却没人消费，于是工具能加载、技能一个都进不来（`omp skill list` 里看不到 `ig5-*`）。
+
+现在改由 `skills.customDirectories` 登记（`loadSkills` 会扫描该列表下的 `<dir>/<name>/SKILL.md`）：
+
+```yaml
+skills:
+  customDirectories:
+    - C:\Users\XD\.omp\agent\extensions\omp-infinite-gen-5\skills
+```
+
+`install.ps1` 安装时登记、`-Uninstall` 时摘除，改动前备份成 `config.yml.ig5.bak`；
+之所以按行编辑而不调 `omp config set`，是因为该键要求 JSON 数组，经 PowerShell 转发时引号会被吞掉。
 

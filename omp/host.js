@@ -308,9 +308,11 @@ export function createHost(pi, options = {}) {
 		},
 	};
 
+	// 技能不靠这个事件加载：本版 omp 只定义 emitResourcesDiscover，没有调用方，
+	// 真正生效的是设置项 skills.customDirectories（由 install.ps1 登记）。这里保留贡献，
+	// 供将来消费该事件的宿主版本使用；返回空对象而不是空数组，避免误清空别的来源。
 	pi.on('resources_discover', () => {
 		const dir = path.join(PLUGIN_ROOT, 'skills');
-		// 只贡献自己那份技能目录；目录缺失时不返回空数组，避免覆盖语义不清
 		return fs.existsSync(dir) ? { skillPaths: [dir] } : {};
 	});
 	pi.on('session_start', async () => {

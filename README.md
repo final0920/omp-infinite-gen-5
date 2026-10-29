@@ -53,7 +53,7 @@ cd omp-infinite-gen-5
 | 工具链闭环 | `omp -p "调用 ig5_status …"` 由模型实际发起工具调用并正确解释返回（count=0、sessions=[]，且指出三引擎缺运行时） |
 | 工具面切换 | `omp -p "调用 ig5_profile toolset=full …"` 返回 `activeTools` 长度 43，切回 core 即 8 |
 | 真机 · MCP 不被挤掉 | 在 `E:\CProjects\dxf` 实测：`mcp__` 工具 36 个，切 full（IG5 43）后仍 36，切回 core（IG5 8）后仍 36 |
-| 技能 | `omp -p … --skills=ig5-*` 列出全部 8 个技能：triage / deep-dive / patch-and-sign / diff / debug-live / crypto / protocol / reverse-agent |
+| 技能 | `omp skill list`（在项目目录执行）列出 **13** 个：`~/.agents/skills` 的 5 个 + IG5 的 8 个（crypto / debug-live / deep-dive / diff / patch-and-sign / protocol / reverse-agent / triage） |
 | 引擎 | 未做：Ghidra/x64dbg 运行时资产不在源码仓库，`ig5_doctor engine=ghidra` 目前如实报 `missing-runtime` |
 
 ## 不会碰宿主的东西
