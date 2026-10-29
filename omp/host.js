@@ -103,6 +103,8 @@ export function createHost(pi, options = {}) {
 	const commands = new Map();
 	let disposed = false;
 	let syncChain = Promise.resolve();
+	// 配置成 full 的会话在注册期就全量激活，之后不需要再碰全局激活表
+	const initialFull = config.toolset === 'full';
 
 	function agentOf(extCtx) {
 		const identity = extCtx?.agent;
@@ -123,8 +125,8 @@ export function createHost(pi, options = {}) {
 			description: definition.description,
 			parameters: jsonSchemaToZod(z, definition.parameters ?? { type: 'object', properties: {} }),
 			approval: approvalTierFor(definition.name),
-			defaultInactive: !CORE.has(definition.name),
-			loadMode: CORE.has(definition.name) ? 'essential' : 'discoverable',
+			defaultInactive: initialFull ? false : !CORE.has(definition.name),
+			loadMode: config.essentialCore === false || !CORE.has(definition.name) ? 'discoverable' : 'essential',
 			async execute(toolCallId, params, signal, onUpdate, extCtx) {
 				const args = params && typeof params === 'object' ? params : {};
 				const agent = agentOf(extCtx);
@@ -182,16 +184,21 @@ export function createHost(pi, options = {}) {
 	const commandsService = {
 		register(command) {
 			commands.set(command.name, command);
-			pi.registerCommand(command.name, {
-				description: command.description,
-				getArgumentCompletions: (prefix) => completionsFor(command, prefix),
-				handler: async (args, extCtx) => {
-					const invocation = { rawInput: args ?? '', signal: undefined, agent: agentOf(extCtx) };
-					const outcome = await command.handler(invocation);
-					const text = outcome?.text ?? String(outcome ?? '');
-					sendOutput(extCtx, text);
-				},
-			});
+			try {
+				pi.registerCommand(command.name, {
+					description: command.description,
+					getArgumentCompletions: (prefix) => completionsFor(command, prefix),
+					handler: async (args, extCtx) => {
+						const invocation = { rawInput: args ?? '', signal: undefined, agent: agentOf(extCtx) };
+						const outcome = await command.handler(invocation);
+						const text = outcome?.text ?? String(outcome ?? '');
+						sendOutput(extCtx, text);
+					},
+				});
+			} catch (error) {
+				// 与宿主已有命令撞名时不能拖垮整个扩展，只丢这条命令
+				pi.logger?.warn?.(`omp-infinite-gen-5: /${command.name} 注册失败`, { error: String(error) });
+			}
 			return () => commands.delete(command.name);
 		},
 	};
@@ -221,11 +228,12 @@ export function createHost(pi, options = {}) {
 
 	async function syncActiveTools() {
 		if (disposed || typeof pi.setActiveTools !== 'function') return;
-		// 用 getAllTools 当全集（含 MCP 与内建），再并上当前激活表，只剔除"未展开的 IG5 工具"。
-		const universe = (pi.getAllTools?.() ?? []).map((tool) => tool.name);
+		// 基线只取当前有效集（omp 的 getEnabledToolNames，已含 MCP 与 xd:// 挂载项）。
+		// 不拿 getAllTools 当全集：那会把用户主动关掉的工具重新点亮，等于改写宿主的工具选择。
 		const current = pi.getActiveTools?.() ?? [];
-		const all = [...new Set([...universe, ...current])];
-		const wanted = all.filter((name) => !catalog.has(name) || enabled.has(name));
+		if (!current.length) return;
+		const keep = current.filter((name) => !catalog.has(name));
+		const wanted = [...new Set([...keep, ...[...enabled].filter((name) => registered.has(name))])];
 		await pi.setActiveTools(wanted);
 	}
 
@@ -300,23 +308,19 @@ export function createHost(pi, options = {}) {
 		},
 	};
 
-	pi.on('resources_discover', () => ({ skillPaths: [path.join(PLUGIN_ROOT, 'skills')] }));
-	pi.on('session_start', async () => {
-		syncArmed = true;
-		await ensureToolsEnabled();
+	pi.on('resources_discover', () => {
+		const dir = path.join(PLUGIN_ROOT, 'skills');
+		// 只贡献自己那份技能目录；目录缺失时不返回空数组，避免覆盖语义不清
+		return fs.existsSync(dir) ? { skillPaths: [dir] } : {};
 	});
-
-	/** 只补不删：把本应激活的 IG5 工具并进当前激活表，绝不覆盖掉 MCP/内建工具。 */
-	async function ensureToolsEnabled() {
-		if (disposed || typeof pi.setActiveTools !== 'function') return;
-		const current = pi.getActiveTools?.() ?? [];
-		const present = new Set(current);
-		const missing = [...enabled].filter((name) => registered.has(name) && !present.has(name));
-		if (!missing.length) return;
-		await pi.setActiveTools([...current, ...missing]);
-	}
+	pi.on('session_start', async () => {
+		// 只上闩：注册期的批量 register/dispose 不触发全局同步，也不在启动时改激活表。
+		// 受限会话（--tools / 子代理白名单）下 IG5 工具不该被硬塞进去，这里什么都不做。
+		syncArmed = true;
+	});
 	pi.on('session_shutdown', async () => {
-		await dispose();
+		// 关闭可能等 Ghidra/x64dbg 会话收敛；设上限，别让 IG5 拖住宿主退出
+		await Promise.race([dispose(), new Promise((resolve) => setTimeout(resolve, 5000))]);
 	});
 
 	async function dispose() {

@@ -115,3 +115,23 @@ dsh 侧靠"注册/反注册"实现 Core8 与 Full 43 的切换。omp 的注册�
    `ctx.inject` 按 dsh 语义「依赖不全就永不回调」，引擎自身走降级分支：路由不挂载、投影不注册、
    协作预算只统计当前会话。
 
+## 七、宿主影响面（不得改写的宿主状态）
+
+移植层只允许动 IG5 自己的东西。逐项约束与实现位置：
+
+| 宿主状态 | 约束 | 实现 |
+|---|---|---|
+| 全局激活工具集 | 只在用户显式 `toolset=full/core` 时同步；基线取 `pi.getActiveTools()`（omp 的 `getEnabledToolNames`，含 MCP 与 `xd://` 挂载项），只增删 `ig5_*` 名字 | `syncActiveTools` |
+| 用户已关闭的工具 | 不得重新点亮。基线只来自当前有效集，**不用 `getAllTools()` 当全集** | 同上 |
+| 启动期 | 不调用 `setActiveTools`；Core 靠注册期 `defaultInactive=false` 自然激活 | `syncArmed` 闸门 + `session_start` 只上闩 |
+| 受限会话（`--tools`、子代理白名单） | 不得硬塞 IG5 工具，也不得改动其激活表 | `session_start` 不做任何写入；冒烟用例二验证 |
+| 系统提示 / 提示词 | 零注入。三个事件订阅里没有 `before_agent_start`、没有 `context` 改写 | `index.ts`、`host.js` |
+| 技能 | 只贡献自己的 `skills/` 目录，附加而非替换 | `resources_discover` |
+| 命令 | 只注册 `/ig5`；与宿主同名冲突时丢这条命令并记日志，不拖垮扩展 | `commandsService.register` |
+| MCP / 模型路由 / 配置 | 不读不写 | 全层无相关代码 |
+| 文件写入 | 只写 `~/.omp/ig5/**`（工程、产物、导出、审计、诊断），不写工作区 | 引擎 `cfg.home` |
+| 退出 | 关闭引擎最多等 5 秒，不拖住宿主退出 | `session_shutdown` 的 `Promise.race` |
+
+配置项 `essentialCore`（默认 `true`）：Core8 以 `loadMode: "essential"` 常驻顶层，与 dsh 的 Core8 语义对齐；
+设为 `false` 时 43 个工具全部降为 `discoverable`，交给 omp 的 `tools.xdev` 挂载，完全不占用顶层工具位。
+

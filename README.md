@@ -47,12 +47,21 @@ cd omp-infinite-gen-5
 
 | 层级 | 结果 |
 |---|---|
-| 装配（假宿主） | `node omp/smoke.mjs`：注册 43 个工具、Core 默认激活 8 个、`ig5_status` 返回 JSON、`toolset=full` 后激活 43、切回 core 回到 8，内建 `read/bash/edit/write` 全程保留 |
+| 装配（假宿主） | `node omp/smoke.mjs`：注册 43 个工具、Core 默认激活 8 个、`ig5_status` 返回 JSON、`toolset=full` 后激活 43、切回 core 回到 8 |
+| 宿主不被改写 | 同一冒烟用例断言：加载期与 `session_start` 零 `setActiveTools`；切换后 MCP 工具仍在、用户已关闭的工具不被重新点亮；受限会话（`--tools`）保持原样 |
 | 真机装配 | `omp` 加载扩展后 `~/.omp/ig5/artifacts/ig5-diag.log` 记录 `implementation=20261026-release-1.3.0` 与审批门挂载 |
 | 工具链闭环 | `omp -p "调用 ig5_status …"` 由模型实际发起工具调用并正确解释返回（count=0、sessions=[]，且指出三引擎缺运行时） |
-| 工具面切换 | `omp -p "调用 ig5_profile toolset=full …"` 返回 `activeTools` 长度 43，切回 core 即 8（`setActiveTools` 保留内建工具） |
+| 工具面切换 | `omp -p "调用 ig5_profile toolset=full …"` 返回 `activeTools` 长度 43，切回 core 即 8 |
+| 真机 · MCP 不被挤掉 | 在 `E:\CProjects\dxf` 实测：`mcp__` 工具 36 个，切 full（IG5 43）后仍 36，切回 core（IG5 8）后仍 36 |
 | 技能 | `omp -p … --skills=ig5-*` 列出全部 8 个技能：triage / deep-dive / patch-and-sign / diff / debug-live / crypto / protocol / reverse-agent |
 | 引擎 | 未做：Ghidra/x64dbg 运行时资产不在源码仓库，`ig5_doctor engine=ghidra` 目前如实报 `missing-runtime` |
+
+## 不会碰宿主的东西
+
+工具注册、`/ig5` 命令、技能路径，这三处之外不改宿主状态：不注入系统提示、不改配置与模型路由、不读写 MCP、
+不写工作区文件（只写 `~/.omp/ig5/**`）。唯一会动全局激活表的时机是你显式 `/ig5 toolset full|core`，
+且只增删 `ig5_*` 名字——MCP 工具（如 `mcp__hindsight_*`）和你手动关掉的工具都不受影响。
+逐项约束见 [docs/PORTING_OMP.md](docs/PORTING_OMP.md) 第七节。
 
 ## 与上游的差异
 
