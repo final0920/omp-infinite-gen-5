@@ -115,7 +115,7 @@ export function readRuntime(root, engine, override, options = {}) {
   } catch (error) {
     if (error.code === 'ENOENT' && !fs.existsSync(file)) {
       if (source === 'bundled') errors.push(windows
-        ? `Bundled ${engine === 'ghidra' ? 'Ghidra' : 'x64dbg'} runtime.json is missing from the loaded plugin. Complete install.ps1 from the verified full distribution, then restart DSH; a source-only npm copy cannot run this engine.`
+        ? `Bundled ${engine === 'ghidra' ? 'Ghidra' : 'x64dbg'} runtime.json is missing from the loaded plugin. Provision the runtime assets with the verified full distribution (install-dsh.ps1 -DistributionArchive/-DistributionRoot), then restart omp; a source-only copy cannot run this engine.`
         : `Missing matching ${host.id} runtime pack: the loaded plugin has no matching runtime.json. Install a validated pack for this host or configure an explicit matching runtime.`);
       else errors.push(`Configured ${engine === 'ghidra' ? 'Ghidra' : 'x64dbg'} runtime.json is missing. Check ${engine}Runtime and runtimeRoot configuration, or the matching IG5 environment override.`);
     } else errors.push('Runtime metadata unavailable: ' + error.message);

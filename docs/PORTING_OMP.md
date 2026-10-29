@@ -88,4 +88,28 @@ dsh 侧靠"注册/反注册"实现 Core8 与 Full 43 的切换。omp 的注册�
 4. `ig5_open path=<样本> engine=ghidra` 打开一个真实样本，再 `ig5_decompile` 取函数。
 
 运行时资产（`runtimes/ghidra`、`runtimes/x64dbg`、`third_party/sources`）不在源码仓库里，
-沿用上游 `install.ps1 -DistributionArchive` / `-DistributionRoot` 的离线或联网补齐流程。
+沿用上游 `install-dsh.ps1 -DistributionArchive` / `-DistributionRoot` 的离线或联网补齐流程。
+
+## 六、移植中遇到的宿主差异
+
+1. **omptype 的 zod 层拒绝无序 union**
+   工具参数原本是 JSON Schema，含数值枚举（如 `enum: [1,2,3]`）。直接映射成 `z.union([z.literal(1), …])`
+   会在扩展加载期抛 `an unordered union with overlapping morph inputs is indeterminate`，整个扩展加载失败。
+   现在数值枚举退化为 `z.number()`（整数枚举加 `.int()`）并在描述里列出可选值，`oneOf`/`anyOf` 多分支退化为
+   `z.unknown()`：宿主层放宽，真正的取值校验仍由引擎按原 JSON Schema 做。
+2. **工具注册只增不减**
+   omp 没有反注册 API，且注明"registerTool 必须在扩展加载期调用"。因此不是按 Core/Full 增量注册，
+   而是一次性注册 43 个（非 Core 用 `defaultInactive`），切换只改 `setActiveTools`。
+   一次 toolset 变更会连续触发几十次 register/dispose，激活集合的同步必须合并到同一轮微任务，
+   否则会重复调用几十次 `setActiveTools`。
+3. **`pi.zod` 不是真 zod**
+   可用面是 `object/array/string/number/boolean/null/unknown/literal/enum/union` 与链式
+   `min/max/int/regex/optional/nullable/describe/passthrough/default`，没有 `z.record` 之外的组合器，
+   也没有 `z.infer` 之外的运行时推断，转换器只使用这一层保证可用的方法。
+4. **命令输出通道**
+   omp 的斜杠命令 handler 返回 `void`，输出要么走 `pi.sendMessage`（自定义消息），要么 `ctx.ui.notify`。
+   当前优先 `sendMessage`，抛错时退回通知，避免命令静默无输出。
+5. **没有 `webServer` / `sessionProjections` / `agents` 服务**
+   `ctx.inject` 按 dsh 语义「依赖不全就永不回调」，引擎自身走降级分支：路由不挂载、投影不注册、
+   协作预算只统计当前会话。
+

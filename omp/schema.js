@@ -18,15 +18,15 @@ function literalOf(z, value) {
 function enumSchema(z, values, description) {
 	const unique = [...new Set(values)];
 	if (!unique.length) return describe(z.string(), description);
-	if (unique.every((value) => value === null)) return describe(z.null(), description);
-	const nullable = unique.includes(null);
-	const rest = unique.filter((value) => value !== null);
-	const base = rest.every((value) => typeof value === 'string')
-		? z.enum(rest)
-		: rest.every((value) => typeof value === 'number')
-			? z.union(rest.map((value) => z.literal(value)))
-			: z.unknown();
-	return describe(nullable ? base.nullable() : base, description);
+	if (unique.every((value) => typeof value === 'string')) return describe(z.enum(unique), description);
+	// omptype 的 zod 层不接受无序 union（"overlapping morph inputs"），数值枚举只能退化成带说明的 number
+	if (unique.every((value) => typeof value === 'number')) {
+		const integers = unique.every((value) => Number.isInteger(value));
+		const schema = integers ? z.number().int() : z.number();
+		const hint = `${description ? `${description} ` : ''}可选值: ${unique.join(', ')}`;
+		return describe(schema, hint);
+	}
+	return describe(z.unknown(), description);
 }
 
 function describe(schema, description) {
@@ -43,11 +43,9 @@ export function jsonSchemaToZod(z, node) {
 	if (has(node, 'const')) return describe(literalOf(z, node.const), description);
 
 	const variants = node.oneOf ?? node.anyOf;
-	if (Array.isArray(variants) && variants.length) {
-		const members = variants.map((variant) => jsonSchemaToZod(z, variant));
-		const union = members.length === 1 ? members[0] : z.union(members);
-		return describe(union, description);
-	}
+	if (Array.isArray(variants) && variants.length === 1) return jsonSchemaToZod(z, variants[0]);
+	// 多分支 union 在 omptype 里同样受限，交给引擎按原 JSON Schema 校验，宿主层只放宽
+	if (Array.isArray(variants) && variants.length) return describe(z.unknown(), description);
 
 	const types = Array.isArray(node.type) ? node.type : node.type ? [node.type] : [];
 	const nullable = types.includes('null');

@@ -43,6 +43,16 @@ cd omp-infinite-gen-5
 数据根从 dsh 的 `~\.dsh\ig5` 改为 `~\.omp\ig5`（工程、产物、运行态、诊断日志、审批审计都在其下）。
 覆盖用 `~/.omp/agent/omp-infinite-gen-5.json` 或环境变量 `IG5_HOME`。
 
+## 验证
+
+| 层级 | 结果 |
+|---|---|
+| 装配（假宿主） | `node omp/smoke.mjs`：注册 43 个工具、Core 默认激活 8 个、`ig5_status` 返回 JSON、`toolset=full` 后激活 43、切回 core 回到 8，内建 `read/bash/edit/write` 全程保留 |
+| 真机装配 | `omp` 加载扩展后 `~/.omp/ig5/artifacts/ig5-diag.log` 记录 `implementation=20261026-release-1.3.0` 与审批门挂载 |
+| 工具链闭环 | `omp -p "调用 ig5_status …"` 由模型实际发起工具调用并正确解释返回（count=0、sessions=[]，且指出三引擎缺运行时） |
+| 技能 | `omp -p … --skills=ig5-*` 列出全部 8 个技能：triage / deep-dive / patch-and-sign / diff / debug-live / crypto / protocol / reverse-agent |
+| 引擎 | 未做：Ghidra/x64dbg 运行时资产不在源码仓库，`ig5_doctor engine=ghidra` 目前如实报 `missing-runtime` |
+
 ## 与上游的差异
 
 dsh 的 Web 工作台（`client.js`）、`ig5dash` 会话投影、`/ig5-diag`、`/ig5-jobs`、`/ig5-data` 三个 HTTP 端点、
