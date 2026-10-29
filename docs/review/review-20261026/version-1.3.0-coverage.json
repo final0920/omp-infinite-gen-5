@@ -1,0 +1,23 @@
+[
+  {
+    "file": "index.js",
+    "beforeSha256": "b1f2304e3a1afac2431ffb18b7a63bd784275eac01c471d3b9dcba29afe7ee6c",
+    "sha256": "2d06be7e51072bfb5a802f57dc4b6420abc80d9e36d7065dd864fa4b94f154a3",
+    "change": "Only the explicit version/revision literal changed",
+    "decision": "accepted-user-authorized-version-update"
+  },
+  {
+    "file": "source/implementation_info.js",
+    "beforeSha256": "405ff52898c66cddfbad3d085123d00162f4f65cbc4c2726d8d0e5dcb2cb95a3",
+    "sha256": "3605865403d554a425d3a408f337b18d84765617ce9bf1241fbf7f4bf151da09",
+    "change": "Only the explicit version/revision literal changed",
+    "decision": "accepted-user-authorized-version-update"
+  },
+  {
+    "file": "client.js",
+    "beforeSha256": "b75ed700ca910ccbd7e9b2c7555c28d7239843e27cfc20f0636d4f1b8cfc9755",
+    "sha256": "56e5ed21f42bb508cd65d6ca2e20dee0fd9dbe3a7c276b7e5eac68097bdc556c",
+    "change": "Only header and displayed VERSION literal changed",
+    "decision": "accepted-user-authorized-version-update"
+  }
+]

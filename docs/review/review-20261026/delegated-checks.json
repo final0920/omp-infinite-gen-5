@@ -1,0 +1,138 @@
+[
+  {
+    "name": "package-apk",
+    "command": [
+      "node",
+      "scripts/test_apk_tool.mjs"
+    ],
+    "started": "2026-10-25T20:14:59.874Z",
+    "exitCode": 0,
+    "errorCode": null,
+    "log": "_research/ig5-delegated-review-20261026/package-apk.log",
+    "logSha256": "dde70a452d7640088b6aff56244b01d5899dc1f174ce6b5682a0d1b5c3ef770d"
+  },
+  {
+    "name": "package-firmware",
+    "command": [
+      "node",
+      "scripts/test_firmware_tool.mjs"
+    ],
+    "started": "2026-10-25T20:15:00.489Z",
+    "exitCode": 0,
+    "errorCode": null,
+    "log": "_research/ig5-delegated-review-20261026/package-firmware.log",
+    "logSha256": "fba498b70643edee338f4bb57820f9c3dcec7ccb05bcf4c2556d18f6cea15aaf"
+  },
+  {
+    "name": "package-firmware-core",
+    "command": [
+      "node",
+      "scripts/test_firmware.mjs"
+    ],
+    "started": "2026-10-25T20:15:01.542Z",
+    "exitCode": 0,
+    "errorCode": null,
+    "log": "_research/ig5-delegated-review-20261026/package-firmware-core.log",
+    "logSha256": "879cc32f914ab3f120ae0eb2217478c39885ea6e17a41cb40b46f7261feb100a"
+  },
+  {
+    "name": "P7-rules",
+    "command": [
+      "node",
+      "scripts/test_rule_match.mjs"
+    ],
+    "started": "2026-10-25T20:15:07.992Z",
+    "exitCode": 0,
+    "errorCode": null,
+    "log": "_research/ig5-delegated-review-20261026/P7-rules.log",
+    "logSha256": "a104b91e95508fc61d2a1721e6ad64eedc7105487ee7a2fbe288539080ed1f3d"
+  },
+  {
+    "name": "P8-api-trace",
+    "command": [
+      "node",
+      "scripts/test_api_trace.mjs"
+    ],
+    "started": "2026-10-25T20:15:32.945Z",
+    "exitCode": 0,
+    "errorCode": null,
+    "log": "_research/ig5-delegated-review-20261026/P8-api-trace.log",
+    "logSha256": "91a13a789b4a8ee8212ad59da9688588d4c2aaea4a00feda8ae9ff19472a1fc4"
+  },
+  {
+    "name": "P8-api-trace-offline",
+    "command": [
+      "C:\\Users\\IG5User\\Desktop\\无限五代\\dsh-infinite-gen-5\\runtimes\\ghidra\\python\\python.exe",
+      "-I",
+      "-B",
+      "-X",
+      "utf8",
+      "scripts/test_api_trace.py"
+    ],
+    "started": "2026-10-25T20:15:44.201Z",
+    "exitCode": 0,
+    "errorCode": null,
+    "log": "_research/ig5-delegated-review-20261026/P8-api-trace-offline.log",
+    "logSha256": "c6070992a1431fb67c25ecd848fc297c1d6dc3c5f1949e76a9b155c5f5206d18"
+  },
+  {
+    "name": "P9-correlation",
+    "command": [
+      "node",
+      "scripts/test_capture_correlate.mjs"
+    ],
+    "started": "2026-10-25T20:15:44.549Z",
+    "exitCode": 0,
+    "errorCode": null,
+    "log": "_research/ig5-delegated-review-20261026/P9-correlation.log",
+    "logSha256": "8512d20ba7f46713a8e6db580d9cedb769cada32bff33022f25f9707a3680a57"
+  },
+  {
+    "name": "P2-surface",
+    "command": [
+      "node",
+      "tools/ci/tool-surface-size.mjs"
+    ],
+    "started": "2026-10-25T20:15:44.774Z",
+    "exitCode": 0,
+    "errorCode": null,
+    "log": "_research/ig5-delegated-review-20261026/P2-surface.log",
+    "logSha256": "10e54685768887ec636dd788e26fb95c31798e43598d32296db1af4311c96558"
+  },
+  {
+    "name": "P2-recovery",
+    "command": [
+      "node",
+      "scripts/test_vm_recovery_profile.mjs"
+    ],
+    "started": "2026-10-25T20:15:45.282Z",
+    "exitCode": 0,
+    "errorCode": null,
+    "log": "_research/ig5-delegated-review-20261026/P2-recovery.log",
+    "logSha256": "3f822f769abe184064a3a05c5e6bdfdeceddd9a8c5fb047a1697656899f1d57d"
+  },
+  {
+    "name": "approval-classification",
+    "command": [
+      "node",
+      "scripts/test_tool_classification.mjs"
+    ],
+    "started": "2026-10-25T20:15:45.478Z",
+    "exitCode": 0,
+    "errorCode": null,
+    "log": "_research/ig5-delegated-review-20261026/approval-classification.log",
+    "logSha256": "dc88d62e7164feab5126cd79e606e40c8a28eb073fbf9f36a7d77421482f89af"
+  },
+  {
+    "name": "approval-gate",
+    "command": [
+      "node",
+      "scripts/test_approval_gate.mjs"
+    ],
+    "started": "2026-10-25T20:15:45.561Z",
+    "exitCode": 0,
+    "errorCode": null,
+    "log": "_research/ig5-delegated-review-20261026/approval-gate.log",
+    "logSha256": "48721aa4e06631010c286d28d50b6f5c11962ccb41fd03edf8b947deb6b4bbea"
+  }
+]

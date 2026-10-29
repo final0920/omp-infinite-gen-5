@@ -1,0 +1,71 @@
+{
+  "activeJobs": 0,
+  "activeSessions": 0,
+  "installedArm64StaticVerified": true,
+  "installedSdkVerified": true,
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-23T15:53:40.0622596Z",
+  "productFiles": [
+    {
+      "matches": true,
+      "sha256": "ba10561f86433464a0e321d125a5e71ccb4a1318a83e35df91625d22e875d922",
+      "path": "index.js"
+    },
+    {
+      "matches": true,
+      "sha256": "0b6371910b51bc2e5ad566585b4d9f656eac516844a1b64c4fdee94439640376",
+      "path": "client.js"
+    },
+    {
+      "matches": true,
+      "sha256": "d4787c66388606262e4053e929d2e74095a7a2dda18094f34d0c0f4d49104b04",
+      "path": "package.json"
+    },
+    {
+      "matches": true,
+      "sha256": "3d924bcff9ce41583c6559594574e721bf6e3f039f5c658736e06b74c3da4019",
+      "path": "source/delegation_control.js"
+    },
+    {
+      "matches": true,
+      "sha256": "003f92cacd0451ee8cfc73638c6085bf03bead8d45ce337dc70bbc9efe654925",
+      "path": "source/function_dossier.js"
+    },
+    {
+      "matches": true,
+      "sha256": "37c347c14e4b82d0da359413934d42c4a7e471d0877e10f33ef3a7dc4c84eed4",
+      "path": "source/capability_catalog.js"
+    },
+    {
+      "matches": true,
+      "sha256": "54fbe417d8ec01fcccce36d78073a4ee3c481c31d1f9266800bd63c473f4a67e",
+      "path": "source/result_artifacts.js"
+    },
+    {
+      "matches": true,
+      "sha256": "8d5afbf752a38f23a40bc4ba6d798b885ff7d260b1129b148f240a78c363d709",
+      "path": "source/function_batches.js"
+    },
+    {
+      "matches": true,
+      "sha256": "3b6a6e9d385a3157900f83d7a2e61efef9080babc0f3b4a1ba5f53f3e4b3ec4e",
+      "path": "adapters/ghidra/worker.py"
+    },
+    {
+      "matches": true,
+      "sha256": "86e3be05f373fee6770836366a4fb84a5231a7153d422b8e48631c91adedb7c4",
+      "path": "adapters/ghidra/elf_addresses.py"
+    },
+    {
+      "matches": true,
+      "sha256": "cdbc8159798c1756dbe1b78ccaf1b4ea6772ddf281ad429fe74d7ecbf3ec932c",
+      "path": "adapters/ghidra/result_capture.py"
+    }
+  ],
+  "actualModelCallVerified": false,
+  "implementation": {
+    "revision": "20261023-uxr-1",
+    "loadedAt": "2026-10-23T15:52:17.164Z"
+  },
+  "originalSampleVerified": false
+}

@@ -1,0 +1,130 @@
+IG5 own code: Creative Commons Attribution-NonCommercial-ShareAlike 4.0
+International (CC-BY-NC-SA-4.0). See LICENSE.
+
+The above applies to IG5's own code and documentation. Third-party code,
+binaries, dependencies, data and runtime distributions retain their upstream
+licenses and copyright notices. IG5's noncommercial condition does not replace
+or add conditions to their upstream licenses.
+
+Ghidra: https://github.com/NationalSecurityAgency/ghidra
+The independent IG5 kernel links the pinned Apache-2.0 Ghidra SLEIGH and native
+decompiler into adapters/kernel/native/ig5_decompiler.dll. This is attributed
+upstream analysis code, with IG5-owned mapped-image/C ABI integration; it is
+not a recreated commercial Reverse core. GNU BFD and the Java communication
+shell are excluded. See adapters/kernel/NOTICE, native/Ghidra-LICENSE.txt,
+native/zlib-README.txt and native/build-proof.json for component provenance.
+Runtime retains LICENSE, NOTICE and component licenses from the official release.
+The bundled Project.jar GhidraURL class and its Project-src.zip source entry
+contain the IG5 local project path compatibility modification. Legal hidden
+local directories such as .dsh are accepted; project/repository naming and
+dot traversal restrictions remain. The patch, fixed upstream/modified source,
+Apache-2.0 license, modification notice and per-entry/hash build proof are in
+adapters/ghidra/local-project-path/ and runtimes/ghidra/licenses/ig5-local-project-path/.
+Unrelated uncompressed JAR/source ZIP entries remain unchanged. The fixed
+third_party/sources snapshots and their recorded hashes are not modified.
+Eclipse Temurin/OpenJDK: https://adoptium.net/ -- runtime retains legal/ and notices.
+Python: https://www.python.org/ -- runtime retains LICENSE.txt.
+JPype: https://github.com/jpype-project/jpype -- wheel metadata/licenses retained.
+The bundled python/pylib/org.jpype.jar is a modified JPype 1.5.2 support JAR,
+not an unmodified upstream release. Original JAR/source, modified source,
+unicode-bootstrap.patch, Apache-2.0 LICENSE, UPSTREAM-NOTICE and modification
+NOTICE are retained in adapters/ghidra/jpype-patch/. The upstream source is
+pinned to https://raw.githubusercontent.com/jpype-project/jpype/v1.5.2/native/java/org/jpype/JPypeContext.java.
+The original support JAR from the pinned official wheel has SHA-256
+a8c993bccb81392102fca126d4d716605cbda2c6df2846d42c92dc3672bfd4f2.
+The patched JAR has SHA-256
+ba2b5ce10f5e3ccd4dd92979f044ddc9067b4e40052349748dda296f6c38e700.
+The IG5-specific bootstrap permits one fixed native extension filename and
+resolves it through Java's Unicode working directory. Without that property,
+upstream path handling is retained. The native extension is not rebuilt.
+scripts/patch_ghidra_jpype.ps1 uses the bundled JDK javac --release 8 to replace
+only JPypeContext and its nested class entries in the original JAR. Rebuild
+source/JAR/patch hashes and origins are recorded in runtime.json.jpypeBootstrap
+and licenses/ig5-jpype-bootstrap/provenance.json; seal_runtime_bundle.ps1 updates
+the complete runtime inventory afterwards. This modified upstream component
+retains its upstream license; IG5's NC condition does not replace it. Frozen
+third_party/sources snapshots and their original hashes are not modified.
+x64dbg: https://github.com/x64dbg/x64dbg -- runtime retains core/dependency licenses.
+IG5 bridge source/build inputs are in adapters/x64dbg/; the SDK's plugin exception
+is part of the upstream x64dbg license. The debugger remains a separate process.
+Unicorn: worker/vendor/NOTICE.txt, package metadata and licenses/ contain the
+upstream wheel provenance and GPL/BSD/component-specific license texts.
+
+The complete local IG5 distribution includes runnable packs under
+runtimes/ghidra and runtimes/x64dbg. Default installation verifies and copies
+these packs offline. Setup scripts are maintainer rebuild tools, not user
+prerequisites. Runtime manifests record pinned upstream URLs, hashes and notices.
+The current remote repository has not published these new bundled assets.
+
+Preserved source snapshots are under third_party/sources/:
+  ghidra-master: desktop archive, 12.3 DEV, exact commit unavailable.
+  x64dbg-development: desktop archive, exact commit/gitlinks unavailable;
+    empty modules explicitly supplemented from the pinned runtime source tree.
+  x64dbg-runtime: official commit 9c8ca1cae0b6d56cc44f31fddcb10e3b02ffbb87
+    with recursively pinned submodules.
+manifest.json and provenance/ retain source origins, official tree proofs,
+archive and per-file SHA-256, materialized symlink records and known omissions.
+Ghidra LICENSE/NOTICE/licenses and GPL/licenses, x64dbg LICENSE/docs/licenses.md,
+and all included submodule notices are preserved. Ghidra's desktop 12.3 DEV
+snapshot is not asserted to be the corresponding source of runtime 12.1.4.
+The maintained source-build entries are distinct from those desktop archives:
+  ghidra-12.1.4: official Ghidra_12.1.4_build at
+    8b6bbb857accdfa20dc5b2f5dea471178c2e9fbc, with verified Git blob inventory.
+    The complete Java framework/PyGhidra distribution, native decompiler/Sleigh
+    products and IG5 C ABI library are built from this input. This is the local
+    12.1.4 DEV build, not an unmodified official PUBLIC release. runtime.json's
+    source build records reference licenses/ig5-source-build/build-proof.json
+    and full-build-proof.json, containing scope, product hashes, dependency
+    locks and retained prebuilt dependency boundaries. The OpenJDK TCP pipe
+    shim is build-only; its source/classes/hash and upstream license are retained
+    with those proofs. The distributed runtime JDK is not patched by that shim.
+  x64dbg-runtime: the pinned source above is built with two maintained patches:
+    a headless-only CMake/TitanEngine build overlay and a hardware-breakpoint
+    callback replacement fix. The original source inventory is unchanged.
+    third_party/x64dbg-build retains patch inputs, lock hashes and provenance;
+    runtimes/x64dbg/source-build-proof.json records x86/x64 products and the
+    pinned prebuilt dependencies still linked. The upstream GUI was not rebuilt.
+Those components retain their upstream licenses. The other runtime components
+are not claimed to have been rebuilt from the desktop archives. Source snapshots do not establish a
+complete offline build toolchain or exact corresponding sources for every
+transitive prebuilt dependency; retain component-specific source obligations
+and verify them for any redistributed binaries. No general license
+compatibility conclusion is asserted here.
+
+Reverse is an optional external commercial engine, not an IG5-developed or
+bundled engine. IG5 uses only the user's existing locally licensed installation;
+neither its binaries nor a license are included. DeepSeek Harness is separately
+installed and is not bundled either.
+
+The optional x64dbg/ScyllaHide sidecar is GPL-3.0, revision
+baa5c8e853ace2bee752631f27fdfe5b271d92f6. Corresponding locally modified
+sources and inventory: third_party/scyllahide. License: runtimes/scyllahide/LICENSE.
+Build and patch details: docs/SCYLLAHIDE.md and scripts/build_scyllahide.ps1.
+IG5's noncommercial terms do not apply to these third-party components.
+This product includes software developed by Gil Dabah (diStorm).
+diStorm 3.3.3 COPYING is retained in third_party/scyllahide-licenses.
+
+Triton offline trace semantics uses the separate pinned triton-library 1.0.0rc4
+Windows x64 CPython 3.12 wheel in worker/trace_vendor. Apache-2.0 and transitive
+solver/disassembler/runtime licenses, original wheel RECORD/DELVEWHEEL, source
+URLs and per-file inventory are retained there. No external VMP learning binary
+or upstream attack script is distributed. See docs/TRACE_RECOVERY.md for scope.
+
+The local experimental Mergen analysis subprocess is GPL-3.0-only, upstream
+NaC-L/Mergen revision 199805706ac00e156cc7e2a53ccc647c380f1786. The separate
+runtimes/mergen directory retains its license, IG5 patch, patched program and
+dependency source archive/inventory, LLVM license, and unmodified Microsoft
+CRT provenance. See docs/LIFTER.md. Full LLVM corresponding source/toolchain
+is not bundled and no new public release or complete offline rebuild claim is
+made. IG5's NC terms do not cover Mergen or its third-party dependencies.
+
+LCM storage core: https://github.com/lossless-claude/lcm, MIT,
+revision 0c17dbffda452cf7fae46929af427dff355aeaa3 (0.16.0).
+Unmodified upstream ConversationStore, SummaryStore and SQLite migrations
+are bundled in third_party/lcm/core.mjs. That directory retains the full
+tracked upstream source archive, original LICENSE, per-input/output SHA-256
+provenance and licenses for safe-regex, regexp-tree, js-yaml and argparse.
+IG5 supplies its own exact DSH JSON event adapter and scoped retrieval API;
+upstream capture hooks, scrubber, daemon and model providers are not enabled.
+Build: scripts/build_lcm_vendor.mjs. Scope and proof: docs/LCM_THEORY.md.
+IG5's noncommercial license does not apply to these third-party components.

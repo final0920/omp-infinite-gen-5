@@ -1,0 +1,76 @@
+{
+  "note": "模块分层与审查台账的规则。新增 source/ 文件必须能匹配其中一个 pattern，否则 npm run ci 失败。修改分层需单独评审。",
+  "layers": [
+    {
+      "name": "host",
+      "trust": "critical",
+      "desc": "编排层：worker 调度与只读数据路由，允许依赖其他各层",
+      "pattern": "^source/(worker_manager|read_only_data_route).js$"
+    },
+    {
+      "name": "platform",
+      "trust": "critical",
+      "desc": "审批门、租约、审计、项目存储、worker 传输、地址与输出契约、共享产物工具",
+      "pattern": "^source/(approval|attachment|audit|history|patch|project|worker|address|host|json|reverse|kernel|remote|engine|result|code|analysis_artifacts|diag_log)[_.]"
+    },
+    {
+      "name": "engines",
+      "trust": "critical",
+      "desc": "与原生进程/网络/调试器交互的采集与执行层",
+      "pattern": "^source/(capture|delivered|debug|guest|native|trace|lift|projection|composition|recorded)[_.]"
+    },
+    {
+      "name": "analysis",
+      "trust": "standard",
+      "desc": "分析、验证、去混淆与 VM 恢复（以纯计算为主）",
+      "pattern": "^source/(analysis|apk|firmware|crypto|protocol|bitvector|cff|flow|vm|verif|evidence|failure|obligation|observed|candidate|method|experiment|planning|function|implementation|diag|dashboard|path_discovery|verifiers|evidence_adapters|api_trace|traffic_correlate)"
+    },
+    {
+      "name": "research",
+      "trust": "standard",
+      "desc": "调查、研究状态、知识库、记忆与委托",
+      "pattern": "^source/(research|knowledge|investigation|lcm|capability|autonomy|delegation)[_.]"
+    },
+    {
+      "name": "entry",
+      "trust": "standard",
+      "desc": "插件入口与工具装配",
+      "pattern": "^(index|client|advanced_tools|analysis_tools|capture_tools|integration_tools|engine_runtime|workflow|semantic_diff|semantic_diff_async|semantic_diff_worker)\\.js$"
+    }
+  ],
+  "layerRules": {
+    "note": "platform 不得依赖 engines/analysis/research；engines 不得依赖 research；host 与 entry 可依赖任意层。",
+    "forbid": [
+      [
+        "platform",
+        "engines"
+      ],
+      [
+        "platform",
+        "analysis"
+      ],
+      [
+        "platform",
+        "research"
+      ],
+      [
+        "engines",
+        "research"
+      ]
+    ]
+  },
+  "sensitiveFiles": [
+    "index.js",
+    "capture_tools.js",
+    "integration_tools.js",
+    "workflow.js",
+    "worker/ig5_worker.py",
+    "adapters/ghidra/script_api.py",
+    "worker/lift_process.py",
+    "worker/cpu_emulator.py",
+    "adapters/x64dbg/adapter.py",
+    "adapters/vmci/adapter.py"
+  ],
+  "sensitiveFilesNote": "只登记文件本身，不展开其依赖：审批门接线所在的入口文件，以及真正执行脚本、仿真、调试和子进程的 Python 执行器。",
+  "sensitiveRoots": "^source/(approval_gate|attachment_lease|audit_history|capture_ca|capture_proxy|history_index|patch_export|project_store|worker_manager|worker_transport)\\.js$"
+}

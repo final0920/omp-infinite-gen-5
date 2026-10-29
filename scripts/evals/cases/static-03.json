@@ -1,0 +1,54 @@
+{
+  "schema": "ig5-eval-case-v1",
+  "caseId": "static-03",
+  "category": "static",
+  "partition": "development",
+  "question": "比较阈值改变后的函数",
+  "source": "self-authored specification; not a native recording",
+  "input": {
+    "path": "assets/static-03.json",
+    "sha256": "cb6ef7f5872c4d9e3ee1074becec90730bfa0348af121aef16dcbbd1ba84d7f2",
+    "kind": "specification"
+  },
+  "allowedOperations": [
+    "static-read",
+    "offline-analysis",
+    "explicitly-approved-self-authored-execution-only"
+  ],
+  "acceptance": [
+    "输入身份与完整来源相符",
+    "回答问题并明确未知与覆盖范围",
+    "结论由独立参考检查"
+  ],
+  "reference": {
+    "path": "oracle.mjs",
+    "evaluatorOnly": true,
+    "answerExposure": "exposed",
+    "sha256": "cfd9994a4bcbbbf15e2ad716f94f93f7027652d5d573f929716e52ce4b7611a8"
+  },
+  "requirements": {
+    "provider": "ghidra",
+    "platform": "declared-by-run",
+    "runtime": "compiled target must be frozen before native run",
+    "knownBlock": null
+  },
+  "budget": {
+    "toolCalls": 20,
+    "elapsedMs": 120000,
+    "inlineBytes": 65536,
+    "modelTokens": "unavailable"
+  },
+  "cleanup": [
+    "retain original owner until exit confirmed",
+    "offline-only run declares no native resource created"
+  ],
+  "status": "compiled-target-frozen-not-model-run",
+  "expectedHumanInterventions": 0,
+  "target": {
+    "path": "C:\\Users\\IG5User\\Desktop\\无限五代\\_research\\ig5-eval-compiled-v2-20261021\\static-03.exe",
+    "sha256": "a81c89449caf69d471d349071765e53b7f774b5406c3f8eae46867c1e06c1288",
+    "mapSha256": "6a21a3ef6b9063cc56a7cacaa5fe318114b94cb26791b02e56e78adca57e2b77",
+    "sourceSha256": "25f4a49d0e872c3b838331bd51b95ef028cdbde362b87343a937dd692c61a705",
+    "compilerVersion": "19.51.36260.0"
+  }
+}

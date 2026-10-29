@@ -1,0 +1,1394 @@
+{
+  "schema": "ig5-fixed-sleigh-opaque-effects-fixture-v1",
+  "runtimeManifestPin": "8fc4ae42f775f0139aa5f184c912db71f77e68d661c14564ab6f4820d434abea",
+  "instructions": [
+    {
+      "ea": "0x14005206a",
+      "size": 1,
+      "mnemonic": "PUSHFQ",
+      "operands": "",
+      "pcode": [
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x53200",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x20d",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0x1",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_ZEXT",
+          "output": {
+            "space": "unique",
+            "offset": "0x53300",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x53200",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_MULT",
+          "output": {
+            "space": "unique",
+            "offset": "0x53400",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "const",
+              "offset": "0x4000",
+              "size": 8
+            },
+            {
+              "space": "unique",
+              "offset": "0x53300",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x53500",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x20b",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0x1",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_ZEXT",
+          "output": {
+            "space": "unique",
+            "offset": "0x53600",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x53500",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_MULT",
+          "output": {
+            "space": "unique",
+            "offset": "0x53700",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "const",
+              "offset": "0x800",
+              "size": 8
+            },
+            {
+              "space": "unique",
+              "offset": "0x53600",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_OR",
+          "output": {
+            "space": "unique",
+            "offset": "0x53800",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x53400",
+              "size": 8
+            },
+            {
+              "space": "unique",
+              "offset": "0x53700",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x53900",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x20a",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0x1",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_ZEXT",
+          "output": {
+            "space": "unique",
+            "offset": "0x53a00",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x53900",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_MULT",
+          "output": {
+            "space": "unique",
+            "offset": "0x53b00",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "const",
+              "offset": "0x400",
+              "size": 8
+            },
+            {
+              "space": "unique",
+              "offset": "0x53a00",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_OR",
+          "output": {
+            "space": "unique",
+            "offset": "0x53c00",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x53800",
+              "size": 8
+            },
+            {
+              "space": "unique",
+              "offset": "0x53b00",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x53d00",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x209",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0x1",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_ZEXT",
+          "output": {
+            "space": "unique",
+            "offset": "0x53e00",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x53d00",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_MULT",
+          "output": {
+            "space": "unique",
+            "offset": "0x53f00",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "const",
+              "offset": "0x200",
+              "size": 8
+            },
+            {
+              "space": "unique",
+              "offset": "0x53e00",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_OR",
+          "output": {
+            "space": "unique",
+            "offset": "0x54000",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x53c00",
+              "size": 8
+            },
+            {
+              "space": "unique",
+              "offset": "0x53f00",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x54100",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x208",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0x1",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_ZEXT",
+          "output": {
+            "space": "unique",
+            "offset": "0x54200",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x54100",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_MULT",
+          "output": {
+            "space": "unique",
+            "offset": "0x54300",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "const",
+              "offset": "0x100",
+              "size": 8
+            },
+            {
+              "space": "unique",
+              "offset": "0x54200",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_OR",
+          "output": {
+            "space": "unique",
+            "offset": "0x54400",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x54000",
+              "size": 8
+            },
+            {
+              "space": "unique",
+              "offset": "0x54300",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x54500",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x207",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0x1",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_ZEXT",
+          "output": {
+            "space": "unique",
+            "offset": "0x54600",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x54500",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_MULT",
+          "output": {
+            "space": "unique",
+            "offset": "0x54700",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "const",
+              "offset": "0x80",
+              "size": 8
+            },
+            {
+              "space": "unique",
+              "offset": "0x54600",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_OR",
+          "output": {
+            "space": "unique",
+            "offset": "0x54800",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x54400",
+              "size": 8
+            },
+            {
+              "space": "unique",
+              "offset": "0x54700",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x54900",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x206",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0x1",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_ZEXT",
+          "output": {
+            "space": "unique",
+            "offset": "0x54a00",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x54900",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_MULT",
+          "output": {
+            "space": "unique",
+            "offset": "0x54b00",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "const",
+              "offset": "0x40",
+              "size": 8
+            },
+            {
+              "space": "unique",
+              "offset": "0x54a00",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_OR",
+          "output": {
+            "space": "unique",
+            "offset": "0x54c00",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x54800",
+              "size": 8
+            },
+            {
+              "space": "unique",
+              "offset": "0x54b00",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x54d00",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x204",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0x1",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_ZEXT",
+          "output": {
+            "space": "unique",
+            "offset": "0x54e00",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x54d00",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_MULT",
+          "output": {
+            "space": "unique",
+            "offset": "0x54f00",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "const",
+              "offset": "0x10",
+              "size": 8
+            },
+            {
+              "space": "unique",
+              "offset": "0x54e00",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_OR",
+          "output": {
+            "space": "unique",
+            "offset": "0x55000",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x54c00",
+              "size": 8
+            },
+            {
+              "space": "unique",
+              "offset": "0x54f00",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x55100",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x202",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0x1",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_ZEXT",
+          "output": {
+            "space": "unique",
+            "offset": "0x55200",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x55100",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_MULT",
+          "output": {
+            "space": "unique",
+            "offset": "0x55300",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "const",
+              "offset": "0x4",
+              "size": 8
+            },
+            {
+              "space": "unique",
+              "offset": "0x55200",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_OR",
+          "output": {
+            "space": "unique",
+            "offset": "0x55400",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x55000",
+              "size": 8
+            },
+            {
+              "space": "unique",
+              "offset": "0x55300",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x55500",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x200",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0x1",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_ZEXT",
+          "output": {
+            "space": "unique",
+            "offset": "0x55600",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x55500",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_MULT",
+          "output": {
+            "space": "unique",
+            "offset": "0x55700",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "const",
+              "offset": "0x1",
+              "size": 8
+            },
+            {
+              "space": "unique",
+              "offset": "0x55600",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_OR",
+          "output": {
+            "space": "register",
+            "offset": "0x280",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x55400",
+              "size": 8
+            },
+            {
+              "space": "unique",
+              "offset": "0x55700",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x55900",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x214",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0x1",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_ZEXT",
+          "output": {
+            "space": "unique",
+            "offset": "0x55a00",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x55900",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_MULT",
+          "output": {
+            "space": "unique",
+            "offset": "0x55b00",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "const",
+              "offset": "0x200000",
+              "size": 8
+            },
+            {
+              "space": "unique",
+              "offset": "0x55a00",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_OR",
+          "output": {
+            "space": "unique",
+            "offset": "0x55c00",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x280",
+              "size": 8
+            },
+            {
+              "space": "unique",
+              "offset": "0x55b00",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x55d00",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x213",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0x1",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_ZEXT",
+          "output": {
+            "space": "unique",
+            "offset": "0x55e00",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x55d00",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_MULT",
+          "output": {
+            "space": "unique",
+            "offset": "0x55f00",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "const",
+              "offset": "0x100000",
+              "size": 8
+            },
+            {
+              "space": "unique",
+              "offset": "0x55e00",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_OR",
+          "output": {
+            "space": "unique",
+            "offset": "0x56000",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x55c00",
+              "size": 8
+            },
+            {
+              "space": "unique",
+              "offset": "0x55f00",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x56100",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x212",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0x1",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_ZEXT",
+          "output": {
+            "space": "unique",
+            "offset": "0x56200",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x56100",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_MULT",
+          "output": {
+            "space": "unique",
+            "offset": "0x56300",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "const",
+              "offset": "0x80000",
+              "size": 8
+            },
+            {
+              "space": "unique",
+              "offset": "0x56200",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_OR",
+          "output": {
+            "space": "unique",
+            "offset": "0x56400",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x56000",
+              "size": 8
+            },
+            {
+              "space": "unique",
+              "offset": "0x56300",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x56500",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x211",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0x1",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_ZEXT",
+          "output": {
+            "space": "unique",
+            "offset": "0x56600",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x56500",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_MULT",
+          "output": {
+            "space": "unique",
+            "offset": "0x56700",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "const",
+              "offset": "0x40000",
+              "size": 8
+            },
+            {
+              "space": "unique",
+              "offset": "0x56600",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_OR",
+          "output": {
+            "space": "register",
+            "offset": "0x280",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x56400",
+              "size": 8
+            },
+            {
+              "space": "unique",
+              "offset": "0x56700",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_SUB",
+          "output": {
+            "space": "register",
+            "offset": "0x20",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x20",
+              "size": 8
+            },
+            {
+              "space": "const",
+              "offset": "0x8",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "STORE",
+          "output": null,
+          "inputs": [
+            {
+              "kind": "address-space",
+              "space": "ram",
+              "spaceId": 3
+            },
+            {
+              "space": "register",
+              "offset": "0x20",
+              "size": 8
+            },
+            {
+              "space": "register",
+              "offset": "0x280",
+              "size": 8
+            }
+          ]
+        }
+      ],
+      "codeBytes": "9c"
+    },
+    {
+      "ea": "0x1400520e1",
+      "size": 2,
+      "mnemonic": "RDTSC",
+      "operands": "",
+      "pcode": [
+        {
+          "opcode": "CALLOTHER",
+          "output": {
+            "space": "unique",
+            "offset": "0xb5200",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "const",
+              "offset": "0x53",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "opcode": "SUBPIECE",
+          "output": {
+            "space": "register",
+            "offset": "0x10",
+            "size": 4
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0xb5200",
+              "size": 8
+            },
+            {
+              "space": "const",
+              "offset": "0x4",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "opcode": "SUBPIECE",
+          "output": {
+            "space": "register",
+            "offset": "0x0",
+            "size": 4
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0xb5200",
+              "size": 8
+            },
+            {
+              "space": "const",
+              "offset": "0x0",
+              "size": 4
+            }
+          ]
+        }
+      ],
+      "codeBytes": "0f31"
+    },
+    {
+      "ea": "0x14005211e",
+      "size": 3,
+      "mnemonic": "BSWAP",
+      "operands": "EAX",
+      "pcode": [
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x65c00",
+            "size": 4
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x0",
+              "size": 4
+            },
+            {
+              "space": "const",
+              "offset": "0xff000000",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "opcode": "INT_RIGHT",
+          "output": {
+            "space": "unique",
+            "offset": "0x65e00",
+            "size": 4
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x65c00",
+              "size": 4
+            },
+            {
+              "space": "const",
+              "offset": "0x18",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x65f00",
+            "size": 4
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x0",
+              "size": 4
+            },
+            {
+              "space": "const",
+              "offset": "0xff0000",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "opcode": "INT_RIGHT",
+          "output": {
+            "space": "unique",
+            "offset": "0x66000",
+            "size": 4
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x65f00",
+              "size": 4
+            },
+            {
+              "space": "const",
+              "offset": "0x8",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "opcode": "INT_OR",
+          "output": {
+            "space": "unique",
+            "offset": "0x65e00",
+            "size": 4
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x65e00",
+              "size": 4
+            },
+            {
+              "space": "unique",
+              "offset": "0x66000",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x66200",
+            "size": 4
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x0",
+              "size": 4
+            },
+            {
+              "space": "const",
+              "offset": "0xff00",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "opcode": "INT_LEFT",
+          "output": {
+            "space": "unique",
+            "offset": "0x66300",
+            "size": 4
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x66200",
+              "size": 4
+            },
+            {
+              "space": "const",
+              "offset": "0x8",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "opcode": "INT_OR",
+          "output": {
+            "space": "unique",
+            "offset": "0x65e00",
+            "size": 4
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x65e00",
+              "size": 4
+            },
+            {
+              "space": "unique",
+              "offset": "0x66300",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x66500",
+            "size": 4
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x0",
+              "size": 4
+            },
+            {
+              "space": "const",
+              "offset": "0xff",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "opcode": "INT_LEFT",
+          "output": {
+            "space": "unique",
+            "offset": "0x66600",
+            "size": 4
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x66500",
+              "size": 4
+            },
+            {
+              "space": "const",
+              "offset": "0x18",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "opcode": "INT_OR",
+          "output": {
+            "space": "register",
+            "offset": "0x0",
+            "size": 4
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x65e00",
+              "size": 4
+            },
+            {
+              "space": "unique",
+              "offset": "0x66600",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "opcode": "INT_ZEXT",
+          "output": {
+            "space": "register",
+            "offset": "0x0",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x0",
+              "size": 4
+            }
+          ]
+        }
+      ],
+      "codeBytes": "660fc8"
+    }
+  ]
+}

@@ -1,0 +1,290 @@
+[
+  {
+    "file": "source/approval_gate.js",
+    "sha256": "377831e0076c1ae8749e171503a3a66fb4493daaf4e9182078796ad81bb9d3eb",
+    "lines": 105,
+    "readCoverage": "complete",
+    "focus": "13 个工具、失败关闭、完整展示预算、取消与执行后审计",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "index.js",
+    "sha256": "0bb2502b995b2936216f35689dcb7b360ee85c3f70c84ce159dca16e01efcba1",
+    "lines": 1317,
+    "readCoverage": "complete",
+    "focus": "工具参数、作用域、队列内修订检查、结果与错误包装",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "source/attachment_lease.js",
+    "sha256": "af8b632a93f1e2ac4264939d687e0de65820c4dfa0fa77e8770adb1505795e92",
+    "lines": 64,
+    "readCoverage": "complete",
+    "focus": "PID 与创建身份、nonce、异主机与未知所有者保留",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "source/capture_ca.js",
+    "sha256": "3f61505d2afa9537ceeb60355c253f5cfe6d8f43f3c07b04f859174cb5e1cda5",
+    "lines": 76,
+    "readCoverage": "complete",
+    "focus": "密钥与证书匹配、文件形态、签发范围与缓存",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "source/patch_export.js",
+    "sha256": "28940a2bd1e7e0176ebbe985bb79ae8856179487236d930156366a573abfb2f9",
+    "lines": 128,
+    "readCoverage": "complete",
+    "focus": "样本和数据库绑定、当前字节、完整文件映射、阶段提交",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "source/audit_history.js",
+    "sha256": "fcf99f651fda7dd73110b4d08db39d5d57e9536699ba2190f14a191135155f8a",
+    "lines": 129,
+    "readCoverage": "complete",
+    "focus": "稳定文件、游标范围、扫描预算、损坏行和尾行",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "source/worker_transport.js",
+    "sha256": "c8f84699a688bf0013549e740406c19d2297b39c8ad53ccc8b40c6f346eb0c94",
+    "lines": 295,
+    "readCoverage": "complete",
+    "focus": "启动环境、JSONL 字节预算、超时与取消",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "adapters/ghidra/script_api.py",
+    "sha256": "f2a584317964be720090598e1b738b1969c11eccb47008d0ea0fae62f763bc1f",
+    "lines": 483,
+    "readCoverage": "complete",
+    "focus": "外层事务契约、API 与输出预算、失败传播；非安全沙箱",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "worker/ig5_worker.py",
+    "sha256": "9f2c0c2e12f8155906c85ddc78e3cece12de0eb4bfff58a9c80cdc8ed754e184",
+    "lines": 1497,
+    "readCoverage": "complete",
+    "focus": "商业 API、修改与保存、Undo、调试、分析结果真实性",
+    "conclusion": "不通过：R1、R2、R3、R4"
+  },
+  {
+    "file": "source/capture_proxy.js",
+    "sha256": "1d52b028bb2c6525f4c3927f4b7f9468edd36aad17635866ea9bbe7be944b827",
+    "lines": 530,
+    "readCoverage": "complete",
+    "focus": "显式 origin、TLS 校验、连接预算、WS 分片和中断",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "source/worker_manager.js",
+    "sha256": "23a045f0af9652d9d10392feab40fac6bacc2bd3cd7a28f8762d9069b4629b4f",
+    "lines": 773,
+    "readCoverage": "complete",
+    "focus": "会话排队、修订、部分提交、调试所有权和客体凭据",
+    "conclusion": "不通过：R8"
+  },
+  {
+    "file": "source/project_store.js",
+    "sha256": "e26b6c34466a6aff1fb28a76744170d6e4aef3c252e1d71f496cf1b01b63dd9e",
+    "lines": 427,
+    "readCoverage": "complete",
+    "focus": "原子元数据、文件锁、别名、租约恢复和修订",
+    "conclusion": "不通过：R7"
+  },
+  {
+    "file": "source/remote_execution_store.js",
+    "sha256": "e298b1de0a4522b8d42e006046236724f5fdffd45ff0df72b0ba5c1942e49f86",
+    "lines": 245,
+    "readCoverage": "complete",
+    "focus": "不可变绑定、执行代次、清理回执与保留状态",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "adapters/x64dbg/adapter.py",
+    "sha256": "7f3504d2ea91e345274d28a1a64e06078544d896e58c632932786f472f1f2b99",
+    "lines": 1292,
+    "readCoverage": "complete",
+    "focus": "命令白名单、事件代次、控制队列、执行与清理",
+    "conclusion": "不通过：R5"
+  },
+  {
+    "file": "adapters/vmci/adapter.py",
+    "sha256": "c992b2a2c0e902579c283219a48a84a4ad51621df92c78f142779c84de3a7775",
+    "lines": 179,
+    "readCoverage": "complete",
+    "focus": "目标目录、认证来源、取消映射和清理回执",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "worker/cpu_emulator.py",
+    "sha256": "880a28dc3e2b7adc9eab1d3bea3343ef1fc061d3bab8d77124588e0e349cefa4",
+    "lines": 183,
+    "readCoverage": "complete",
+    "focus": "内存页权限、ABI、指令与时间预算、终止原因",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "worker/lift_process.py",
+    "sha256": "2c666bfd8461948dc8f7d3eb9e28cfee82e1daba6a81c52c3334b296d803294b",
+    "lines": 217,
+    "readCoverage": "complete",
+    "focus": "创建时 Job 绑定、句柄继承、资源和退出确认",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "capture_tools.js",
+    "sha256": "fd51f8e2772420b46fbb01035e88cc1a03a98a25410d089d6efdf1529752bb8d",
+    "lines": 48,
+    "readCoverage": "complete",
+    "focus": "只读与控制入口分离、参数和重放语义",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "engine_runtime.js",
+    "sha256": "2d1ae5c54fd2c02e93d3be9b0dee40ab99b3e83ca91678ecdb1e11fa04839ef8",
+    "lines": 284,
+    "readCoverage": "complete",
+    "focus": "运行时路径、平台与结构校验、进程树终止",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "integration_tools.js",
+    "sha256": "b6c7731290bac1a01a04b2825a63927833a1d711874157a93204fe6aba2e379d",
+    "lines": 233,
+    "readCoverage": "complete",
+    "focus": "同步摘要、修订与原值复核、双会话队列、部分失败",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "source/address_ref.js",
+    "sha256": "906e105abdb002d471ece08b35ca7885132949ce443eec623fa448fa9dafedce",
+    "lines": 151,
+    "readCoverage": "complete",
+    "focus": "64 位整数、地址空间、映射歧义与运行时代次",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "source/analysis_artifacts.js",
+    "sha256": "3643caaff1eb5bdd404c6715011839103755314981af7054a4616ac67208b73b",
+    "lines": 168,
+    "readCoverage": "complete",
+    "focus": "稳定读取、内容散列、两阶段报告与元数据；索引受 R6 影响",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "source/debug_trace.js",
+    "sha256": "2dab4a7f2a82cb95a21f124a56f98464dede054c7da2be1ed600545e91b0bede",
+    "lines": 89,
+    "readCoverage": "complete",
+    "focus": "轨迹与映像散列、暂停身份、来源与恢复参数",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "source/diag_log.js",
+    "sha256": "4f1ed90b399a582a29f842a2f243e20e38e208b9d37df7b81c7c326de5ca2524",
+    "lines": 13,
+    "readCoverage": "complete",
+    "focus": "诊断失败不破坏主流程",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "source/engine_error.js",
+    "sha256": "529e71172159502bccb2dbd573bd29168d3a703a2806540d7c29ad98c0dd2fe5",
+    "lines": 20,
+    "readCoverage": "complete",
+    "focus": "错误文本归一化与运行时路径处理",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "source/function_batches.js",
+    "sha256": "8d5afbf752a38f23a40bc4ba6d798b885ff7d260b1129b148f240a78c363d709",
+    "lines": 91,
+    "readCoverage": "complete",
+    "focus": "持久任务、身份和修订、预算收费、取消和恢复",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "source/function_dossier.js",
+    "sha256": "003f92cacd0451ee8cfc73638c6085bf03bead8d45ce337dc70bbc9efe654925",
+    "lines": 318,
+    "readCoverage": "complete",
+    "focus": "单修订聚合、来源核对、缓存与完整性标记",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "source/guest_debug_profile.js",
+    "sha256": "b7f57f56e6c0ede951bb6ffcd9b0a289bcf1c3a44301e4d7c2b3744abc2cd819",
+    "lines": 59,
+    "readCoverage": "complete",
+    "focus": "配置名称、稳定文件、目录和密钥摘要绑定",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "source/guest_recovery.js",
+    "sha256": "6bc1b8201b5074627591b8359b23618804818b39c5fa2e0c12eb959d0a729c48",
+    "lines": 58,
+    "readCoverage": "complete",
+    "focus": "精确恢复参数、旧会话清理证明、桥退出确认",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "source/history_index.js",
+    "sha256": "c1b9a57c4f88159e6322ad8e2c7aab52f20339085fa53800ac77ea474799f929",
+    "lines": 96,
+    "readCoverage": "complete",
+    "focus": "目录代次、增量保存、扫描上限与完整性",
+    "conclusion": "不通过：R6"
+  },
+  {
+    "file": "source/host_platform.js",
+    "sha256": "ee9d583571b08438459c024fe55ee44079be7d95085fd9fc29110e28ccfea124",
+    "lines": 43,
+    "readCoverage": "complete",
+    "focus": "宿主而非浏览器身份、平台与 libc 约束",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "source/implementation_info.js",
+    "sha256": "405ff52898c66cddfbad3d085123d00162f4f65cbc4c2726d8d0e5dcb2cb95a3",
+    "lines": 3,
+    "readCoverage": "complete",
+    "focus": "实现版本和模块加载时间",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "source/json_output.js",
+    "sha256": "4cd4f1fe4e1ede4f08011efb436b5b6972c1d3624d699dbf8ad60f7e0a8651c8",
+    "lines": 50,
+    "readCoverage": "complete",
+    "focus": "严格 JSON、异常数值、循环与访问器拒绝",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "source/native_store_events.js",
+    "sha256": "983b450ccd08b05e49c8a792fa34ccbc75623caba1b9ce2daba10908278aa067",
+    "lines": 48,
+    "readCoverage": "complete",
+    "focus": "原始轨迹绑定、组数、暂停与写观察完整性",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "source/result_artifacts.js",
+    "sha256": "54fbe417d8ec01fcccce36d78073a4ee3c481c31d1f9266800bd63c473f4a67e",
+    "lines": 183,
+    "readCoverage": "complete",
+    "focus": "配额、过期、身份与提交验证、认证分页",
+    "conclusion": "未发现独立阻断项"
+  },
+  {
+    "file": "workflow.js",
+    "sha256": "87c484b7f25573dae7f1fc78fa73fc2f18f47a2c23b832c31dd4f61ff69cffe1",
+    "lines": 290,
+    "readCoverage": "complete",
+    "focus": "Core8 与 Full 作用域、只读命令入口、生命周期清理",
+    "conclusion": "未发现独立阻断项"
+  }
+]

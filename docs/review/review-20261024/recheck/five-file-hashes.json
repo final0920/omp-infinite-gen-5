@@ -1,0 +1,52 @@
+[
+  {
+    "file": "worker/ig5_worker.py",
+    "sha256": "7dd1f758e75a777839783af956c3993e4a718d359cb72cc86cec41a92c4e6c4e",
+    "installedSha256": "7dd1f758e75a777839783af956c3993e4a718d359cb72cc86cec41a92c4e6c4e",
+    "reviewedAt": "2026-10-24",
+    "reviewKind": "user-authorized-agent-review",
+    "reviewedBy": "Codex",
+    "authorizedBy": "bai",
+    "conclusion": "R1-R8 fixes accepted at source/fixture layer; see RE_REVIEW.md for native scope and limitations"
+  },
+  {
+    "file": "adapters/x64dbg/adapter.py",
+    "sha256": "12f7ea5ddb897ee5bddf7b61637db750d768bc8a5ba3aa57967aa4aa5c590738",
+    "installedSha256": "12f7ea5ddb897ee5bddf7b61637db750d768bc8a5ba3aa57967aa4aa5c590738",
+    "reviewedAt": "2026-10-24",
+    "reviewKind": "user-authorized-agent-review",
+    "reviewedBy": "Codex",
+    "authorizedBy": "bai",
+    "conclusion": "R1-R8 fixes accepted at source/fixture layer; see RE_REVIEW.md for native scope and limitations"
+  },
+  {
+    "file": "source/worker_manager.js",
+    "sha256": "8ddf16d1c0c34b49ac5620c009a4918c83ad9925e842d0acd5af9d19f024a01d",
+    "installedSha256": "8ddf16d1c0c34b49ac5620c009a4918c83ad9925e842d0acd5af9d19f024a01d",
+    "reviewedAt": "2026-10-24",
+    "reviewKind": "user-authorized-agent-review",
+    "reviewedBy": "Codex",
+    "authorizedBy": "bai",
+    "conclusion": "R1-R8 fixes accepted at source/fixture layer; see RE_REVIEW.md for native scope and limitations"
+  },
+  {
+    "file": "source/project_store.js",
+    "sha256": "cab0ff77f00b9da43e7992896e1376960fd86ea234d43b7671a05f891ba81e73",
+    "installedSha256": "cab0ff77f00b9da43e7992896e1376960fd86ea234d43b7671a05f891ba81e73",
+    "reviewedAt": "2026-10-24",
+    "reviewKind": "user-authorized-agent-review",
+    "reviewedBy": "Codex",
+    "authorizedBy": "bai",
+    "conclusion": "R1-R8 fixes accepted at source/fixture layer; see RE_REVIEW.md for native scope and limitations"
+  },
+  {
+    "file": "source/history_index.js",
+    "sha256": "7f329a40d7b24ebf3ef0f9ff9aeae2e965ee28d2c38162f776347d3942750e26",
+    "installedSha256": "7f329a40d7b24ebf3ef0f9ff9aeae2e965ee28d2c38162f776347d3942750e26",
+    "reviewedAt": "2026-10-24",
+    "reviewKind": "user-authorized-agent-review",
+    "reviewedBy": "Codex",
+    "authorizedBy": "bai",
+    "conclusion": "R1-R8 fixes accepted at source/fixture layer; see RE_REVIEW.md for native scope and limitations"
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "nativeLaunches": 0,
+  "fixtureDirectory": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\ig5-review-36-UJlz5R",
+  "observations": [
+    {
+      "id": "R6",
+      "committedReports": 2,
+      "listedTotal": 1,
+      "partial": false,
+      "omittedReportStillReadable": true
+    },
+    {
+      "id": "R7",
+      "foreignHost": "IG5-LAB-another-host",
+      "foreignLockReclaimed": true
+    },
+    {
+      "id": "R8",
+      "message": "Engine operation failed and revision metadata is unavailable; session recycled: fixture metadata busy",
+      "sessionRecycled": true,
+      "originalCommitEvidencePreserved": false,
+      "originalJournalIdPreserved": false
+    }
+  ]
+}

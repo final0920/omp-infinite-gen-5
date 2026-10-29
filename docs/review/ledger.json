@@ -1,0 +1,615 @@
+{
+  "note": "安全关键代码审查台账。reviewedSha256 与当前 sha256 一致才算\"有效审查\"；文件变更后自动变为\"已过期\"。真人亲审与用户明确授权的代理复审必须分别标注；代理复审须记录实际执行者、授权来源、范围和证据，不得冒称真人亲审。未经用户明确授权不得代签。",
+  "entries": [
+    {
+      "file": "adapters/ghidra/script_api.py",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "f2a584317964be720090598e1b738b1969c11eccb47008d0ea0fae62f763bc1f",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接历史完整代码阅读、当前字节一致核验及已声明边界，不冒称本轮全新完整阅读。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "adapters/vmci/adapter.py",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "c992b2a2c0e902579c283219a48a84a4ad51621df92c78f142779c84de3a7775",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接历史完整代码阅读、当前字节一致核验及已声明边界，不冒称本轮全新完整阅读。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "adapters/x64dbg/adapter.py",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "e6a6fd7cbaee0f24a19bb2dc9d078af126af4fa40f2c4d452c43871dff2f158e",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接已修 R5 签署基线；复核 P8 原生后端、暂停前置与 api_trace 分派，清理证据契约未放宽。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "previousReview": {
+        "reviewedBy": "Codex（bai 授权代理复审）",
+        "reviewedAt": "2026-10-24",
+        "reviewedSha256": "12f7ea5ddb897ee5bddf7b61637db750d768bc8a5ba3aa57967aa4aa5c590738",
+        "reviewEvidence": "docs/review/review-20261024/RE_REVIEW.md"
+      },
+      "reviewBasis": "current-delta-or-new-module-review",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "capture_tools.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "f9222b1920c6f9cf1cff1947fa72367c816c8f5336368359839e6da4fa35ff49",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接原完整阅读；复核 correlate 参数与静态分派，capture_control 原审批入口不变。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "current-delta-or-new-module-review",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "engine_runtime.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "2d1ae5c54fd2c02e93d3be9b0dee40ab99b3e83ca91678ecdb1e11fa04839ef8",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接历史完整代码阅读、当前字节一致核验及已声明边界，不冒称本轮全新完整阅读。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "index.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "2d06be7e51072bfb5a802f57dc4b6420abc80d9e36d7065dd864fa4b94f154a3",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "现在我的搞完的无限五代的标改成1.3.0 并更新到我的本地deepseek harness"
+      },
+      "reviewScope": "与已签署版本按字节比较，仅版本/实现标识常量更新，承接原完整及增量审查，不扩张功能契约。",
+      "reviewEvidence": "docs/review/review-20261026/VERSION_1.3.0_REVIEW.md",
+      "reviewBasis": "current-delta-or-new-module-review",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json",
+      "previousReview": {
+        "reviewedBy": "Codex（bai 授权代理复审）",
+        "reviewedAt": "2026-10-26",
+        "reviewedSha256": "b1f2304e3a1afac2431ffb18b7a63bd784275eac01c471d3b9dcba29afe7ee6c",
+        "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+      }
+    },
+    {
+      "file": "integration_tools.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "b6c7731290bac1a01a04b2825a63927833a1d711874157a93204fe6aba2e379d",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接历史完整代码阅读、当前字节一致核验及已声明边界，不冒称本轮全新完整阅读。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "source/address_ref.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "906e105abdb002d471ece08b35ca7885132949ce443eec623fa448fa9dafedce",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接历史完整代码阅读、当前字节一致核验及已声明边界，不冒称本轮全新完整阅读。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "source/analysis_artifacts.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "3643caaff1eb5bdd404c6715011839103755314981af7054a4616ac67208b73b",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接历史完整代码阅读、当前字节一致核验及已声明边界，不冒称本轮全新完整阅读。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "source/api_trace.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "63e9c5cf9b0c3c2de8494a4323b2ed5a8237e538e2549f88bdded7d8ab4982e2",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "新增模块完整阅读；schema/调用数上限、覆盖数一致性、目标身份、不可变报告与 finally dispose。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "current-delta-or-new-module-review",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "source/approval_gate.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "377831e0076c1ae8749e171503a3a66fb4493daaf4e9182078796ad81bb9d3eb",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接历史完整代码阅读、当前字节一致核验及已声明边界，不冒称本轮全新完整阅读。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "source/attachment_lease.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "af8b632a93f1e2ac4264939d687e0de65820c4dfa0fa77e8770adb1505795e92",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接历史完整代码阅读、当前字节一致核验及已声明边界，不冒称本轮全新完整阅读。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "source/audit_history.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "fcf99f651fda7dd73110b4d08db39d5d57e9536699ba2190f14a191135155f8a",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接历史完整代码阅读、当前字节一致核验及已声明边界，不冒称本轮全新完整阅读。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "source/capture_ca.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "3f61505d2afa9537ceeb60355c253f5cfe6d8f43f3c07b04f859174cb5e1cda5",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接历史完整代码阅读、当前字节一致核验及已声明边界，不冒称本轮全新完整阅读。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "source/capture_proxy.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "1d52b028bb2c6525f4c3927f4b7f9468edd36aad17635866ea9bbe7be944b827",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接历史完整代码阅读、当前字节一致核验及已声明边界，不冒称本轮全新完整阅读。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "source/debug_trace.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "2dab4a7f2a82cb95a21f124a56f98464dede054c7da2be1ed600545e91b0bede",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接历史完整代码阅读、当前字节一致核验及已声明边界，不冒称本轮全新完整阅读。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "source/diag_log.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "4f1ed90b399a582a29f842a2f243e20e38e208b9d37df7b81c7c326de5ca2524",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接历史完整代码阅读、当前字节一致核验及已声明边界，不冒称本轮全新完整阅读。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "source/engine_error.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "529e71172159502bccb2dbd573bd29168d3a703a2806540d7c29ad98c0dd2fe5",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接历史完整代码阅读、当前字节一致核验及已声明边界，不冒称本轮全新完整阅读。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "source/function_batches.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "8d5afbf752a38f23a40bc4ba6d798b885ff7d260b1129b148f240a78c363d709",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接历史完整代码阅读、当前字节一致核验及已声明边界，不冒称本轮全新完整阅读。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "source/function_dossier.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "003f92cacd0451ee8cfc73638c6085bf03bead8d45ce337dc70bbc9efe654925",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接历史完整代码阅读、当前字节一致核验及已声明边界，不冒称本轮全新完整阅读。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "source/guest_debug_profile.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "b7f57f56e6c0ede951bb6ffcd9b0a289bcf1c3a44301e4d7c2b3744abc2cd819",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接历史完整代码阅读、当前字节一致核验及已声明边界，不冒称本轮全新完整阅读。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "source/guest_recovery.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "6bc1b8201b5074627591b8359b23618804818b39c5fa2e0c12eb959d0a729c48",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接历史完整代码阅读、当前字节一致核验及已声明边界，不冒称本轮全新完整阅读。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "source/history_index.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-24",
+      "reviewedSha256": "7f329a40d7b24ebf3ef0f9ff9aeae2e965ee28d2c38162f776347d3942750e26",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a16dd5-f38d-7dc1-a011-2e20e373bfa9",
+        "instruction": "代替我bai进行评审并对这5个文件复审并签字"
+      },
+      "reviewScope": "R1-R8修复及相关调用链；原始36文件审查记录见REPORT.md",
+      "reviewEvidence": "docs/review/review-20261024/RE_REVIEW.md"
+    },
+    {
+      "file": "source/host_platform.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "ee9d583571b08438459c024fe55ee44079be7d95085fd9fc29110e28ccfea124",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接历史完整代码阅读、当前字节一致核验及已声明边界，不冒称本轮全新完整阅读。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "source/implementation_info.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "3605865403d554a425d3a408f337b18d84765617ce9bf1241fbf7f4bf151da09",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "现在我的搞完的无限五代的标改成1.3.0 并更新到我的本地deepseek harness"
+      },
+      "reviewScope": "与已签署版本按字节比较，仅版本/实现标识常量更新，承接原完整及增量审查，不扩张功能契约。",
+      "reviewEvidence": "docs/review/review-20261026/VERSION_1.3.0_REVIEW.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json",
+      "previousReview": {
+        "reviewedBy": "Codex（bai 授权代理复审）",
+        "reviewedAt": "2026-10-26",
+        "reviewedSha256": "405ff52898c66cddfbad3d085123d00162f4f65cbc4c2726d8d0e5dcb2cb95a3",
+        "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+      }
+    },
+    {
+      "file": "source/json_output.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "4cd4f1fe4e1ede4f08011efb436b5b6972c1d3624d699dbf8ad60f7e0a8651c8",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接历史完整代码阅读、当前字节一致核验及已声明边界，不冒称本轮全新完整阅读。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "source/native_store_events.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "983b450ccd08b05e49c8a792fa34ccbc75623caba1b9ce2daba10908278aa067",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接历史完整代码阅读、当前字节一致核验及已声明边界，不冒称本轮全新完整阅读。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "source/patch_export.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "28940a2bd1e7e0176ebbe985bb79ae8856179487236d930156366a573abfb2f9",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接历史完整代码阅读、当前字节一致核验及已声明边界，不冒称本轮全新完整阅读。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "source/project_store.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-24",
+      "reviewedSha256": "cab0ff77f00b9da43e7992896e1376960fd86ea234d43b7671a05f891ba81e73",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a16dd5-f38d-7dc1-a011-2e20e373bfa9",
+        "instruction": "代替我bai进行评审并对这5个文件复审并签字"
+      },
+      "reviewScope": "R1-R8修复及相关调用链；原始36文件审查记录见REPORT.md",
+      "reviewEvidence": "docs/review/review-20261024/RE_REVIEW.md"
+    },
+    {
+      "file": "source/remote_execution_store.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "e298b1de0a4522b8d42e006046236724f5fdffd45ff0df72b0ba5c1942e49f86",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接历史完整代码阅读、当前字节一致核验及已声明边界，不冒称本轮全新完整阅读。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "source/result_artifacts.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "54fbe417d8ec01fcccce36d78073a4ee3c481c31d1f9266800bd63c473f4a67e",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接历史完整代码阅读、当前字节一致核验及已声明边界，不冒称本轮全新完整阅读。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "source/worker_manager.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "3e504a3b6711ff216b2b0e49d01d3e7d4fd6d79c441b92ef6e0e51e1d55bfd57",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接已修 R8 签署基线；复核 apitrace 后端、所有权、运行状态、结果保存失败保留 executionAlreadyAttempted。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "previousReview": {
+        "reviewedBy": "Codex（bai 授权代理复审）",
+        "reviewedAt": "2026-10-24",
+        "reviewedSha256": "8ddf16d1c0c34b49ac5620c009a4918c83ad9925e842d0acd5af9d19f024a01d",
+        "reviewEvidence": "docs/review/review-20261024/RE_REVIEW.md"
+      },
+      "reviewBasis": "current-delta-or-new-module-review",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "source/worker_transport.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "c8f84699a688bf0013549e740406c19d2297b39c8ad53ccc8b40c6f346eb0c94",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接历史完整代码阅读、当前字节一致核验及已声明边界，不冒称本轮全新完整阅读。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "worker/cpu_emulator.py",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "189bad621bbd0ba73d4e57fc9e4e3b3bad2081400cd6e9819e4ae169b13e56ba",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接原完整阅读及当前增量；写轨迹单区间截断标志修复，4096/4097/5000 字节边界回归已通过。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "current-delta-or-new-module-review",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "worker/ig5_worker.py",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-24",
+      "reviewedSha256": "7dd1f758e75a777839783af956c3993e4a718d359cb72cc86cec41a92c4e6c4e",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a16dd5-f38d-7dc1-a011-2e20e373bfa9",
+        "instruction": "代替我bai进行评审并对这5个文件复审并签字"
+      },
+      "reviewScope": "R1-R8修复及相关调用链；原始36文件审查记录见REPORT.md",
+      "reviewEvidence": "docs/review/review-20261024/RE_REVIEW.md"
+    },
+    {
+      "file": "worker/lift_process.py",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "2c666bfd8461948dc8f7d3eb9e28cfee82e1daba6a81c52c3334b296d803294b",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接历史完整代码阅读、当前字节一致核验及已声明边界，不冒称本轮全新完整阅读。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    },
+    {
+      "file": "workflow.js",
+      "reviewedBy": "Codex（bai 授权代理复审）",
+      "reviewedAt": "2026-10-26",
+      "reviewedSha256": "87c484b7f25573dae7f1fc78fa73fc2f18f47a2c23b832c31dd4f61ff69cffe1",
+      "reviewKind": "user-authorized-agent-review",
+      "authorizedBy": "bai",
+      "authorizationSource": {
+        "threadId": "01a17433-dc86-71f1-9809-5a248d4b4be8",
+        "instruction": "台账仍为 3 有效、2 过期、32 未审查；五项契约仍待你逐项确认。你代替我逐项查验吧，我给你这个权限，你代替我bai"
+      },
+      "reviewScope": "承接历史完整代码阅读、当前字节一致核验及已声明边界，不冒称本轮全新完整阅读。",
+      "reviewEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+      "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+      "reviewCoverage": "docs/review/review-20261026/delegated-coverage.json"
+    }
+  ]
+}

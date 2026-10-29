@@ -1,0 +1,46 @@
+{
+  "schema": "ig5-eval-case-v1",
+  "caseId": "data-03",
+  "category": "data",
+  "partition": "development",
+  "question": "独立核对候选解码来源",
+  "source": "self-authored specification; not a native recording",
+  "input": {
+    "path": "assets/data-03.json",
+    "sha256": "1982f48451391bad66799691d76f590fddbb2bed9f211c56231e7f4723d34bb7",
+    "kind": "specification"
+  },
+  "allowedOperations": [
+    "offline-read",
+    "bounded-data-analysis"
+  ],
+  "acceptance": [
+    "输入身份与完整来源相符",
+    "回答问题并明确未知与覆盖范围",
+    "结论由独立参考检查"
+  ],
+  "reference": {
+    "path": "oracle.mjs",
+    "evaluatorOnly": true,
+    "answerExposure": "exposed",
+    "sha256": "cfd9994a4bcbbbf15e2ad716f94f93f7027652d5d573f929716e52ce4b7611a8"
+  },
+  "requirements": {
+    "provider": "node",
+    "platform": "declared-by-run",
+    "runtime": "node",
+    "knownBlock": null
+  },
+  "budget": {
+    "toolCalls": 20,
+    "elapsedMs": 120000,
+    "inlineBytes": 65536,
+    "modelTokens": "unavailable"
+  },
+  "cleanup": [
+    "retain original owner until exit confirmed",
+    "offline-only run declares no native resource created"
+  ],
+  "status": "data-input-frozen-not-model-run",
+  "expectedHumanInterventions": 0
+}

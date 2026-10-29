@@ -1,0 +1,325 @@
+{
+  "schema": "ig5/protection-capability-matrix-v1",
+  "version": 1,
+  "generatedAt": "2026-10-17T13:12:00Z",
+  "purpose": "Machine-readable capability and evidence matrix across protectors, versions, configurations and semantic recovery pipelines. Strictly separates local projection/AST/SMT proof from full business recovery. Never equates local exit 0, partial trace or model narrative to full devirtualization success.",
+  "statusLabels": {
+    "verified": "Complete function business contract proved across multiple independent inputs and paths, with SMT/DAG equivalence and reproducible deployment.",
+    "partial": "Subset of trace, individual handler body, local SMT DAG or single execution path verified; full business recovery, alternate paths or whole binary remain unproven.",
+    "blocked": "Execution or analysis safely halted by host application control policy (e.g. 4551), anti-virus quarantine, or protective safety boundaries; never bypassed.",
+    "unverified": "No qualified sample, zero function return within budget, or unmodeled/unsolved constraints remain."
+  },
+  "strengthLabels": {
+    "observed": "Direct execution or analysis tool call with verified digest and recorded receipts.",
+    "formal": "Deterministically checked mathematical or SMT UNSAT/SAT certificate across the input domain.",
+    "inferred": "Derived from mechanism or structural analysis without direct input-output proof.",
+    "unknown": "Open research gap, missing evidence, or intentionally preserved unresolved state."
+  },
+  "protectors": [
+    {
+      "id": "vmp-3.8.x",
+      "name": "VMProtect 3.8.x",
+      "exactVersionVerified": false,
+      "qualifiedSampleCount": 0,
+      "producerProvenance": "No verified authentic 3.8 producer or compiler-signed sample obtained; forum leads (e.g. 3.8.1) remain unverified leads without artifact custody.",
+      "researchReferences": [
+        {
+          "source": "REcon 2024: Architecture Analysis of VMProtect 3.8 (Holger Unterbrink)",
+          "url": "https://recon.cx/cfp.recon.cx/recon2024/talk/YQK3FK/index.html",
+          "relevance": "Analysis of rolling key mechanisms, rotating VM register allocations, direct handler chaining, and virtual stack dynamics."
+        },
+        {
+          "source": "VMPLift (sexyiam, commit 5d9a93e)",
+          "relevance": "Handler lifting and SMT translation studies; identified limitations in 32-bit-only comparison and zero-padded unmapped registers."
+        },
+        {
+          "source": "titan (archercreat)",
+          "relevance": "Triton-based VIP/VSP tracking for VMP <3.8; explicitly noted degradation on 3.8+."
+        },
+        {
+          "source": "VMPBypass (local research workspace)",
+          "path": "C:\\Users\\IG5User\\Desktop\\VMPBypass",
+          "relevance": "Methodology for separating disk/runtime states, distinguishing initialization/fixup from true VM execution, and extracting runtime bytecode."
+        }
+      ],
+      "capabilities": [
+        {
+          "capabilityId": "vmp38-exact-sample-qualification",
+          "configuration": "Any",
+          "status": "unverified",
+          "strength": "unknown",
+          "businessRecovery": false,
+          "inputCoverage": "0",
+          "evidence": [],
+          "limitations": "Zero qualified samples. Cannot claim VMP 3.8 compatibility or devirtualization without authentic binary and verified ground truth."
+        },
+        {
+          "capabilityId": "vmp38-rolling-key-dynamic-isa",
+          "configuration": "Virtualization / Ultra",
+          "status": "unverified",
+          "strength": "inferred",
+          "businessRecovery": false,
+          "inputCoverage": "0",
+          "evidence": [
+            "docs/VMP38_RESEARCH.md",
+            "docs/VM_MODEL_RESEARCH.md"
+          ],
+          "limitations": "Theoretical architecture understood from REcon 2024; automated dynamic rolling-key tracking and per-handler register role remapping pipeline in progress."
+        }
+      ]
+    },
+    {
+      "id": "vmp-3.11-demo",
+      "name": "VMProtect 3.11.0 build 2835 Demo",
+      "exactVersionVerified": true,
+      "qualifiedSampleCount": 79,
+      "producerProvenance": {
+        "producerVersion": "3.11.0 build 2835 Demo",
+        "producerSha256": "52e23d2f9c959a21bdc2067d03d29e20cd85995a202cb7f2116d89b19c88c527",
+        "authenticodeValid": true,
+        "generationReceipt": "C:\\Users\\IG5User\\.dsh\\ig5\\artifacts\\modern-protection-20261014\\packed-suite-vmp311\\generation.json"
+      },
+      "capabilities": [
+        {
+          "capabilityId": "vmp311-virtualization-add64",
+          "configuration": "Virtualization",
+          "status": "verified",
+          "strength": "formal",
+          "businessRecovery": true,
+          "recoveredSemantics": "uint64(x + y)",
+          "instructions": 25241,
+          "inputCoverage": "1124 independent reference pairs, all-unsat SMT",
+          "evidence": [
+            "C:\\Users\\IG5User\\.dsh\\ig5\\artifacts\\modern-protection-20261014\\native-compiled-add64-virtualization\\acceptance.json",
+            "C:\\Users\\IG5User\\.dsh\\ig5\\artifacts\\modern-protection-20261014\\dsh-verified.json"
+          ],
+          "limitations": "Verified in recording environment for target function only; wholeBinaryVerified=false."
+        },
+        {
+          "capabilityId": "vmp311-virtualization-signed-select64-twopath",
+          "configuration": "Virtualization",
+          "status": "verified",
+          "strength": "formal",
+          "businessRecovery": true,
+          "recoveredSemantics": "signed(x) <= signed(y) ? y : x",
+          "instructions": 51465,
+          "inputCoverage": "2409 reference pairs, 2 independent paths, all-unsat SMT",
+          "evidence": [
+            "C:\\Users\\IG5User\\.dsh\\ig5\\artifacts\\modern-protection-20261014\\native-compiled-signed-select64-two-path-validated\\revalidation.json",
+            "C:\\Users\\IG5User\\.dsh\\ig5\\artifacts\\modern-protection-20261014\\dsh-compiled-signed-select64-verified.json"
+          ],
+          "limitations": "Two mutually exclusive paths verified; wholeBinaryVerified=false."
+        },
+        {
+          "capabilityId": "vmp311-virtualization-branch-mix64-twopath",
+          "configuration": "Virtualization",
+          "status": "verified",
+          "strength": "formal",
+          "businessRecovery": true,
+          "recoveredSemantics": "low1(x) != low1(y) conditional branch",
+          "instructions": 47365,
+          "inputCoverage": "2409 reference pairs, 2 independent paths, all-unsat SMT",
+          "evidence": [
+            "C:\\Users\\IG5User\\.dsh\\ig5\\artifacts\\modern-protection-20261014\\native-packed-branch-mix64-virtualization-two-path-validated"
+          ],
+          "limitations": "Two paths reach caller return; wholeBinaryVerified=false."
+        },
+        {
+          "capabilityId": "vmp311-mutation-branch-and-round",
+          "configuration": "Mutation",
+          "status": "verified",
+          "strength": "formal",
+          "businessRecovery": true,
+          "recoveredSemantics": "bitwise mutation normalized and verified",
+          "instructions": 205,
+          "inputCoverage": "2409 reference pairs, all-unsat SMT",
+          "evidence": [
+            "C:\\Users\\IG5User\\.dsh\\ig5\\artifacts\\modern-protection-20261014\\native-packed-branch-mix64-mutation-two-path-normalized\\revalidation.json",
+            "C:\\Users\\IG5User\\.dsh\\ig5\\artifacts\\modern-protection-20261014\\native-packed-round-mix64-mutation-owned-record-v1"
+          ],
+          "limitations": "Whole binary unverified."
+        },
+        {
+          "capabilityId": "vmp311-ultra-mul-mix32",
+          "configuration": "Ultra",
+          "status": "verified",
+          "strength": "formal",
+          "businessRecovery": true,
+          "recoveredSemantics": "uint64(((x ^ y) + 99) * 143)",
+          "instructions": 59167,
+          "inputCoverage": "2409 reference pairs, all-unsat SMT with MBA simplification",
+          "evidence": [
+            "C:\\Users\\IG5User\\.dsh\\ig5\\artifacts\\modern-protection-20261014\\native-compiled-mul-mix32-ultra-long-budget\\acceptance.json"
+          ],
+          "limitations": "Single-function recovery; wholeBinaryVerified=false."
+        },
+        {
+          "capabilityId": "vmp311-ultra-round-mix64-prefix-exhaustion",
+          "configuration": "Ultra",
+          "status": "unverified",
+          "strength": "observed",
+          "businessRecovery": false,
+          "recoveredSemantics": null,
+          "instructions": 100000,
+          "inputCoverage": "0 (prefix only, function did not return)",
+          "evidence": [
+            "C:\\Users\\IG5User\\.dsh\\ig5\\artifacts\\modern-protection-20261014\\native-packed-round-mix64-ultra-owned-record-v1\\receipt.json"
+          ],
+          "limitations": "Instruction budget 100,000 reached without function return (196 parts, 18,166,919 bytes). Preserved as active hard failure without budget inflation."
+        },
+        {
+          "capabilityId": "vmp311-sampled-handler-bodies-projection",
+          "configuration": "Ultra / Virtualization",
+          "status": "partial",
+          "strength": "formal",
+          "businessRecovery": false,
+          "recoveredSemantics": "16 sampled handler bodies: 10 ordinary-consistent, 6 partial-unknown-preserved, 0 unverified",
+          "instructions": 16,
+          "inputCoverage": "Page 0 and Page 8 audit sets, 15 core semantic fields match",
+          "evidence": [
+            "C:\\Users\\IG5User\\.dsh\\ig5\\artifacts\\modern-protection-20261014\\tool-research\\runtime-coordinates-20261017-v1\\source-installed-core-audit.json",
+            "C:\\Users\\IG5User\\.dsh\\ig5\\artifacts\\modern-protection-20261014\\tool-research\\runtime-coordinates-20261017-v1\\checkpoint.json"
+          ],
+          "limitations": "Handler-level equation projection only; does not prove complete VM ISA, generic bytecode recovery or full function business semantics."
+        }
+      ]
+    },
+    {
+      "id": "upx-5.2.1",
+      "name": "UPX 5.2.1",
+      "exactVersionVerified": true,
+      "qualifiedSampleCount": 7,
+      "producerProvenance": {
+        "producerVersion": "5.2.1",
+        "producerSha256": "d20ebe0b7b22b6be968c8c34be61f94ddea12cb11462e2cec27f548ef9574df8",
+        "archiveSha256": "eabc6792a347d45e945be7748423e7868fd01b0d2bcaa2f4b1031fd71ff69bda"
+      },
+      "capabilities": [
+        {
+          "capabilityId": "upx-nrv-lzma-full-suite",
+          "configuration": "NRV (method=2) / LZMA (method=14)",
+          "status": "verified",
+          "strength": "formal",
+          "businessRecovery": true,
+          "recoveredSemantics": "Branch selection, 8-round rotate-mix64, signed-select64, mul-mix32",
+          "instructions": 130,
+          "inputCoverage": "2409 reference pairs per case, all-unsat SMT",
+          "evidence": [
+            "C:\\Users\\IG5User\\.dsh\\ig5\\artifacts\\modern-protection-20261014\\dsh-upx-batch-verified.json"
+          ],
+          "limitations": "Restored in memory snapshot execution model; compressed disk byte mismatch explicitly preserved; wholeBinaryVerified=false."
+        }
+      ]
+    },
+    {
+      "id": "enigma-7.80-demo",
+      "name": "Enigma Protector 7.80 Demo",
+      "exactVersionVerified": true,
+      "qualifiedSampleCount": 6,
+      "producerProvenance": {
+        "producerVersion": "7.80 Demo",
+        "cliSha256": "c393a08a7259c053ef9eff48fac64051422144bda6a5f7c8927113f50960fd30",
+        "installerSha256": "8a31a018feb5ea1fec2fa1d1d3a9e004b143be6b9d16155ba0a2c6bbe8cd2813",
+        "authenticodeValid": true
+      },
+      "capabilities": [
+        {
+          "capabilityId": "enigma-classic-vm-trace-recovery",
+          "configuration": "Classic VM (vm_begin / vm_end)",
+          "status": "partial",
+          "strength": "formal",
+          "businessRecovery": false,
+          "recoveredSemantics": null,
+          "instructions": 66614,
+          "inputCoverage": "Output matches reference on 2409 pairs, but 640 full-window and 320 counterexample-prefix guards unresolved; coverage=single-recorded-path",
+          "evidence": [
+            "C:\\Users\\IG5User\\.dsh\\ig5\\artifacts\\modern-protection-20261014\\native-packed-round-mix64-enigma-classic-vm-scyllahide-store-round-v1\\receipt.json",
+            "C:\\Users\\IG5User\\.dsh\\ig5\\artifacts\\modern-protection-20261014\\dsh-enigma-partial-verified.json"
+          ],
+          "limitations": "Accepted business models = 0. Real SAT counterexample found (x=0xbf8e3c24947ce2a2, y=0xfffbf3f707ab2019). Cannot claim business devirtualization."
+        }
+      ]
+    },
+    {
+      "id": "themida-3.2.4.34-demo",
+      "name": "Themida 3.2.4.34 Demo",
+      "exactVersionVerified": true,
+      "qualifiedSampleCount": 1,
+      "producerProvenance": {
+        "producerVersion": "3.2.4.34 Demo",
+        "zipSha256": "744ab8489d34b5080074de198b11c5f6ef6034dc3ebe3f4d9385e9639ce97d30",
+        "authenticodeValid": true
+      },
+      "capabilities": [
+        {
+          "capabilityId": "themida-quarantine-preservation",
+          "configuration": "Demo (Tiger marks converted to Falcon Tiny)",
+          "status": "blocked",
+          "strength": "observed",
+          "businessRecovery": false,
+          "recoveredSemantics": null,
+          "instructions": 0,
+          "inputCoverage": "0",
+          "evidence": [
+            "C:\\Users\\IG5User\\.dsh\\ig5\\artifacts\\modern-protection-20261014\\oreans-generated\\template-cli-receipt.json"
+          ],
+          "limitations": "Output quarantined by Windows Defender. Under strict security rules, quarantine is never bypassed or restored; security settings remain untouched. Accepted business models = 0."
+        }
+      ]
+    }
+  ],
+  "engineCapabilities": [
+    {
+      "subsystem": "pcode-projection",
+      "features": [
+        {
+          "feature": "bsr-bsf-raw-pcode-dead-frame-elision",
+          "status": "verified",
+          "testSuites": [
+            "scripts/test_pcode_bsr.py",
+            "scripts/test_pcode_bsf.py",
+            "scripts/test_projection_bsr_runtime.mjs",
+            "scripts/test_projection_bsf_runtime.mjs"
+          ],
+          "formalScope": "16/32/64-bit register-source BSR/BSF matching raw Sleigh CFG (3 internal edges, step bounds 83/164/323 and 99/196/387), destination register and all 6 status flags (CF, PF, AF, ZF, SF, OF) proved dead."
+        },
+        {
+          "feature": "cmov-bounded-shape-dead-frame-elision",
+          "status": "verified",
+          "testSuites": [
+            "scripts/test_pcode_cmov.py",
+            "scripts/test_projection_cmov_runtime.mjs"
+          ],
+          "formalScope": "48 register-condition-width shapes across 16/32/64-bit with full upper-32 zero-clearance and flags preserved."
+        },
+        {
+          "feature": "runtime-pc-coordinates-projection",
+          "status": "verified",
+          "testSuites": [
+            "scripts/test_recorded_coordinates.py",
+            "scripts/test_recorded_coordinates.mjs",
+            "scripts/test_recorded_projection_runtime.mjs"
+          ],
+          "formalScope": "Byte-identical executable section mapping for RIP-relative instructions; switches decoded instruction address without blind constant rebasing."
+        },
+        {
+          "feature": "flag-dependency-conservative-barrier",
+          "status": "verified",
+          "testSuites": [
+            "scripts/test_projection_flags_runtime.mjs"
+          ],
+          "formalScope": "Strict refusal when undefined/unmodeled flags (MUL/IMUL ZF, ADD/CMP AF, SHL/ROL OF) cross into live GPRs, memory stores or control transfers."
+        },
+        {
+          "feature": "direct-call-rel0-stack-return-binding",
+          "status": "verified",
+          "testSuites": [
+            "scripts/test_pcode_calls.py",
+            "scripts/test_call_zero_runtime.mjs"
+          ],
+          "formalScope": "Full RSP-8/STORE return address/BRANCH nextEA shape preserved with directCall metadata."
+        }
+      ]
+    }
+  ]
+}

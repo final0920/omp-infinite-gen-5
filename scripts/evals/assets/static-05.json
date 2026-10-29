@@ -1,0 +1,11 @@
+{
+  "kind": "branch-function",
+  "threshold": 8,
+  "values": [
+    0,
+    3,
+    4,
+    5,
+    255
+  ]
+}

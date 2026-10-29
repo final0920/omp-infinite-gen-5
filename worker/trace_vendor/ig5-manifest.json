@@ -1,0 +1,151 @@
+{
+  "platform": "win_amd64",
+  "schemaVersion": 1,
+  "version": "1.0.0rc4",
+  "wheelSha256": "fad5f5727a560ce5cffa59e0a8bbae2bcfbe63e81caec20a36bc11a72599d3fc",
+  "url": "https://files.pythonhosted.org/packages/ce/69/0e631bccd1d046c1923a9f641a5faf612b253b4ccbc967f090e4849b1cf1/triton_library-1.0.0rc4-cp312-cp312-win_amd64.whl",
+  "package": "triton-library",
+  "files": [
+    {
+      "sha256": "8b3fc6a20ed4b5f4d0eae5012b556085488f316872077b25104e146b34d42cf2",
+      "bytes": 1267,
+      "path": "NOTICE.txt"
+    },
+    {
+      "sha256": "99cb75dd26ccee3289dc216020eecd94c00e53804386da2cee7e36150a2a21ef",
+      "bytes": 14301184,
+      "path": "triton.cp312-win_amd64.pyd"
+    },
+    {
+      "sha256": "c1c82f80a02d4220147fcd5b547e1faa8120a9f573e6ee51509f9e72ecfe29ac",
+      "bytes": 143722,
+      "path": "triton.pyi"
+    },
+    {
+      "sha256": "fbf1904c8fa1b111e45b99e82617aa902cabf02733359d6fa38b694d343d41ab",
+      "bytes": 1286,
+      "path": "licenses/bitwuzla.txt"
+    },
+    {
+      "sha256": "dfdca2d7fdbabfd937f9dc41b7f61647b0e6cb1f9ee767ecb4520f979ebe91da",
+      "bytes": 3331,
+      "path": "licenses/capstone-llvm.txt"
+    },
+    {
+      "sha256": "65e9ed46a59976eda8f5bd1ea79a680dea38dd299c760bc9a8d87a764ef5029b",
+      "bytes": 1687,
+      "path": "licenses/capstone.txt"
+    },
+    {
+      "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+      "bytes": 35147,
+      "path": "licenses/gcc-gpl3.txt"
+    },
+    {
+      "sha256": "9d6b43ce4d8de0c878bf16b54d8e7a10d9bd42b75178153e3af6a815bdc90f74",
+      "bytes": 3324,
+      "path": "licenses/gcc-runtime-exception.txt"
+    },
+    {
+      "sha256": "8d85c1057d742e597985c7d4e6320b015a9139385cff4cbae06ffc0ebe89afee",
+      "bytes": 15141,
+      "path": "licenses/llvm.txt"
+    },
+    {
+      "sha256": "f1e3d56ceb2ad68aae0711b910375009e651ac5530fa0760f0dea6e81e54fae1",
+      "bytes": 39644,
+      "path": "licenses/microsoft-vc-runtime.docx"
+    },
+    {
+      "sha256": "e502c6b880ff58d614901495a9009c136539cd0b1e2a2abb8fc00b934c203419",
+      "bytes": 36874,
+      "path": "licenses/python-windows.txt"
+    },
+    {
+      "sha256": "c21b1afc6b41930bd0ab03a39d8eb11dfc68fc85922bf74bdc9c13c5eada0150",
+      "bytes": 846,
+      "path": "licenses/sources.json"
+    },
+    {
+      "sha256": "e617cad2ab9347e3129c2b171e87909332174e17961c5c3412d0799469111337",
+      "bytes": 1096,
+      "path": "licenses/z3.txt"
+    },
+    {
+      "sha256": "e0ee90b1daac68be542df5cadac679426424fed3414a9ac37f684d6aa2a5da98",
+      "bytes": 7535104,
+      "path": "triton_library-1.0.0rc4.data/platlib/capstone-be3f371276d98568eab2fa92e3c277b0.dll"
+    },
+    {
+      "sha256": "0cf5b9604d0fa00a48c4fe8451a9b134bf9516ac96cbc1996d53671a01555bbe",
+      "bytes": 3943936,
+      "path": "triton_library-1.0.0rc4.data/platlib/libbitwuzla-0-d7b2a5721cf6cd376e9fabd757448137.dll"
+    },
+    {
+      "sha256": "4d5e9d7ec1429c3075cc3b8e4fbeea38fd5efbdec245a738f7a6fc047761bc67",
+      "bytes": 40960,
+      "path": "triton_library-1.0.0rc4.data/platlib/libbitwuzlabb-b1e99e1df7cd2836e1e10e1d63ee8f7e.dll"
+    },
+    {
+      "sha256": "c2fbb2105972fc5c7b8771537521e7c426d5e811f99e0fd801c82138d1cf65d1",
+      "bytes": 424448,
+      "path": "triton_library-1.0.0rc4.data/platlib/libbitwuzlabv-f96e72899d51d79ba690ecb561cc5484.dll"
+    },
+    {
+      "sha256": "889f6099fbad1cadca1882d2ea3a60f8e9a663a28c7ad254a411978b73f44ef3",
+      "bytes": 296960,
+      "path": "triton_library-1.0.0rc4.data/platlib/libbitwuzlals-ed1a2b472798a7d6dd9d4b8a4fa7f985.dll"
+    },
+    {
+      "sha256": "db6299e6e110540fc4622b6a1cbe6b83078d6ce6e05a140fa0cddbeb7afa1f04",
+      "bytes": 789905,
+      "path": "triton_library-1.0.0rc4.data/platlib/libgcc_s_seh-1.dll"
+    },
+    {
+      "sha256": "716df4898fdbfb0c58c6e83918f803dd9d2bf6b2e26734f73d4c96f5423f435b",
+      "bytes": 26831735,
+      "path": "triton_library-1.0.0rc4.data/platlib/libstdc++-6-0a9e0a19096775d6e5214e3413968568.dll"
+    },
+    {
+      "sha256": "1e38fc0adc26f69b63c29daf6bac68243d55864533b8640f45ca1d4a73ae1989",
+      "bytes": 16839168,
+      "path": "triton_library-1.0.0rc4.data/platlib/libz3-a42052dd07ef1dd7599d3d6298ebfdaf.dll"
+    },
+    {
+      "sha256": "a4c2229bdc2a2a630acdc095b4d86008e5c3e3bc7773174354f3da4f5beb9cde",
+      "bytes": 575056,
+      "path": "triton_library-1.0.0rc4.data/platlib/msvcp140-b35f877266607bbd516803c1971c0575.dll"
+    },
+    {
+      "sha256": "1de6c096d2c59482f614d15bb388315cb0315c4345da64140da2b38252ae9c7c",
+      "bytes": 669,
+      "path": "triton_library-1.0.0rc4.dist-info/DELVEWHEEL"
+    },
+    {
+      "sha256": "6c4d108e838857540166ef402e91640d0c398e65dca91d75b5b04caf83179954",
+      "bytes": 11389,
+      "path": "triton_library-1.0.0rc4.dist-info/LICENSE.txt"
+    },
+    {
+      "sha256": "0f3a27efa8b4503cfd20f062decc491422c7fd23324f972e902b82fbed96ae4d",
+      "bytes": 29208,
+      "path": "triton_library-1.0.0rc4.dist-info/METADATA"
+    },
+    {
+      "sha256": "32dcea456a4792f5087a20d004dd744ca37db2d6beb19c229b57c45b20e271c2",
+      "bytes": 1965,
+      "path": "triton_library-1.0.0rc4.dist-info/RECORD"
+    },
+    {
+      "sha256": "581888672bfa9fd63b30887e1cf1d2bf6c3544393b1052ffffb660411ae61d8b",
+      "bytes": 7,
+      "path": "triton_library-1.0.0rc4.dist-info/top_level.txt"
+    },
+    {
+      "sha256": "7119920460fe725f7c2a4b8730daaff4073d2fdfd5a93bdc058c2922fc4dd1c8",
+      "bytes": 101,
+      "path": "triton_library-1.0.0rc4.dist-info/WHEEL"
+    }
+  ],
+  "python": "cp312"
+}

@@ -1,0 +1,4901 @@
+{
+  "evidence": "actual source registration in fixture host; not live DSH",
+  "core": [
+    "ig5_doctor",
+    "ig5_open",
+    "ig5_status",
+    "ig5_funcs",
+    "ig5_strings",
+    "ig5_decompile",
+    "ig5_close",
+    "ig5_profile"
+  ],
+  "tools": [
+    {
+      "name": "ig5_profile",
+      "description": "Return IG5 engines, projects, active tools and skills, plus the calling agent's host Goal availability/state. recovery={case_ref:{path,sha256}} separately reads a bounded recovery case and returns a failure/dependency plan. Alternatively recovery={observations:{recordings:[{id,sha256}],target_sha256,offset,limit}} imports committed debug-trace reports into ordered, source-bound observation pages; no native execution, invented intermediate state or VM/business proof. Alternatively recovery={roles:{recordings:[{id,sha256}],target_sha256}} samples recorded addressing/load/control observations using an owned disassembly-only job; candidates retain ordinary-program ambiguity and do not prove VM roles. Alternatively recovery={flow:{roles_ref:{id,sha256},target}} revalidates a committed role report and recordings, selects a contiguous candidate-to-indirect window, verifies exact raw-file mapping, and uses Java full-state plus source-prefix projections for structural load/index/target dependencies. All stores and ordinary-program ambiguity remain; no VM, semantic-nonconstancy or business proof. All recovery modes save immutable reports and reject other profile options. For sustained reverse engineering use ig5-reverse-agent and native Goal tools. Optionally switch core (8 tools) or full (40) for the calling agent. workspace manages caller notes and separate system dossier evidence for an explicitly opened target; updates require expected_task_revision. History stats/archive/restore retain report IDs and refs. capabilities=true reads capability dimensions and scoped acceptance history without probes; workspace action=brief aggregates current task, stale evidence, persistent failures and at most three suggestions, with no engine computation. recovery.role_validate rebinds a compared context to every original recording and checks observed entry inputs and held-out relations. recovery.program can alternatively read image_ref={path,sha256} plus contract_ref for the three exact-SHA owned-source reference images only. recovery.function_check independently checks that executable virtual model over a finite contract domain, optionally against recording_runs; modelContractAccepted never means native CPU, universal or whole-VM proof. No target is executed. memory={action:\"restore\"|\"search\"|\"read\"|\"expand\"|\"checkpoint\"|\"status\"} accesses the executing session's local LCM history after compaction; source refs carry exact hashes, summaries are unverified navigation. Use memory separately.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "recovery": {
+            "type": "object",
+            "properties": {
+              "case_ref": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "description": "Explicit absolute local recovery-case JSON path, at most 256 KiB"
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$",
+                    "description": "SHA-256 of the exact case bytes; verified before reading its references"
+                  }
+                },
+                "required": [
+                  "path",
+                  "sha256"
+                ],
+                "additionalProperties": false
+              },
+              "observations": {
+                "type": "object",
+                "properties": {
+                  "recordings": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 256,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "debug-trace report UUID in this configured artifact store"
+                        },
+                        "sha256": {
+                          "type": "string",
+                          "pattern": "^[a-f0-9]{64}$",
+                          "description": "Exact report SHA-256, not the trace blob SHA"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "sha256"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "target_sha256": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  },
+                  "phase_context_ref": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "sha256": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "sha256"
+                    ],
+                    "additionalProperties": false,
+                    "description": "Optional committed context UUID/SHA, only with phase_model=true; full recording manifest must match"
+                  },
+                  "phase_model": {
+                    "type": "boolean",
+                    "description": "Opt-in offline observation-local code versions and temporal candidates; no verified VM phase or global epoch"
+                  },
+                  "max_instructions": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100000,
+                    "description": "Default 50000, checked over every supplied window even for a small output page"
+                  },
+                  "offset": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 100000
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 64,
+                    "description": "Observed stop groups, default 32; a CPUID group may include a continuation without intermediate state"
+                  }
+                },
+                "required": [
+                  "recordings",
+                  "target_sha256"
+                ],
+                "additionalProperties": false
+              },
+              "roles": {
+                "type": "object",
+                "properties": {
+                  "recordings": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 256,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "debug-trace report UUID in this configured artifact store"
+                        },
+                        "sha256": {
+                          "type": "string",
+                          "pattern": "^[a-f0-9]{64}$",
+                          "description": "Exact report SHA-256, not the trace blob SHA"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "sha256"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "target_sha256": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  },
+                  "phase_context_ref": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "sha256": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "sha256"
+                    ],
+                    "additionalProperties": false,
+                    "description": "Optional committed context UUID/SHA, only with phase_model=true; full recording manifest must match"
+                  },
+                  "phase_model": {
+                    "type": "boolean",
+                    "description": "Opt-in offline observation-local code versions and temporal candidates; no verified VM phase or global epoch"
+                  },
+                  "max_instructions": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100000,
+                    "description": "Default 50000, checked over every supplied window even for a small output page"
+                  }
+                },
+                "required": [
+                  "recordings",
+                  "target_sha256"
+                ],
+                "additionalProperties": false
+              },
+              "flow": {
+                "type": "object",
+                "properties": {
+                  "roles_ref": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "sha256": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "sha256"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "target": {
+                    "type": "string",
+                    "description": "Explicit existing same-SHA raw AMD64 PE; static snapshot only, never restore missing/quarantined files"
+                  },
+                  "max_instructions": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100000,
+                    "description": "Default 50000 over every original recording window"
+                  },
+                  "semantic_check": {
+                    "type": "boolean",
+                    "description": "Optional paired ordinary-IR states with pinned bounded SMT and independent finite witness replay; not CPU/VM/business recovery"
+                  }
+                },
+                "required": [
+                  "roles_ref",
+                  "target"
+                ],
+                "additionalProperties": false
+              },
+              "recurrences": {
+                "type": "object",
+                "properties": {
+                  "flow_ref": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "sha256": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "sha256"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "max_instructions": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100000,
+                    "description": "Default 50000 over all original recording windows"
+                  },
+                  "sample_strategy": {
+                    "type": "string",
+                    "enum": [
+                      "first4-last4",
+                      "distinct-source-targets"
+                    ],
+                    "description": "Default first4-last4; optional first occurrence per observed source/target pair, eight pairs per page"
+                  },
+                  "pair_offset": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255,
+                    "description": "Only with distinct-source-targets; first-appearance pair ordinal, default 0"
+                  }
+                },
+                "required": [
+                  "flow_ref"
+                ],
+                "additionalProperties": false
+              },
+              "handlers": {
+                "type": "object",
+                "properties": {
+                  "recurrences_ref": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "sha256": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "sha256"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "target": {
+                    "type": "string",
+                    "description": "Explicit existing same-SHA raw AMD64 PE for static body projection only"
+                  },
+                  "max_instructions": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100000,
+                    "description": "Default 50000 over every original recording window"
+                  }
+                },
+                "required": [
+                  "recurrences_ref",
+                  "target"
+                ],
+                "additionalProperties": false
+              },
+              "context": {
+                "type": "object",
+                "properties": {
+                  "handler_refs": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 16,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "type": "string",
+                          "pattern": "^[a-f0-9]{64}$"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "sha256"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "handler_refs"
+                ],
+                "additionalProperties": false
+              },
+              "declare_contract": {
+                "type": "object",
+                "description": "Caller-declared function scope only; does not accept business results.",
+                "properties": {
+                  "contract": {
+                    "type": "object",
+                    "properties": {
+                      "schema": {
+                        "type": "string",
+                        "enum": [
+                          "ig5-function-contract-v1"
+                        ]
+                      },
+                      "targetSha256": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      },
+                      "entryRva": {
+                        "type": "string",
+                        "pattern": "^0x[0-9a-f]{1,16}$"
+                      },
+                      "normalReturn": {
+                        "type": "string",
+                        "enum": [
+                          "native-ret",
+                          "bytecode-halt"
+                        ]
+                      },
+                      "input": {
+                        "type": "object",
+                        "properties": {
+                          "register": {
+                            "type": "string",
+                            "enum": [
+                              "rcx"
+                            ]
+                          },
+                          "bits": {
+                            "type": "integer",
+                            "enum": [
+                              8,
+                              16,
+                              32,
+                              64
+                            ]
+                          },
+                          "minimum": {
+                            "type": "string",
+                            "pattern": "^0x[0-9a-f]{1,16}$"
+                          },
+                          "maximum": {
+                            "type": "string",
+                            "pattern": "^0x[0-9a-f]{1,16}$"
+                          }
+                        },
+                        "required": [
+                          "register",
+                          "bits",
+                          "minimum",
+                          "maximum"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "outputs": {
+                        "type": "object",
+                        "properties": {
+                          "returnRegister": {
+                            "type": "string",
+                            "enum": [
+                              "rax"
+                            ]
+                          },
+                          "memory": {
+                            "type": "array",
+                            "maxItems": 16,
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "rva": {
+                                  "type": "string",
+                                  "pattern": "^0x[0-9a-f]{1,16}$"
+                                },
+                                "bytes": {
+                                  "type": "integer",
+                                  "minimum": 1,
+                                  "maximum": 256
+                                }
+                              },
+                              "required": [
+                                "rva",
+                                "bytes"
+                              ],
+                              "additionalProperties": false
+                            }
+                          }
+                        },
+                        "required": [
+                          "returnRegister",
+                          "memory"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "environment": {
+                        "type": "string",
+                        "enum": [
+                          "single-threaded-no-external-calls"
+                        ]
+                      },
+                      "exclusions": {
+                        "type": "array",
+                        "maxItems": 16,
+                        "items": {
+                          "type": "string",
+                          "maxLength": 256
+                        }
+                      }
+                    },
+                    "required": [
+                      "schema",
+                      "targetSha256",
+                      "entryRva",
+                      "normalReturn",
+                      "input",
+                      "outputs",
+                      "environment",
+                      "exclusions"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "contract"
+                ],
+                "additionalProperties": false
+              },
+              "role_compare": {
+                "type": "object",
+                "properties": {
+                  "context_refs": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 8,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "type": "string",
+                          "pattern": "^[a-f0-9]{64}$"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "sha256"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "contract_ref": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "sha256": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "sha256"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "context_refs",
+                  "contract_ref"
+                ],
+                "additionalProperties": false
+              },
+              "role_validate": {
+                "type": "object",
+                "properties": {
+                  "comparison_ref": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "sha256": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "sha256"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "recording_bindings": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 8,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "context_ref": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "sha256": {
+                              "type": "string",
+                              "pattern": "^[a-f0-9]{64}$"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "sha256"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "recordings": {
+                          "type": "array",
+                          "minItems": 1,
+                          "maxItems": 256,
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "sha256": {
+                                "type": "string",
+                                "pattern": "^[a-f0-9]{64}$"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "sha256"
+                            ],
+                            "additionalProperties": false
+                          }
+                        }
+                      },
+                      "required": [
+                        "context_ref",
+                        "recordings"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "comparison_ref",
+                  "recording_bindings"
+                ],
+                "additionalProperties": false
+              },
+              "program": {
+                "type": "object",
+                "properties": {
+                  "comparison_ref": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "sha256": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "sha256"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "contract_ref": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "sha256": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "sha256"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "image_ref": {
+                    "type": "object",
+                    "properties": {
+                      "path": {
+                        "type": "string"
+                      },
+                      "sha256": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      }
+                    },
+                    "required": [
+                      "path",
+                      "sha256"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "oneOf": [
+                  {
+                    "required": [
+                      "comparison_ref"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "image_ref",
+                      "contract_ref"
+                    ]
+                  }
+                ],
+                "additionalProperties": false
+              },
+              "function_check": {
+                "type": "object",
+                "properties": {
+                  "program_ref": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "sha256": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "sha256"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "sample_inputs": {
+                    "type": "array",
+                    "maxItems": 64,
+                    "items": {
+                      "type": "string",
+                      "pattern": "^0x[0-9a-f]{1,16}$"
+                    }
+                  },
+                  "recording_runs": {
+                    "type": "array",
+                    "maxItems": 8,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "recordings": {
+                          "type": "array",
+                          "minItems": 1,
+                          "maxItems": 256,
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "sha256": {
+                                "type": "string",
+                                "pattern": "^[a-f0-9]{64}$"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "sha256"
+                            ],
+                            "additionalProperties": false
+                          }
+                        }
+                      },
+                      "required": [
+                        "recordings"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "program_ref"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "oneOf": [
+              {
+                "required": [
+                  "case_ref"
+                ]
+              },
+              {
+                "required": [
+                  "observations"
+                ]
+              },
+              {
+                "required": [
+                  "roles"
+                ]
+              },
+              {
+                "required": [
+                  "flow"
+                ]
+              },
+              {
+                "required": [
+                  "recurrences"
+                ]
+              },
+              {
+                "required": [
+                  "handlers"
+                ]
+              },
+              {
+                "required": [
+                  "context"
+                ]
+              },
+              {
+                "required": [
+                  "declare_contract"
+                ]
+              },
+              {
+                "required": [
+                  "role_compare"
+                ]
+              },
+              {
+                "required": [
+                  "role_validate"
+                ]
+              },
+              {
+                "required": [
+                  "program"
+                ]
+              },
+              {
+                "required": [
+                  "function_check"
+                ]
+              }
+            ],
+            "additionalProperties": false
+          },
+          "target": {
+            "type": "string",
+            "description": "Explicit opened static target, required for workspace"
+          },
+          "guest_debug": {
+            "type": "string",
+            "description": "Inspect a configured VMCI guest profile and obtain its bindingSha256 before an approved debugger call; reads files only"
+          },
+          "workspace": {
+            "description": "Static investigation notes and evidence. research-get returns current scopeDigest and independent researchRevision. research-update requires both task/research revisions; link-vm-context accepts only committed report_ref UUID/SHA. link-verifier-evidence accepts committed fixed function/recorded-source reports; research-verify runs the registered bounded property verifier; research-link-verification recovers its saved result after CAS conflict. A narrow pass never accepts the whole contract. Before DSH delegation, read the task then use handoff with current expected_task_revision, question, acceptance and constraints. Child reads exact task evidence; parent reviews returned snapshot IDs. No agent spawning, permission grants or automatic completion.",
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string",
+                "enum": [
+                  "create",
+                  "get",
+                  "brief",
+                  "list",
+                  "update",
+                  "evidence",
+                  "handoff",
+                  "claim",
+                  "submit",
+                  "review",
+                  "plan",
+                  "resume",
+                  "research-get",
+                  "research-update",
+                  "research-dependencies",
+                  "research-verify",
+                  "research-link-verification",
+                  "research-verification"
+                ]
+              },
+              "research": {
+                "type": "object",
+                "properties": {
+                  "operation": {
+                    "type": "string",
+                    "enum": [
+                      "initialize",
+                      "set-contract",
+                      "add-hypothesis",
+                      "add-obligation",
+                      "add-experiment",
+                      "revise-hypothesis",
+                      "revise-obligation",
+                      "revise-experiment",
+                      "acknowledge-context",
+                      "link-evidence",
+                      "link-vm-context",
+                      "link-verifier-evidence"
+                    ]
+                  },
+                  "expected_research_revision": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "expected_task_revision": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "scope_digest": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  },
+                  "entity_id": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$",
+                    "description": "revise-* only: superseded proposal UUID; previous versions remain retained"
+                  },
+                  "value": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "question": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2048
+                          },
+                          "inputDomain": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2048
+                          },
+                          "returns": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2048
+                          },
+                          "outputs": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2048
+                          },
+                          "sideEffects": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2048
+                          },
+                          "environment": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2048
+                          },
+                          "exclusions": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2048
+                          }
+                        },
+                        "required": [
+                          "question",
+                          "inputDomain",
+                          "returns",
+                          "outputs",
+                          "sideEffects",
+                          "environment",
+                          "exclusions"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "proposition": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2048
+                          },
+                          "supporting": {
+                            "type": "array",
+                            "maxItems": 32,
+                            "uniqueItems": true,
+                            "items": {
+                              "type": "string",
+                              "pattern": "^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$"
+                            }
+                          },
+                          "opposing": {
+                            "type": "array",
+                            "maxItems": 32,
+                            "uniqueItems": true,
+                            "items": {
+                              "type": "string",
+                              "pattern": "^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$"
+                            }
+                          },
+                          "competingExplanations": {
+                            "type": "array",
+                            "maxItems": 8,
+                            "items": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 512
+                            }
+                          }
+                        },
+                        "required": [
+                          "proposition",
+                          "supporting",
+                          "opposing",
+                          "competingExplanations"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "property": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2048
+                          },
+                          "dependencies": {
+                            "type": "array",
+                            "maxItems": 64,
+                            "uniqueItems": true,
+                            "items": {
+                              "type": "string",
+                              "pattern": "^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$"
+                            }
+                          },
+                          "scope": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2048
+                          },
+                          "verifier": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 128
+                          },
+                          "propertyScope": {
+                            "type": "object",
+                            "properties": {
+                              "targetSha256": {
+                                "type": "string",
+                                "pattern": "^[a-f0-9]{64}$"
+                              },
+                              "environmentRef": {
+                                "type": "string",
+                                "pattern": "^[a-f0-9]{64}$"
+                              },
+                              "subjectRef": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$"
+                                  },
+                                  "sha256": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{64}$"
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "sha256"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "contractRef": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$"
+                                  },
+                                  "sha256": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{64}$"
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "sha256"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "domain": {
+                                "oneOf": [
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "kind": {
+                                        "const": "integer-range"
+                                      },
+                                      "bits": {
+                                        "enum": [
+                                          8,
+                                          16,
+                                          32,
+                                          64
+                                        ]
+                                      },
+                                      "minimum": {
+                                        "type": "string",
+                                        "pattern": "^0x[0-9a-f]{1,16}$"
+                                      },
+                                      "maximum": {
+                                        "type": "string",
+                                        "pattern": "^0x[0-9a-f]{1,16}$"
+                                      }
+                                    },
+                                    "required": [
+                                      "kind",
+                                      "bits",
+                                      "minimum",
+                                      "maximum"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "kind": {
+                                        "const": "recorded-inputs"
+                                      },
+                                      "inputs": {
+                                        "type": "array",
+                                        "maxItems": 8,
+                                        "uniqueItems": true,
+                                        "items": {
+                                          "type": "string",
+                                          "pattern": "^0x[0-9a-f]{1,16}$"
+                                        }
+                                      },
+                                      "recordingRefs": {
+                                        "type": "array",
+                                        "minItems": 1,
+                                        "maxItems": 48,
+                                        "items": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "string",
+                                              "pattern": "^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$"
+                                            },
+                                            "sha256": {
+                                              "type": "string",
+                                              "pattern": "^[a-f0-9]{64}$"
+                                            }
+                                          },
+                                          "required": [
+                                            "id",
+                                            "sha256"
+                                          ],
+                                          "additionalProperties": false
+                                        }
+                                      }
+                                    },
+                                    "required": [
+                                      "kind",
+                                      "inputs",
+                                      "recordingRefs"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                ]
+                              }
+                            },
+                            "required": [
+                              "targetSha256",
+                              "subjectRef",
+                              "contractRef",
+                              "environmentRef",
+                              "domain"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "property",
+                          "dependencies",
+                          "scope",
+                          "verifier"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "template": {
+                            "type": "string",
+                            "enum": [
+                              "refresh-static-source",
+                              "review-evidence",
+                              "compare-inputs",
+                              "inspect-counterexample",
+                              "locate-first-divergence"
+                            ]
+                          },
+                          "question": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2048
+                          },
+                          "inputs": {
+                            "type": "array",
+                            "maxItems": 32,
+                            "uniqueItems": true,
+                            "items": {
+                              "type": "string",
+                              "pattern": "^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$"
+                            }
+                          },
+                          "hypotheses": {
+                            "type": "array",
+                            "maxItems": 32,
+                            "uniqueItems": true,
+                            "items": {
+                              "type": "string",
+                              "pattern": "^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$"
+                            }
+                          },
+                          "obligations": {
+                            "type": "array",
+                            "maxItems": 64,
+                            "uniqueItems": true,
+                            "items": {
+                              "type": "string",
+                              "pattern": "^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$"
+                            }
+                          },
+                          "predictedDivergence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2048
+                          },
+                          "budget": {
+                            "type": "object",
+                            "properties": {
+                              "toolCalls": {
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 32
+                              },
+                              "timeoutMs": {
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 60000
+                              },
+                              "bytes": {
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 8388608
+                              }
+                            },
+                            "required": [
+                              "toolCalls",
+                              "timeoutMs",
+                              "bytes"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "template",
+                          "question",
+                          "inputs",
+                          "hypotheses",
+                          "obligations",
+                          "predictedDivergence",
+                          "budget"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "operation",
+                  "expected_research_revision",
+                  "expected_task_revision",
+                  "scope_digest"
+                ],
+                "additionalProperties": false
+              },
+              "verification": {
+                "type": "object",
+                "properties": {
+                  "expected_research_revision": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "expected_task_revision": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "scope_digest": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  },
+                  "evidence_id": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$"
+                  },
+                  "obligation_id": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$"
+                  },
+                  "experiment_id": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$"
+                  }
+                },
+                "required": [
+                  "expected_research_revision",
+                  "expected_task_revision",
+                  "scope_digest",
+                  "evidence_id",
+                  "obligation_id"
+                ],
+                "additionalProperties": false
+              },
+              "report_ref": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  }
+                },
+                "required": [
+                  "id",
+                  "sha256"
+                ],
+                "additionalProperties": false
+              },
+              "verification_id": {
+                "type": "string",
+                "description": "Committed verification report UUID already linked to this task"
+              },
+              "evidence_id": {
+                "type": "string",
+                "description": "research-dependencies: linked evidence UUID in this task"
+              },
+              "max_bytes": {
+                "type": "integer",
+                "minimum": 4096,
+                "maximum": 32768,
+                "description": "brief/plan/resume only: UTF-8 JSON budget, default 12288"
+              },
+              "cursor": {
+                "type": "string",
+                "description": "brief only: continuation bound to task/database revision"
+              },
+              "handoff_id": {
+                "type": "string",
+                "description": "Child claim/submit, parent post-return review: tracked handoffId. Review without it is integrity precheck only, never delegation acceptance."
+              },
+              "question": {
+                "type": "string",
+                "maxLength": 2048,
+                "description": "handoff: bounded delegated question; caller statement"
+              },
+              "acceptance": {
+                "type": "string",
+                "maxLength": 2048,
+                "description": "handoff: explicit acceptance criteria; text only, never executed"
+              },
+              "constraints": {
+                "type": "string",
+                "maxLength": 2048,
+                "description": "handoff: responsibility and limits; advisory, not an access-control policy"
+              },
+              "snapshot_ids": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 8,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string"
+                },
+                "description": "review: task-bound system snapshots to revalidate; not a semantic completion verdict"
+              },
+              "id": {
+                "type": "string",
+                "description": "Task UUID returned by create or list"
+              },
+              "snapshot_id": {
+                "type": "string",
+                "description": "System snapshot UUID from this task; evidence action or research-update link-evidence"
+              },
+              "expected_task_revision": {
+                "type": "number",
+                "description": "Required for update: use the returned taskRevision, independent of the database revision"
+              },
+              "goal": {
+                "type": "string",
+                "maxLength": 4096
+              },
+              "hypothesis": {
+                "type": "string",
+                "maxLength": 4096,
+                "description": "Caller statement, not verified evidence; do not include secrets"
+              },
+              "next_step": {
+                "type": "string",
+                "maxLength": 4096
+              },
+              "conclusion": {
+                "type": "string",
+                "maxLength": 4096,
+                "description": "Caller interpretation, not automatic verification"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "active",
+                  "paused",
+                  "completed"
+                ],
+                "description": "Caller-declared work progress"
+              }
+            },
+            "required": [
+              "action"
+            ],
+            "additionalProperties": false
+          },
+          "toolset": {
+            "type": "string",
+            "enum": [
+              "core",
+              "full"
+            ]
+          },
+          "history": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string",
+                "enum": [
+                  "stats",
+                  "archive",
+                  "restore"
+                ]
+              },
+              "ids": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 1000,
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "action"
+            ],
+            "additionalProperties": false
+          },
+          "capabilities": {
+            "type": "boolean",
+            "const": true,
+            "description": "Use separately: read current capability dimensions without probes or execution"
+          },
+          "memory": {
+            "type": "object",
+            "description": "Session-bound LCM history. Search returns candidates; read recovers exact event JSON by hash in pages; expand follows summary sources; checkpoint saves caller-unverified navigation. Use restore after compaction. No sample execution or proof promotion.",
+            "properties": {
+              "action": {
+                "type": "string",
+                "enum": [
+                  "status",
+                  "restore",
+                  "search",
+                  "read",
+                  "expand",
+                  "checkpoint"
+                ]
+              },
+              "query": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256
+              },
+              "ref": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "event",
+                      "summary"
+                    ]
+                  },
+                  "id": {
+                    "type": "string",
+                    "maxLength": 80
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "id",
+                  "sha256"
+                ],
+                "additionalProperties": false
+              },
+              "offset": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "limit": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 2048
+              },
+              "text": {
+                "type": "string",
+                "maxLength": 4096
+              },
+              "sources": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 32,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "event",
+                        "summary"
+                      ]
+                    },
+                    "id": {
+                      "type": "string",
+                      "maxLength": 80
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{64}$"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "id",
+                    "sha256"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "action"
+            ],
+            "additionalProperties": false
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          },
+          "collaboration": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string",
+                "enum": [
+                  "start",
+                  "status"
+                ]
+              },
+              "max_calls": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1000,
+                "description": "start only: persistent shared cap for parent + all descendant IG5 dispatches; cannot be reset/enlarged"
+              }
+            },
+            "required": [
+              "action"
+            ],
+            "additionalProperties": false,
+            "description": "Use separately BEFORE work: start shared budget, or status (exempt control-plane query). Counts all IG5 calls incl. child profile/open/evidence/errors, not just parent calls. No token/non-IG5 limit."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "ig5_doctor",
+      "description": "Self-check the selected IG5 engine/provider. Default Reverse and Ghidra use the bundled Ghidra runtime; only explicitly selected commercial Reverse requires a licensed local installation. x64dbg reads file layout and retained launch-policy blocks without launching its debugger. not-probed is unknown; known blocks deny native launch before process creation. File presence is not startup verification; no OS policy changes.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra",
+              "x64dbg"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "ig5_open",
+      "description": "Open a binary in the selected static engine and run auto-analysis. Returns project/artifact identity, engine, database revision, architecture, segments, function count and entries. One worker per target and engine. Analysis defaults to a native background job; pass background:false for inline results. A runtime pack is required for the selected engine.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Absolute path of the target binary"
+          },
+          "auto_analysis": {
+            "type": "boolean",
+            "description": "Run automatic analysis using the selected profile (default true)"
+          },
+          "analysis_timeout": {
+            "type": "number",
+            "description": "Ghidra analysis budget in seconds, 1..600; returns explicitly partial evidence if exhausted"
+          },
+          "analysis_profile": {
+            "type": "string",
+            "enum": [
+              "interactive",
+              "full"
+            ],
+            "description": "Ghidra: interactive (default) skips batch Decompiler Parameter ID; full enables that batch analyzer. Function decompilation is available in both."
+          },
+          "background": {
+            "type": "boolean",
+            "description": "Run the analysis as a background job (default true). false = block this call until analysis finishes."
+          },
+          "fresh": {
+            "type": "boolean",
+            "description": "Ignore and back up an adjacent existing .i64/.idb so the database is re-analyzed from scratch (default false = reuse)"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          }
+        },
+        "required": [
+          "path"
+        ]
+      }
+    },
+    {
+      "name": "ig5_status",
+      "description": "List open IG5 workers and pending remoteExecutions. Separately remoteCleanupEvidence revalidates at most eight stored terminal receipts against original bindings and byte hashes; missing/corrupt evidence stays unknown. An empty pending list is not proof of cleanup. Stored receipt validation is not a new HMAC exchange or authority for newer processes.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "ig5_funcs",
+      "description": "List functions of an open target, paged: address (EA), name, size. Use filter for a name substring. EA is the stable handle for every other ig5 tool.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target path previously opened with ig5_open"
+          },
+          "offset": {
+            "type": "number",
+            "description": "Skip first N functions (cursor paging)"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Max rows (default 30, max 200)"
+          },
+          "filter": {
+            "type": "string",
+            "description": "Case-insensitive name substring filter"
+          },
+          "user_only": {
+            "type": "boolean",
+            "description": "Exclude functions classified as library-related by the active provider. The bundled core excludes external/thunk functions only; remaining functions are not proof of user-authored logic."
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          }
+        },
+        "required": [
+          "target"
+        ]
+      }
+    },
+    {
+      "name": "ig5_strings",
+      "description": "List strings of an open target with addresses, paged. First hop for locating license checks, messages, URLs, and crypto constants.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target path previously opened with ig5_open"
+          },
+          "offset": {
+            "type": "number"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Max rows (default 30, max 200)"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          }
+        },
+        "required": [
+          "target"
+        ]
+      }
+    },
+    {
+      "name": "ig5_decompile",
+      "description": "Decompile one function by EA or exact name. style=dossier aggregates pseudocode, CFG, callers, callees and stack under one database revision, with explicit section status, response limits and provenance. Optional task_id records a system observation in an existing investigation task. style=llm returns provider-specific supporting metadata when available. Plain results over ~12KB spill to an artifact file with a preview. Read-only; does not execute the sample or verify hypotheses.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target path previously opened with ig5_open"
+          },
+          "ea": {
+            "type": "string",
+            "description": "Function address, hex string like 0x140001070"
+          },
+          "name": {
+            "type": "string",
+            "description": "Exact function name (used when ea is absent)"
+          },
+          "style": {
+            "type": "string",
+            "enum": [
+              "",
+              "llm",
+              "dossier"
+            ],
+            "description": "Omit for plain pseudocode; llm metadata depends on the provider; dossier aggregates real function context"
+          },
+          "dossier_max_bytes": {
+            "type": "number",
+            "description": "Dossier body UTF-8 response budget, 4000..64000 bytes, default 16000; not a total backend computation budget"
+          },
+          "dossier_max_rows": {
+            "type": "number",
+            "description": "Dossier per-array row cap, 1..128, default 32"
+          },
+          "task_id": {
+            "type": "string",
+            "description": "Existing workspace task UUID; requires style=dossier and records only system-produced observations"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          }
+        },
+        "required": [
+          "target"
+        ]
+      }
+    },
+    {
+      "name": "ig5_close",
+      "description": "Close one open target and recycle its worker process. The analysis database stays on disk next to the target; reopening with ig5_open reuses it.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target path to close"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          }
+        },
+        "required": [
+          "target"
+        ]
+      }
+    },
+    {
+      "name": "ig5_xrefs",
+      "description": "Cross-references of an open target: references to an address/function, from it, or to strings matching a substring (str). Rows carry the other side EA and its containing function. Read-only.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target path previously opened with ig5_open"
+          },
+          "ea": {
+            "type": "string",
+            "description": "Hex address, e.g. 0x140001070"
+          },
+          "name": {
+            "type": "string",
+            "description": "Exact function name (alternative to ea)"
+          },
+          "str": {
+            "type": "string",
+            "description": "String substring — lists xrefs to every matching string literal"
+          },
+          "direction": {
+            "type": "string",
+            "description": "\"to\" (default) or \"from\""
+          },
+          "limit": {
+            "type": "number",
+            "description": "Max rows (default 30, max 200)"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          }
+        },
+        "required": [
+          "target"
+        ]
+      }
+    },
+    {
+      "name": "ig5_rename",
+      "description": "Rename a function or label. WRITE OPERATION: gated behind one-time human approval and recorded in approvals.jsonl. Provide ea or name plus new_name.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target path previously opened with ig5_open"
+          },
+          "ea": {
+            "type": "string",
+            "description": "Hex address"
+          },
+          "name": {
+            "type": "string",
+            "description": "Current function name (alternative to ea)"
+          },
+          "new_name": {
+            "type": "string",
+            "description": "New name"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          },
+          "expected_revision": {
+            "type": "number",
+            "description": "Reject this operation if the selected database revision has changed since planning"
+          }
+        },
+        "required": [
+          "target",
+          "new_name"
+        ]
+      }
+    },
+    {
+      "name": "ig5_patch_bytes",
+      "description": "Patch raw bytes at an address, e.g. hex \"74 05\" or \"74E8\". WRITE OPERATION: gated behind one-time human approval; the result carries before/after hex for the diff and everything is recorded in approvals.jsonl.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target path previously opened with ig5_open"
+          },
+          "ea": {
+            "type": "string",
+            "description": "Hex address to patch"
+          },
+          "hex": {
+            "type": "string",
+            "description": "Byte payload as hex, spaces optional"
+          },
+          "expected": {
+            "type": "string",
+            "description": "Expected original hex bytes; mismatch rejects before mutation"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          },
+          "expected_revision": {
+            "type": "number",
+            "description": "Reject this operation if the selected database revision has changed since planning"
+          }
+        },
+        "required": [
+          "target",
+          "ea",
+          "hex"
+        ]
+      }
+    },
+    {
+      "name": "ig5_comment",
+      "description": "Set a disassembly comment at an address. WRITE OPERATION: gated behind one-time human approval and recorded.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target path previously opened with ig5_open"
+          },
+          "ea": {
+            "type": "string",
+            "description": "Hex address"
+          },
+          "name": {
+            "type": "string",
+            "description": "Function name (alternative to ea)"
+          },
+          "text": {
+            "type": "string",
+            "description": "Comment text"
+          },
+          "repeatable": {
+            "type": "boolean",
+            "description": "Repeatable comment (default false)"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          },
+          "expected_revision": {
+            "type": "number",
+            "description": "Reject this operation if the selected database revision has changed since planning"
+          }
+        },
+        "required": [
+          "target",
+          "text"
+        ]
+      }
+    },
+    {
+      "name": "ig5_calls",
+      "description": "Call graph of a function: callees (who it calls, with reference counts) or callers (who calls it). Read-only; pairs well with ig5_decompile style=llm.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target path previously opened with ig5_open"
+          },
+          "ea": {
+            "type": "string",
+            "description": "Hex address"
+          },
+          "name": {
+            "type": "string",
+            "description": "Function name (alternative to ea)"
+          },
+          "direction": {
+            "type": "string",
+            "description": "\"callees\" (default) or \"callers\""
+          },
+          "limit": {
+            "type": "number",
+            "description": "Max rows (default 30, max 200)"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          }
+        },
+        "required": [
+          "target"
+        ]
+      }
+    },
+    {
+      "name": "ig5_analyze",
+      "description": "Explicit static analysis-engine control: create_function, delete_function, undefine, mark_code, reanalyze. Range analysis does not certify completion of the whole program. WRITE OPERATION: approval-gated and recorded.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target path previously opened with ig5_open"
+          },
+          "action": {
+            "type": "string",
+            "description": "One of: create_function, delete_function, undefine, mark_code, reanalyze"
+          },
+          "ea": {
+            "type": "string",
+            "description": "Hex address"
+          },
+          "end": {
+            "type": "string",
+            "description": "Hex end address (create_function / mark_code ranges)"
+          },
+          "size": {
+            "type": "number",
+            "description": "Byte count (undefine default 16; range fallback 4096)"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          },
+          "expected_revision": {
+            "type": "number",
+            "description": "Reject this operation if the selected database revision has changed since planning"
+          }
+        },
+        "required": [
+          "target",
+          "action"
+        ]
+      }
+    },
+    {
+      "name": "ig5_set_type",
+      "description": "Apply a type to an address/function: either a local-types name (typename) or a C declaration (decl, e.g. \"int check_serial(int a, int b)\"). WRITE OPERATION: approval-gated; uses parse_decl + apply_tinfo.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target path previously opened with ig5_open"
+          },
+          "ea": {
+            "type": "string",
+            "description": "Hex address"
+          },
+          "name": {
+            "type": "string",
+            "description": "Function name (alternative to ea)"
+          },
+          "decl": {
+            "type": "string",
+            "description": "C declaration snippet"
+          },
+          "typename": {
+            "type": "string",
+            "description": "Existing local-type name"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          },
+          "expected_revision": {
+            "type": "number",
+            "description": "Reject this operation if the selected database revision has changed since planning"
+          }
+        },
+        "required": [
+          "target"
+        ]
+      }
+    },
+    {
+      "name": "ig5_bytes",
+      "description": "Read raw bytes currently in the analysis database at an address (static view). Returns hex.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target path previously opened with ig5_open"
+          },
+          "ea": {
+            "type": "string",
+            "description": "Hex address"
+          },
+          "name": {
+            "type": "string",
+            "description": "Function name (alternative to ea)"
+          },
+          "size": {
+            "type": "number",
+            "description": "Byte count (default 64, max 4096)"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          }
+        },
+        "required": [
+          "target"
+        ]
+      }
+    },
+    {
+      "name": "ig5_search",
+      "description": "Byte-pattern search across the analysis database with ?? wildcards, e.g. \"48 8B ?? 90\" or \"637C777B\" for the AES sbox. Returns hit EAs. Read-only.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target path previously opened with ig5_open"
+          },
+          "pattern": {
+            "type": "string",
+            "description": "Hex pattern, space-separated, ?? = wildcard byte"
+          },
+          "start": {
+            "type": "string",
+            "description": "Hex start address (default first segment)"
+          },
+          "end": {
+            "type": "string",
+            "description": "Hex end address"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Max hits (default 30, max 200)"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          }
+        },
+        "required": [
+          "target",
+          "pattern"
+        ]
+      }
+    },
+    {
+      "name": "ig5_listing",
+      "description": "Enumerate static structures: segments, imports, exports (actual export directory, may be partial/unsupported), or entries (analysis entrypoints, NOT exports; may include TLS callbacks and program entry). Preserve source, entryKind and diagnostics. Paged, read-only.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target path previously opened with ig5_open"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "segments",
+              "imports",
+              "exports",
+              "entries"
+            ],
+            "description": "exports is distinct from analysis entries/TLS callbacks"
+          },
+          "offset": {
+            "type": "number",
+            "description": "Skip first N rows"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Max rows (default 100, max 500)"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          }
+        },
+        "required": [
+          "target",
+          "kind"
+        ]
+      }
+    },
+    {
+      "name": "ig5_undo",
+      "description": "Roll back the most recent IG5 write operation via the in-worker operation journal (bytes/rename/comment/set_type/create_function/delete_function). action=list lists the journal without undoing. WRITE OPERATION: approval-gated.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target path previously opened with ig5_open"
+          },
+          "action": {
+            "type": "string",
+            "description": "\"list\" to inspect the journal (default: undo one step)"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          },
+          "expected_revision": {
+            "type": "number",
+            "description": "Reject this operation if the selected database revision has changed since planning"
+          }
+        },
+        "required": [
+          "target"
+        ]
+      }
+    },
+    {
+      "name": "ig5_scan",
+      "description": "Bounded static sweep in Reverse/Ghidra: AES, MD5/shared initial-state, SHA-256/SHA-512 and CRC constants; communication/crypto imports; sampled segment entropy and string families. Returns addresses, evidence, coverage and truncation. Hits and high entropy are clues, not proof of an algorithm or encryption. Read-only.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target path previously opened with ig5_open"
+          },
+          "max_bytes": {
+            "type": "number",
+            "description": "Global sampled bytes: default 8 MiB, maximum 64 MiB"
+          },
+          "max_segment_bytes": {
+            "type": "number",
+            "description": "Per-segment sampled bytes: default 1 MiB, maximum 16 MiB"
+          },
+          "max_matches": {
+            "type": "number"
+          },
+          "max_imports": {
+            "type": "number"
+          },
+          "max_strings": {
+            "type": "number"
+          },
+          "max_segments": {
+            "type": "number"
+          },
+          "max_api_matches": {
+            "type": "number"
+          },
+          "max_string_chars": {
+            "type": "number"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          }
+        },
+        "required": [
+          "target"
+        ]
+      }
+    },
+    {
+      "name": "ig5_run_idapython",
+      "description": "Execute approved Python in the selected analysis worker and capture bounded stdout. The bundled core exposes currentProgram, flat_api and a documented common legacy Reverse Python API subset; unavailable APIs fail explicitly. Database writes use one transaction with session Undo; external Python effects are not reversible. This is not a sandbox. Hanging scripts are stopped with their owned worker by the RPC timeout.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target path previously opened with ig5_open"
+          },
+          "code": {
+            "type": "string",
+            "description": "Python source; bundled core: Ghidra FlatProgramAPI/currentProgram or documented legacy Reverse API subset, max 64 KiB"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          },
+          "expected_revision": {
+            "type": "number",
+            "description": "Reject this operation if the selected database revision has changed since planning"
+          }
+        },
+        "required": [
+          "target",
+          "code"
+        ]
+      }
+    },
+    {
+      "name": "ig5_dbg",
+      "description": "Debug lane using bundled x64dbg by default. Optional paired VMCI guest execution requires backend=x64dbg plus an explicitly inspected guest_profile and guest_binding_sha256 on every call; targets must match its pre-provisioned catalog. op=recover queries the original authenticated terminal cleanup receipt after disconnect, without executing a target: send only target/op/backend/guest_profile/guest_binding_sha256 and optional engine/control; omit timeout and expected_run_id/expected_stop_seq. No matching retained execution is not cleanup proof. Host/bridge exit alone cannot release guest custody. Optional win32/Bochs require the commercial Reverse provider. Approval-gated; start executes the debuggee. Runtime addresses must not be confused with static database addresses.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target path previously opened with ig5_open"
+          },
+          "op": {
+            "type": "string",
+            "description": "load | start | bpt | unbpt | regs | setreg | threads | callstack | modules | state | event | step | stepover | trace | cont | suspend | readmem | writemem | stop | recover"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "software",
+              "hardware"
+            ],
+            "default": "software",
+            "description": "Breakpoint kind for bpt/unbpt"
+          },
+          "access": {
+            "type": "string",
+            "enum": [
+              "execute",
+              "write",
+              "readwrite"
+            ],
+            "default": "execute",
+            "description": "Hardware breakpoint access"
+          },
+          "backend": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "x64dbg",
+              "bochs",
+              "win32"
+            ],
+            "description": "Explicit debugger selection; auto resumes the selected debugger, otherwise uses the configured default (bundled x64dbg). bochs/win32 require the commercial Reverse provider."
+          },
+          "guest_profile": {
+            "type": "string",
+            "description": "Configured VMCI guest profile alias; requires explicit backend=x64dbg and its inspected binding digest on every guest call"
+          },
+          "guest_binding_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "description": "Exact bindingSha256 returned by ig5_profile guest_debug; fixes guest/catalog/key-reference configuration"
+          },
+          "control": {
+            "type": "string",
+            "enum": [
+              "claim",
+              "takeover",
+              "release"
+            ],
+            "description": "Explicit approval-gated debugger ownership change"
+          },
+          "expected_stop_seq": {
+            "type": "number",
+            "description": "Reject a plan made for a previous debugger pause"
+          },
+          "expected_run_id": {
+            "type": "string"
+          },
+          "reg": {
+            "type": "string",
+            "description": "Register name for setreg"
+          },
+          "value": {
+            "type": "string",
+            "description": "Integer register value for setreg, decimal or hex"
+          },
+          "ea": {
+            "type": "string",
+            "description": "Hex address (bpt/unbpt/readmem/writemem)"
+          },
+          "rva": {
+            "type": "string",
+            "description": "Explicit main-module RVA for x64dbg; mapped against the current loaded module"
+          },
+          "address_space": {
+            "type": "string",
+            "enum": [
+              "runtime",
+              "database",
+              "rva"
+            ],
+            "description": "Explicit address interpretation for x64dbg ea; default runtime"
+          },
+          "max_steps": {
+            "type": "number",
+            "description": "Bounded x64dbg single-step trace budget"
+          },
+          "record_trace": {
+            "type": "boolean",
+            "description": "op=trace only: record actual x64 registers, opcode bytes and memory reads to a hash-bound artifact, max_steps 1..512. Uses approved native single steps; optional explicit ABI widths below enable recoveryArgs."
+          },
+          "record_image": {
+            "type": "boolean",
+            "description": "With record_trace, capture readable main-image pages at the same initial pause, max module 8 MiB. Saves holes and provenance; does not reconstruct imports or patch the original file."
+          },
+          "record_events": {
+            "type": "boolean",
+            "description": "With record_trace, optionally capture bytes at decoded store locations before/after each owned native stop. Shares the original 1 MiB evidence/512 stop/40s budget; preserves unavailable bytes and pause mismatches. Not causal CPU write or VM phase proof. Guest requires an updated verified bundle."
+          },
+          "until": {
+            "type": "string",
+            "description": "Optional trace stop address as an explicit main-module runtime VA, hex"
+          },
+          "interrupt_method": {
+            "type": "string",
+            "enum": [
+              "native-pause",
+              "break-process"
+            ],
+            "description": "op=suspend only. break-process uses the standard Windows breakpoint interrupt on the already debugged process inside our cleanup job; can interrupt blocked system calls. May switch the current thread; refresh regs/threads afterward."
+          },
+          "thread_id": {
+            "type": "number",
+            "description": "op=regs only: read a selected existing owned x64 debuggee thread while the debugger is paused. Returns selectedThreadRegs and readonly selectedThreadDebuggerVisibility; failed NT visibility queries remain null/unknown. Preserves the active debugger thread/cache."
+          },
+          "anti_debug_profile": {
+            "type": "string",
+            "enum": [
+              "none",
+              "scyllahide-thread-context"
+            ],
+            "description": "Explicit x64dbg op=start only. Installs the bundled GPL-3.0 ScyllaHide user-mode context hooks into the owned debuggee after startup pause. Modifies the target environment; records provenance. No drivers or OS security settings changes. Default none."
+          },
+          "exception_disposition": {
+            "type": "string",
+            "enum": [
+              "preserve",
+              "handled"
+            ],
+            "description": "Explicit backend=x64dbg op=cont at an observed exception pause only. handled resumes with DBG_CONTINUE and consumes that exception; preserve keeps the debugger default. Changes exception delivery, requires approval, and records the consumed exception."
+          },
+          "trace_inputs": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "string",
+              "enum": [
+                "dil",
+                "sil",
+                "di",
+                "si",
+                "edi",
+                "esi",
+                "rdi",
+                "rsi",
+                "cl",
+                "dl",
+                "cx",
+                "dx",
+                "ecx",
+                "edx",
+                "rcx",
+                "rdx"
+              ]
+            }
+          },
+          "trace_output": {
+            "type": "string",
+            "enum": [
+              "al",
+              "ax",
+              "eax",
+              "rax"
+            ]
+          },
+          "expected": {
+            "type": "string",
+            "description": "Optional original register or memory value checked before modification"
+          },
+          "size": {
+            "type": "number",
+            "description": "Memory byte count (default 64); hardware bpt size 1|2|4|8, execute requires 1"
+          },
+          "hex": {
+            "type": "string",
+            "description": "Byte payload (writemem)"
+          },
+          "path": {
+            "type": "string",
+            "description": "Debuggee path override (start)"
+          },
+          "timeout": {
+            "type": "number",
+            "description": "Event wait seconds (default 15; start/cont 30; recorded trace 45), max 60. Explicit backend=x64dbg op=cont allows max 120 with bounded RPC cleanup margin; capture/solver budgets remain unchanged."
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          },
+          "expected_revision": {
+            "type": "number",
+            "description": "Reject this operation if the selected database revision has changed since planning"
+          }
+        },
+        "required": [
+          "target",
+          "op"
+        ]
+      }
+    },
+    {
+      "name": "ig5_export_diff",
+      "description": "Export a patched copy and changes report for audited byte regions, reading their current bytes from the open database so undone patches are excluded. Read-only to the analysis database; writes deliverable files.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target path previously opened with ig5_open"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          }
+        },
+        "required": [
+          "target"
+        ]
+      }
+    },
+    {
+      "name": "ig5_struct",
+      "description": "Type system & Struct synthesizer (Local Types / Til). Define C struct declarations, inspect struct fields and offsets, list all user-defined types, or apply struct types to memory addresses. WRITE OPERATION (action=define/apply): approval-gated.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target binary path (omit for active session)"
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "define",
+              "get",
+              "list",
+              "apply"
+            ],
+            "description": "Action to perform: 'define' (compile C struct decl), 'get' (inspect struct fields), 'list' (list local types), 'apply' (apply struct to EA)"
+          },
+          "decl": {
+            "type": "string",
+            "description": "C language struct or typedef declaration (required for action='define'). E.g., 'struct Context { int id; char name[32]; void *buf; };'"
+          },
+          "name": {
+            "type": "string",
+            "description": "Type/struct name (required for action='get' or 'apply')"
+          },
+          "ea": {
+            "type": "string",
+            "description": "Target address (hex string, required for action='apply')"
+          },
+          "filter": {
+            "type": "string",
+            "description": "Filter string for action='list'"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Max results for action='list' (default 100)"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          },
+          "expected_revision": {
+            "type": "number",
+            "description": "Reject this operation if the selected database revision has changed since planning"
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "ig5_cfg",
+      "description": "Control Flow Graph (CFG) extraction. Generates a basic block topology map and standard Mermaid flowchart diagram (flowchart TD) for a function, revealing decision branches, loop cycles, and basic blocks. Read-only.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target binary path (omit for active session)"
+          },
+          "ea": {
+            "type": "string",
+            "description": "Function entry EA (e.g. 0x140001000)"
+          },
+          "name": {
+            "type": "string",
+            "description": "Function name (alternative to ea)"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "ig5_slice",
+      "description": "Inspect decompiler variable metadata and optionally return pseudocode lines matching a variable name. Available metadata and lexical matching depend on the provider. This does not compute microcode slicing, complete def-use dependencies or taint analysis. Read-only.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target binary path (omit for active session)"
+          },
+          "ea": {
+            "type": "string",
+            "description": "Function EA (e.g. 0x140001000)"
+          },
+          "var": {
+            "type": "string",
+            "description": "Optional variable name for provider-specific lexical pseudocode-line filtering; omit to inspect variable metadata."
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          }
+        },
+        "required": [
+          "ea"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "ig5_fingerprint",
+      "description": "Report compiler/ABI information and existing provider function classifications. The bundled core counts external/thunk functions only; this does not identify all static libraries or prove standard-library equivalence. Read-only.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target binary path (omit for active session)"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "ig5_stack",
+      "description": "Read assembly-level stack frame members, stack offsets, arguments, saved registers and return-address regions without depending on decompilation.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Opened target path; omit only when one active target is selected"
+          },
+          "ea": {
+            "type": "string",
+            "description": "Address, for example 0x140001000"
+          },
+          "name": {
+            "type": "string",
+            "description": "Exact function or type name"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum frame fields, default 200"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "ig5_switches",
+      "description": "Recover recognized switch/jump-table metadata, case-value groups, target addresses and default branches. Can enumerate a function or inspect an exact jump address. Read-only.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Opened target path; omit only when one active target is selected"
+          },
+          "ea": {
+            "type": "string",
+            "description": "Address, for example 0x140001000"
+          },
+          "name": {
+            "type": "string",
+            "description": "Exact function or type name"
+          },
+          "exact": {
+            "type": "boolean"
+          },
+          "limit": {
+            "type": "number"
+          },
+          "max_cases": {
+            "type": "number"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "ig5_switch_repair",
+      "description": "Preview or rebuild a switch table from existing metadata or an explicit direct table definition. apply=true changes the analysis database and branch xrefs. Approval-gated; verify every target before applying.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Opened target path; omit only when one active target is selected"
+          },
+          "ea": {
+            "type": "string",
+            "description": "Address, for example 0x140001000"
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "rebuild",
+              "define"
+            ]
+          },
+          "apply": {
+            "type": "boolean"
+          },
+          "table": {
+            "type": "string",
+            "description": "Address, for example 0x140001000"
+          },
+          "ncases": {
+            "type": "number"
+          },
+          "element_size": {
+            "type": "number",
+            "enum": [
+              1,
+              2,
+              4,
+              8
+            ]
+          },
+          "lowcase": {
+            "type": "number"
+          },
+          "default": {
+            "type": "string",
+            "description": "Address, for example 0x140001000"
+          },
+          "relative": {
+            "type": "boolean"
+          },
+          "signed": {
+            "type": "boolean"
+          },
+          "elbase": {
+            "type": "string",
+            "description": "Address, for example 0x140001000"
+          },
+          "shift": {
+            "type": "number"
+          },
+          "create_instructions": {
+            "type": "boolean"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          },
+          "expected_revision": {
+            "type": "number",
+            "description": "Reject this operation if the selected database revision has changed since planning"
+          }
+        },
+        "required": [
+          "ea"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "ig5_vtables",
+      "description": "Inspect MSVC and Itanium virtual tables, RTTI class names and inheritance evidence. Returns virtual slots and a reviewable structure declaration. Given a table EA and byte offset, resolve that explicit virtual slot; register provenance is not inferred.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Opened target path; omit only when one active target is selected"
+          },
+          "ea": {
+            "type": "string",
+            "description": "Address, for example 0x140001000"
+          },
+          "abi": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "msvc",
+              "itanium"
+            ]
+          },
+          "offset": {
+            "type": "number"
+          },
+          "max_slots": {
+            "type": "number"
+          },
+          "limit": {
+            "type": "number"
+          },
+          "max_scan_bytes": {
+            "type": "number"
+          },
+          "max_bases": {
+            "type": "number"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "ig5_microcode",
+      "description": "Inspect native IR/CFG or optimize temporary IR. action=deobfuscate on bundled Reverse/Ghidra performs bounded SSA constants, opaque-predicate proofs, branch and dispatcher evidence, exact local bitwise/linear MBA expression identities, and backward dependency slices for indirect targets. expressionSimplifications prove only local typed expressions; indirectTransfers do not resolve targets or VM handlers. Memory/calls/indirect control remain unresolved. Returns a read-only overlay without rewriting or executing the target. Ghidra actualStage/maturity mapping is explicit; no universal devirtualization or proprietary-stage equivalence claim.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Opened target path; omit only when one active target is selected"
+          },
+          "ea": {
+            "type": "string",
+            "description": "Address, for example 0x140001000"
+          },
+          "name": {
+            "type": "string",
+            "description": "Exact function or type name"
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "inspect",
+              "optimize",
+              "deobfuscate"
+            ]
+          },
+          "maturity": {
+            "type": "string",
+            "enum": [
+              "generated",
+              "preoptimized",
+              "locopt",
+              "calls",
+              "glbopt1",
+              "glbopt2",
+              "glbopt3",
+              "lvars"
+            ],
+            "description": "Legacy compatibility label. Ghidra maps to firstpass, normalize or decompile. Deobfuscate defaults to generated/firstpass native SSA; inspect defaults to glbopt3/decompile. Inspect actualStage; stages are not proprietary equivalents."
+          },
+          "max_blocks": {
+            "type": "number"
+          },
+          "max_instructions": {
+            "type": "number"
+          },
+          "max_steps": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 250000,
+            "description": "Deobfuscation work budget, default 100000; unfinished proofs are withheld."
+          },
+          "max_evidence": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 512,
+            "description": "Maximum entries per deobfuscation evidence category, default 128."
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "xor-self",
+                "sub-self"
+              ]
+            }
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "ig5_bindiff",
+      "description": "Compare two opened binary versions by normalized instructions, CFG neighborhoods, constants and call degree. Return scored function matches and changed basic blocks with ambiguity/truncation evidence. Heuristic patch candidates, not a claim of vulnerability or semantic equivalence. Read-only.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "left": {
+            "type": "string",
+            "description": "Opened target path; omit only when one active target is selected"
+          },
+          "right": {
+            "type": "string",
+            "description": "Opened target path; omit only when one active target is selected"
+          },
+          "filter": {
+            "type": "string"
+          },
+          "user_only": {
+            "type": "boolean"
+          },
+          "limit_functions": {
+            "type": "number",
+            "description": "Max functions per side, default 500, max 2000"
+          },
+          "threshold": {
+            "type": "number"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum returned matches and changes, default 100"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          }
+        },
+        "required": [
+          "left",
+          "right"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "ig5_emulate",
+      "description": "Isolated x86/x64 or ARM64 function CPU emulation from a provider-supplied MemoryImage. Supported target architectures depend on the active provider and host runtime. Provide integer arguments, registers and memory buffers; capture return values and memory. No native process or OS/import emulation. Approval-gated; bounded time/instruction/memory budgets.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Opened target path; omit only when one active target is selected"
+          },
+          "ea": {
+            "type": "string",
+            "description": "Address, for example 0x140001000"
+          },
+          "name": {
+            "type": "string",
+            "description": "Exact function or type name"
+          },
+          "abi": {
+            "type": "string",
+            "enum": [
+              "win64",
+              "sysv64",
+              "cdecl",
+              "stdcall",
+              "aapcs64"
+            ]
+          },
+          "args": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Integer arguments encoded as decimal or hex strings"
+          },
+          "registers": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "memory": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "ea": {
+                  "type": "string",
+                  "description": "Address, for example 0x140001000"
+                },
+                "hex": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "ea",
+                "hex"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "capture": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "ea": {
+                  "type": "string",
+                  "description": "Address, for example 0x140001000"
+                },
+                "size": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "ea"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "max_instructions": {
+            "type": "number"
+          },
+          "timeout_ms": {
+            "type": "number"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          },
+          "expected_revision": {
+            "type": "number",
+            "description": "Reject this operation if the selected database revision has changed since planning"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "ig5_ir",
+      "description": "level=discover generates bounded candidate addresses from a preferred entry ea using pinned disassembly only (max_instructions1..128; default128). Optional follow_direct_calls=true follows canonical E8 callee entry, never a return/ABI summary. Pass returned candidatePath to explicit Java project; semantic/flags refusals stay unchanged. It does not execute the target. Inspect Ghidra raw/high p-code in the bundled Reverse or Ghidra database. For raw/high call with target, ea, level and optional max_instructions/max_blocks; omit action and all kernel-only parameters. Example: {target,ea,level:\"raw\",max_instructions:256}. level=kernel uses owned PE/ELF loading and native C decompilation. level=trace recovers input/output expressions from recorded x86-64 VM traces with Triton in an isolated worker, without launching the binary or opening a database. Requires explicit trace files/hashes, entry/exit, input/output registers and initial_flags; omit action. Explicit trace_image_only=true with trace_target_sha256 and native image reports permits offline replay without reading the original file; original-file comparisons remain unavailable. Trace proofs cover recorded windows/environment, not whole-binary coverage or function return completion. level=lift uses the pinned experimental open-source Mergen backend to lift raw-file AMD64 PE32+ functions to LLVM IR. Requires target, preferred ea and explicit initial_flags low12 bits, optional lift_inline/max_blocks (1..4096; default 512). No action/max_instructions/database/trace parameters. Target never executes. IR, diagnostics and immutable report refs are returned; all lifts remain partial/unverified and never count as business recovery. Read-only and bounded.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string"
+          },
+          "ea": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "level": {
+            "type": "string",
+            "enum": [
+              "raw",
+              "high",
+              "kernel",
+              "trace",
+              "lift",
+              "project",
+              "compose",
+              "discover"
+            ],
+            "description": "discover: bounded raw-file AMD64 candidate path from ea, optional max_instructions1..128(default128), no other parameters. Follows fallthrough/canonical direct JMP; optional follow_direct_calls=true follows canonical E8 callee. RET always stops without a return/ABI summary; other control/cycle/overlap/budget/unmapped boundaries stop. No target execution or semantics proof. Submit its candidatePath to project with explicit java decoder; original flags/control refusals remain. project interprets a fixed path. compose combines closed all16-GPR/memory templates, finite constant-condition loops and explicitly guarded indirect targets. Existing process/memory/DAG budgets unchanged; no independent equivalence, reachability or full recovery claim."
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "info",
+              "analyze",
+              "vtables",
+              "decompile"
+            ],
+            "description": "Only level=kernel accepts action. Omit entirely for other levels."
+          },
+          "follow_direct_calls": {
+            "type": "boolean",
+            "description": "discover only, default false. Explicit true follows only byte-bound unprefixed E8 rel32 to its callee entry; RET still stops. No execution, call-return, ABI or stack summary. Same128-instruction budget."
+          },
+          "composition_plan": {
+            "type": "object",
+            "description": "compose only. sequence requires paths; constant-loop requires prefix, body and suffix. Each template is a strict explicit preferred-address path with unique addresses; repeats between applications allowed. Each template must close its own flags and retain all16 GPRs. No observations, certificates or supplied summaries. At most128 distinct instructions,1024 provided occurrences,64 actual applications,1024 logical instructions/1024 accessed bytes; inference attempts separately bounded. Unknown/nonterminating loops reject; a chosen indirect target is only a guard.",
+            "properties": {
+              "strategy": {
+                "type": "string",
+                "enum": [
+                  "sequence",
+                  "constant-loop"
+                ]
+              },
+              "representation": {
+                "type": "string",
+                "enum": [
+                  "flat",
+                  "transition-chain"
+                ],
+                "description": "Default flat preserves the original depth128 refusal. Explicit transition-chain supports sequence only: exact state-binding equalities carry all16 GPRs, memory and guards between bounded local expressions. Binding sources must be resolved; retained depth and expanded dependency depth are reported separately. Same node/reference/work/process budgets; no loop inference or reachability proof."
+              },
+              "template_mode": {
+                "type": "string",
+                "enum": [
+                  "strict",
+                  "opaque-effects",
+                  "opaque-status"
+                ],
+                "description": "Default strict. Explicit opaque-effects or opaque-status requires sequence with representation=transition-chain and an independent schema. Byte-bound PUSHFQ/RDTSC/canonical16-bit BSWAP models use fresh unknowns per application. opaque-status preserves within-template defined/modeled status-bit correlations in stored flag images; per-layer flagImages reference actual STORE values, all unknown/AF bits remain free. Each template must close its own status dependencies; CPU flags are not supplied/exported across templates. All raw work, ordered writes, guards and existing budgets retained; normalization shares4096 visits."
+              },
+              "paths": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 64,
+                "items": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 128,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-fA-F]{1,16}$"
+                  }
+                }
+              },
+              "prefix": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 128,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-fA-F]{1,16}$"
+                }
+              },
+              "body": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 128,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-fA-F]{1,16}$"
+                }
+              },
+              "suffix": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 63,
+                "items": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 128,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-fA-F]{1,16}$"
+                  }
+                }
+              },
+              "indirect_mode": {
+                "type": "string",
+                "enum": [
+                  "reject",
+                  "guarded-target"
+                ],
+                "description": "Default reject. guarded-target retains actual-target==next-entry as continuation guard and the complementary dynamic exit with post-control state, including RET stack changes. Does not discover or prove reachability of targets."
+              }
+            },
+            "required": [
+              "strategy"
+            ],
+            "additionalProperties": false
+          },
+          "composition_plan_ref": {
+            "type": "object",
+            "description": "compose only, exclusive with composition_plan. Read an existing regular UTF-8 JSON address plan (at most65536 bytes) by absolute path and expected SHA-256. Same plan validator and budgets; never executes the file. Prefer this for long/repeated arrays instead of transcribing them. Response/report binds the original blob, normalized plan digest and exact counts; errors after worker submission include the verified digest and counts.",
+            "properties": {
+              "path": {
+                "type": "string",
+                "maxLength": 4096
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              }
+            },
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "additionalProperties": false
+          },
+          "projection_mode": {
+            "type": "string",
+            "enum": [
+              "strict",
+              "guarded-path",
+              "opaque-effects",
+              "opaque-status"
+            ],
+            "description": "project only; strict is default. guarded-path retains conditional guards and side exits. opaque-effects uses fresh unknown values for byte-bound PUSHFQ/RDTSC/undefined16-bit BSWAP. Explicit opaque-status additionally overlays only status bits with prior classified modeled definitions onto the PUSHFQ unknown image; initial/undefined/unmodeled flags including unmodeled AF remain unknown. Preserves ordered STOREs/aliases and original budgets; separate schema, no independent CPU/business proof. Project modes cannot be combined. Compose selects its explicit template_mode separately."
+          },
+          "projection_decoder": {
+            "type": "string",
+            "enum": [
+              "native",
+              "java"
+            ],
+            "description": "project/compose only. native is the existing default. Explicit java uses the pinned official Ghidra Java SLEIGH API, without the IG5 native decode DLL or a database. Both decode and state computation share the original deadline and owned-process limits; full raw instruction semantics and byte provenance remain checked. No target execution, automatic security-policy changes or business-equivalence claim."
+          },
+          "projection_path": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 128,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^0x[0-9a-fA-F]{1,16}$"
+            },
+            "description": "project only: exact preferred instruction VAs in execution order. Contiguous fallthrough/direct jumps and byte-bound unprefixed E8 near CALLs checked (including canonical rel0 complete RSP-8/STORE/BRANCH-next shape, original raw retained); next address after CALL must be the callee entry, never a guessed call-return/ABI summary. Stack writes retained. strict: conditional/indirect/return only at the end. guarded-path: intermediate conditional next addresses must match exactly one successor. Repeated addresses, middle indirect control and unknown internal loops rejected; only complete bounded dead-frame register BSR/BSF internal shapes may be elided."
+          },
+          "projection_registers": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 16,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": [
+                "rax",
+                "rcx",
+                "rdx",
+                "rbx",
+                "rsp",
+                "rbp",
+                "rsi",
+                "rdi",
+                "r8",
+                "r9",
+                "r10",
+                "r11",
+                "r12",
+                "r13",
+                "r14",
+                "r15"
+              ]
+            },
+            "description": "project only: final full-width GPRs to retain. Initial GPRs and coherent byte memory are free; all stores and final control are retained. No initial observed values or flags substitution."
+          },
+          "lift_inline": {
+            "type": "array",
+            "maxItems": 16,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^0x[0-9a-fA-F]{1,16}$"
+            },
+            "description": "level=lift only: explicit preferred main-image file-backed addresses to inline. No guessed or blanket inlining."
+          },
+          "traces": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 2,
+            "items": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                },
+                "sha256": {
+                  "type": "string"
+                },
+                "trace_image": {
+                  "type": "object",
+                  "description": "Optional per-path record_image report; independent runs require their own snapshots. Exclusive with shared trace_image.",
+                  "properties": {
+                    "report_path": {
+                      "type": "string"
+                    },
+                    "report_sha256": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "report_path",
+                    "report_sha256"
+                  ],
+                  "additionalProperties": false
+                },
+                "recording": {
+                  "type": "object",
+                  "description": "Optional per-path recorded addresses and EFLAGS for independent ASLR runs; all four fields required together. Overrides shared recording defaults, never argument symbols.",
+                  "properties": {
+                    "entry": {
+                      "type": "string"
+                    },
+                    "exit": {
+                      "type": "string"
+                    },
+                    "runtimeBase": {
+                      "type": "string"
+                    },
+                    "initialFlags": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "entry",
+                    "exit",
+                    "runtimeBase",
+                    "initialFlags"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "path",
+                "sha256"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "trace_chunk_reports": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 256,
+            "items": {
+              "type": "string"
+            },
+            "description": "Consecutive ig5_dbg record_trace report UUIDs for one recorded path; exclusive with traces. Total 4 MiB; default 50k instructions, explicit max_instructions up to 100k. Checks saved hashes, process/thread, GPR/flags/RIP and pause continuation."
+          },
+          "trace_entry": {
+            "type": "string",
+            "description": "Recorded first instruction VA, hex"
+          },
+          "trace_exit": {
+            "type": "string",
+            "description": "Recorded last instruction VA, hex; explicitly includes/excludes RET"
+          },
+          "trace_image": {
+            "type": "object",
+            "description": "Optional immutable ig5_dbg record_image reference for packed/decrypted main-image code. Preserves sparse holes and original-file mismatches.",
+            "properties": {
+              "report_path": {
+                "type": "string"
+              },
+              "report_sha256": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "report_path",
+              "report_sha256"
+            ],
+            "additionalProperties": false
+          },
+          "trace_image_only": {
+            "type": "boolean",
+            "description": "Explicit offline recording-only mode. Every path requires a hash-bound native record_image report, plus trace_target_sha256. target must match its recorded absolute path label; the original file is never read or restored. Original-file comparisons remain unavailable. Default false retains original-file verification."
+          },
+          "trace_target_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "description": "Expected original target identity as recorded at capture; required only with trace_image_only=true. Not a fresh original-file verification."
+          },
+          "trace_inputs": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "string",
+              "enum": [
+                "dil",
+                "sil",
+                "di",
+                "si",
+                "edi",
+                "esi",
+                "rdi",
+                "rsi",
+                "cl",
+                "dl",
+                "cx",
+                "dx",
+                "ecx",
+                "edx",
+                "rcx",
+                "rdx"
+              ]
+            },
+            "description": "Explicit equal-width x/y pair: RDI/RSI (SysV) or RCX/RDX (Win64), including named low parts"
+          },
+          "trace_runtime_base": {
+            "type": "string",
+            "description": "Optional explicit loaded main-image base, hex; recorded runtime VAs bind to target RVAs. Does not apply relocations or model other modules."
+          },
+          "trace_output": {
+            "type": "string",
+            "enum": [
+              "al",
+              "ax",
+              "eax",
+              "rax"
+            ]
+          },
+          "initial_flags": {
+            "type": "string",
+            "description": "Required explicit flags assumption, hex. Trace: recorded EFLAGS. Lift: modeled low12 bits 0x0..0xfff, not native-capture binding or complete architectural flags."
+          },
+          "optimize": {
+            "type": "boolean",
+            "description": "Kernel-only local width-aware constant folding; does not modify target bytes"
+          },
+          "max_code_bytes": {
+            "type": "number"
+          },
+          "abi": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "msvc",
+              "itanium"
+            ]
+          },
+          "offset": {
+            "type": "number"
+          },
+          "max_slots": {
+            "type": "number"
+          },
+          "max_bases": {
+            "type": "number"
+          },
+          "max_scan_bytes": {
+            "type": "number"
+          },
+          "limit": {
+            "type": "number"
+          },
+          "max_blocks": {
+            "type": "number",
+            "description": "Bounded block budget where supported"
+          },
+          "max_instructions": {
+            "type": "number",
+            "description": "Discover default128, range1..128, no larger path budget. Also supported for raw/high p-code and kernel analysis. Trace default 50000 per path; explicit long-recording budget 1..100000, without increasing file, solver or deadline limits."
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          }
+        },
+        "required": [
+          "target"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "ig5_sync",
+      "description": "Preview or apply an explicit one-way changeset between two opened databases for the SAME binary hash. Copies selected names, EOL comments or bounded bytes by RVA. Preview includes before/after evidence and a digest. Apply requires that digest, rechecks hash, database revisions and current values, and remains approval-gated. Partial failures report applied rows; there is no cross-engine atomic Undo.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "preview",
+              "apply"
+            ]
+          },
+          "target": {
+            "type": "string"
+          },
+          "source_engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ]
+          },
+          "destination_engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ]
+          },
+          "selections": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "rename",
+                    "comment",
+                    "patch"
+                  ]
+                },
+                "rva": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "kind",
+                "rva"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "plan_id": {
+            "type": "string"
+          },
+          "plan_digest": {
+            "type": "string"
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Explicit backend. Omit to use the configured primary static engine; results identify their source."
+          }
+        },
+        "required": [
+          "action",
+          "target"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "ig5_crypto",
+      "description": "Inspect, decrypt XOR/AES-CBC/CTR/GCM, decompress or verify bounded bytes. action=recover searches bounded single/repeating XOR keys and validates supplied/extracted AES candidates; it does not exhaust strong AES key spaces. Candidate keys are sensitive SHA-256 refs; transform recipe.key_ref reuses a complete recover candidate without exposing key bytes. Producer-marked sensitive refs are rejected as ordinary input; unbound refs/local files keep raw access and are not a secret access-control boundary. Explicit expected or GCM authentication distinguishes verified plaintext from statistical guesses. No sample execution or database write. action=result reads a prior report.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "input": {
+            "type": "object",
+            "properties": {
+              "encoding": {
+                "type": "string",
+                "enum": [
+                  "hex",
+                  "base64"
+                ]
+              },
+              "data": {
+                "type": "string"
+              },
+              "ref": {
+                "type": "string",
+                "description": "sha256: analysis blob reference; avoids resending large buffers. Producer-marked sensitive keys are only accepted as controlled recovery.key_source or recipe.key_ref. Unbound refs retain explicit raw data reads."
+              },
+              "result_id": {
+                "type": "string",
+                "description": "For ref input, explicit producer report ID to preserve provenance; never inferred from a shared hash"
+              },
+              "path": {
+                "type": "string",
+                "description": "Explicit local regular input file; read only with a byte budget"
+              },
+              "source": {
+                "type": "object",
+                "properties": {
+                  "target": {
+                    "type": "string"
+                  },
+                  "engine": {
+                    "type": "string",
+                    "enum": [
+                      "reverse",
+                      "ghidra"
+                    ]
+                  },
+                  "ea": {
+                    "type": "string"
+                  },
+                  "size": {
+                    "type": "number"
+                  },
+                  "expected_revision": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "target",
+                  "ea",
+                  "size"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "target": {
+            "type": "string",
+            "description": "Optional result association only; no open session needed for file/ref/inline input"
+          },
+          "result_id": {
+            "type": "string"
+          },
+          "select": {
+            "type": "string",
+            "description": "For action=result, optional bounded dot path such as flows.0"
+          },
+          "preview_limit": {
+            "type": "number"
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "inspect",
+              "transform",
+              "recover",
+              "verify",
+              "result"
+            ]
+          },
+          "offset": {
+            "type": "number"
+          },
+          "length": {
+            "type": "number"
+          },
+          "output_limit": {
+            "type": "number"
+          },
+          "expected": {
+            "type": "object",
+            "properties": {
+              "encoding": {
+                "type": "string",
+                "enum": [
+                  "hex",
+                  "base64"
+                ]
+              },
+              "data": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "encoding",
+              "data"
+            ],
+            "additionalProperties": false
+          },
+          "recovery": {
+            "type": "object",
+            "properties": {
+              "method": {
+                "type": "string",
+                "enum": [
+                  "auto",
+                  "xor-single",
+                  "xor-repeat",
+                  "aes-candidates"
+                ]
+              },
+              "max_key_bytes": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 32
+              },
+              "max_candidates": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 8
+              },
+              "max_trials": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4096
+              },
+              "sample_bytes": {
+                "type": "integer",
+                "minimum": 256,
+                "maximum": 65536
+              },
+              "max_work_bytes": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 67108864
+              },
+              "material_stride": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 32
+              },
+              "key_lengths": {
+                "type": "array",
+                "maxItems": 32,
+                "items": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 32
+                }
+              },
+              "key_candidates": {
+                "type": "array",
+                "maxItems": 256,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "encoding": {
+                      "type": "string",
+                      "enum": [
+                        "hex",
+                        "base64"
+                      ]
+                    },
+                    "data": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "encoding",
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "key_material": {
+                "type": "object",
+                "properties": {
+                  "encoding": {
+                    "type": "string",
+                    "enum": [
+                      "hex",
+                      "base64"
+                    ]
+                  },
+                  "data": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "encoding",
+                  "data"
+                ],
+                "additionalProperties": false
+              },
+              "key_source": {
+                "type": "object",
+                "properties": {
+                  "encoding": {
+                    "type": "string",
+                    "enum": [
+                      "hex",
+                      "base64"
+                    ]
+                  },
+                  "data": {
+                    "type": "string"
+                  },
+                  "ref": {
+                    "type": "string",
+                    "description": "sha256: analysis blob reference; avoids resending large buffers. Producer-marked sensitive keys are only accepted as controlled recovery.key_source or recipe.key_ref. Unbound refs retain explicit raw data reads."
+                  },
+                  "result_id": {
+                    "type": "string",
+                    "description": "For ref input, explicit producer report ID to preserve provenance; never inferred from a shared hash"
+                  },
+                  "path": {
+                    "type": "string",
+                    "description": "Explicit local regular input file; read only with a byte budget"
+                  },
+                  "source": {
+                    "type": "object",
+                    "properties": {
+                      "target": {
+                        "type": "string"
+                      },
+                      "engine": {
+                        "type": "string",
+                        "enum": [
+                          "reverse",
+                          "ghidra"
+                        ]
+                      },
+                      "ea": {
+                        "type": "string"
+                      },
+                      "size": {
+                        "type": "number"
+                      },
+                      "expected_revision": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "target",
+                      "ea",
+                      "size"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [],
+                "additionalProperties": false,
+                "description": "Explicit bounded key-material input, up to 64 KiB. Bound producer/static inputs must match the ciphertext target, engine and sample identity. Material bytes are not saved in reports."
+              },
+              "known_plaintext": {
+                "type": "array",
+                "maxItems": 16,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "offset": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "encoding": {
+                      "type": "string",
+                      "enum": [
+                        "hex",
+                        "base64"
+                      ]
+                    },
+                    "data": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "offset",
+                    "encoding",
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "aes": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "aes-cbc",
+                      "aes-ctr",
+                      "aes-gcm"
+                    ]
+                  },
+                  "iv": {
+                    "type": "object",
+                    "properties": {
+                      "encoding": {
+                        "type": "string",
+                        "enum": [
+                          "hex",
+                          "base64"
+                        ]
+                      },
+                      "data": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "encoding",
+                      "data"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "tag": {
+                    "type": "object",
+                    "properties": {
+                      "encoding": {
+                        "type": "string",
+                        "enum": [
+                          "hex",
+                          "base64"
+                        ]
+                      },
+                      "data": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "encoding",
+                      "data"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "aad": {
+                    "type": "object",
+                    "properties": {
+                      "encoding": {
+                        "type": "string",
+                        "enum": [
+                          "hex",
+                          "base64"
+                        ]
+                      },
+                      "data": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "encoding",
+                      "data"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "padding": {
+                    "type": "string",
+                    "enum": [
+                      "none",
+                      "pkcs7"
+                    ]
+                  }
+                },
+                "required": [
+                  "kind",
+                  "iv"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "recipe": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "xor",
+                  "aes-cbc",
+                  "aes-ctr",
+                  "aes-gcm",
+                  "gzip",
+                  "zlib"
+                ]
+              },
+              "key": {
+                "type": "object",
+                "properties": {
+                  "encoding": {
+                    "type": "string",
+                    "enum": [
+                      "hex",
+                      "base64"
+                    ]
+                  },
+                  "data": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "encoding",
+                  "data"
+                ],
+                "additionalProperties": false
+              },
+              "key_ref": {
+                "type": "object",
+                "properties": {
+                  "ref": {
+                    "type": "string"
+                  },
+                  "result_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "ref",
+                  "result_id"
+                ],
+                "additionalProperties": false
+              },
+              "iv": {
+                "type": "object",
+                "properties": {
+                  "encoding": {
+                    "type": "string",
+                    "enum": [
+                      "hex",
+                      "base64"
+                    ]
+                  },
+                  "data": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "encoding",
+                  "data"
+                ],
+                "additionalProperties": false
+              },
+              "tag": {
+                "type": "object",
+                "properties": {
+                  "encoding": {
+                    "type": "string",
+                    "enum": [
+                      "hex",
+                      "base64"
+                    ]
+                  },
+                  "data": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "encoding",
+                  "data"
+                ],
+                "additionalProperties": false
+              },
+              "aad": {
+                "type": "object",
+                "properties": {
+                  "encoding": {
+                    "type": "string",
+                    "enum": [
+                      "hex",
+                      "base64"
+                    ]
+                  },
+                  "data": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "encoding",
+                  "data"
+                ],
+                "additionalProperties": false
+              },
+              "padding": {
+                "type": "string",
+                "enum": [
+                  "none",
+                  "pkcs7"
+                ]
+              },
+              "key_offset": {
+                "type": "number",
+                "description": "Explicit repeating XOR key start offset"
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Optional result association or static source backend; standalone byte/file/ref analysis does not require an engine."
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "ig5_protocol",
+      "description": "Inspect bytes, parse PCAP/PCAPNG, reassemble directions, decode schemas or infer bounded framing/field hypotheses. state_infer consumes a <=1 MiB JSON manifest {version:1,traces:[{id,start:\"session-start\"|\"unknown\",complete:boolean,events:[{direction:\"client_to_server\"|\"server_to_client\",symbol,sourceId?,complete?}]}],holdout?:[]} through the existing input path/ref/bytes. It builds an observed prefix tree and optional future-equivalence merge hypothesis. state_validate replays new manifest.traces against state_model.result_id; reports accepted/rejected/unknown, overlap and counterexamples separately from training. Explicit session boundaries are required; TCP does not establish them. Models do not prove hidden server state, semantic meanings or complete protocol behavior. No network sends or sample execution. action=result reads a saved report; use select=state.holdout or state.observedModel.states.0 for bounded detail.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "input": {
+            "type": "object",
+            "properties": {
+              "encoding": {
+                "type": "string",
+                "enum": [
+                  "hex",
+                  "base64"
+                ]
+              },
+              "data": {
+                "type": "string"
+              },
+              "ref": {
+                "type": "string",
+                "description": "sha256: analysis blob reference; avoids resending large buffers. Producer-marked sensitive keys are only accepted as controlled recovery.key_source or recipe.key_ref. Unbound refs retain explicit raw data reads."
+              },
+              "result_id": {
+                "type": "string",
+                "description": "For ref input, explicit producer report ID to preserve provenance; never inferred from a shared hash"
+              },
+              "path": {
+                "type": "string",
+                "description": "Explicit local regular input file; read only with a byte budget"
+              },
+              "source": {
+                "type": "object",
+                "properties": {
+                  "target": {
+                    "type": "string"
+                  },
+                  "engine": {
+                    "type": "string",
+                    "enum": [
+                      "reverse",
+                      "ghidra"
+                    ]
+                  },
+                  "ea": {
+                    "type": "string"
+                  },
+                  "size": {
+                    "type": "number"
+                  },
+                  "expected_revision": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "target",
+                  "ea",
+                  "size"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "target": {
+            "type": "string",
+            "description": "Optional result association only; no open session needed for file/ref/inline input"
+          },
+          "result_id": {
+            "type": "string"
+          },
+          "select": {
+            "type": "string",
+            "description": "For action=result, optional bounded dot path such as flows.0"
+          },
+          "preview_limit": {
+            "type": "number"
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "inspect",
+              "capture",
+              "decode",
+              "infer",
+              "state_infer",
+              "state_validate",
+              "result"
+            ]
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Relative input-byte offset; capture the bounded full source first, then select this range. Useful with infer candidate.decodeInput.startOffset."
+          },
+          "length": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Selected byte length; preserve skipped prefix/tail in the source reference. Useful with infer candidate.decodeInput.byteLength."
+          },
+          "max_packets": {
+            "type": "number"
+          },
+          "max_frames": {
+            "type": "number"
+          },
+          "max_reassembly_bytes": {
+            "type": "number"
+          },
+          "inference": {
+            "type": "object",
+            "properties": {
+              "format": {
+                "type": "string",
+                "enum": [
+                  "auto",
+                  "stream",
+                  "messages",
+                  "capture"
+                ]
+              },
+              "boundary": {
+                "type": "string",
+                "enum": [
+                  "unknown",
+                  "message-start"
+                ]
+              },
+              "samples": {
+                "type": "array",
+                "maxItems": 64,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "encoding": {
+                      "type": "string",
+                      "enum": [
+                        "hex",
+                        "base64"
+                      ]
+                    },
+                    "data": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "encoding",
+                    "data"
+                  ],
+                  "additionalProperties": false
+                },
+                "description": "When present, these are the training messages; the primary input is retained as provenance rather than added to training."
+              },
+              "holdout_samples": {
+                "type": "array",
+                "maxItems": 64,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "encoding": {
+                      "type": "string",
+                      "enum": [
+                        "hex",
+                        "base64"
+                      ]
+                    },
+                    "data": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "encoding",
+                    "data"
+                  ],
+                  "additionalProperties": false
+                },
+                "description": "Independent validation messages; train and holdout combined are limited to 64 samples and 1 MiB."
+              },
+              "min_frames": {
+                "type": "integer",
+                "minimum": 3,
+                "maximum": 64
+              },
+              "max_candidates": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 8
+              },
+              "max_scan_bytes": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 262144
+              },
+              "max_work": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 2000000
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "state_model": {
+            "type": "object",
+            "properties": {
+              "result_id": {
+                "type": "string",
+                "description": "For state_validate, saved state_infer producer report; reconstruction verifies the full model digest, never a truncated UI preview."
+              },
+              "model": {
+                "type": "string",
+                "enum": [
+                  "prefix-tree",
+                  "merged-hypothesis"
+                ]
+              },
+              "merge": {
+                "type": "string",
+                "enum": [
+                  "none",
+                  "future-equivalent"
+                ]
+              },
+              "merge_depth": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 3
+              },
+              "max_traces": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 256
+              },
+              "max_events": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 8192
+              },
+              "max_states": {
+                "type": "integer",
+                "minimum": 2,
+                "maximum": 4096
+              },
+              "max_work": {
+                "type": "integer",
+                "minimum": 100,
+                "maximum": 2000000
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "schema": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "fields": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "offset": {
+                      "type": "number"
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "u8",
+                        "u16",
+                        "u32",
+                        "u64",
+                        "i8",
+                        "i16",
+                        "i32",
+                        "i64",
+                        "bytes",
+                        "utf8",
+                        "varint"
+                      ]
+                    },
+                    "length": {
+                      "type": "number"
+                    },
+                    "endian": {
+                      "type": "string",
+                      "enum": [
+                        "little",
+                        "big"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "offset",
+                    "type"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "fields"
+            ],
+            "additionalProperties": false
+          },
+          "framing": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "fixed",
+                  "length-prefix",
+                  "delimiter",
+                  "varint-prefix",
+                  "tlv"
+                ]
+              },
+              "delimiterHex": {
+                "type": "string",
+                "enum": [
+                  "0a",
+                  "0d0a"
+                ]
+              },
+              "includeDelimiter": {
+                "type": "boolean"
+              },
+              "length": {
+                "type": "number"
+              },
+              "offset": {
+                "type": "number"
+              },
+              "size": {
+                "type": "number",
+                "enum": [
+                  1,
+                  2,
+                  4
+                ]
+              },
+              "maxBytes": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 5
+              },
+              "headerBytesAfterLength": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4096
+              },
+              "typeSize": {
+                "type": "integer",
+                "enum": [
+                  1,
+                  2
+                ]
+              },
+              "lengthSize": {
+                "type": "integer",
+                "enum": [
+                  1,
+                  2,
+                  4
+                ]
+              },
+              "endian": {
+                "type": "string",
+                "enum": [
+                  "little",
+                  "big"
+                ]
+              },
+              "headerLength": {
+                "type": "number"
+              },
+              "lengthIncludesHeader": {
+                "type": "boolean"
+              },
+              "adjustment": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "additionalProperties": false
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "reverse",
+              "ghidra"
+            ],
+            "description": "Optional result association or static source backend; standalone byte/file/ref analysis does not require an engine."
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "ig5_capture",
+      "description": "Read independent proxy history and saved HTTP/HTTPS/WS/WSS evidence; never start a listener or send requests. get redacts common headers/query values; bodies are untrusted. export returns exact captured bytes as SHA refs. inspect_payload classifies bounded headers/text; materialize saves complete unencoded bytes under a fixed SHA path without executing/opening an engine. state_trace builds an authenticated trace manifest from caller-selected ordered complete HTTP exchanges, with explicit application-session boundaries, direction, source hashes and separate holdout. Default event symbols are request method/path hash and response status; optional body-field selects 1..8 bytes. Pass returned input unchanged to ig5_protocol state_infer/state_validate. review makes passive observations, not exploit verification. Unseen server code and protocol semantics are not inferred. Use approved ig5_capture_control for start/stop/replay.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "status",
+              "list",
+              "get",
+              "export",
+              "review",
+              "inspect_payload",
+              "materialize",
+              "state_trace"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "Persistent capture report UUID returned by list/get"
+          },
+          "session_id": {
+            "type": "string",
+            "description": "Capture session UUID; required for replay and recommended for stop/get/export"
+          },
+          "traces": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 32,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "maxLength": 64
+                },
+                "session_id": {
+                  "type": "string",
+                  "description": "Capture session UUID; required for replay and recommended for stop/get/export"
+                },
+                "start": {
+                  "type": "string",
+                  "enum": [
+                    "session-start",
+                    "unknown"
+                  ],
+                  "description": "Explicit application conversation boundary; never inferred from proxy session"
+                },
+                "complete": {
+                  "type": "boolean",
+                  "description": "Caller declares the conversation observation complete; does not prove protocol termination"
+                },
+                "ids": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 128,
+                  "items": {
+                    "type": "string",
+                    "description": "Persistent capture report UUID returned by list/get"
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "session_id",
+                "start",
+                "complete",
+                "ids"
+              ],
+              "additionalProperties": false
+            },
+            "description": "state_trace: caller-selected ordered non-overlapping HTTP application conversations"
+          },
+          "holdout": {
+            "type": "array",
+            "maxItems": 32,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "maxLength": 64
+                },
+                "session_id": {
+                  "type": "string",
+                  "description": "Capture session UUID; required for replay and recommended for stop/get/export"
+                },
+                "start": {
+                  "type": "string",
+                  "enum": [
+                    "session-start",
+                    "unknown"
+                  ],
+                  "description": "Explicit application conversation boundary; never inferred from proxy session"
+                },
+                "complete": {
+                  "type": "boolean",
+                  "description": "Caller declares the conversation observation complete; does not prove protocol termination"
+                },
+                "ids": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 128,
+                  "items": {
+                    "type": "string",
+                    "description": "Persistent capture report UUID returned by list/get"
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "session_id",
+                "start",
+                "complete",
+                "ids"
+              ],
+              "additionalProperties": false
+            },
+            "description": "Separate held-out conversations, with no repeated capture records"
+          },
+          "symbols": {
+            "type": "object",
+            "properties": {
+              "request": {
+                "type": "object",
+                "properties": {
+                  "source": {
+                    "type": "string",
+                    "enum": [
+                      "http-route",
+                      "body-field"
+                    ]
+                  },
+                  "offset": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 1048575
+                  },
+                  "size": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 8
+                  }
+                },
+                "required": [
+                  "source"
+                ],
+                "additionalProperties": false
+              },
+              "response": {
+                "type": "object",
+                "properties": {
+                  "source": {
+                    "type": "string",
+                    "enum": [
+                      "http-status",
+                      "body-field"
+                    ]
+                  },
+                  "offset": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 1048575
+                  },
+                  "size": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 8
+                  }
+                },
+                "required": [
+                  "source"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false,
+            "description": "Default request method/path hash and response status symbols; optional body-field selects exact 1..8 bytes in wire order"
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1000000
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "body": {
+            "type": "string",
+            "enum": [
+              "request",
+              "response"
+            ],
+            "description": "Body direction to export, inspect or materialize; default response for HTTP or captured direction for a WebSocket frame"
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "ig5_capture_control",
+      "description": "APPROVAL REQUIRED. Control IG5 independent local HTTP/HTTPS and WS/WSS proxy or replay one complete HTTP request. start binds only 127.0.0.1 with explicit origin scope; configure your client to use the returned port. tls=true enables HTTPS interception with a local CA the client must explicitly trust; default CONNECT remains encrypted. stop closes owned connections. replay requires saved id and active session_id, sends once to the original scoped origin with optional bounded request edits and never follows redirects. WebSocket frames/handshakes cannot be replayed. Remote side effects cannot be undone; failure/cancellation can leave outcomeUnknown. No Burp is required.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "start",
+              "stop",
+              "replay"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "Persistent capture report UUID returned by list/get"
+          },
+          "session_id": {
+            "type": "string",
+            "description": "Capture session UUID; required for replay and recommended for stop/get/export"
+          },
+          "port": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535,
+            "description": "Loopback port; 0 chooses an unused port"
+          },
+          "scope": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 32,
+            "items": {
+              "type": "string",
+              "maxLength": 2048
+            },
+            "description": "Exact HTTP/HTTPS origins, e.g. http://127.0.0.1:3000; no wildcard or URL path. WS/WSS use the matching HTTP/HTTPS handshake origin."
+          },
+          "tls": {
+            "type": "boolean",
+            "description": "Explicit HTTPS interception; does not automatically change system/browser certificate trust"
+          },
+          "request": {
+            "type": "object",
+            "description": "Optional approved replay edits. Path remains on the original origin, headers merge by name, body replaces captured bytes. Host/framing headers are normalized.",
+            "properties": {
+              "method": {
+                "type": "string",
+                "maxLength": 32
+              },
+              "path": {
+                "type": "string",
+                "maxLength": 8192
+              },
+              "headers": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string",
+                  "maxLength": 8192
+                }
+              },
+              "body": {
+                "type": "object",
+                "properties": {
+                  "encoding": {
+                    "type": "string",
+                    "enum": [
+                      "hex",
+                      "base64"
+                    ]
+                  },
+                  "data": {
+                    "type": "string",
+                    "maxLength": 2097152
+                  }
+                },
+                "required": [
+                  "encoding",
+                  "data"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

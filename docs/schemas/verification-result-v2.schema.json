@@ -1,0 +1,466 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "const": "ig5-verification-result-v2"
+    },
+    "verifierId": {
+      "type": "string"
+    },
+    "code": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[a-f0-9]{64}$"
+      }
+    },
+    "runtime": {
+      "type": "object"
+    },
+    "rulesDigest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "runtimeDigest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "taskId": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$"
+    },
+    "scopeDigest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "taskRevision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "researchRevision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "contractDigest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "contractRevision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "obligationId": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$"
+    },
+    "obligationDigest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "evidenceId": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$"
+    },
+    "experimentId": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "property": {
+      "type": "string"
+    },
+    "inputRefs": {
+      "type": "array",
+      "maxItems": 112,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "required": [
+          "id",
+          "sha256"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "dependencyType": {
+      "const": "immutable-bytes"
+    },
+    "status": {
+      "enum": [
+        "pass",
+        "fail",
+        "unknown",
+        "unsupported",
+        "error"
+      ]
+    },
+    "method": {
+      "type": "string"
+    },
+    "premises": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "exclusions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sharedDependencies": {
+      "type": "object"
+    },
+    "outcome": {
+      "type": "object"
+    },
+    "nativeTargetExecuted": {
+      "const": false
+    },
+    "databaseModified": {
+      "const": false
+    },
+    "changesExecutionAuthority": {
+      "const": false
+    },
+    "businessAccepted": {
+      "const": false
+    },
+    "propertyId": {
+      "type": "string"
+    },
+    "result": {
+      "enum": [
+        "pass",
+        "fail",
+        "unknown",
+        "unsupported",
+        "error"
+      ]
+    },
+    "contractRef": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "id",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "obligationRef": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "id",
+        "digest"
+      ],
+      "additionalProperties": false
+    },
+    "subjectRef": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "id",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "scope": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "targetSha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "environmentRef": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "subjectRef": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$"
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                }
+              },
+              "required": [
+                "id",
+                "sha256"
+              ],
+              "additionalProperties": false
+            },
+            "contractRef": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$"
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                }
+              },
+              "required": [
+                "id",
+                "sha256"
+              ],
+              "additionalProperties": false
+            },
+            "domain": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "const": "integer-range"
+                    },
+                    "bits": {
+                      "enum": [
+                        8,
+                        16,
+                        32,
+                        64
+                      ]
+                    },
+                    "minimum": {
+                      "type": "string",
+                      "pattern": "^0x[0-9a-f]{1,16}$"
+                    },
+                    "maximum": {
+                      "type": "string",
+                      "pattern": "^0x[0-9a-f]{1,16}$"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "bits",
+                    "minimum",
+                    "maximum"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "const": "recorded-inputs"
+                    },
+                    "inputs": {
+                      "type": "array",
+                      "maxItems": 8,
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "string",
+                        "pattern": "^0x[0-9a-f]{1,16}$"
+                      }
+                    },
+                    "recordingRefs": {
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 48,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "pattern": "^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$"
+                          },
+                          "sha256": {
+                            "type": "string",
+                            "pattern": "^[a-f0-9]{64}$"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "sha256"
+                        ],
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "inputs",
+                    "recordingRefs"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "required": [
+            "targetSha256",
+            "subjectRef",
+            "contractRef",
+            "environmentRef",
+            "domain"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "targetSha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "evidenceId": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$"
+            }
+          },
+          "required": [
+            "targetSha256",
+            "evidenceId"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "verifier": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "rulesDigest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "runtimeDigest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "id",
+        "rulesDigest",
+        "runtimeDigest"
+      ],
+      "additionalProperties": false
+    },
+    "coverageRef": {
+      "type": "null"
+    },
+    "counterexampleRef": {
+      "type": "null"
+    },
+    "cleanupReceiptRef": {
+      "type": "null"
+    },
+    "cleanup": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "owned-data-worker-exit"
+        },
+        "confirmed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "kind",
+        "confirmed"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema",
+    "verifierId",
+    "code",
+    "runtime",
+    "rulesDigest",
+    "runtimeDigest",
+    "taskId",
+    "scopeDigest",
+    "taskRevision",
+    "researchRevision",
+    "contractDigest",
+    "contractRevision",
+    "obligationId",
+    "obligationDigest",
+    "evidenceId",
+    "experimentId",
+    "property",
+    "inputRefs",
+    "dependencyType",
+    "status",
+    "method",
+    "premises",
+    "exclusions",
+    "sharedDependencies",
+    "outcome",
+    "nativeTargetExecuted",
+    "databaseModified",
+    "changesExecutionAuthority",
+    "businessAccepted",
+    "propertyId",
+    "result",
+    "contractRef",
+    "obligationRef",
+    "subjectRef",
+    "scope",
+    "verifier",
+    "coverageRef",
+    "counterexampleRef",
+    "cleanupReceiptRef",
+    "cleanup"
+  ],
+  "additionalProperties": false
+}

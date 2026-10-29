@@ -1,0 +1,2 @@
+# Separate Windows x64 CPython 3.12 trace semantics dependency; preserve wheel layout.
+triton-library==1.0.0rc4 --hash=sha256:fad5f5727a560ce5cffa59e0a8bbae2bcfbe63e81caec20a36bc11a72599d3fc

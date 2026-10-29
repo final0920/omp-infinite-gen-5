@@ -1,0 +1,55 @@
+{
+  "schema": "ig5-research-import-v1",
+  "documents": [
+    {
+      "path": "Rikugan/rikugan/skills/builtins/deobfuscation/references/ida/algorithm-reference.md",
+      "title": "Rikugan：去混淆识别与算法参考",
+      "author": "Anderson / Rikugan contributors",
+      "sourceUrl": "https://github.com/buzzer-re/Rikugan/blob/a2ba6691baa0a7ace3bce9fe834a4f6f7610b77d/rikugan/skills/builtins/deobfuscation/references/ida/algorithm-reference.md",
+      "publishedAt": null,
+      "retrievedAt": "2026-10-23T18:52:53.000Z",
+      "expectedSha256": "a8555b2ed777a236cca0f64c0eede2a8245ed80bf6f6c62e2264d824ec7e2479",
+      "license": "MIT; see upstream LICENSE",
+      "rightsStatus": "local-reference-only",
+      "methodIds": ["cff-investigation", "mba-synthesis", "vm-role-experiments"],
+      "reviewNotes": [
+        "原文是作者工作流与示意算法，不是五代已实现或已验证的能力。工具名与代码按原文保留。",
+        "原文将比较次数最多的变量直接当状态变量、直接删除状态写入的规则过强；五代仍须核对竞争解释、别名、全部副作用与出口。",
+        "不透明谓词段落中，找到使谓词成立的SAT模型不能证明谓词恒假。恒假需要谓词本身UNSAT，恒真需要其否定UNSAT，并检查前提可满足。"
+      ]
+    },
+    {
+      "path": "re-agent/skills/ollvm-deobfuscation/SKILL.md",
+      "title": "re-agent：OLLVM去混淆工作流原文",
+      "author": "overkazaf / re-agent contributors",
+      "sourceUrl": "https://github.com/overkazaf/re-agent/blob/43e802db9841ef3372ab84b1b38342a3718165bd/skills/ollvm-deobfuscation/SKILL.md",
+      "publishedAt": null,
+      "retrievedAt": "2026-10-23T18:52:53.000Z",
+      "expectedSha256": "648c4461afc82d2085f308bca27b1db63b3ae1b82ceac603de77631f2c8f3ac9",
+      "license": "MIT; see upstream LICENSE",
+      "rightsStatus": "local-reference-only",
+      "methodIds": ["cff-investigation", "mba-synthesis"],
+      "reviewNotes": [
+        "本文包含占位函数和示意API，不能直接视为可运行的去混淆器；导入SKILL.md不会在五代注册或执行该技能。",
+        "文中x²非负的实数直觉不能直接用于固定宽度有符号整数，溢出和位宽必须独立建模；指令序列相似也不足以证明等价。"
+      ]
+    },
+    {
+      "path": "msynth/README.md",
+      "title": "msynth：MBA化简与程序合成原文",
+      "author": "Tim Blazytko and Moritz Schloegel",
+      "sourceUrl": "https://github.com/mrphrazer/msynth/blob/dfd0f9e2cd0890658fe752aa207a2cfda2aef8d7/README.md",
+      "publishedAt": null,
+      "retrievedAt": "2026-10-23T18:52:53.000Z",
+      "expectedSha256": "fb55718875d296871f21a8e8c13b25c31f7d98bd3f1985b6637bc9d93838a61b",
+      "license": "GPL-2.0 license text; see upstream LICENSE and per-file terms",
+      "rightsStatus": "local-reference-only",
+      "methodIds": ["mba-synthesis"],
+      "reviewNotes": [
+        "本批只归档原文；安装命令、下载地址与数据库加载示例不会执行。算法适配与资源预算仍待独立验收。",
+        "已审阅源码的一条死变量消除路径允许unknown时采样回退；五代的接受仍须独立UNSAT。SQLite oracle内部也可能含pickle，不能当纯数据自动加载。",
+        "当前只保存在本机参考目录，不随五代发行包分发第三方原文；原文及依赖许可保留上游适用范围。"
+      ]
+    }
+  ]
+}

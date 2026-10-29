@@ -1,0 +1,19 @@
+IG5 offline trace dependency: triton-library 1.0.0rc4, CPython 3.12 Windows x64.
+Official PyPI wheel SHA-256:
+fad5f5727a560ce5cffa59e0a8bbae2bcfbe63e81caec20a36bc11a72599d3fc
+Wheel source URL and all installed file hashes: ig5-manifest.json.
+
+The original wheel layout, dist-info metadata, RECORD and DELVEWHEEL are retained.
+No upstream files are patched/pruned. IG5 adds this notice, a pinned inventory
+and licenses/ with upstream license sources. Triton is Apache-2.0; Z3/Bitwuzla,
+Capstone/LLVM, GCC runtime exception, Microsoft runtime and Python notices are
+retained separately. The wheel's build paths identify Z3 4.13.3, Bitwuzla 0.7.0,
+Capstone 5.0.3, LLVM 16.0.6 and GCC 13. Those paths do not establish a complete
+rebuild toolchain; GCC's license text is from the 13.3.0 release family.
+This is a prebuilt dependency, not an IG5-built binary. The project NC license
+does not replace upstream/component licenses. Licenses/sources.json identifies
+supplemental notices. Microsoft runtime use remains subject to its terms.
+
+IG5's own trace parser, consistency checks, projection/proof, subprocess routing
+and reporting are in worker/trace_analysis.py and source/trace_jobs.js.
+External VMP samples/traces/author attack scripts are not part of this dependency.

@@ -1,0 +1,70 @@
+{
+  "schema": "ig5.learning-corpus.v1",
+  "researchRevision": "d2b26d66db59e341f179c7e326246d28c4d25491",
+  "distribution": "URLs and hash pins only. Downloaded files remain private research artifacts.",
+  "samples": [
+    {
+      "id": "sample2.bin",
+      "file": "sample2.bin",
+      "url": "https://raw.githubusercontent.com/JonathanSalwan/VMProtect-devirtualization/d2b26d66db59e341f179c7e326246d28c4d25491/vmp_binaries/binaries/sample2.bin",
+      "bytes": 15528,
+      "sha256": "285c2f9be80d847a1085f184fce5d8bd06870115d7ea33d5d9065461727bd6e6",
+      "functionFilter": "secret",
+      "protection": "unprotected control"
+    },
+    {
+      "id": "sample2.vmp.bin",
+      "file": "sample2.vmp.bin",
+      "url": "https://raw.githubusercontent.com/JonathanSalwan/VMProtect-devirtualization/d2b26d66db59e341f179c7e326246d28c4d25491/vmp_binaries/binaries/sample2.vmp.bin",
+      "bytes": 3051323,
+      "sha256": "d3e3f92c8cdad93e22d8eca0db4e306687716d612437574cc46bb79a677700e2",
+      "functionFilter": "secret",
+      "protection": "VMProtect 3.x (author-reported)"
+    },
+    {
+      "id": "sample3.bin",
+      "file": "sample3.bin",
+      "url": "https://raw.githubusercontent.com/JonathanSalwan/VMProtect-devirtualization/d2b26d66db59e341f179c7e326246d28c4d25491/vmp_binaries/binaries/sample3.bin",
+      "bytes": 15528,
+      "sha256": "ddbb6eee0892e3bc9e02ed40455806cb5b7cf71743866378dbf07fe1581375c4",
+      "functionFilter": "secret",
+      "protection": "unprotected control"
+    },
+    {
+      "id": "sample3.vmp.bin",
+      "file": "sample3.vmp.bin",
+      "url": "https://raw.githubusercontent.com/JonathanSalwan/VMProtect-devirtualization/d2b26d66db59e341f179c7e326246d28c4d25491/vmp_binaries/binaries/sample3.vmp.bin",
+      "bytes": 3048987,
+      "sha256": "01fe0e95e8f202089aa13afe237d1dfd8f4ce98641a91acb9a5e2757c004f464",
+      "functionFilter": "secret",
+      "protection": "VMProtect 3.x (author-reported)"
+    },
+    {
+      "id": "sample4.bin",
+      "file": "sample4.bin",
+      "url": "https://raw.githubusercontent.com/JonathanSalwan/VMProtect-devirtualization/d2b26d66db59e341f179c7e326246d28c4d25491/vmp_binaries/binaries/sample4.bin",
+      "bytes": 15528,
+      "sha256": "f4822f97c9fda4de4b39e8a14cda48c45700647db1b9c0ae67854cbb79e0fd49",
+      "functionFilter": "secret",
+      "protection": "unprotected control"
+    },
+    {
+      "id": "sample4.vmp.bin",
+      "file": "sample4.vmp.bin",
+      "url": "https://raw.githubusercontent.com/JonathanSalwan/VMProtect-devirtualization/d2b26d66db59e341f179c7e326246d28c4d25491/vmp_binaries/binaries/sample4.vmp.bin",
+      "bytes": 3051915,
+      "sha256": "f065eea78171fd8070c78ccb858b69d24182c826a33b3c3fb87ed297a3888935",
+      "functionFilter": "secret",
+      "protection": "VMProtect 3.x (author-reported)"
+    },
+    {
+      "id": "52pojie-2012-zapline",
+      "file": "crackme_zapline.exe",
+      "url": "https://down.52pojie.cn/Challenge/2012CM/%E6%98%93/zapline/crackme_zapline.zip",
+      "archiveSha256": "e8236066ca9e4896a448e8cdc90f33d7506670a2a518d401eb138869d9f3ac5f",
+      "bytes": 1028608,
+      "sha256": "29e81b515f4b11fd158822c4753d76d0cfd4f7e74caad308c80f8086d4923a25",
+      "protection": "educational CrackMe; VMP not established"
+    }
+  ]
+}

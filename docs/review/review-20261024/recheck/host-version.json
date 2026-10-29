@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-10-24T13:02:42.963Z",
+  "asar": "C:\\Users\\IG5User\\AppData\\Local\\Programs\\DeepSeek Harness\\resources\\app.asar",
+  "evidence": "installed-host-source-inspection",
+  "hostBootVersion": "0.2.1-alpha.1",
+  "files": [
+    {
+      "package": "dsh-agent-loop",
+      "version": "0.2.1-alpha.1",
+      "source": "dsh/node_modules/@deepseek-ai/dsh-agent-loop/lib/index.js",
+      "sha256": "00c4814d63f3d1e2754eb09144832d19b30499d6ea444730473f740b587948c2",
+      "matches": [
+        {
+          "line": 1587,
+          "text": "this.resumeWith(ctx, childCtx.sessionPersistence, {"
+        },
+        {
+          "line": 1619,
+          "text": "await this.resumeWith(ownerCtx, persistence, {"
+        },
+        {
+          "line": 1873,
+          "text": "async setupAndPublish(ownerCtx, id, preparation, agentOptions, setup, signal, source, stored, parentAgent) {"
+        },
+        {
+          "line": 1921,
+          "text": "async resume(ownerCtx, options) {"
+        },
+        {
+          "line": 1924,
+          "text": "return this.resumeWith(ownerCtx, persistence, options);"
+        },
+        {
+          "line": 1927,
+          "text": "resumeWith(ownerCtx, persistence, options) {"
+        },
+        {
+          "line": 1944,
+          "text": "handle = await raceAbortCall(() => persistence.open(id, \"write\", { signal: fused }), fused, id, (abandoned) => {"
+        },
+        {
+          "line": 1951,
+          "text": "if (closers.length > 0) await handle.append(closers);"
+        },
+        {
+          "line": 1954,
+          "text": "meta: structuredClone(handle.header),"
+        },
+        {
+          "line": 1970,
+          "text": "return await this.setupAndPublish(ownerCtx, id, preparation, options.agentOptions ?? {}, options.setup, options.signal, \"resume\", owned, options.parentAgent);"
+        }
+      ]
+    },
+    {
+      "package": "dsh-session",
+      "version": "0.2.1-alpha.1",
+      "source": "dsh/node_modules/@deepseek-ai/dsh-session/lib/index.js",
+      "sha256": "b847e7ec736ce4049ec40ea0b20753bad5d7c2388785b4369d2bf00baa32472b",
+      "matches": [
+        {
+          "line": 1592,
+          "text": "* Persistence is intentionally not implemented here — the agent lifecycle"
+        }
+      ]
+    },
+    {
+      "package": "dsh-session-persistence",
+      "version": "0.2.1-alpha.1",
+      "source": "dsh/node_modules/@deepseek-ai/dsh-session-persistence/lib/index.js",
+      "sha256": "93daeca85dc7442d346733e2766db8348e528e5737b92521bc42d3219bef3b40",
+      "matches": []
+    },
+    {
+      "package": "dsh-session-persistence-jsonl",
+      "version": "0.2.1-alpha.1",
+      "source": "dsh/node_modules/@deepseek-ai/dsh-session-persistence-jsonl/lib/index.js",
+      "sha256": "efb51ce75b078b95260663d9d5b74c8e5cb4856d1a422914140ab8a1bb10532f",
+      "matches": [
+        {
+          "line": 62,
+          "text": "async read(offset = 0, length = Number.MAX_SAFE_INTEGER, options) {"
+        },
+        {
+          "line": 2468,
+          "text": "async open(id, access, options) {"
+        }
+      ]
+    }
+  ],
+  "conclusion": {
+    "hostResumeApiExists": true,
+    "hostResumeIsMetadataOnly": false,
+    "pluginAutomaticResumeImplemented": false,
+    "reason": "AgentLoop.resume acquires write ownership, may append interrupted-turn closers, then publishes a live agent. It cannot run in the metadata-only doctor contract.",
+    "supportedRecovery": "Host restores the original persisted ancestors; IG5 resolves the original host agent objects and verifies the unchanged shared ledger.",
+    "actualHistoricalSessionRecoveryVerified": false
+  },
+  "effects": {
+    "profileModified": false,
+    "sessionOpened": false,
+    "modelCalled": false,
+    "targetExecuted": false
+  }
+}

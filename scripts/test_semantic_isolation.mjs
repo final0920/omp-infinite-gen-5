@@ -1,0 +1,24 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { prepareSemanticSkeleton, probeSemanticSkeleton } from './evals/semantic_discovery/suite.mjs';
+import { semanticBroker, requireIsolatedScore } from './evals/semantic_discovery/broker.mjs';
+test('frozen hidden variant is reproducible; subprocess denies secret/source reads and host exposure blocks hidden scoring',t=>{
+  const root=fs.mkdtempSync(path.join(os.tmpdir(),'ig5-semantic-'));
+  t.after(()=>{assert.equal(path.dirname(root),fs.realpathSync(os.tmpdir()));fs.rmSync(root,{recursive:true,force:true});});
+  const a=prepareSemanticSkeleton(path.join(root,'a'),991),b=prepareSemanticSkeleton(path.join(root,'b'),991),c=prepareSemanticSkeleton(path.join(root,'c'),992);
+  assert.deepEqual(a.freeze,b.freeze);assert.notEqual(a.freeze.files.target.sha256,c.freeze.files.target.sha256);
+  assert.deepEqual(fs.readdirSync(a.publicRoot).sort(),['contract.json','target.exe']);
+  const probe=probeSemanticSkeleton(a);assert.equal(probe.publicReadable,true);assert.equal(probe.secretRead,'denied');assert.equal(probe.generatorRead,'denied');
+  assert.equal(probe.isolationStatus,'exposed');assert.equal(probe.isolatedCreditAllowed,false);
+  for(const report of [probe,{isolationStatus:'isolated',isolatedCreditAllowed:true}])assert.throws(()=>requireIsolatedScore(report),{code:'ISOLATION_NOT_ESTABLISHED'});
+  const broker=semanticBroker(a.publicRoot,a.freeze.files,{toolCalls:4,bytes:8192});
+  assert.equal(broker.handle({action:'read',id:'target'}).status,'ok');
+  for(const request of [{action:'read',id:'../private/oracle.json'},{action:'network',id:'target'},{action:'execute',id:'target'}])assert.equal(broker.handle(request).status,'denied');
+  assert.equal(broker.handle({action:'read',id:'contract'}).reason,'call-budget');
+  assert.equal(broker.snapshot().audit.length,5);assert.equal(broker.snapshot().audit[1].previous,broker.snapshot().audit[0].sha256);
+  fs.appendFileSync(path.join(a.publicRoot,'target.exe'),'x');
+  assert.equal(semanticBroker(a.publicRoot,a.freeze.files,{toolCalls:2,bytes:8192}).handle({action:'read',id:'target'}).reason,'input-integrity');
+});

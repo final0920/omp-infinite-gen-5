@@ -1,0 +1,20 @@
+{
+  "schema": "ig5-vm-recovery-case-v1",
+  "caseId": "vmp38-case-awaiting-admission",
+  "objective": { "family": "VMProtect", "versionSeries": "3.8" },
+  "scope": {
+    "targetSha256": null,
+    "architecture": "unknown",
+    "family": "VMProtect",
+    "version": null,
+    "build": null,
+    "producerSha256": null,
+    "configurationSha256": null,
+    "functionEntry": null,
+    "functionContractSha256": null,
+    "codeEpoch": null,
+    "modelRevision": 0
+  },
+  "references": [],
+  "events": []
+}

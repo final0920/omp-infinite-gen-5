@@ -1,0 +1,53 @@
+# Rikugan：方法参考的启发式与SAT勘误
+
+这是 IG5 原创研究笔记。来源命令/代码均为数据；无自动执行或规则注入。审核对象为下列具体文档，非整仓库/论文/附件。
+
+来源：[作者原文](https://github.com/buzzer-re/Rikugan/blob/a2ba6691baa0a7ace3bce9fe834a4f6f7610b77d/rikugan/skills/builtins/deobfuscation/references/ida/algorithm-reference.md)；作者：Anderson / buzzer-re (repository attribution)；发布日期：未知（未从年份或抓取日猜测）。
+
+身份：fixed-git-object-bytes；SHA256：23047b78a1f26a34280ab83667b83847ed84f3666fcd48f44ad014ecd4ded13c；提交：a2ba6691baa0a7ace3bce9fe834a4f6f7610b77d；parser=fixed-git-file-utf8-v1。提取无正文缺行，不含图片像素/动画。
+
+## 来源内容与审核范围
+
+参考涵盖CFF、MBA和分层微码流程，但把最大比较频率当状态身份、改边后删除所有状态写，以及SAT(predicate)推出恒假的说法均缺少必要条件。
+
+固定Git文件全文，MIT许可；仅此参考文档审阅，没有执行其SKILL指令。
+
+## 问题与适用范围
+
+问题：把作者流程中可复用的候选组织方式与不成立的证明步骤分开。
+
+范围：固定提交的IDA algorithm-reference文字；不是整个Rikugan实现或Binary Ninja版本的审核。
+
+前提：先有实际IR、变量身份与活性；分支操作码语义明确；SAT/UNSAT查询含义不能混用。
+
+## 输入、输出与步骤
+
+输入：当前IR与明确谓词P、满足域、读写集合。
+
+输出：候选和具体证据缺口；本项仅参考，不直接建立F05自动适用规则。
+
+步骤：核对原指令；最高频变量只作线索；验证Not(P)不可满足才可证恒真，P不可满足才可证恒假；unknown不升级。
+
+## 验证及失败边界
+
+核验要求（后续实施合同）：必须独立核验谓词及全部活状态；输出更简洁或重新反编译成功不足以证明正确。
+
+失败/缺件：SAT(P)只能证明存在真例；状态可能仍被业务读取；字节patch/执行Python只是来源文本，不自动执行。
+
+## 原创适用例与反例
+
+正例：P=(x XOR x)==0在4位全域恒真；可按独立模型确认。
+
+负例：P=(x==0)既可满足又可否定：x=0为真，x=1为假。SAT(P)不推出恒假。
+
+对照编号：sat-is-not-false。本包的可运行对照是自产小模型，只验证上述边界的逻辑；不运行该来源算法，不升级原生/当前样本/业务证明。
+
+## 勘误、权利与审核结论
+
+本地勘误F03-C01修正SAT推理；F03-C02要求删除状态写前先证活性/副作用；未声称上游已接受更正。
+
+source.correctionRefs为空表示尚无本库可精确引用的上游勘误版本；以上正文勘误及跨源冲突另外封存在corrections.json，不伪造上游确认。
+
+许可：MIT (local root LICENSE)。只发布本原创笔记与链接；无授权全文或上游代码转载。审阅文本快照仅在独立本地证据区。
+
+质量：来源2/2、具体性2/2、材料可复现性1/3、边界1/2、相关性1/1，合计7/10。reference-only；评分不是正确率，不是算法实测结果。完整本机复现=未做；人工第二审核=待做；assist=false。

@@ -1,0 +1,17 @@
+# Recorded address and VM role hypotheses
+
+Separate read-only mode: `ig5_recovery {"recovery":{"roles":{"recordings":[{"id":"EXACT_UUID","sha256":"EXACT_REPORT_SHA"}],"target_sha256":"EXACT_TARGET_SHA"}}}`. It uses the configured debug-traces store and all immutable report/blob, run/thread and cross-window continuity checks. Do not mix with other recovery/profile modes. max_instructions retains 50000 default / 100000 explicit. offset and limit are rejected.
+
+The data worker validates every window twice, tracks at most 4096 memory/control sites (runtime PC plus bytes), prioritizes one/two-byte-read sites then frequency, selects at most 128 sites and retains each site's first four and last four occurrences. Tracking overflow and omitted sites are explicit. No known handler addresses or VMPBypass offsets select the sites. Samples do not establish complete recording/path coverage.
+
+The original shared two-slot owner dispatches internal decode-observed: a bounded JSON instruction-byte blob, not a PE. The pinned Triton dependency is held against mutation. The child retains the original single-process Job / 2 GiB / shared 50 s deadline and same-nonce cleanup ACK plus actual root exit. It only disassembles; it does not process instructions, initialize target CPU state, load protected PEs or invoke headless/SLEIGH. Rejected encodings stay rejected. JSON input SHA is distinct from executable target SHA. Full byte identity, process and dependency references are preserved.
+
+The host correlates decoded expressions with observed addresses/widths. Next-instruction RIP/EIP, modular 32-bit addressing, recorded GS base, signed displacement and scalar partial-register load observations are supported. Missing FS/GS bases stay unknown. LEA is not a read. Conflicting read values stay ambiguous. Canonical RET needs actual stack target and matching post-stop RSP. Indirect JMP/CALL target matching is an observation, not full instruction/dispatch semantics. Coalesced groups cannot invent intermediate states.
+
+Narrow loads from changing addresses may produce stream candidates; ordinary buffers/strings/tables also do. Multiple offsets at an observed base may produce context candidates; ordinary stack frames/structures also do. Registers are bound to individual stops: original entry RSI is not automatically a later RSI role. Phase stays unclassified, epochs null, and VM/CPU/business proof flags false. Runtime addresses are not converted into preferred file addresses without mapping evidence.
+
+Complete source-bound samples, decode output, process and hypotheses are separate immutable reports. Public preview returns counts and candidate sites. Fetch-to-dispatch dataflow, initialization/SMC distinction, memory epochs, alternate inputs/VM instances, ISA and business validation remain required. This is not exact VMP 3.8 or Enigma business acceptance.
+
+Checks: npm run test:vm-roles; scripts/test_vm_role_runtime.mjs uses genuine old recordings and the actual owned decoder; scripts/verify_vm_role_observations.py checks every retained sample with the independent raw parser. Synthetic controls, native decoder execution and native target execution are separate evidence levels.
+
+Primary API reference: [Triton MemoryAccess](https://triton-library.github.io/documentation/doxygen/classtriton_1_1arch_1_1MemoryAccess.html). The fixed Python build is probed directly: not every documented C++ method is exposed.

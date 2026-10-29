@@ -1,0 +1,312 @@
+{
+  "schema": 1,
+  "status": "planned-native-fixtures-not-executed",
+  "nativeTargetExecuted": false,
+  "description": "Raw PE instruction bytes for future public owned-worker SLEIGH projection. Data only, never execute PE. Negative cases must reject; positives require one fresh bounded-dead-frame elision and independently computed selected GPR/memory/control results. Cases fit a 0x400 section at 0x28 stride.",
+  "cases": [
+    {
+      "id": "dead-16",
+      "code": [
+        "660fbcc3",
+        "b855000000"
+      ],
+      "registers": [
+        "rax"
+      ],
+      "expected": "rax-constant-0x55",
+      "accepted": true,
+      "operandBits": 16
+    },
+    {
+      "id": "dead-self-16",
+      "code": [
+        "660fbcc0",
+        "b855000000"
+      ],
+      "registers": [
+        "rax"
+      ],
+      "expected": "rax-constant-0x55",
+      "accepted": true,
+      "operandBits": 16
+    },
+    {
+      "id": "live-destination-16",
+      "code": [
+        "660fbcc3"
+      ],
+      "registers": [
+        "rax"
+      ],
+      "accepted": false,
+      "reason": "requested destination intersects complete BSF effect frame"
+    },
+    {
+      "id": "dead-32",
+      "code": [
+        "0fbcc3",
+        "b855000000"
+      ],
+      "registers": [
+        "rax"
+      ],
+      "expected": "rax-constant-0x55",
+      "accepted": true,
+      "operandBits": 32
+    },
+    {
+      "id": "dead-self-32",
+      "code": [
+        "0fbcc0",
+        "b855000000"
+      ],
+      "registers": [
+        "rax"
+      ],
+      "expected": "rax-constant-0x55",
+      "accepted": true,
+      "operandBits": 32
+    },
+    {
+      "id": "live-destination-32",
+      "code": [
+        "0fbcc3"
+      ],
+      "registers": [
+        "rax"
+      ],
+      "accepted": false,
+      "reason": "requested destination intersects complete BSF effect frame"
+    },
+    {
+      "id": "dead-64",
+      "code": [
+        "480fbcc3",
+        "b855000000"
+      ],
+      "registers": [
+        "rax"
+      ],
+      "expected": "rax-constant-0x55",
+      "accepted": true,
+      "operandBits": 64
+    },
+    {
+      "id": "dead-self-64",
+      "code": [
+        "480fbcc0",
+        "b855000000"
+      ],
+      "registers": [
+        "rax"
+      ],
+      "expected": "rax-constant-0x55",
+      "accepted": true,
+      "operandBits": 64
+    },
+    {
+      "id": "live-destination-64",
+      "code": [
+        "480fbcc3"
+      ],
+      "registers": [
+        "rax"
+      ],
+      "accepted": false,
+      "reason": "requested destination intersects complete BSF effect frame"
+    },
+    {
+      "id": "dead-low16-preserve-upper",
+      "code": [
+        "660fbcc3",
+        "66b85500"
+      ],
+      "registers": [
+        "rax"
+      ],
+      "expected": "rax-upper48-preserved-low16-0x55",
+      "accepted": true,
+      "operandBits": 16
+    },
+    {
+      "id": "dead-all-gprs-load",
+      "code": [
+        "66450fbccf",
+        "4c8b0a",
+        "4839c0",
+        "7410"
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "expected": "r9-load64-rdx-others-preserved-always-taken",
+      "accepted": true,
+      "operandBits": 16
+    },
+    {
+      "id": "live-zf",
+      "code": [
+        "480fbcc3",
+        "b855000000",
+        "7410"
+      ],
+      "registers": [
+        "rax"
+      ],
+      "accepted": false,
+      "reason": "ZF result observed by final JZ"
+    },
+    {
+      "id": "undefined-cf",
+      "code": [
+        "4839c0",
+        "480fbcc3",
+        "b855000000",
+        "7210"
+      ],
+      "registers": [
+        "rax"
+      ],
+      "accepted": false,
+      "reason": "preexisting CF cannot cross BSF undefined CF"
+    },
+    {
+      "id": "undefined-of",
+      "code": [
+        "4839c0",
+        "480fbcc3",
+        "b855000000",
+        "7010"
+      ],
+      "registers": [
+        "rax"
+      ],
+      "accepted": false,
+      "reason": "preexisting OF cannot cross BSF undefined OF"
+    },
+    {
+      "id": "live-lahf",
+      "code": [
+        "9e",
+        "480fbcc3",
+        "b855000000",
+        "9f"
+      ],
+      "registers": [
+        "rax"
+      ],
+      "accepted": false,
+      "reason": "LAHF observes destination-related flags including undefined flags"
+    },
+    {
+      "id": "live-store-value",
+      "code": [
+        "480fbcc3",
+        "488901",
+        "b855000000"
+      ],
+      "registers": [
+        "rax"
+      ],
+      "accepted": false,
+      "reason": "all STORE values root liveness even after GPR overwrite"
+    },
+    {
+      "id": "live-store-address",
+      "code": [
+        "480fbcc3",
+        "488908",
+        "b855000000"
+      ],
+      "registers": [
+        "rax"
+      ],
+      "accepted": false,
+      "reason": "all STORE addresses root liveness even after GPR overwrite"
+    },
+    {
+      "id": "live-transitive-register",
+      "code": [
+        "480fbcc3",
+        "4889c6",
+        "b855000000"
+      ],
+      "registers": [
+        "rsi"
+      ],
+      "accepted": false,
+      "reason": "indirectly retained value copied into RSI"
+    },
+    {
+      "id": "live-32-upper-after-low16-write",
+      "code": [
+        "0fbcc3",
+        "66b85500"
+      ],
+      "registers": [
+        "rax"
+      ],
+      "accepted": false,
+      "reason": "32-bit BSF modifies full64 destination; low16 overwrite leaves observed frame bytes"
+    },
+    {
+      "id": "unsupported-memory-source",
+      "code": [
+        "480fbc03",
+        "b855000000"
+      ],
+      "registers": [
+        "rax"
+      ],
+      "accepted": false,
+      "reason": "memory-source BSF outside finite register-only recognizer"
+    },
+    {
+      "id": "guarded-live-side-exit",
+      "code": [
+        "480fbcc3",
+        "4839d1",
+        "7510",
+        "b855000000"
+      ],
+      "registers": [
+        "rax"
+      ],
+      "projection_mode": "guarded-path",
+      "accepted": false,
+      "reason": "BSF destination is live at an earlier side exit before final overwrite"
+    },
+    {
+      "id": "guarded-dead-before-side-exit",
+      "code": [
+        "480fbcc3",
+        "b855000000",
+        "4839d1",
+        "7510",
+        "b8aa000000"
+      ],
+      "registers": [
+        "rax"
+      ],
+      "projection_mode": "guarded-path",
+      "accepted": true,
+      "operandBits": 64,
+      "expected": "rax-0x55-at-side-exit-0xaa-at-final"
+    }
+  ]
+}

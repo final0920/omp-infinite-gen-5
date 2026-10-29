@@ -1,0 +1,653 @@
+{
+  "schema": 1,
+  "cases": [
+    {
+      "id": "taken-jrcxz",
+      "code": [
+        "e302",
+        "b855000000"
+      ],
+      "offsets": [
+        0,
+        4
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": true,
+      "oracle": "taken-jrcxz",
+      "error": null
+    },
+    {
+      "id": "fallthrough-jrcxz",
+      "code": [
+        "e302",
+        "b855000000"
+      ],
+      "offsets": [
+        0,
+        2
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": true,
+      "oracle": "fallthrough-jrcxz",
+      "error": null
+    },
+    {
+      "id": "prefix-suffix-stores",
+      "code": [
+        "488903",
+        "e302",
+        "488913",
+        "488b0b"
+      ],
+      "offsets": [
+        0,
+        3,
+        7,
+        10
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": true,
+      "oracle": "prefix-suffix-stores",
+      "error": null
+    },
+    {
+      "id": "side-exit-live-rax",
+      "code": [
+        "4889d0",
+        "e302",
+        "b855000000"
+      ],
+      "offsets": [
+        0,
+        3,
+        7
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": true,
+      "oracle": "side-exit-live-rax",
+      "error": null
+    },
+    {
+      "id": "carry-after-jb",
+      "code": [
+        "4839d8",
+        "7202",
+        "4883d000"
+      ],
+      "offsets": [
+        0,
+        3,
+        7
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": true,
+      "oracle": "carry-after-jb",
+      "error": null
+    },
+    {
+      "id": "carry-after-jnz",
+      "code": [
+        "4839d8",
+        "7502",
+        "4883d000"
+      ],
+      "offsets": [
+        0,
+        3,
+        7
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": true,
+      "oracle": "carry-after-jnz",
+      "error": null
+    },
+    {
+      "id": "two-intermediate-branches",
+      "code": [
+        "e302",
+        "4883fa00",
+        "7402",
+        "b855000000"
+      ],
+      "offsets": [
+        0,
+        4,
+        8,
+        12
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": true,
+      "oracle": "two-intermediate-branches",
+      "error": null
+    },
+    {
+      "id": "branch-after-store-load",
+      "code": [
+        "488903",
+        "488b0b",
+        "e302",
+        "48895301",
+        "4c8b03"
+      ],
+      "offsets": [
+        0,
+        3,
+        6,
+        10,
+        14
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": true,
+      "oracle": "branch-after-store-load",
+      "error": null
+    },
+    {
+      "id": "terminal-conditional",
+      "code": [
+        "e302",
+        "4839d8",
+        "7410"
+      ],
+      "offsets": [
+        0,
+        4,
+        7
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": true,
+      "oracle": "terminal-conditional",
+      "error": null
+    },
+    {
+      "id": "invalid-next",
+      "code": [
+        "e302",
+        "b855000000"
+      ],
+      "offsets": [
+        0,
+        7
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": false,
+      "oracle": null,
+      "error": "Conditional branch/path mismatch"
+    },
+    {
+      "id": "same-target",
+      "code": [
+        "e300",
+        "b855000000"
+      ],
+      "offsets": [
+        0,
+        2
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": false,
+      "oracle": null,
+      "error": "same-target intermediate conditional branch"
+    },
+    {
+      "id": "middle-indirect",
+      "code": [
+        "ffe0",
+        "b855000000"
+      ],
+      "offsets": [
+        0,
+        2
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": false,
+      "oracle": null,
+      "error": "only supported at path end"
+    },
+    {
+      "id": "undefined-zf-before-branch",
+      "code": [
+        "48f7e3",
+        "7402",
+        "b855000000"
+      ],
+      "offsets": [
+        0,
+        3,
+        7
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": false,
+      "oracle": null,
+      "error": "Undefined/unmodeled architectural flag"
+    },
+    {
+      "id": "bsr-live-only-on-exit",
+      "code": [
+        "480fbdc3",
+        "e302",
+        "b855000000"
+      ],
+      "offsets": [
+        0,
+        4,
+        8
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": false,
+      "oracle": null,
+      "error": "Live BSR destination/status-flag frame"
+    },
+    {
+      "id": "undefined-bswap-before-branch",
+      "code": [
+        "660fc8",
+        "e302",
+        "b855000000"
+      ],
+      "offsets": [
+        0,
+        3,
+        7
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": false,
+      "oracle": null,
+      "error": "Architecturally undefined 16-bit BSWAP"
+    },
+    {
+      "id": "actual-minimum-dispatch",
+      "code": [
+        "493be8",
+        "0f87c2ffffff",
+        "0fb606"
+      ],
+      "offsets": null,
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": true,
+      "oracle": "actual-minimum-dispatch",
+      "error": null,
+      "target": {
+        "path": "C:\\Users\\IG5User\\.dsh\\ig5\\artifacts\\modern-protection-20261014\\packed-suite-vmp311\\packed-round-mix64-ultra.exe",
+        "bytes": 1360896,
+        "sha256": "5f9c1b6fcb019366f835d8f02d9ec3b2957fe619e039410d07f288a9c73f63f0"
+      },
+      "addresses": [
+        "0x140052159",
+        "0x14005215c",
+        "0x140052124"
+      ]
+    },
+    {
+      "id": "actual-context0-dispatch",
+      "code": [
+        "0fb616",
+        "66450fbdcf",
+        "4881c601000000",
+        "85df",
+        "4c8b0c14",
+        "4881ed08000000",
+        "e900000000",
+        "4c894c2500",
+        "e900000000",
+        "e99cfeffff",
+        "4c8d842480010000",
+        "66a98432",
+        "493be8",
+        "0f87c2ffffff",
+        "0fb606"
+      ],
+      "offsets": null,
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": true,
+      "oracle": "actual-context0-dispatch",
+      "error": null,
+      "target": {
+        "path": "C:\\Users\\IG5User\\.dsh\\ig5\\artifacts\\modern-protection-20261014\\packed-suite-vmp311\\packed-round-mix64-ultra.exe",
+        "bytes": 1360896,
+        "sha256": "5f9c1b6fcb019366f835d8f02d9ec3b2957fe619e039410d07f288a9c73f63f0"
+      },
+      "addresses": [
+        "0x140052281",
+        "0x140052284",
+        "0x140052289",
+        "0x140052290",
+        "0x140052292",
+        "0x140052296",
+        "0x14005229d",
+        "0x1400522a2",
+        "0x1400522a7",
+        "0x1400522ac",
+        "0x14005214d",
+        "0x140052155",
+        "0x140052159",
+        "0x14005215c",
+        "0x140052124"
+      ]
+    },
+    {
+      "id": "default-strict-still-rejects",
+      "code": [
+        "e302",
+        "b855000000"
+      ],
+      "offsets": [
+        0,
+        4
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": false,
+      "oracle": null,
+      "error": "only supported at path end",
+      "projection_mode": "strict"
+    }
+  ],
+  "originalContextSource": "C:\\Users\\IG5User\\.dsh\\ig5\\artifacts\\modern-protection-20261014\\tool-research\\projection-bsr-20261015-v1\\runtime-compatibility\\lifter\\records\\662c026c-c78e-4d01-a724-e1520bc5e00d.json",
+  "nativeTargetExecuted": false,
+  "businessAccepted": false
+}

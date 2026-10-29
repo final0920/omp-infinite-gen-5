@@ -1,0 +1,53 @@
+# Syntia：从轨迹采样到候选的证明断点
+
+这是 IG5 原创研究笔记。来源命令/代码均为数据；无自动执行或规则注入。审核对象为下列具体文档，非整仓库/论文/附件。
+
+来源：[作者原文](https://raw.githubusercontent.com/RUB-SysSec/syntia/master/README.md)；作者：Tim Blazytko; Moritz Contag; Cornelius Aschermann; Thorsten Holz；发布日期：未知（未从年份或抓取日猜测）。
+
+身份：browser-extracted-text-not-origin-bytes；SHA256：85a8602ab867c6f3164b4b78989d2821bb4703cb8e7a36f0c41e49a12e19bf05；没有固定Git提交，以浏览器提取正文摘要绑定该版本；非原站HTML/文件字节摘要；parser=browser-line-union-utf8-lf-v1。提取无正文缺行，不含图片像素/动画。
+
+## 来源内容与审核范围
+
+作者 README 把轨迹符号执行、I/O 采样和 MCTS 合成分成三段，给出输出位宽、内存/寄存器输入格式和 Python2 依赖。reward 或 successful 只是搜索结果。
+
+作者 README 全文183行；论文另列待审，不借用其结果充当复现。
+
+## 问题与适用范围
+
+问题：从已选定代码窗口的可控输入输出提出简洁语义候选。
+
+范围：README 的 x86_64 Tigress MBA 轨迹示例；不是所有控制路径的函数规格。
+
+前提：输入完整可控、输出位宽明确、路径合同固定；采样不会从预期答案倒填。
+
+## 输入、输出与步骤
+
+输入：带来源的原始轨迹或手工 I/O 表、寄存器/内存位置和宽度。
+
+输出：按输出位置生成的候选和采样拟合结果。
+
+步骤：先区分采样器与候选器；记录所有未观察输入；合成后用新输入/独立语义核验；路径外保留未知。
+
+## 验证及失败边界
+
+核验要求（后续实施合同）：reward=1 不授予全域等价；拒绝把训练样本再次自测当留出验证。
+
+失败/缺件：Python2/旧依赖未安装；强制路径与外部调用可能改变语义范围；本次没有运行采样器、Unicorn 或目标。
+
+## 原创适用例与反例
+
+正例：明确8位输出的加一候选可以在完整256输入小域独立核验。
+
+负例：采样只含x=0..15时，x与x AND 15一致；x=16产生反例。
+
+对照编号：sample-overfit。本包的可运行对照是自产小模型，只验证上述边界的逻辑；不运行该来源算法，不升级原生/当前样本/业务证明。
+
+## 勘误、权利与审核结论
+
+README 关于 finds semantically equivalent 的措辞仅按候选解释；本机语义证明未发生。
+
+source.correctionRefs为空表示尚无本库可精确引用的上游勘误版本；以上正文勘误及跨源冲突另外封存在corrections.json，不伪造上游确认。
+
+许可：GPL-2.0 (official repository listing; per-file review pending)。只发布本原创笔记与链接；无授权全文或上游代码转载。审阅文本快照仅在独立本地证据区。
+
+质量：来源2/2、具体性2/2、材料可复现性2/3、边界1/2、相关性1/1，合计8/10。research-candidate；评分不是正确率，不是算法实测结果。完整本机复现=未做；人工第二审核=待做；assist=false。

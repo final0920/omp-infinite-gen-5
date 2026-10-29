@@ -1,0 +1,134 @@
+{
+  "implementation": {
+    "revision": "20261024-fusion-ui-target-1",
+    "loadedAt": "2026-10-24T12:59:36.695Z"
+  },
+  "now": 1792847046894,
+  "sessions": [],
+  "jobs": [],
+  "config": {
+    "host": {
+      "platform": "win32",
+      "arch": "x64",
+      "id": "win32-x64",
+      "supported": true,
+      "execution": "local-node-host",
+      "androidRootfs": false
+    },
+    "runtimeSource": {
+      "ghidra": "bundled",
+      "x64dbg": "bundled"
+    },
+    "engine": "reverse",
+    "engines": [
+      {
+        "id": "reverse",
+        "label": "Reverse · 内置",
+        "available": true,
+        "default": true,
+        "provider": "ghidra",
+        "portable": true,
+        "source": "bundled",
+        "distribution": "bundled",
+        "readiness": "ready-to-start",
+        "runtimeReady": null,
+        "startupVerified": false,
+        "validation": "runtime-metadata-and-files",
+        "reason": "五代内置 Reverse 核心已就绪；首次检查会验证实际启动。",
+        "discoveryPartial": false
+      },
+      {
+        "id": "ghidra",
+        "label": "Ghidra",
+        "available": true,
+        "platform": "win32-x64",
+        "mode": "headless",
+        "default": false,
+        "source": "bundled",
+        "portable": true
+      },
+      {
+        "id": "x64dbg",
+        "label": "x64dbg",
+        "available": true,
+        "platform": "win32-x64",
+        "mode": "headless",
+        "default": false,
+        "source": "bundled",
+        "portable": true
+      }
+    ],
+    "maxSessions": 3,
+    "openTimeoutMs": 1800000,
+    "toolset": "core",
+    "toolsetScope": "agent",
+    "toolsetPersistent": false,
+    "defaultToolset": "core",
+    "agentScopeAvailable": false,
+    "activeTools": [
+      "ig5_doctor",
+      "ig5_open",
+      "ig5_status",
+      "ig5_funcs",
+      "ig5_strings",
+      "ig5_decompile",
+      "ig5_close",
+      "ig5_profile"
+    ],
+    "availableTools": [
+      "ig5_profile",
+      "ig5_doctor",
+      "ig5_open",
+      "ig5_status",
+      "ig5_funcs",
+      "ig5_strings",
+      "ig5_decompile",
+      "ig5_close",
+      "ig5_xrefs",
+      "ig5_rename",
+      "ig5_patch_bytes",
+      "ig5_comment",
+      "ig5_calls",
+      "ig5_analyze",
+      "ig5_set_type",
+      "ig5_bytes",
+      "ig5_search",
+      "ig5_listing",
+      "ig5_undo",
+      "ig5_scan",
+      "ig5_run_idapython",
+      "ig5_dbg",
+      "ig5_export_diff",
+      "ig5_struct",
+      "ig5_cfg",
+      "ig5_slice",
+      "ig5_fingerprint",
+      "ig5_stack",
+      "ig5_switches",
+      "ig5_switch_repair",
+      "ig5_vtables",
+      "ig5_microcode",
+      "ig5_bindiff",
+      "ig5_emulate",
+      "ig5_ir",
+      "ig5_sync",
+      "ig5_crypto",
+      "ig5_protocol",
+      "ig5_capture",
+      "ig5_capture_control"
+    ],
+    "skills": [
+      "ig5-triage",
+      "ig5-deep-dive",
+      "ig5-patch-and-sign",
+      "ig5-diff",
+      "ig5-debug-live",
+      "ig5-crypto",
+      "ig5-protocol",
+      "ig5-reverse-agent"
+    ],
+    "commands": [
+      "ig5"
+    ]
+  }
+}

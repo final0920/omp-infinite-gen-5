@@ -1,0 +1,182 @@
+[
+  {
+    "file": "adapters/ghidra/script_api.py",
+    "sha256": "f2a584317964be720090598e1b738b1969c11eccb47008d0ea0fae62f763bc1f",
+    "lines": 483
+  },
+  {
+    "file": "adapters/vmci/adapter.py",
+    "sha256": "c992b2a2c0e902579c283219a48a84a4ad51621df92c78f142779c84de3a7775",
+    "lines": 179
+  },
+  {
+    "file": "adapters/x64dbg/adapter.py",
+    "sha256": "7f3504d2ea91e345274d28a1a64e06078544d896e58c632932786f472f1f2b99",
+    "lines": 1292
+  },
+  {
+    "file": "capture_tools.js",
+    "sha256": "fd51f8e2772420b46fbb01035e88cc1a03a98a25410d089d6efdf1529752bb8d",
+    "lines": 48
+  },
+  {
+    "file": "engine_runtime.js",
+    "sha256": "2d1ae5c54fd2c02e93d3be9b0dee40ab99b3e83ca91678ecdb1e11fa04839ef8",
+    "lines": 284
+  },
+  {
+    "file": "index.js",
+    "sha256": "0bb2502b995b2936216f35689dcb7b360ee85c3f70c84ce159dca16e01efcba1",
+    "lines": 1317
+  },
+  {
+    "file": "integration_tools.js",
+    "sha256": "b6c7731290bac1a01a04b2825a63927833a1d711874157a93204fe6aba2e379d",
+    "lines": 233
+  },
+  {
+    "file": "source/address_ref.js",
+    "sha256": "906e105abdb002d471ece08b35ca7885132949ce443eec623fa448fa9dafedce",
+    "lines": 151
+  },
+  {
+    "file": "source/analysis_artifacts.js",
+    "sha256": "3643caaff1eb5bdd404c6715011839103755314981af7054a4616ac67208b73b",
+    "lines": 168
+  },
+  {
+    "file": "source/approval_gate.js",
+    "sha256": "377831e0076c1ae8749e171503a3a66fb4493daaf4e9182078796ad81bb9d3eb",
+    "lines": 105
+  },
+  {
+    "file": "source/attachment_lease.js",
+    "sha256": "af8b632a93f1e2ac4264939d687e0de65820c4dfa0fa77e8770adb1505795e92",
+    "lines": 64
+  },
+  {
+    "file": "source/audit_history.js",
+    "sha256": "fcf99f651fda7dd73110b4d08db39d5d57e9536699ba2190f14a191135155f8a",
+    "lines": 129
+  },
+  {
+    "file": "source/capture_ca.js",
+    "sha256": "3f61505d2afa9537ceeb60355c253f5cfe6d8f43f3c07b04f859174cb5e1cda5",
+    "lines": 76
+  },
+  {
+    "file": "source/capture_proxy.js",
+    "sha256": "1d52b028bb2c6525f4c3927f4b7f9468edd36aad17635866ea9bbe7be944b827",
+    "lines": 530
+  },
+  {
+    "file": "source/debug_trace.js",
+    "sha256": "2dab4a7f2a82cb95a21f124a56f98464dede054c7da2be1ed600545e91b0bede",
+    "lines": 89
+  },
+  {
+    "file": "source/diag_log.js",
+    "sha256": "4f1ed90b399a582a29f842a2f243e20e38e208b9d37df7b81c7c326de5ca2524",
+    "lines": 13
+  },
+  {
+    "file": "source/engine_error.js",
+    "sha256": "529e71172159502bccb2dbd573bd29168d3a703a2806540d7c29ad98c0dd2fe5",
+    "lines": 20
+  },
+  {
+    "file": "source/function_batches.js",
+    "sha256": "8d5afbf752a38f23a40bc4ba6d798b885ff7d260b1129b148f240a78c363d709",
+    "lines": 91
+  },
+  {
+    "file": "source/function_dossier.js",
+    "sha256": "003f92cacd0451ee8cfc73638c6085bf03bead8d45ce337dc70bbc9efe654925",
+    "lines": 318
+  },
+  {
+    "file": "source/guest_debug_profile.js",
+    "sha256": "b7f57f56e6c0ede951bb6ffcd9b0a289bcf1c3a44301e4d7c2b3744abc2cd819",
+    "lines": 59
+  },
+  {
+    "file": "source/guest_recovery.js",
+    "sha256": "6bc1b8201b5074627591b8359b23618804818b39c5fa2e0c12eb959d0a729c48",
+    "lines": 58
+  },
+  {
+    "file": "source/history_index.js",
+    "sha256": "c1b9a57c4f88159e6322ad8e2c7aab52f20339085fa53800ac77ea474799f929",
+    "lines": 96
+  },
+  {
+    "file": "source/host_platform.js",
+    "sha256": "ee9d583571b08438459c024fe55ee44079be7d95085fd9fc29110e28ccfea124",
+    "lines": 43
+  },
+  {
+    "file": "source/implementation_info.js",
+    "sha256": "405ff52898c66cddfbad3d085123d00162f4f65cbc4c2726d8d0e5dcb2cb95a3",
+    "lines": 3
+  },
+  {
+    "file": "source/json_output.js",
+    "sha256": "4cd4f1fe4e1ede4f08011efb436b5b6972c1d3624d699dbf8ad60f7e0a8651c8",
+    "lines": 50
+  },
+  {
+    "file": "source/native_store_events.js",
+    "sha256": "983b450ccd08b05e49c8a792fa34ccbc75623caba1b9ce2daba10908278aa067",
+    "lines": 48
+  },
+  {
+    "file": "source/patch_export.js",
+    "sha256": "28940a2bd1e7e0176ebbe985bb79ae8856179487236d930156366a573abfb2f9",
+    "lines": 128
+  },
+  {
+    "file": "source/project_store.js",
+    "sha256": "e26b6c34466a6aff1fb28a76744170d6e4aef3c252e1d71f496cf1b01b63dd9e",
+    "lines": 427
+  },
+  {
+    "file": "source/remote_execution_store.js",
+    "sha256": "e298b1de0a4522b8d42e006046236724f5fdffd45ff0df72b0ba5c1942e49f86",
+    "lines": 245
+  },
+  {
+    "file": "source/result_artifacts.js",
+    "sha256": "54fbe417d8ec01fcccce36d78073a4ee3c481c31d1f9266800bd63c473f4a67e",
+    "lines": 183
+  },
+  {
+    "file": "source/worker_manager.js",
+    "sha256": "23a045f0af9652d9d10392feab40fac6bacc2bd3cd7a28f8762d9069b4629b4f",
+    "lines": 773
+  },
+  {
+    "file": "source/worker_transport.js",
+    "sha256": "c8f84699a688bf0013549e740406c19d2297b39c8ad53ccc8b40c6f346eb0c94",
+    "lines": 295
+  },
+  {
+    "file": "worker/cpu_emulator.py",
+    "sha256": "880a28dc3e2b7adc9eab1d3bea3343ef1fc061d3bab8d77124588e0e349cefa4",
+    "lines": 183
+  },
+  {
+    "file": "worker/ig5_worker.py",
+    "sha256": "9f2c0c2e12f8155906c85ddc78e3cece12de0eb4bfff58a9c80cdc8ed754e184",
+    "lines": 1497
+  },
+  {
+    "file": "worker/lift_process.py",
+    "sha256": "2c666bfd8461948dc8f7d3eb9e28cfee82e1daba6a81c52c3334b296d803294b",
+    "lines": 217
+  },
+  {
+    "file": "workflow.js",
+    "sha256": "87c484b7f25573dae7f1fc78fa73fc2f18f47a2c23b832c31dd4f61ff69cffe1",
+    "lines": 290
+  }
+]

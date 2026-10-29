@@ -1,0 +1,24 @@
+import test from'node:test';import assert from'node:assert/strict';
+import{recordedCoordinateCase}from'./fixtures/recorded_coordinate_cases.mjs';
+import{validateRecordedCoordinateInput,validateRecordedCoordinateBinding,needsRecordedRuntimeCoordinates}from'../source/recorded_projection_coordinates.js';
+import{validateProjection}from'../source/projection_jobs.js';import{hashBytes}from'../source/analysis_artifacts.js';
+test('exact original code mapping retains wide runtime addresses and data immediates',()=>{
+ for(const base of[0x180000000n,0x7ff700000000n,0x20000000000000n]){const q=recordedCoordinateCase(base),raw=validateRecordedCoordinateInput(q.input,q.data);assert.equal(JSON.parse(raw).runtimeBase,'0x'+base.toString(16));assert.equal(q.input.rows[0].preferred,'0x140001000');assert.equal(q.input.rows[3].bytes,'48ba2710004001000000');assert(!raw.includes(Buffer.from('gprs')));}
+});
+test('wrong file bytes, executable mapping, offset and original digest refuse',()=>{
+ for(const kind of['bytes','offset','preferredBase','target','executable']){const q=recordedCoordinateCase(),x=structuredClone(q.input),data=Buffer.from(q.data);if(kind==='bytes')x.rows[0].bytes='90';if(kind==='offset')x.rows[0].fileOffset++;if(kind==='preferredBase')x.preferredBase='0x180000000';if(kind==='target')x.targetSha256='d'.repeat(64);if(kind==='executable'){data.writeUInt32LE(0x40000040,0x188+36);x.targetSha256=hashBytes(data);}assert.throws(()=>validateRecordedCoordinateInput(x,data),/Recorded (projection|flow)/);}
+});
+test('identity, pause, ordering, unrelated windows and repeated PCs refuse',()=>{
+ for(const mutate of[x=>x.rows[0].pauseAfter+=1,x=>x.rows[1].groupIndex+=1,x=>x.rows[1].pauseBefore+=1,x=>x.rows[1].runtimePc=x.rows[0].runtimePc,x=>x.source.windows[0].traceSha256='bad',x=>x.source.threadId=true,x=>x.rows[0].recordingId=x.source.recurrencesRef.id,x=>x.source.windows.push({...x.source.windows[0]}),x=>x.rows[0].extra='certificate']){const x=structuredClone(recordedCoordinateCase().input);mutate(x);assert.throws(()=>validateRecordedCoordinateInput(x));}
+});
+test('128 sites bound is retained',()=>{const x=recordedCoordinateCase().input;x.rows=Array(129).fill(x.rows[0]);assert.throws(()=>validateRecordedCoordinateInput(x),/128/);});
+test('maximum bounded canonical identity snapshot remains within64KiB',()=>{const x=recordedCoordinateCase().input; x.runtimeBase='0xfffffffffffe0000';x.preferredBase='0xfffffffffffc0000';const base=BigInt(x.runtimeBase),preferred=BigInt(x.preferredBase),row=x.rows[0],window=x.source.windows[0];x.rows=[];x.source.windows=[];x.source.runId='x'.repeat(128);x.source.threadId=0xffffffff;
+ for(let i=0;i<128;i++){const id=i.toString(16).padStart(8,'0')+'-1111-4111-8111-111111111111';x.source.windows.push({...window,reportId:id});x.rows.push({...row,recordingId:id,groupIndex:99872+i,runtimePc:'0x'+(base+0x1000n+16n*BigInt(i)).toString(16),preferred:'0x'+(preferred+0x1000n+16n*BigInt(i)).toString(16),bytes:'90'.repeat(15),fileOffset:64*1024**2,pauseBefore:9007199254740000+i,pauseAfter:9007199254740001+i});}
+ const raw=validateRecordedCoordinateInput(x);assert(raw.length<=65536);assert.equal(JSON.parse(raw).rows.length,128);
+});
+test('runtime output tag and every exact byte boundary are mandatory',()=>{
+ const q=recordedCoordinateCase(),core={targetSha256:q.targetSha256,recordedCoordinates:{schema:'ig5-recorded-runtime-code-binding-v1',inputSha256:hashBytes(validateRecordedCoordinateInput(q.input)),input:q.input,ordinaryDataRelocated:false,globalCodeEpochProved:false},originalPreferredPath:q.input.rows.map(r=>r.preferred),projectionPath:q.input.rows.map(r=>r.runtimePc),projectionDecoder:'java',projectionMode:'opaque-status',decodedPath:q.input.rows.map(r=>({ea:r.runtimePc,bytes:r.bytes,decoded:{ea:r.runtimePc,size:r.bytes.length/2}}))};
+ validateRecordedCoordinateBinding(core,q.input);for(const mutate of[c=>c.recordedCoordinates.ordinaryDataRelocated=true,c=>c.recordedCoordinates.globalCodeEpochProved=true,c=>c.decodedPath[0].decoded.size--,c=>c.projectionPath[0]=c.originalPreferredPath[0],c=>c.recordedCoordinates.inputSha256='0'.repeat(64)]){const c=structuredClone(core);mutate(c);assert.throws(()=>validateRecordedCoordinateBinding(c,q.input));}
+});
+test('public project never accepts internal coordinates or caller raw pcode',()=>{for(const key of['recorded_coordinates_sha256','recordedCoordinates','coordinates','pcode'])assert.throws(()=>validateProjection({level:'project',target:'C:/fixture.exe',projection_path:['0x140001000'],projection_registers:['rax'],[key]:{}}),/accepts only/);});
+test('automatic selection is driven by PC-data/fallthrough, never source-byte labels',()=>{assert(needsRecordedRuntimeCoordinates(recordedCoordinateCase().decoded));assert(needsRecordedRuntimeCoordinates([{controlFlow:false,operands:[]}]));assert(!needsRecordedRuntimeCoordinates([{controlFlow:true,operands:[]}]))});

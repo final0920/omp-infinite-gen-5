@@ -1,0 +1,200 @@
+{
+  "evidence": "mock provider; no native or historical incident validation",
+  "missingParent": {
+    "code": "AGENT_LINEAGE_UNAVAILABLE",
+    "message": "DSH parent session is unavailable; shared budget cannot be bypassed"
+  },
+  "repeat": {
+    "firstHit": false,
+    "secondHit": true,
+    "firstRPCs": 5,
+    "repeatAdditionalRPCs": 0,
+    "changedBudgetHit": false
+  },
+  "large": {
+    "providerCodeBytes": 80513,
+    "responseBytes": 6668,
+    "responseTruncated": true,
+    "section": {
+      "status": "truncated",
+      "method": "decompile",
+      "data": {
+        "ea": "0x1000",
+        "name": "f",
+        "size": 64,
+        "lines": 3501,
+        "code": "/* 中文 */\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { return 42; }\nint f() { "
+      },
+      "truncation": {
+        "response": true,
+        "omitted": {
+          "rows": 0,
+          "fields": 0,
+          "stringBytes": 78351,
+          "depth": 0
+        },
+        "providerTruncated": false,
+        "provider": []
+      }
+    }
+  },
+  "partialCalls": {
+    "status": "truncated",
+    "method": "calls",
+    "direction": "callees",
+    "data": {
+      "ea": "0x1000",
+      "direction": "callees",
+      "total": 40,
+      "calls": [
+        {
+          "ea": "0x2000",
+          "name": "callee0"
+        },
+        {
+          "ea": "0x2001",
+          "name": "callee1"
+        },
+        {
+          "ea": "0x2002",
+          "name": "callee2"
+        },
+        {
+          "ea": "0x2003",
+          "name": "callee3"
+        },
+        {
+          "ea": "0x2004",
+          "name": "callee4"
+        },
+        {
+          "ea": "0x2005",
+          "name": "callee5"
+        },
+        {
+          "ea": "0x2006",
+          "name": "callee6"
+        },
+        {
+          "ea": "0x2007",
+          "name": "callee7"
+        },
+        {
+          "ea": "0x2008",
+          "name": "callee8"
+        },
+        {
+          "ea": "0x2009",
+          "name": "callee9"
+        },
+        {
+          "ea": "0x200a",
+          "name": "callee10"
+        },
+        {
+          "ea": "0x200b",
+          "name": "callee11"
+        },
+        {
+          "ea": "0x200c",
+          "name": "callee12"
+        },
+        {
+          "ea": "0x200d",
+          "name": "callee13"
+        },
+        {
+          "ea": "0x200e",
+          "name": "callee14"
+        },
+        {
+          "ea": "0x200f",
+          "name": "callee15"
+        },
+        {
+          "ea": "0x2010",
+          "name": "callee16"
+        },
+        {
+          "ea": "0x2011",
+          "name": "callee17"
+        },
+        {
+          "ea": "0x2012",
+          "name": "callee18"
+        },
+        {
+          "ea": "0x2013",
+          "name": "callee19"
+        },
+        {
+          "ea": "0x2014",
+          "name": "callee20"
+        },
+        {
+          "ea": "0x2015",
+          "name": "callee21"
+        },
+        {
+          "ea": "0x2016",
+          "name": "callee22"
+        },
+        {
+          "ea": "0x2017",
+          "name": "callee23"
+        },
+        {
+          "ea": "0x2018",
+          "name": "callee24"
+        },
+        {
+          "ea": "0x2019",
+          "name": "callee25"
+        },
+        {
+          "ea": "0x201a",
+          "name": "callee26"
+        },
+        {
+          "ea": "0x201b",
+          "name": "callee27"
+        },
+        {
+          "ea": "0x201c",
+          "name": "callee28"
+        },
+        {
+          "ea": "0x201d",
+          "name": "callee29"
+        },
+        {
+          "ea": "0x201e",
+          "name": "callee30"
+        },
+        {
+          "ea": "0x201f",
+          "name": "callee31"
+        }
+      ]
+    },
+    "truncation": {
+      "response": false,
+      "omitted": {
+        "rows": 0,
+        "fields": 0,
+        "stringBytes": 0,
+        "depth": 0
+      },
+      "providerTruncated": true,
+      "provider": [
+        {
+          "field": "calls",
+          "returned": 32,
+          "available": 40,
+          "omitted": 8
+        }
+      ]
+    }
+  },
+  "originalSample": "unknown; historical requests and matching SHA not supplied"
+}

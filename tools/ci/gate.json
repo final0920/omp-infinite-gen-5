@@ -1,0 +1,747 @@
+{
+  "note": "门禁套件：只放不依赖真实引擎、客体虚拟机和真实模型的纯 Node 测试。增删请在此处改，不要改 run-gate.mjs。",
+  "defaultTimeoutSec": 120,
+  "tests": [
+    {
+      "name": "approval-gate",
+      "file": "scripts/test_approval_gate.mjs",
+      "area": "A 审批门"
+    },
+    {
+      "name": "worker-transport",
+      "file": "scripts/test_worker_transport.mjs",
+      "area": "A worker 通信"
+    },
+    {
+      "name": "worker-budget",
+      "file": "scripts/test_worker_budget.mjs",
+      "area": "A 预算"
+    },
+    {
+      "name": "attachment-leases",
+      "file": "scripts/test_attachment_leases.mjs",
+      "area": "A 租约/所有权"
+    },
+    {
+      "name": "project-store",
+      "file": "scripts/test_project_store.mjs",
+      "area": "A 项目存储"
+    },
+    {
+      "name": "address-ref",
+      "file": "scripts/test_address_ref.mjs",
+      "area": "A 地址身份"
+    },
+    {
+      "name": "patch-export-scope",
+      "file": "scripts/test_patch_export_scope.mjs",
+      "area": "A 补丁导出"
+    },
+    {
+      "name": "audit-history",
+      "file": "scripts/test_audit_history.mjs",
+      "area": "A 审计"
+    },
+    {
+      "name": "json-output",
+      "file": "scripts/test_json_output.mjs",
+      "area": "B 输出"
+    },
+    {
+      "name": "public-tools",
+      "file": "scripts/test_public_tool_catalog.mjs",
+      "area": "B 工具目录",
+      "env": "可能依赖已安装的 DSH SDK"
+    },
+    {
+      "name": "host-sdk",
+      "file": "scripts/test_host_sdk.mjs",
+      "area": "B 宿主 SDK",
+      "env": "可能依赖已安装的 DSH SDK"
+    },
+    {
+      "name": "workflow",
+      "file": "scripts/test_workflow.mjs",
+      "area": "B 生命周期"
+    },
+    {
+      "name": "data-route",
+      "file": "scripts/test_data_route.mjs",
+      "area": "B 只读路由"
+    },
+    {
+      "name": "history-maintenance",
+      "file": "scripts/test_history_maintenance.mjs",
+      "area": "B 历史维护"
+    },
+    {
+      "name": "platform",
+      "file": "scripts/test_host_platform.mjs",
+      "area": "B 平台探测"
+    },
+    {
+      "name": "client",
+      "file": "scripts/test_client.mjs",
+      "area": "B 工作台渲染"
+    },
+    {
+      "name": "search-hint",
+      "file": "scripts/test_search_hint.mjs",
+      "area": "B 检索入口引导"
+    },
+    {
+      "name": "analysis-discovery-host",
+      "file": "scripts/test_analysis_discovery_host.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "analysis-failure",
+      "file": "scripts/test_analysis_failure.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "analysis-host",
+      "file": "scripts/test_analysis_host.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "autonomy-status",
+      "file": "scripts/test_autonomy_status.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "bitvector-candidates",
+      "file": "scripts/test_bitvector_candidates.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "bitvector-provider",
+      "file": "scripts/test_bitvector_provider.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "candidate-workflow",
+      "file": "scripts/test_candidate_workflow.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "capture-ca",
+      "file": "scripts/test_capture_ca.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "capture-client",
+      "file": "scripts/test_capture_client.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "capture-host",
+      "file": "scripts/test_capture_host.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "capture-payload",
+      "file": "scripts/test_capture_payload.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "capture-proxy",
+      "file": "scripts/test_capture_proxy.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "capture-review",
+      "file": "scripts/test_capture_review.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "capture-state-trace",
+      "file": "scripts/test_capture_state_trace.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "capture-tools",
+      "file": "scripts/test_capture_tools.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "capture-correlate",
+      "file": "scripts/test_capture_correlate.mjs",
+      "area": "P9 流量↔样本对应（正文哈希同一性、端点/头/网络 API 字面量与偏移、UTF-16LE、无秘密泄漏、样本哈希/形状/大小校验、空正文不伪造同一性、分类表一致性）"
+    },
+    {
+      "name": "capture-correlate-runtime",
+      "file": "scripts/test_capture_correlate_runtime.mjs",
+      "tier": "extended",
+      "timeoutSec": 120,
+      "area": "P9 运行态（真实回环代理下发→保存样本→离线对应；不启引擎、不再发请求、样本不变）"
+    },
+    {
+      "name": "case-index",
+      "file": "scripts/test_case_index.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "cff-overlay",
+      "file": "scripts/test_cff_overlay.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "cff-state",
+      "file": "scripts/test_cff_state.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "composition-jobs",
+      "file": "scripts/test_composition_jobs.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "composition-opaque-host",
+      "file": "scripts/test_composition_opaque_host.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "composition-status-host",
+      "file": "scripts/test_composition_status_host.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "crypto-analysis",
+      "file": "scripts/test_crypto_analysis.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "crypto-recovery",
+      "file": "scripts/test_crypto_recovery.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "dashboard-projection",
+      "file": "scripts/test_dashboard_projection.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "debug-integration",
+      "file": "scripts/test_debug_integration.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "debug-reliability",
+      "file": "scripts/test_debug_reliability.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）",
+      "tier": "extended",
+      "timeoutSec": 180
+    },
+    {
+      "name": "debug-timeout",
+      "file": "scripts/test_debug_timeout.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "debug-trace-chunks",
+      "file": "scripts/test_debug_trace_chunks.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "delegation-control",
+      "file": "scripts/test_delegation_control.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "delivered-payload",
+      "file": "scripts/test_delivered_payload.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "deobfuscation-tools",
+      "file": "scripts/test_deobfuscation_tools.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "engine-integration",
+      "file": "scripts/test_engine_integration.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）",
+      "tier": "extended",
+      "timeoutSec": 180
+    },
+    {
+      "name": "expanded-trace",
+      "file": "scripts/test_expanded_trace.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）",
+      "tier": "extended",
+      "timeoutSec": 180
+    },
+    {
+      "name": "experiment-planner",
+      "file": "scripts/test_experiment_planner.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "experiment-shadow",
+      "file": "scripts/test_experiment_shadow.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "flow-pair-sampling",
+      "file": "scripts/test_flow_pair_sampling.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "function-batches",
+      "file": "scripts/test_function_batches.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "function-dossier",
+      "file": "scripts/test_function_dossier.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "fusion-evidence",
+      "file": "scripts/test_fusion_evidence.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "fusion-models",
+      "file": "scripts/test_fusion_models.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "fusion-ui",
+      "file": "scripts/test_fusion_ui.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "ghidra-project-paths",
+      "file": "scripts/test_ghidra_project_paths.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）",
+      "tier": "extended",
+      "timeoutSec": 180
+    },
+    {
+      "name": "ghidra-reliability",
+      "file": "scripts/test_ghidra_reliability.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）",
+      "tier": "extended",
+      "timeoutSec": 180
+    },
+    {
+      "name": "investigation-persistence",
+      "file": "scripts/test_investigation_persistence.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "investigation-store",
+      "file": "scripts/test_investigation_store.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "investigation-upgrade",
+      "file": "scripts/test_investigation_upgrade.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "investigation-workflow",
+      "file": "scripts/test_investigation_workflow.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "kernel-jobs",
+      "file": "scripts/test_kernel_jobs.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "knowledge-import",
+      "file": "scripts/test_knowledge_import.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "knowledge",
+      "file": "scripts/test_knowledge.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "lcm-memory",
+      "file": "scripts/test_lcm_memory.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "lift-jobs",
+      "file": "scripts/test_lift_jobs.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "memory-resume",
+      "file": "scripts/test_memory_resume.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "method-applicability",
+      "file": "scripts/test_method_applicability.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "path-discovery-host",
+      "file": "scripts/test_path_discovery_host.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "projection-calls-host",
+      "file": "scripts/test_projection_calls_host.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "projection-decoder",
+      "file": "scripts/test_projection_decoder.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "projection-guarded-host",
+      "file": "scripts/test_projection_guarded_host.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "projection-jobs",
+      "file": "scripts/test_projection_jobs.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "projection-opaque-host",
+      "file": "scripts/test_projection_opaque_host.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "projection-status-host",
+      "file": "scripts/test_projection_status_host.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "protocol-analysis",
+      "file": "scripts/test_protocol_analysis.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "protocol-inference",
+      "file": "scripts/test_protocol_inference.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "protocol-state-host",
+      "file": "scripts/test_protocol_state_host.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "protocol-state",
+      "file": "scripts/test_protocol_state.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "recorded-coordinates",
+      "file": "scripts/test_recorded_coordinates.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "remote-execution-store",
+      "file": "scripts/test_remote_execution_store.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "research-discovery",
+      "file": "scripts/test_research_discovery.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "research-properties",
+      "file": "scripts/test_research_properties.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "research-state",
+      "file": "scripts/test_research_state.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "research-v2",
+      "file": "scripts/test_research_v2.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "research-verification",
+      "file": "scripts/test_research_verification.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "result-artifacts",
+      "file": "scripts/test_result_artifacts.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "reverse-provider",
+      "file": "scripts/test_reverse_provider.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "review-fixes",
+      "file": "scripts/test_review_fixes.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "self-contained",
+      "file": "scripts/test_self_contained.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）",
+      "tier": "extended",
+      "timeoutSec": 180
+    },
+    {
+      "name": "semantic-diff",
+      "file": "scripts/test_semantic_diff.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "semantic-isolation",
+      "file": "scripts/test_semantic_isolation.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "trace-jobs",
+      "file": "scripts/test_trace_jobs.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "transition-chain-host",
+      "file": "scripts/test_transition_chain_host.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "uxr-session",
+      "file": "scripts/test_uxr_session.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "vm-address-roles",
+      "file": "scripts/test_vm_address_roles.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "vm-context-model",
+      "file": "scripts/test_vm_context_model.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "vm-fetch-flow",
+      "file": "scripts/test_vm_fetch_flow.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "vm-flow-recurrences",
+      "file": "scripts/test_vm_flow_recurrences.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "vm-function",
+      "file": "scripts/test_vm_function.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "vm-handlers",
+      "file": "scripts/test_vm_handlers.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "vm-instances",
+      "file": "scripts/test_vm_instances.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "vm-observations",
+      "file": "scripts/test_vm_observations.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "vm-phase-context",
+      "file": "scripts/test_vm_phase_context.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "vm-phase-model",
+      "file": "scripts/test_vm_phase_model.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "vm-progression",
+      "file": "scripts/test_vm_progression.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "vm-recovery-plan",
+      "file": "scripts/test_vm_recovery_plan.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "vm-recovery-profile",
+      "file": "scripts/test_vm_recovery_profile.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "vmp-recovery",
+      "file": "scripts/test_vmp_recovery.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）",
+      "tier": "extended",
+      "timeoutSec": 180
+    },
+    {
+      "name": "vmp-research",
+      "file": "scripts/test_vmp_research.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）",
+      "tier": "extended",
+      "timeoutSec": 180
+    },
+    {
+      "name": "x64dbg-cleanup",
+      "file": "scripts/test_x64dbg_cleanup.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "x64dbg-features",
+      "file": "scripts/test_x64dbg_features.mjs",
+      "area": "C 扩展（纯 Node，2026-10-24 实测通过）"
+    },
+    {
+      "name": "worker-env",
+      "file": "scripts/test_worker_env.mjs",
+      "area": "A 子进程环境变量白名单（R4）"
+    },
+    {
+      "name": "tool-classification",
+      "file": "scripts/test_tool_classification.mjs",
+      "area": "A 工具分类与审批闸门对账（R2）"
+    },
+    {
+      "name": "tool-surface-size",
+      "file": "tools/ci/tool-surface-size.mjs",
+      "area": "P2 工具面体积预算（Core 8 ≤ 4000 估算 token、单工具 ≤ 4000；与工具分类清单对账）"
+    },
+    {
+      "name": "review-20261024-node",
+      "file": "scripts/test_review_20261024_node.mjs",
+      "area": "A 评审 R6/R7/R8 回归（历史索引、项目锁主机身份、部分提交凭据）"
+    },
+    {
+      "name": "review-20261024-python",
+      "file": "scripts/test_review_20261024_python.mjs",
+      "area": "A 评审 R1-R5 回归（Undo 注释通道、expected、分析失败、导出表、x64dbg 清理确认）",
+      "tier": "extended",
+      "timeoutSec": 180
+    },
+    {
+      "name": "legacy-project-lock-recovery",
+      "file": "scripts/test_legacy_project_lock_recovery.mjs",
+      "area": "A 项目存储"
+    },
+    {
+      "name": "behavior-inventory",
+      "file": "scripts/test_behavior_inventory.mjs",
+      "area": "P1 行为清单（规则表自检、向后兼容、函数级聚合、真实 Ghidra 验收）",
+      "tier": "extended",
+      "timeoutSec": 300
+    },
+    {
+      "name": "string-decoding",
+      "file": "scripts/test_string_decoding.mjs",
+      "area": "P4 字符串/配置自动解码（评分、参数规划、文本抽取、Unicorn 端到端、真实 Ghidra 验收）",
+      "tier": "extended",
+      "timeoutSec": 300
+    },
+    {
+      "name": "apk-zip",
+      "file": "scripts/test_apk_zip.mjs",
+      "area": "P3 APK 容器（ZIP 目录/EOCD 混淆/zip 炸弹/签名块/CRC）",
+      "timeoutSec": 180
+    },
+    {
+      "name": "apk-der",
+      "file": "scripts/test_apk_der.mjs",
+      "area": "P3 X.509/PKCS#7/签名块证书抽取（与 Node X509Certificate 对照）",
+      "timeoutSec": 180
+    },
+    {
+      "name": "apk-axml",
+      "file": "scripts/test_apk_axml.mjs",
+      "area": "P3 Android 二进制 XML（往返、UTF-8 向量、资源 ID 命名、AXMLPrinter2 对照）",
+      "timeoutSec": 180
+    },
+    {
+      "name": "apk-dex",
+      "file": "scripts/test_apk_dex.mjs",
+      "area": "P3 DEX 读取与指令扫描（与 dexlib2 逐指令对照、全操作码宽度表、变异检查）",
+      "timeoutSec": 180
+    },
+    {
+      "name": "apk-rules",
+      "file": "scripts/test_apk_rules.mjs",
+      "area": "P3 Android 能力规则表自检与匹配器",
+      "timeoutSec": 180
+    },
+    {
+      "name": "apk-manifest",
+      "file": "scripts/test_apk_manifest.mjs",
+      "area": "P3 Manifest 解读（exported 默认语义、异常、预算）",
+      "timeoutSec": 180
+    },
+    {
+      "name": "apk-analysis",
+      "file": "scripts/test_apk_analysis.mjs",
+      "area": "P3 APK 前端整体（方法级能力证据、签名、隐藏载荷、预算）",
+      "timeoutSec": 180
+    },
+    {
+      "name": "packer-analysis",
+      "file": "scripts/test_packer_analysis.mjs",
+      "area": "P5 加壳/保护识别（规则表自检、自造 PE/ELF 逐指标与边界、保护语料 20 余个真实样本、7,261 个 Windows 系统文件抽样、真实 Ghidra ig5_scan 验收）",
+      "tier": "extended",
+      "timeoutSec": 600
+    },
+    {
+      "name": "rule-match",
+      "file": "scripts/test_rule_match.mjs",
+      "area": "P7 签名规则匹配（受限 YARA 子集编译器与拒绝构造、文本/十六进制/通配/宽字符/大小写对拍、条件语义、分块边界与去重、证据与出现次数预算、真实保护语料与 Windows 系统文件、真实 Ghidra ig5_scan 验收）",
+      "tier": "extended",
+      "timeoutSec": 600
+    },
+    {
+      "name": "api-trace",
+      "file": "scripts/test_api_trace.mjs",
+      "area": "P8 动态 API 轨迹（PE32/PE32+ 导入表有界解析、选择与预算、线程/调用链聚合、清理与致命路径定向用例；真实 x64dbg 运行态：调用顺序、返回地址、参数、断点清理、进程退出、样本不变）",
+      "tier": "extended",
+      "timeoutSec": 300
+    },
+    {
+      "name": "firmware",
+      "file": "scripts/test_firmware.mjs",
+      "area": "P6 固件前端（规则表自检、有界解压、SquashFS/ext/cpio/tar/zip 读取与 7-Zip 对照、启动镜像解析、嵌套扫描、安全解包、恶意输入、真实文件）",
+      "tier": "extended",
+      "timeoutSec": 300
+    },
+    {
+      "name": "firmware-tool",
+      "file": "scripts/test_firmware_tool.mjs",
+      "area": "P6 ig5_package 固件动作（真实 Python worker、扫描简报、select 读取、解包目录隔离、取消、输入校验）",
+      "tier": "extended",
+      "timeoutSec": 300
+    },
+    {
+      "name": "apk-real-corpus",
+      "file": "scripts/test_apk_real_corpus.mjs",
+      "area": "P3 真实 APK 语料（14 个 52pojie 公开题 APK：全部解析无异常；15 个 DEX、844 万行指令/引用与 dexlib2 逐行一致；清单与 AXMLPrinter2 一致）。语料不在源码树内，缺失时明确跳过",
+      "tier": "extended",
+      "timeoutSec": 600
+    },
+    {
+      "name": "apk-tool",
+      "file": "scripts/test_apk_tool.mjs",
+      "area": "P3 ig5_package 公共工具（路径输入校验、保存报告、select 读取、真实 worker）",
+      "timeoutSec": 180
+    }
+  ]
+}

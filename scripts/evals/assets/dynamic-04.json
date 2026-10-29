@@ -1,0 +1,10 @@
+{
+  "kind": "memory-function",
+  "increment": 4,
+  "values": [
+    0,
+    1,
+    127,
+    255
+  ]
+}

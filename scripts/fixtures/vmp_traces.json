@@ -1,0 +1,12 @@
+{
+  "schema": "ig5.learning-traces.v1",
+  "researchRevision": "d2b26d66db59e341f179c7e326246d28c4d25491",
+  "sourceBase": "https://raw.githubusercontent.com/JonathanSalwan/VMProtect-devirtualization/d2b26d66db59e341f179c7e326246d28c4d25491/vmp_traces/",
+  "distribution": "References only; no external traces, binaries or upstream attack script included.",
+  "traces": [
+    {"file": "sample2.vmp.trace", "bytes": 2104445, "sha256": "735c076fdaf56cbdd6b80e0a66d88c76479f258faaf8bdaff1bec7662a63f443"},
+    {"file": "sample3.vmp.trace", "bytes": 4054891, "sha256": "8dbd08069f095f64966dfe960e350a872e8a0eef6cd0177ecd6db60a1346d846"},
+    {"file": "sample4.vmp.trace.1", "bytes": 2991519, "sha256": "e54a4323f23bf3ad481aebf71385d6a2d8b80682674b2d8a138434624a77ff02"},
+    {"file": "sample4.vmp.trace.2", "bytes": 2984639, "sha256": "2d1aae4d2fddf1fc3f28c10266fc3a68e08b44477dec67f379414215cde22d06"}
+  ]
+}

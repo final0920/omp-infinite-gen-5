@@ -1,0 +1,19 @@
+{
+  "fullTools": 40,
+  "realModelToolInvocationVerified": false,
+  "startupLog": [
+    "[2026-10-23T15:39:08.142Z] host: implementation=20261023-uxr-1 module=C:\\Users\\IG5User\\.dsh\\plugins\\dsh-infinite-gen-5\\index.js",
+    "[2026-10-23T15:39:08.145Z] host: 审批门已挂载（ig5_rename, ig5_patch_bytes, ig5_comment, ig5_analyze, ig5_set_type, ig5_undo, ig5_run_idapython, ig5_dbg, ig5_struct, ig5_switch_repair, ig5_emulate, ig5_sync, ig5_capture_control）",
+    "[2026-10-23T15:39:08.147Z] host: /ig5-diag 路由已挂载",
+    "[2026-10-23T15:39:08.147Z] host: /ig5-jobs 路由已挂载",
+    "[2026-10-23T15:39:08.148Z] host: /ig5-data 路由已挂载"
+  ],
+  "coreTools": 8,
+  "sessions": 0,
+  "implementation": {
+    "revision": "20261023-uxr-1",
+    "loadedAt": "2026-10-23T15:39:08.095Z"
+  },
+  "jobs": 0,
+  "observedAt": "2026-10-23T15:40:51.4473129Z"
+}

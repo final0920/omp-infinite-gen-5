@@ -1,0 +1,1554 @@
+{
+  "schema": "ig5-status-blocked-overlap-fixtures-v1",
+  "source": "Complete official pinned Ghidra Java raw p-code; generic x64 SHR operands, no target addresses or observations.",
+  "instructions": [
+    {
+      "ea": "0x1000",
+      "size": 4,
+      "codeBytes": "66c1ea82",
+      "mnemonic": "SHR",
+      "operands": "DX,0x82",
+      "pcode": [
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0xd0200",
+            "size": 4
+          },
+          "inputs": [
+            {
+              "space": "const",
+              "offset": "0x82",
+              "size": 4
+            },
+            {
+              "space": "const",
+              "offset": "0x1f",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "opcode": "COPY",
+          "output": {
+            "space": "unique",
+            "offset": "0xd0300",
+            "size": 2
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x10",
+              "size": 2
+            }
+          ]
+        },
+        {
+          "opcode": "INT_RIGHT",
+          "output": {
+            "space": "register",
+            "offset": "0x10",
+            "size": 2
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x10",
+              "size": 2
+            },
+            {
+              "space": "unique",
+              "offset": "0xd0200",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "opcode": "INT_EQUAL",
+          "output": {
+            "space": "unique",
+            "offset": "0x5be00",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0xd0200",
+              "size": 4
+            },
+            {
+              "space": "const",
+              "offset": "0x0",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "opcode": "INT_SUB",
+          "output": {
+            "space": "unique",
+            "offset": "0x5bf00",
+            "size": 4
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0xd0200",
+              "size": 4
+            },
+            {
+              "space": "const",
+              "offset": "0x1",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "opcode": "INT_RIGHT",
+          "output": {
+            "space": "unique",
+            "offset": "0x5c000",
+            "size": 2
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0xd0300",
+              "size": 2
+            },
+            {
+              "space": "unique",
+              "offset": "0x5bf00",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x5c100",
+            "size": 2
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x5c000",
+              "size": 2
+            },
+            {
+              "space": "const",
+              "offset": "0x1",
+              "size": 2
+            }
+          ]
+        },
+        {
+          "opcode": "INT_NOTEQUAL",
+          "output": {
+            "space": "unique",
+            "offset": "0x5c200",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x5c100",
+              "size": 2
+            },
+            {
+              "space": "const",
+              "offset": "0x0",
+              "size": 2
+            }
+          ]
+        },
+        {
+          "opcode": "COPY",
+          "output": {
+            "space": "unique",
+            "offset": "0x0",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x5be00",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_MULT",
+          "output": {
+            "space": "unique",
+            "offset": "0x100",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x0",
+              "size": 1
+            },
+            {
+              "space": "register",
+              "offset": "0x200",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "BOOL_NEGATE",
+          "output": {
+            "space": "unique",
+            "offset": "0x200",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x5be00",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "COPY",
+          "output": {
+            "space": "unique",
+            "offset": "0x300",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x200",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_MULT",
+          "output": {
+            "space": "unique",
+            "offset": "0x400",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x300",
+              "size": 1
+            },
+            {
+              "space": "unique",
+              "offset": "0x5c200",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_OR",
+          "output": {
+            "space": "register",
+            "offset": "0x200",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x100",
+              "size": 1
+            },
+            {
+              "space": "unique",
+              "offset": "0x400",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_EQUAL",
+          "output": {
+            "space": "unique",
+            "offset": "0x5c300",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0xd0200",
+              "size": 4
+            },
+            {
+              "space": "const",
+              "offset": "0x1",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "opcode": "INT_SLESS",
+          "output": {
+            "space": "unique",
+            "offset": "0x5c400",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0xd0300",
+              "size": 2
+            },
+            {
+              "space": "const",
+              "offset": "0x0",
+              "size": 2
+            }
+          ]
+        },
+        {
+          "opcode": "COPY",
+          "output": {
+            "space": "unique",
+            "offset": "0x0",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x5c300",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_MULT",
+          "output": {
+            "space": "unique",
+            "offset": "0x100",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x0",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0x0",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "BOOL_NEGATE",
+          "output": {
+            "space": "unique",
+            "offset": "0x200",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x5c300",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "COPY",
+          "output": {
+            "space": "unique",
+            "offset": "0x300",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x200",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_MULT",
+          "output": {
+            "space": "unique",
+            "offset": "0x400",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x300",
+              "size": 1
+            },
+            {
+              "space": "unique",
+              "offset": "0x5c400",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_OR",
+          "output": {
+            "space": "register",
+            "offset": "0x20b",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x100",
+              "size": 1
+            },
+            {
+              "space": "unique",
+              "offset": "0x400",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_NOTEQUAL",
+          "output": {
+            "space": "unique",
+            "offset": "0x58800",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0xd0200",
+              "size": 4
+            },
+            {
+              "space": "const",
+              "offset": "0x0",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "opcode": "INT_SLESS",
+          "output": {
+            "space": "unique",
+            "offset": "0x58a00",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x10",
+              "size": 2
+            },
+            {
+              "space": "const",
+              "offset": "0x0",
+              "size": 2
+            }
+          ]
+        },
+        {
+          "opcode": "BOOL_NEGATE",
+          "output": {
+            "space": "unique",
+            "offset": "0x58b00",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x58800",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x58c00",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x58b00",
+              "size": 1
+            },
+            {
+              "space": "register",
+              "offset": "0x207",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x58d00",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x58800",
+              "size": 1
+            },
+            {
+              "space": "unique",
+              "offset": "0x58a00",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_OR",
+          "output": {
+            "space": "register",
+            "offset": "0x207",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x58c00",
+              "size": 1
+            },
+            {
+              "space": "unique",
+              "offset": "0x58d00",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_EQUAL",
+          "output": {
+            "space": "unique",
+            "offset": "0x59000",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x10",
+              "size": 2
+            },
+            {
+              "space": "const",
+              "offset": "0x0",
+              "size": 2
+            }
+          ]
+        },
+        {
+          "opcode": "BOOL_NEGATE",
+          "output": {
+            "space": "unique",
+            "offset": "0x59100",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x58800",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x59200",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x59100",
+              "size": 1
+            },
+            {
+              "space": "register",
+              "offset": "0x206",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x59300",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x58800",
+              "size": 1
+            },
+            {
+              "space": "unique",
+              "offset": "0x59000",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_OR",
+          "output": {
+            "space": "register",
+            "offset": "0x206",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x59200",
+              "size": 1
+            },
+            {
+              "space": "unique",
+              "offset": "0x59300",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x59500",
+            "size": 2
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x10",
+              "size": 2
+            },
+            {
+              "space": "const",
+              "offset": "0xff",
+              "size": 2
+            }
+          ]
+        },
+        {
+          "opcode": "POPCOUNT",
+          "output": {
+            "space": "unique",
+            "offset": "0x59600",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x59500",
+              "size": 2
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x59700",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x59600",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0x1",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_EQUAL",
+          "output": {
+            "space": "unique",
+            "offset": "0x59900",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x59700",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0x0",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "BOOL_NEGATE",
+          "output": {
+            "space": "unique",
+            "offset": "0x59a00",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x58800",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x59b00",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x59a00",
+              "size": 1
+            },
+            {
+              "space": "register",
+              "offset": "0x202",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x59c00",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x58800",
+              "size": 1
+            },
+            {
+              "space": "unique",
+              "offset": "0x59900",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_OR",
+          "output": {
+            "space": "register",
+            "offset": "0x202",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x59b00",
+              "size": 1
+            },
+            {
+              "space": "unique",
+              "offset": "0x59c00",
+              "size": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ea": "0x1000",
+      "size": 3,
+      "codeBytes": "c0ee96",
+      "mnemonic": "SHR",
+      "operands": "DH,0x96",
+      "pcode": [
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0xcf600",
+            "size": 4
+          },
+          "inputs": [
+            {
+              "space": "const",
+              "offset": "0x96",
+              "size": 4
+            },
+            {
+              "space": "const",
+              "offset": "0x1f",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "opcode": "COPY",
+          "output": {
+            "space": "unique",
+            "offset": "0xcf700",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x11",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_RIGHT",
+          "output": {
+            "space": "register",
+            "offset": "0x11",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x11",
+              "size": 1
+            },
+            {
+              "space": "unique",
+              "offset": "0xcf600",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "opcode": "INT_EQUAL",
+          "output": {
+            "space": "unique",
+            "offset": "0x5be00",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0xcf600",
+              "size": 4
+            },
+            {
+              "space": "const",
+              "offset": "0x0",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "opcode": "INT_SUB",
+          "output": {
+            "space": "unique",
+            "offset": "0x5bf00",
+            "size": 4
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0xcf600",
+              "size": 4
+            },
+            {
+              "space": "const",
+              "offset": "0x1",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "opcode": "INT_RIGHT",
+          "output": {
+            "space": "unique",
+            "offset": "0x5c000",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0xcf700",
+              "size": 1
+            },
+            {
+              "space": "unique",
+              "offset": "0x5bf00",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x5c100",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x5c000",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0x1",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_NOTEQUAL",
+          "output": {
+            "space": "unique",
+            "offset": "0x5c200",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x5c100",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0x0",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "COPY",
+          "output": {
+            "space": "unique",
+            "offset": "0x0",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x5be00",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_MULT",
+          "output": {
+            "space": "unique",
+            "offset": "0x100",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x0",
+              "size": 1
+            },
+            {
+              "space": "register",
+              "offset": "0x200",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "BOOL_NEGATE",
+          "output": {
+            "space": "unique",
+            "offset": "0x200",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x5be00",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "COPY",
+          "output": {
+            "space": "unique",
+            "offset": "0x300",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x200",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_MULT",
+          "output": {
+            "space": "unique",
+            "offset": "0x400",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x300",
+              "size": 1
+            },
+            {
+              "space": "unique",
+              "offset": "0x5c200",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_OR",
+          "output": {
+            "space": "register",
+            "offset": "0x200",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x100",
+              "size": 1
+            },
+            {
+              "space": "unique",
+              "offset": "0x400",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_EQUAL",
+          "output": {
+            "space": "unique",
+            "offset": "0x5c300",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0xcf600",
+              "size": 4
+            },
+            {
+              "space": "const",
+              "offset": "0x1",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "opcode": "INT_SLESS",
+          "output": {
+            "space": "unique",
+            "offset": "0x5c400",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0xcf700",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0x0",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "COPY",
+          "output": {
+            "space": "unique",
+            "offset": "0x0",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x5c300",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_MULT",
+          "output": {
+            "space": "unique",
+            "offset": "0x100",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x0",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0x0",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "BOOL_NEGATE",
+          "output": {
+            "space": "unique",
+            "offset": "0x200",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x5c300",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "COPY",
+          "output": {
+            "space": "unique",
+            "offset": "0x300",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x200",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_MULT",
+          "output": {
+            "space": "unique",
+            "offset": "0x400",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x300",
+              "size": 1
+            },
+            {
+              "space": "unique",
+              "offset": "0x5c400",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_OR",
+          "output": {
+            "space": "register",
+            "offset": "0x20b",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x100",
+              "size": 1
+            },
+            {
+              "space": "unique",
+              "offset": "0x400",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_NOTEQUAL",
+          "output": {
+            "space": "unique",
+            "offset": "0x58800",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0xcf600",
+              "size": 4
+            },
+            {
+              "space": "const",
+              "offset": "0x0",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "opcode": "INT_SLESS",
+          "output": {
+            "space": "unique",
+            "offset": "0x58a00",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x11",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0x0",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "BOOL_NEGATE",
+          "output": {
+            "space": "unique",
+            "offset": "0x58b00",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x58800",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x58c00",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x58b00",
+              "size": 1
+            },
+            {
+              "space": "register",
+              "offset": "0x207",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x58d00",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x58800",
+              "size": 1
+            },
+            {
+              "space": "unique",
+              "offset": "0x58a00",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_OR",
+          "output": {
+            "space": "register",
+            "offset": "0x207",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x58c00",
+              "size": 1
+            },
+            {
+              "space": "unique",
+              "offset": "0x58d00",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_EQUAL",
+          "output": {
+            "space": "unique",
+            "offset": "0x59000",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x11",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0x0",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "BOOL_NEGATE",
+          "output": {
+            "space": "unique",
+            "offset": "0x59100",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x58800",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x59200",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x59100",
+              "size": 1
+            },
+            {
+              "space": "register",
+              "offset": "0x206",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x59300",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x58800",
+              "size": 1
+            },
+            {
+              "space": "unique",
+              "offset": "0x59000",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_OR",
+          "output": {
+            "space": "register",
+            "offset": "0x206",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x59200",
+              "size": 1
+            },
+            {
+              "space": "unique",
+              "offset": "0x59300",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x59500",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x11",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0xff",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "POPCOUNT",
+          "output": {
+            "space": "unique",
+            "offset": "0x59600",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x59500",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x59700",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x59600",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0x1",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_EQUAL",
+          "output": {
+            "space": "unique",
+            "offset": "0x59900",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x59700",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0x0",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "BOOL_NEGATE",
+          "output": {
+            "space": "unique",
+            "offset": "0x59a00",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x58800",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x59b00",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x59a00",
+              "size": 1
+            },
+            {
+              "space": "register",
+              "offset": "0x202",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x59c00",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x58800",
+              "size": 1
+            },
+            {
+              "space": "unique",
+              "offset": "0x59900",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_OR",
+          "output": {
+            "space": "register",
+            "offset": "0x202",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x59b00",
+              "size": 1
+            },
+            {
+              "space": "unique",
+              "offset": "0x59c00",
+              "size": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

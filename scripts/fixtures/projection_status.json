@@ -1,0 +1,191 @@
+{
+  "schema": "ig5-projection-status-fixture-v1",
+  "scope": "Single generic ADD64 instruction/raw official SLEIGH data; not a protected target or CPU certificate",
+  "decoderManifestPin": "8fc4ae42f775f0139aa5f184c912db71f77e68d661c14564ab6f4820d434abea",
+  "instructions": {
+    "add64": {
+      "ea": "0x1000",
+      "size": 3,
+      "mnemonic": "ADD",
+      "operands": "RBX,R10",
+      "pcode": [
+        {
+          "opcode": "INT_CARRY",
+          "output": {
+            "space": "register",
+            "offset": "0x200",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x18",
+              "size": 8
+            },
+            {
+              "space": "register",
+              "offset": "0x90",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_SCARRY",
+          "output": {
+            "space": "register",
+            "offset": "0x20b",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x18",
+              "size": 8
+            },
+            {
+              "space": "register",
+              "offset": "0x90",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_ADD",
+          "output": {
+            "space": "register",
+            "offset": "0x18",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x18",
+              "size": 8
+            },
+            {
+              "space": "register",
+              "offset": "0x90",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_SLESS",
+          "output": {
+            "space": "register",
+            "offset": "0x207",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x18",
+              "size": 8
+            },
+            {
+              "space": "const",
+              "offset": "0x0",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_EQUAL",
+          "output": {
+            "space": "register",
+            "offset": "0x206",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x18",
+              "size": 8
+            },
+            {
+              "space": "const",
+              "offset": "0x0",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x58300",
+            "size": 8
+          },
+          "inputs": [
+            {
+              "space": "register",
+              "offset": "0x18",
+              "size": 8
+            },
+            {
+              "space": "const",
+              "offset": "0xff",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "POPCOUNT",
+          "output": {
+            "space": "unique",
+            "offset": "0x58400",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x58300",
+              "size": 8
+            }
+          ]
+        },
+        {
+          "opcode": "INT_AND",
+          "output": {
+            "space": "unique",
+            "offset": "0x58500",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x58400",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0x1",
+              "size": 1
+            }
+          ]
+        },
+        {
+          "opcode": "INT_EQUAL",
+          "output": {
+            "space": "register",
+            "offset": "0x202",
+            "size": 1
+          },
+          "inputs": [
+            {
+              "space": "unique",
+              "offset": "0x58500",
+              "size": 1
+            },
+            {
+              "space": "const",
+              "offset": "0x0",
+              "size": 1
+            }
+          ]
+        }
+      ],
+      "codeBytes": "4903da"
+    }
+  }
+}

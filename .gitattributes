@@ -1,0 +1,4 @@
+# These vendored files are verified against their original wheel RECORD/pins.
+# Preserve exact bytes rather than applying Git's platform newline conversion.
+worker/trace_vendor/** -text
+third_party/lcm/** -text

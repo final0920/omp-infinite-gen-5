@@ -1,0 +1,158 @@
+[
+  {
+    "contract": "ig5_package",
+    "decision": "accepted-with-declared-boundaries",
+    "date": "2026-10-26",
+    "authorizedBy": "bai",
+    "executedBy": "Codex",
+    "reviewKind": "user-authorized-agent-review",
+    "authority": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+    "reviewMethod": "Historical review + verified current identity + targeted current code checks and regressions; not a claim of new complete reading of every dependency.",
+    "files": [
+      {
+        "file": "analysis_tools.js",
+        "sha256": "abd7111dce8fbf2921747adbfacebd56c10e24c8e0acd9a3e991e03d8a5c4a67"
+      },
+      {
+        "file": "worker/firmware_cli.py",
+        "sha256": "c3838a040ecd84778d83651c51d135573bb9243671f9b18bf4bec424a0c950b8"
+      },
+      {
+        "file": "worker/firmware_io.py",
+        "sha256": "daba5aeb44e135080a7275c8b846110f7fb5758048789b7a833d97a00d0e648f"
+      },
+      {
+        "file": "worker/firmware_scan.py",
+        "sha256": "85c9d1ba0d69054f73730f6c59bfeb49ef02f2cda04aaeecc63929beee692d1e"
+      },
+      {
+        "file": "source/apk_analysis.js",
+        "sha256": "04d66510d816e4a641d53ed71fd9c7658b38d0b5037d8563e816aa8e9a779380"
+      }
+    ],
+    "tests": [
+      "package-apk",
+      "package-firmware",
+      "package-firmware-core"
+    ],
+    "limitations": "See individual row in DELEGATED_ACCEPTANCE.md; no unsupported backend, business-recovery, human-approval or full-coverage claim."
+  },
+  {
+    "contract": "P7",
+    "decision": "accepted-with-declared-boundaries",
+    "date": "2026-10-26",
+    "authorizedBy": "bai",
+    "executedBy": "Codex",
+    "reviewKind": "user-authorized-agent-review",
+    "authority": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+    "reviewMethod": "Historical review + verified current identity + targeted current code checks and regressions; not a claim of new complete reading of every dependency.",
+    "files": [
+      {
+        "file": "index.js",
+        "sha256": "b1f2304e3a1afac2431ffb18b7a63bd784275eac01c471d3b9dcba29afe7ee6c"
+      },
+      {
+        "file": "worker/rule_match.py",
+        "sha256": "d6be00836a0b54672d963ae474a01c725319474f94b9c785ffff95d930e0c776"
+      }
+    ],
+    "tests": [
+      "P7-rules"
+    ],
+    "limitations": "See individual row in DELEGATED_ACCEPTANCE.md; no unsupported backend, business-recovery, human-approval or full-coverage claim."
+  },
+  {
+    "contract": "P8",
+    "decision": "accepted-with-declared-boundaries",
+    "date": "2026-10-26",
+    "authorizedBy": "bai",
+    "executedBy": "Codex",
+    "reviewKind": "user-authorized-agent-review",
+    "authority": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+    "reviewMethod": "Historical review + verified current identity + targeted current code checks and regressions; not a claim of new complete reading of every dependency.",
+    "files": [
+      {
+        "file": "index.js",
+        "sha256": "b1f2304e3a1afac2431ffb18b7a63bd784275eac01c471d3b9dcba29afe7ee6c"
+      },
+      {
+        "file": "source/worker_manager.js",
+        "sha256": "3e504a3b6711ff216b2b0e49d01d3e7d4fd6d79c441b92ef6e0e51e1d55bfd57"
+      },
+      {
+        "file": "source/api_trace.js",
+        "sha256": "63e9c5cf9b0c3c2de8494a4323b2ed5a8237e538e2549f88bdded7d8ab4982e2"
+      },
+      {
+        "file": "adapters/x64dbg/adapter.py",
+        "sha256": "e6a6fd7cbaee0f24a19bb2dc9d078af126af4fa40f2c4d452c43871dff2f158e"
+      },
+      {
+        "file": "adapters/x64dbg/api_trace.py",
+        "sha256": "42849ee1648137a8467bc81c4ce2099daa419ea2484044146be5aa1c82568458"
+      }
+    ],
+    "tests": [
+      "P8-api-trace",
+      "P8-api-trace-offline"
+    ],
+    "limitations": "See individual row in DELEGATED_ACCEPTANCE.md; no unsupported backend, business-recovery, human-approval or full-coverage claim."
+  },
+  {
+    "contract": "P9",
+    "decision": "accepted-with-declared-boundaries",
+    "date": "2026-10-26",
+    "authorizedBy": "bai",
+    "executedBy": "Codex",
+    "reviewKind": "user-authorized-agent-review",
+    "authority": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+    "reviewMethod": "Historical review + verified current identity + targeted current code checks and regressions; not a claim of new complete reading of every dependency.",
+    "files": [
+      {
+        "file": "capture_tools.js",
+        "sha256": "f9222b1920c6f9cf1cff1947fa72367c816c8f5336368359839e6da4fa35ff49"
+      },
+      {
+        "file": "source/traffic_correlate.js",
+        "sha256": "72a40ca874882d4ef7b5af7aca32a0fd3fd32db97d2a4ea241e70fd8bec59e22"
+      }
+    ],
+    "tests": [
+      "P9-correlation"
+    ],
+    "limitations": "See individual row in DELEGATED_ACCEPTANCE.md; no unsupported backend, business-recovery, human-approval or full-coverage claim."
+  },
+  {
+    "contract": "P2",
+    "decision": "accepted-with-declared-boundaries",
+    "date": "2026-10-26",
+    "authorizedBy": "bai",
+    "executedBy": "Codex",
+    "reviewKind": "user-authorized-agent-review",
+    "authority": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md",
+    "reviewMethod": "Historical review + verified current identity + targeted current code checks and regressions; not a claim of new complete reading of every dependency.",
+    "files": [
+      {
+        "file": "index.js",
+        "sha256": "b1f2304e3a1afac2431ffb18b7a63bd784275eac01c471d3b9dcba29afe7ee6c"
+      },
+      {
+        "file": "workflow.js",
+        "sha256": "87c484b7f25573dae7f1fc78fa73fc2f18f47a2c23b832c31dd4f61ff69cffe1"
+      },
+      {
+        "file": "source/vm_recovery_profile.js",
+        "sha256": "9169aabb73203c3e4b6266f820b48427453c1decdf3e853af93935efe947f9b7"
+      },
+      {
+        "file": "source/vm_recovery_io.js",
+        "sha256": "8bf9e85abb0ecf872a68d947dca162dedaff7f57dc5bee24836c81b007e625a6"
+      }
+    ],
+    "tests": [
+      "P2-surface",
+      "P2-recovery"
+    ],
+    "limitations": "See individual row in DELEGATED_ACCEPTANCE.md; no unsupported backend, business-recovery, human-approval or full-coverage claim."
+  }
+]

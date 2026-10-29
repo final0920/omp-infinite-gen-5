@@ -1,0 +1,21 @@
+{
+  "note": "针对某个具体样本的具体 handler/context 编号所做的证明或验证脚本。它们只对对应的录制样本与编译结果成立，换一个样本或重新编译就不再成立，不是通用能力，也不得在对外材料里作为通用能力引用。新增名字含 handler<数字> 或 context<数字> 的脚本必须登记在此，否则 npm run ci 失败。",
+  "pattern": "(handler|context)\\d+",
+  "files": [
+    "scripts/prove_context200_join.py",
+    "scripts/prove_context208_join.py",
+    "scripts/verify_context200_join.py",
+    "scripts/verify_context208_join.py",
+    "scripts/prove_handler17_semantics.py",
+    "scripts/prove_handler137_semantics.py",
+    "scripts/prove_handler208_semantics.py",
+    "scripts/prove_handler250_semantics.py",
+    "scripts/verify_handler137_semantics.py",
+    "scripts/verify_handler208_semantics.py",
+    "scripts/verify_handler250_semantics.py",
+    "scripts/test_handler137_receipt_paths.py",
+    "scripts/test_handler17_runtime.mjs",
+    "scripts/test_handler208_runtime.mjs",
+    "scripts/test_handler250_runtime.mjs"
+  ]
+}

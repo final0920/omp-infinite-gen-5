@@ -1,0 +1,695 @@
+{
+  "schema": 1,
+  "scope": "BSWAP architectural-undefined and canonical prefix boundary; input data only",
+  "cases": [
+    {
+      "id": "eax32",
+      "code": [
+        "0fc8"
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": true,
+      "operandBits": 32,
+      "destination": "rax",
+      "stores": []
+    },
+    {
+      "id": "rax64",
+      "code": [
+        "480fc8"
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": true,
+      "operandBits": 64,
+      "destination": "rax",
+      "stores": []
+    },
+    {
+      "id": "r15d32",
+      "code": [
+        "410fcf"
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": true,
+      "operandBits": 32,
+      "destination": "r15",
+      "stores": []
+    },
+    {
+      "id": "r15q64",
+      "code": [
+        "490fcf"
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": true,
+      "operandBits": 64,
+      "destination": "r15",
+      "stores": []
+    },
+    {
+      "id": "66-effective-rexw-rax",
+      "code": [
+        "66480fc8"
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": true,
+      "operandBits": 64,
+      "destination": "rax",
+      "stores": []
+    },
+    {
+      "id": "66-effective-rexw-r15",
+      "code": [
+        "66490fcf"
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": true,
+      "operandBits": 64,
+      "destination": "r15",
+      "stores": []
+    },
+    {
+      "id": "empty-rex-eax32",
+      "code": [
+        "400fc8"
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": true,
+      "operandBits": 32,
+      "destination": "rax",
+      "stores": []
+    },
+    {
+      "id": "eax32-ordered-overlap-stores",
+      "code": [
+        "0fc8",
+        "488903",
+        "c6430155"
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": true,
+      "operandBits": 32,
+      "destination": "rax",
+      "stores": [
+        {
+          "offset": 0,
+          "bytes": 8,
+          "value": "rax"
+        },
+        {
+          "offset": 1,
+          "bytes": 1,
+          "value": 85
+        }
+      ]
+    },
+    {
+      "id": "r15q64-store",
+      "code": [
+        "490fcf",
+        "4c893b"
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": true,
+      "operandBits": 64,
+      "destination": "r15",
+      "stores": [
+        {
+          "offset": 0,
+          "bytes": 8,
+          "value": "r15"
+        }
+      ]
+    },
+    {
+      "id": "undefined-ax16",
+      "code": [
+        "660fc8"
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": false,
+      "reason": "undefined"
+    },
+    {
+      "id": "undefined-di16",
+      "code": [
+        "660fcf"
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": false,
+      "reason": "undefined"
+    },
+    {
+      "id": "undefined-r8w16",
+      "code": [
+        "66410fc8"
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": false,
+      "reason": "undefined"
+    },
+    {
+      "id": "undefined-r15w16",
+      "code": [
+        "66410fcf"
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": false,
+      "reason": "undefined"
+    },
+    {
+      "id": "undefined-later-overwrite",
+      "code": [
+        "660fc8",
+        "b855000000"
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": false,
+      "reason": "undefined"
+    },
+    {
+      "id": "undefined-unselected",
+      "code": [
+        "660fc8"
+      ],
+      "registers": [
+        "rcx"
+      ],
+      "accepted": false,
+      "reason": "undefined"
+    },
+    {
+      "id": "misordered-rex-then66",
+      "code": [
+        "48660fc8"
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": false,
+      "reason": "noncanonical"
+    },
+    {
+      "id": "duplicate66",
+      "code": [
+        "66660fc8"
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": false,
+      "reason": "noncanonical"
+    },
+    {
+      "id": "duplicate-rex",
+      "code": [
+        "48480fc8"
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": false,
+      "reason": "noncanonical"
+    },
+    {
+      "id": "duplicate66-with-rexw",
+      "code": [
+        "6666480fc8"
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": false,
+      "reason": "noncanonical"
+    },
+    {
+      "id": "interleaved-rex66rex",
+      "code": [
+        "4866480fc8"
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": false,
+      "reason": "noncanonical"
+    },
+    {
+      "id": "lock-prefix",
+      "code": [
+        "f00fc8"
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": false,
+      "reason": "noncanonical"
+    },
+    {
+      "id": "rep-prefix",
+      "code": [
+        "f30fc8"
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": false,
+      "reason": "noncanonical"
+    },
+    {
+      "id": "address-prefix",
+      "code": [
+        "670fc8"
+      ],
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": false,
+      "reason": "noncanonical"
+    },
+    {
+      "id": "actual-66-bswap-live-rax",
+      "code": [
+        "660fc8"
+      ],
+      "addresses": [
+        "0x14005211e"
+      ],
+      "target": {
+        "path": "C:\\Users\\IG5User\\.dsh\\ig5\\artifacts\\modern-protection-20261014\\packed-suite-vmp311\\packed-round-mix64-ultra.exe",
+        "bytes": 1360896,
+        "sha256": "5f9c1b6fcb019366f835d8f02d9ec3b2957fe619e039410d07f288a9c73f63f0"
+      },
+      "registers": [
+        "rax"
+      ],
+      "accepted": false,
+      "reason": "undefined",
+      "priorReportSha256": "ec83d268966ab5742eaf22d686a86ed212d9215dff1ea43cca61ec3e9857c91c"
+    },
+    {
+      "id": "actual-handler57-all-gprs",
+      "code": [
+        "488b742500",
+        "4881c508000000",
+        "e900000000",
+        "e912e6ffff",
+        "4c8d1d7a3f0000",
+        "660fc8",
+        "401ac7"
+      ],
+      "addresses": [
+        "0x140053aef",
+        "0x140053af4",
+        "0x140053afb",
+        "0x140053b00",
+        "0x140052117",
+        "0x14005211e",
+        "0x140052121"
+      ],
+      "target": {
+        "path": "C:\\Users\\IG5User\\.dsh\\ig5\\artifacts\\modern-protection-20261014\\packed-suite-vmp311\\packed-round-mix64-ultra.exe",
+        "bytes": 1360896,
+        "sha256": "5f9c1b6fcb019366f835d8f02d9ec3b2957fe619e039410d07f288a9c73f63f0"
+      },
+      "registers": [
+        "rax",
+        "rcx",
+        "rdx",
+        "rbx",
+        "rsp",
+        "rbp",
+        "rsi",
+        "rdi",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "accepted": false,
+      "reason": "undefined",
+      "priorReportSha256": "7cea95db2d1d7960f31575918a9c249d0ee9533db3828275ca6ae6de85151f54"
+    }
+  ]
+}

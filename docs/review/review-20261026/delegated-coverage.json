@@ -1,0 +1,589 @@
+[
+  {
+    "file": "adapters/ghidra/script_api.py",
+    "sha256": "f2a584317964be720090598e1b738b1969c11eccb47008d0ea0fae62f763bc1f",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "外层事务契约、API 与输出预算、失败传播；非安全沙箱",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "f2a584317964be720090598e1b738b1969c11eccb47008d0ea0fae62f763bc1f",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "adapters/vmci/adapter.py",
+    "sha256": "c992b2a2c0e902579c283219a48a84a4ad51621df92c78f142779c84de3a7775",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "目标目录、认证来源、取消映射和清理回执",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "c992b2a2c0e902579c283219a48a84a4ad51621df92c78f142779c84de3a7775",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "adapters/x64dbg/adapter.py",
+    "sha256": "e6a6fd7cbaee0f24a19bb2dc9d078af126af4fa40f2c4d452c43871dff2f158e",
+    "reviewBasis": "current-delta-or-new-module-review",
+    "focus": "承接已修 R5 签署基线；复核 P8 原生后端、暂停前置与 api_trace 分派，清理证据契约未放宽。",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "7f3504d2ea91e345274d28a1a64e06078544d896e58c632932786f472f1f2b99",
+      "readCoverage": "complete",
+      "conclusion": "不通过：R5"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "capture_tools.js",
+    "sha256": "f9222b1920c6f9cf1cff1947fa72367c816c8f5336368359839e6da4fa35ff49",
+    "reviewBasis": "current-delta-or-new-module-review",
+    "focus": "承接原完整阅读；复核 correlate 参数与静态分派，capture_control 原审批入口不变。",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "fd51f8e2772420b46fbb01035e88cc1a03a98a25410d089d6efdf1529752bb8d",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "engine_runtime.js",
+    "sha256": "2d1ae5c54fd2c02e93d3be9b0dee40ab99b3e83ca91678ecdb1e11fa04839ef8",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "运行时路径、平台与结构校验、进程树终止",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "2d1ae5c54fd2c02e93d3be9b0dee40ab99b3e83ca91678ecdb1e11fa04839ef8",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "index.js",
+    "sha256": "b1f2304e3a1afac2431ffb18b7a63bd784275eac01c471d3b9dcba29afe7ee6c",
+    "reviewBasis": "current-delta-or-new-module-review",
+    "focus": "承接原完整阅读；复核 P2 注册/作用域/队列与旧参数拒绝，P7 rules UTF-8/参数预算、P8 参数与13门不变。",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "0bb2502b995b2936216f35689dcb7b360ee85c3f70c84ce159dca16e01efcba1",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "integration_tools.js",
+    "sha256": "b6c7731290bac1a01a04b2825a63927833a1d711874157a93204fe6aba2e379d",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "同步摘要、修订与原值复核、双会话队列、部分失败",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "b6c7731290bac1a01a04b2825a63927833a1d711874157a93204fe6aba2e379d",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "source/address_ref.js",
+    "sha256": "906e105abdb002d471ece08b35ca7885132949ce443eec623fa448fa9dafedce",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "64 位整数、地址空间、映射歧义与运行时代次",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "906e105abdb002d471ece08b35ca7885132949ce443eec623fa448fa9dafedce",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "source/analysis_artifacts.js",
+    "sha256": "3643caaff1eb5bdd404c6715011839103755314981af7054a4616ac67208b73b",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "稳定读取、内容散列、两阶段报告与元数据；索引受 R6 影响",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "3643caaff1eb5bdd404c6715011839103755314981af7054a4616ac67208b73b",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "source/api_trace.js",
+    "sha256": "63e9c5cf9b0c3c2de8494a4323b2ed5a8237e538e2549f88bdded7d8ab4982e2",
+    "reviewBasis": "current-delta-or-new-module-review",
+    "focus": "新增模块完整阅读；schema/调用数上限、覆盖数一致性、目标身份、不可变报告与 finally dispose。",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": null,
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "source/approval_gate.js",
+    "sha256": "377831e0076c1ae8749e171503a3a66fb4493daaf4e9182078796ad81bb9d3eb",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "13 个工具、失败关闭、完整展示预算、取消与执行后审计",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "377831e0076c1ae8749e171503a3a66fb4493daaf4e9182078796ad81bb9d3eb",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "source/attachment_lease.js",
+    "sha256": "af8b632a93f1e2ac4264939d687e0de65820c4dfa0fa77e8770adb1505795e92",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "PID 与创建身份、nonce、异主机与未知所有者保留",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "af8b632a93f1e2ac4264939d687e0de65820c4dfa0fa77e8770adb1505795e92",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "source/audit_history.js",
+    "sha256": "fcf99f651fda7dd73110b4d08db39d5d57e9536699ba2190f14a191135155f8a",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "稳定文件、游标范围、扫描预算、损坏行和尾行",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "fcf99f651fda7dd73110b4d08db39d5d57e9536699ba2190f14a191135155f8a",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "source/capture_ca.js",
+    "sha256": "3f61505d2afa9537ceeb60355c253f5cfe6d8f43f3c07b04f859174cb5e1cda5",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "密钥与证书匹配、文件形态、签发范围与缓存",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "3f61505d2afa9537ceeb60355c253f5cfe6d8f43f3c07b04f859174cb5e1cda5",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "source/capture_proxy.js",
+    "sha256": "1d52b028bb2c6525f4c3927f4b7f9468edd36aad17635866ea9bbe7be944b827",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "显式 origin、TLS 校验、连接预算、WS 分片和中断",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "1d52b028bb2c6525f4c3927f4b7f9468edd36aad17635866ea9bbe7be944b827",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "source/debug_trace.js",
+    "sha256": "2dab4a7f2a82cb95a21f124a56f98464dede054c7da2be1ed600545e91b0bede",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "轨迹与映像散列、暂停身份、来源与恢复参数",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "2dab4a7f2a82cb95a21f124a56f98464dede054c7da2be1ed600545e91b0bede",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "source/diag_log.js",
+    "sha256": "4f1ed90b399a582a29f842a2f243e20e38e208b9d37df7b81c7c326de5ca2524",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "诊断失败不破坏主流程",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "4f1ed90b399a582a29f842a2f243e20e38e208b9d37df7b81c7c326de5ca2524",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "source/engine_error.js",
+    "sha256": "529e71172159502bccb2dbd573bd29168d3a703a2806540d7c29ad98c0dd2fe5",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "错误文本归一化与运行时路径处理",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "529e71172159502bccb2dbd573bd29168d3a703a2806540d7c29ad98c0dd2fe5",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "source/function_batches.js",
+    "sha256": "8d5afbf752a38f23a40bc4ba6d798b885ff7d260b1129b148f240a78c363d709",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "持久任务、身份和修订、预算收费、取消和恢复",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "8d5afbf752a38f23a40bc4ba6d798b885ff7d260b1129b148f240a78c363d709",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "source/function_dossier.js",
+    "sha256": "003f92cacd0451ee8cfc73638c6085bf03bead8d45ce337dc70bbc9efe654925",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "单修订聚合、来源核对、缓存与完整性标记",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "003f92cacd0451ee8cfc73638c6085bf03bead8d45ce337dc70bbc9efe654925",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "source/guest_debug_profile.js",
+    "sha256": "b7f57f56e6c0ede951bb6ffcd9b0a289bcf1c3a44301e4d7c2b3744abc2cd819",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "配置名称、稳定文件、目录和密钥摘要绑定",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "b7f57f56e6c0ede951bb6ffcd9b0a289bcf1c3a44301e4d7c2b3744abc2cd819",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "source/guest_recovery.js",
+    "sha256": "6bc1b8201b5074627591b8359b23618804818b39c5fa2e0c12eb959d0a729c48",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "精确恢复参数、旧会话清理证明、桥退出确认",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "6bc1b8201b5074627591b8359b23618804818b39c5fa2e0c12eb959d0a729c48",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "source/history_index.js",
+    "sha256": "7f329a40d7b24ebf3ef0f9ff9aeae2e965ee28d2c38162f776347d3942750e26",
+    "reviewBasis": "existing-current-authorized-review",
+    "focus": "目录代次、增量保存、扫描上限与完整性",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "retained-existing-valid-authorized-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "c1b9a57c4f88159e6322ad8e2c7aab52f20339085fa53800ac77ea474799f929",
+      "readCoverage": "complete",
+      "conclusion": "不通过：R6"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "source/host_platform.js",
+    "sha256": "ee9d583571b08438459c024fe55ee44079be7d95085fd9fc29110e28ccfea124",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "宿主而非浏览器身份、平台与 libc 约束",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "ee9d583571b08438459c024fe55ee44079be7d95085fd9fc29110e28ccfea124",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "source/implementation_info.js",
+    "sha256": "405ff52898c66cddfbad3d085123d00162f4f65cbc4c2726d8d0e5dcb2cb95a3",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "实现版本和模块加载时间",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "405ff52898c66cddfbad3d085123d00162f4f65cbc4c2726d8d0e5dcb2cb95a3",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "source/json_output.js",
+    "sha256": "4cd4f1fe4e1ede4f08011efb436b5b6972c1d3624d699dbf8ad60f7e0a8651c8",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "严格 JSON、异常数值、循环与访问器拒绝",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "4cd4f1fe4e1ede4f08011efb436b5b6972c1d3624d699dbf8ad60f7e0a8651c8",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "source/native_store_events.js",
+    "sha256": "983b450ccd08b05e49c8a792fa34ccbc75623caba1b9ce2daba10908278aa067",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "原始轨迹绑定、组数、暂停与写观察完整性",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "983b450ccd08b05e49c8a792fa34ccbc75623caba1b9ce2daba10908278aa067",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "source/patch_export.js",
+    "sha256": "28940a2bd1e7e0176ebbe985bb79ae8856179487236d930156366a573abfb2f9",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "样本和数据库绑定、当前字节、完整文件映射、阶段提交",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "28940a2bd1e7e0176ebbe985bb79ae8856179487236d930156366a573abfb2f9",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "source/project_store.js",
+    "sha256": "cab0ff77f00b9da43e7992896e1376960fd86ea234d43b7671a05f891ba81e73",
+    "reviewBasis": "existing-current-authorized-review",
+    "focus": "原子元数据、文件锁、别名、租约恢复和修订",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "retained-existing-valid-authorized-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "e26b6c34466a6aff1fb28a76744170d6e4aef3c252e1d71f496cf1b01b63dd9e",
+      "readCoverage": "complete",
+      "conclusion": "不通过：R7"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "source/remote_execution_store.js",
+    "sha256": "e298b1de0a4522b8d42e006046236724f5fdffd45ff0df72b0ba5c1942e49f86",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "不可变绑定、执行代次、清理回执与保留状态",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "e298b1de0a4522b8d42e006046236724f5fdffd45ff0df72b0ba5c1942e49f86",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "source/result_artifacts.js",
+    "sha256": "54fbe417d8ec01fcccce36d78073a4ee3c481c31d1f9266800bd63c473f4a67e",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "配额、过期、身份与提交验证、认证分页",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "54fbe417d8ec01fcccce36d78073a4ee3c481c31d1f9266800bd63c473f4a67e",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "source/worker_manager.js",
+    "sha256": "3e504a3b6711ff216b2b0e49d01d3e7d4fd6d79c441b92ef6e0e51e1d55bfd57",
+    "reviewBasis": "current-delta-or-new-module-review",
+    "focus": "承接已修 R8 签署基线；复核 apitrace 后端、所有权、运行状态、结果保存失败保留 executionAlreadyAttempted。",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "23a045f0af9652d9d10392feab40fac6bacc2bd3cd7a28f8762d9069b4629b4f",
+      "readCoverage": "complete",
+      "conclusion": "不通过：R8"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "source/worker_transport.js",
+    "sha256": "c8f84699a688bf0013549e740406c19d2297b39c8ad53ccc8b40c6f346eb0c94",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "启动环境、JSONL 字节预算、超时与取消",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "c8f84699a688bf0013549e740406c19d2297b39c8ad53ccc8b40c6f346eb0c94",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "worker/cpu_emulator.py",
+    "sha256": "189bad621bbd0ba73d4e57fc9e4e3b3bad2081400cd6e9819e4ae169b13e56ba",
+    "reviewBasis": "current-delta-or-new-module-review",
+    "focus": "承接原完整阅读及当前增量；写轨迹单区间截断标志修复，4096/4097/5000 字节边界回归已通过。",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "880a28dc3e2b7adc9eab1d3bea3343ef1fc061d3bab8d77124588e0e349cefa4",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "worker/ig5_worker.py",
+    "sha256": "7dd1f758e75a777839783af956c3993e4a718d359cb72cc86cec41a92c4e6c4e",
+    "reviewBasis": "existing-current-authorized-review",
+    "focus": "商业 API、修改与保存、Undo、调试、分析结果真实性",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "retained-existing-valid-authorized-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "9f2c0c2e12f8155906c85ddc78e3cece12de0eb4bfff58a9c80cdc8ed754e184",
+      "readCoverage": "complete",
+      "conclusion": "不通过：R1、R2、R3、R4"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "worker/lift_process.py",
+    "sha256": "2c666bfd8461948dc8f7d3eb9e28cfee82e1daba6a81c52c3334b296d803294b",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "创建时 Job 绑定、句柄继承、资源和退出确认",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "2c666bfd8461948dc8f7d3eb9e28cfee82e1daba6a81c52c3334b296d803294b",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  },
+  {
+    "file": "workflow.js",
+    "sha256": "87c484b7f25573dae7f1fc78fa73fc2f18f47a2c23b832c31dd4f61ff69cffe1",
+    "reviewBasis": "prior-complete-read-plus-current-hash-equality",
+    "focus": "Core8 与 Full 作用域、只读命令入口、生命周期清理",
+    "decision": "accepted-in-declared-scope",
+    "signatureAction": "signed-user-authorized-agent-review",
+    "historicalReading": {
+      "evidence": "docs/review/review-20261024/coverage.json",
+      "sha256": "87c484b7f25573dae7f1fc78fa73fc2f18f47a2c23b832c31dd4f61ff69cffe1",
+      "readCoverage": "complete",
+      "conclusion": "未发现独立阻断项"
+    },
+    "currentReview": "docs/review/review-20261026/REVIEW.md",
+    "authorizationEvidence": "docs/review/review-20261026/DELEGATED_ACCEPTANCE.md"
+  }
+]

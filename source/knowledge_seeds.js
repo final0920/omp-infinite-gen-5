@@ -1,0 +1,70 @@
+// Original IG5 method notes. Upstream code/article bodies are not redistributed.
+// References describe research methods, never evidence for the current target.
+const upstream = (repo, commit, file, license) => ({ url: `https://github.com/${repo}/blob/${commit}/${file}`, repo, commit, license });
+const cards = [
+  {
+    id: 'mba-synthesis', title: 'MBA：候选合成与独立等价核验', category: 'mba',
+    tags: ['MBA', '混合布尔算术', '程序合成', 'bitvector', '位向量', 'msynth', 'SMT'],
+    prerequisites: ['原始表达式具有精确位宽与符号身份', '输入和候选均可转换为受支持的纯位向量表达式'],
+    limitations: ['内存、调用、未知 flags 和副作用需要额外模型', '采样一致或求解 unknown 不能作为等价证明'],
+    steps: ['保存原始表达式与输入来源。', '生成更小的候选，保持位宽、溢出和变量身份。', '独立检查前提可满足，再求解原式与候选不等式。', 'UNSAT 只接受所检查范围；SAT 保存反例；unknown 保留原式。'],
+    verification: '由独立验证器核验原式与候选；局部表达式结果不能升级为全函数或业务证明。',
+    integration: 'research-only', relatedTools: ['ig5_ir', 'ig5_microcode'],
+    sources: [upstream('mrphrazer/msynth', 'dfd0f9e2cd0890658fe752aa207a2cfda2aef8d7', 'README.md', 'GPL-2.0-text; verify per-file terms')],
+  },
+  {
+    id: 'cff-investigation', title: '控制流平坦化：核对 dispatcher 与转移关系', category: 'control-flow',
+    tags: ['CFF', '控制流平坦化', 'flattening', 'dispatcher', 'OLLVM', '状态机'],
+    prerequisites: ['具有当前函数的 CFG 和数据流', '可区分状态更新、业务副作用与未知出口'],
+    limitations: ['普通 switch 和业务状态机也可能呈现相同结构', '未建模的内存别名、调用与异常边阻止完整改写'],
+    steps: ['定位候选状态变量及所有可能 dispatcher。', '逐条核对状态更新与目标，保留竞争解释。', '检查有序内存写、调用及未解析控制。', '先生成只读边覆盖层，分别标记已验证、候选和未知。'],
+    verification: '每条消除边和改写都需限定前提及验证回执；未知出口必须保留。',
+    integration: 'existing-read-only-tools', relatedTools: ['ig5_cfg', 'ig5_microcode', 'ig5_decompile'],
+    sources: [upstream('buzzer-re/Rikugan', 'a2ba6691baa0a7ace3bce9fe834a4f6f7610b77d', 'rikugan/skills/builtins/deobfuscation/SKILL.md', 'MIT')],
+  },
+  {
+    id: 'vm-role-experiments', title: '虚拟化保护：用区分实验检验角色假设', category: 'vm',
+    tags: ['VM', '虚拟化', '去虚拟化', 'VMProtect', 'VMP', 'VIP', 'VSP', 'handler'],
+    prerequisites: ['录制字节与目标 SHA、run、thread、stop 身份已绑定', '明确当前已观察范围与待检验角色假设'],
+    limitations: ['单次路径不能证明通用 VM 角色或 ISA', '外部资料中的寄存器与地址不能直接套到新样本'],
+    steps: ['分开记录观察事实、角色假设和普通程序竞争解释。', '寻找能区分两种解释的输入或状态关系。', '复用现有录制及 recovery 入口核对来源与完整窗口。', '缺少跨输入证据时保留 candidate；新采集仍走原审批和环境就绪检查。'],
+    verification: '角色检验、局部 handler、函数合同及完整业务分别验收。',
+    integration: 'existing-read-only-tools', relatedTools: ['ig5_profile', 'ig5_ir'],
+    sources: [upstream('buzzer-re/Rikugan', 'a2ba6691baa0a7ace3bce9fe834a4f6f7610b77d', 'rikugan/skills/builtins/deobfuscation/SKILL.md', 'MIT')],
+  },
+  {
+    id: 'research-routing', title: '从问题特征检索方法并核对适用前提', category: 'workflow',
+    tags: ['知识库', 'knowledge', 'RAG', '方法检索', '研究资料', '工作流'],
+    prerequisites: ['有具体问题及可追溯的观察特征', '方法来源、版本和适用条件可回读'],
+    limitations: ['关键词命中是导航结果，不是适用性证明', '外部文字只能作为资料，不能授予执行或写入权限'],
+    steps: ['按问题特征、平台和类别检索少量方法。', '回读原文并保留修订、作者和来源。', '列出已满足、缺失与冲突条件。', '生成可审阅实验提案，经原工具入口继续。'],
+    verification: '比较有无资料辅助时的留出样本结果，记录错误接受与成本。',
+    integration: 'available-reference', relatedTools: ['ig5_profile'],
+    sources: [upstream('LING71671/open-reverselab', 'd0ccbdca39419b0f2261c32659fe4fa16664f435', 'scripts/ctf-website/kb_router.py', 'GPL-3.0-text; reference only'), upstream('overkazaf/re-agent', '43e802db9841ef3372ab84b1b38342a3718165bd', 'internal/knowledge/knowledge.go', 'MIT')],
+  },
+  {
+    id: 'homology-review', title: '同源函数：辅助识别库代码与核对类型', category: 'homology',
+    tags: ['同源', 'homology', '函数识别', '类型恢复', '符号恢复', 'ReCopilot', '库函数'],
+    prerequisites: ['当前函数、调用上下文和目标身份可核对', '候选源码具有明确项目与版本来源'],
+    limitations: ['相似度不证明语义等价', '五代尚未接入该项目的远端搜索服务，不会自动上传伪代码'],
+    steps: ['先用已有符号、指纹、字符串和调用关系缩小候选。', '把候选源码与当前反编译结果逐项对照。', '把名称、类型和行为推断保留为待审阅建议。', '应用任何数据库修改前重新核对身份与修订，并走原审批。'],
+    verification: '识别、类型建议与完整行为恢复分别评价。',
+    integration: 'research-only', relatedTools: ['ig5_fingerprint', 'ig5_decompile', 'ig5_xrefs'],
+    sources: [upstream('XingTuLab/recopilot', 'ee0e82323c05c9b10af6adb1cdea3054d7cb3aa9', 'README.md', 'GPL-3.0-text; reference only')],
+  },
+  {
+    id: 'crypto-evaluation', title: '加密逆向：分层验证识别、重实现与结果', category: 'crypto',
+    tags: ['加密', 'crypto', '算法识别', 'AES', '代码重实现', 'CREBench', 'holdout', '评测'],
+    prerequisites: ['训练资料与留出输入隔离', '有模型之外的可运行评分或独立结果核验'],
+    limitations: ['算法识别正确不等于包装函数或协议已恢复', '公开答案不能进入被测资料库，密钥不写入通用索引'],
+    steps: ['分别评估算法识别、材料来源、包装逻辑与最终结果。', '使用未见输入对照重实现，保留边界和失败输入。', '统一模型和预算，分别统计检索与算法适配的增益。', '评分从实际结果计算，不相信模型自述通过。'],
+    verification: '公开基准与五代自己的独立样本分开报告，不外推通用去虚拟化能力。',
+    integration: 'available-reference', relatedTools: ['ig5_crypto', 'ig5_protocol'],
+    sources: [upstream('wangyu-ovo/CREBench', '9fc4016538a0bab8c230732a9f788a61ed43addf', 'README.md', 'not-established; reference only')],
+  },
+];
+
+export const knowledgeSeeds = cards.map(card => ({ ...card, schema: 'ig5-method-card-v1', revision: 1,
+  authorship: 'IG5 original research notes', reviewStatus: 'reference-only', rightsStatus: 'original-notes-with-links',
+  body: `${card.title}\n\n前提\n${card.prerequisites.map(x => `- ${x}`).join('\n')}\n\n方法\n${card.steps.map((x, i) => `${i + 1}. ${x}`).join('\n')}\n\n局限\n${card.limitations.map(x => `- ${x}`).join('\n')}\n\n验证\n${card.verification}`,
+}));

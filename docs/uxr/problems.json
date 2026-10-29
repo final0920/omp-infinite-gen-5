@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "baseline": "baseline/workspace.json",
+  "issues": [
+    {"id":"report-1","baseline":"reproduced","implementation":"metadata diagnosis; original host lineage required for recovery","package":"UXR-01","entry":"source/delegation_control.js","historicalCause":"unknown"},
+    {"id":"report-2","baseline":"reproduced","implementation":"bounded saved result and authenticated UTF-8 paging","package":"UXR-02/03","entry":"source/result_artifacts.js"},
+    {"id":"report-3","baseline":"not-reproduced","implementation":"cache miss reasons, analysis state in key, explicit charged refresh","package":"UXR-05","entry":"source/function_dossier.js","historicalCause":"unknown"},
+    {"id":"report-4","baseline":"source-confirmed","implementation":"skipped analyzer warning and unknown prototype status","package":"UXR-05","entry":"source/function_dossier.js"},
+    {"id":"report-5","baseline":"existing-full-toolset-capability","implementation":"capability catalog and typed Ghidra xrefs; real PE verified","package":"UXR-05","entry":"source/capability_catalog.js","arm64Runtime":"owned-static-Ghidra-verified; original-sample-unverified"},
+    {"id":"report-6","baseline":"missing-persistent-function-batch","implementation":"bounded persistent list; per-item charge; committed-result recovery","package":"UXR-06","entry":"source/function_batches.js","real72FunctionSample":"owned-ARM64-static-verified; original-sample-unverified"},
+    {"id":"report-7","baseline":"reproduced","implementation":"saved generated sections with source completeness and stable record pages","package":"UXR-02/03","entry":"source/result_artifacts.js"},
+    {"id":"report-8","baseline":"reproduced","implementation":"stable compatible code plus detailed reason/phase/actions/observation time","package":"UXR-01","entry":"source/delegation_control.js"},
+    {"id":"report-A","baseline":"source-confirmed","implementation":"ELF PT_LOAD and actual Ghidra source mapping; double address metadata","package":"UXR-04","entry":"adapters/ghidra/elf_addresses.py","runtimeVa":"not-implemented-without-trusted-load-context"}
+  ],
+  "originalSampleSha256": "f18037fdf042ab0b4628546dbcc81f4f9db50000391381c3922ae99257e55de0",
+  "originalSampleVerified": false
+}

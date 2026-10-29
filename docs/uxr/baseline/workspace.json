@@ -1,0 +1,648 @@
+{
+  "observedAt": "2026-10-23T15:01:56.994Z",
+  "head": "2baed0fadba511a16bc695114e2f6ce1adaff067",
+  "status": "M .gitattributes\n M .gitignore\n M AGENTS.md\n M README.md\n M THIRD_PARTY_NOTICES.txt\n M analysis_tools.js\n M client.js\n M index.js\n M package.json\n M scripts/test_analysis_host.mjs\n M scripts/test_capture_proxy.mjs\n M scripts/test_client.mjs\n M scripts/test_data_route.mjs\n M scripts/test_host_sdk.mjs\n M scripts/test_investigation_runtime.mjs\n M scripts/test_investigation_workflow.mjs\n M scripts/test_project_store.mjs\n M scripts/test_projection_jobs.mjs\n M scripts/test_public_tool_catalog.mjs\n M scripts/test_runtime_policy.py\n M scripts/test_vm_context_model.mjs\n M scripts/test_vm_observations.mjs\n M scripts/test_vm_recovery_profile.mjs\n M scripts/verify_vm_context_model.py\n M skills/ig5-reverse-agent/SKILL.md\n M source/analysis_artifacts.js\n M source/analysis_jobs.js\n M source/analysis_worker.js\n M source/capture_proxy.js\n M source/delegation_control.js\n M source/investigation_workflow.js\n M source/kernel_jobs.js\n M source/lift_jobs.js\n M source/project_store.js\n M source/vm_context_model.js\n M source/vm_observation_profile.js\n M source/vm_recovery_plan.js\n M source/vm_recovery_profile.js\n M worker/ig5_kernel.py\n M worker/kernel_analysis.py\n M worker/lift_process.py\n?? docs/EXPERIMENT_PLANNER.md\n?? docs/INVESTIGATION_UPGRADE.md\n?? docs/LCM_MEMORY.md\n?? docs/LCM_THEORY.md\n?? docs/RESEARCH_PROPERTIES.md\n?? docs/RESEARCH_STATE.md\n?? docs/RESEARCH_VERIFICATION.md\n?? docs/VM_PHASE_MODEL.md\n?? docs/VM_RESEARCH_PROGRESSION.md\n?? docs/schemas/\n?? scripts/accept_research_properties.mjs\n?? scripts/accept_vm_function.mjs\n?? scripts/accept_vm_phase_reference.mjs\n?? scripts/audit_owned_branch_native.py\n?? scripts/audit_vm_function.py\n?? scripts/audit_vm_phase_context.py\n?? scripts/audit_vm_phase_reference.py\n?? scripts/audit_vm_phase_replay.py\n?? scripts/benchmark_lcm_replay.mjs\n?? scripts/build_lcm_vendor.mjs\n?? scripts/build_owned_branch_fixture.mjs\n?? scripts/deploy_research_properties.ps1\n?? scripts/evals/\n?? scripts/fixtures/native_acceptance_sources.mjs\n?? scripts/fixtures/phase_reference.py\n?? scripts/fixtures/research_property_cases.mjs\n?? scripts/fixtures/vm_bytecode_cases.mjs\n?? scripts/fixtures/vm_context_cases.mjs\n?? scripts/fixtures/vm_phase_context_cases.mjs\n?? scripts/hot_reload_research_properties.ps1\n?? scripts/replay_research_verification.mjs\n?? scripts/replay_vm_phase_context.mjs\n?? scripts/replay_vm_phase_model.mjs\n?? scripts/replay_vm_role_validation.mjs\n?? scripts/test_experiment_planner.mjs\n?? scripts/test_investigation_persistence.mjs\n?? scripts/test_investigation_upgrade.mjs\n?? scripts/test_lcm_memory.mjs\n?? scripts/test_memory_resume.mjs\n?? scripts/test_native_acceptance_sources.mjs\n?? scripts/test_research_properties.mjs\n?? scripts/test_research_state.mjs\n?? scripts/test_research_verification.mjs\n?? scripts/test_review_fixes.mjs\n?? scripts/test_semantic_isolation.mjs\n?? scripts/test_vm_function.mjs\n?? scripts/test_vm_phase_context.mjs\n?? scripts/test_vm_phase_model.mjs\n?? scripts/test_vm_progression.mjs\n?? scripts/uxr_baseline.mjs\n?? source/capability_acceptance.js\n?? source/capability_catalog.js\n?? source/code_epoch_map.js\n?? source/diagnostic_store.js\n?? source/evidence_adapters/\n?? source/evidence_dependencies.js\n?? source/evidence_registry.js\n?? source/experiment_planner.js\n?? source/failure_adapters.js\n?? source/failure_record.js\n?? source/failure_router.js\n?? source/investigation_brief.js\n?? source/investigation_planning.js\n?? source/investigation_resume.js\n?? source/investigation_view.js\n?? source/lcm_bridge.js\n?? source/lcm_memory.js\n?? source/obligation_evaluator.js\n?? source/planning_identity.js\n?? source/planning_runtime.js\n?? source/read_only_data_route.js\n?? source/research_properties.js\n?? source/research_state.js\n?? source/verification_registry.js\n?? source/verification_result.js\n?? source/verification_schema.js\n?? source/verifier_catalog.js\n?? source/verifiers/\n?? source/vm_bytecode.js\n?? source/vm_cfg.js\n?? source/vm_function_contract.js\n?? source/vm_phase_context.js\n?? source/vm_phase_model.js\n?? source/vm_program.js\n?? source/vm_role_compare.js\n?? source/vm_role_validation.js\n?? third_party/lcm/",
+  "node": {
+    "executable": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.19.0"
+  },
+  "python": "C:\\Users\\IG5User\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "bundledPython": "C:\\Users\\IG5User\\Desktop\\无限五代\\dsh-infinite-gen-5\\runtimes\\ghidra\\python\\python.exe",
+  "files": [
+    {
+      "path": "source/capability_acceptance.js",
+      "bytes": 5487,
+      "sha256": "1dddbd973c100ccb8767f109335728bbb56faa979b4ce6d939128d3a8c1f4ffd"
+    },
+    {
+      "path": "source/capability_catalog.js",
+      "bytes": 8327,
+      "sha256": "9d8be8267d36918f6992414963ef47c1ce90b1443f44d84263f42f2f149ae8c6"
+    },
+    {
+      "path": "source/code_epoch_map.js",
+      "bytes": 6331,
+      "sha256": "f0d64e357bd033d2c81b669925d7953825b37e880184d9a1a688d5527561b002"
+    },
+    {
+      "path": "source/diagnostic_store.js",
+      "bytes": 1870,
+      "sha256": "89642f131829f186280c7a90ab19d871d321ab16ce36b1d75ef6271d3e6a3ba1"
+    },
+    {
+      "path": "source/evidence_adapters/dossier.js",
+      "bytes": 2951,
+      "sha256": "edff5096ed9667d83afebdd0fc580525a94530bc2b32b12d53a5fc735f6849a7"
+    },
+    {
+      "path": "source/evidence_adapters/fixed_properties.js",
+      "bytes": 7072,
+      "sha256": "f7cd121ab06c1c9aa457f793d0637cb4448592a3725890a5ff64560f0b56d7dc"
+    },
+    {
+      "path": "source/evidence_adapters/vm_context.js",
+      "bytes": 5569,
+      "sha256": "6684f50ee16583a7cbe26d78a3f0169c39470e3d878f5f0d1acbee475739490d"
+    },
+    {
+      "path": "source/evidence_dependencies.js",
+      "bytes": 1473,
+      "sha256": "c1ffaa54c6dfa3217488a3e76ed50b4973c2864543975dd61590a6b24bce2197"
+    },
+    {
+      "path": "source/evidence_registry.js",
+      "bytes": 4354,
+      "sha256": "7bb78941430960cd566e44a6dff45bcd9e7932dc43596f445cd3c81954424cbb"
+    },
+    {
+      "path": "source/experiment_planner.js",
+      "bytes": 18138,
+      "sha256": "ed53f42e00845f247358fdebda581fc58d87384605cdf430ab316106ae26d16c"
+    },
+    {
+      "path": "source/failure_adapters.js",
+      "bytes": 3707,
+      "sha256": "82a651f6e0eeee8d424fa0863f59f75901561336ff2588e63caa84680568f736"
+    },
+    {
+      "path": "source/failure_record.js",
+      "bytes": 10486,
+      "sha256": "4ccf27e949b82881a4834db4351f17d8944f28dc18029a6d25b8a043b61ee691"
+    },
+    {
+      "path": "source/failure_router.js",
+      "bytes": 2268,
+      "sha256": "69a8623d2a24baa0c15529c8d38bb5e3fe59bd4d593eb482c3299cca391fa717"
+    },
+    {
+      "path": "source/investigation_brief.js",
+      "bytes": 12099,
+      "sha256": "e0a4645048ad8b6683bf504b707aded6ef08f2426e152a4d082f009ec2f00a04"
+    },
+    {
+      "path": "source/investigation_planning.js",
+      "bytes": 5849,
+      "sha256": "2f776b617f4c707ae9cfca3a06d1a3bb96ca11d555ef9353e3c3560e23098097"
+    },
+    {
+      "path": "source/investigation_resume.js",
+      "bytes": 5672,
+      "sha256": "a5c15a849b7d2077827eb8001f98d3b5edccf1c1e1955db105319ddb8cac15b5"
+    },
+    {
+      "path": "source/investigation_view.js",
+      "bytes": 1053,
+      "sha256": "46dc7ddddf20f261a88c564e2248a6df581512a32384919a6610df134e2e5e37"
+    },
+    {
+      "path": "source/lcm_bridge.js",
+      "bytes": 11081,
+      "sha256": "0550e7e08e4f344d9e8eff57c5af388f5941075af623068bee5c6844342dca8a"
+    },
+    {
+      "path": "source/lcm_memory.js",
+      "bytes": 18244,
+      "sha256": "34555c808f096042f412366610ebbb96a63dd69f00cb0bdca71c65c78081dfbd"
+    },
+    {
+      "path": "source/obligation_evaluator.js",
+      "bytes": 2052,
+      "sha256": "ef9afd62acfe7179d76b833363eec0ac8119447475099b0f78eb9b9d3c13b6ea"
+    },
+    {
+      "path": "source/planning_identity.js",
+      "bytes": 1878,
+      "sha256": "99339737199abacefaf42d70956f0499df5f38b5b24a360a158f513aee5c2b3b"
+    },
+    {
+      "path": "source/planning_runtime.js",
+      "bytes": 554,
+      "sha256": "26145f9c9d23ce33c44fa7693cb12cf94d6d781a3623ee6982ce79715bd0bb20"
+    },
+    {
+      "path": "source/read_only_data_route.js",
+      "bytes": 14584,
+      "sha256": "3ab54c41250672235895bbd9d8f80d97b8d83f5857b8972b061fe765d15ed24f"
+    },
+    {
+      "path": "source/research_properties.js",
+      "bytes": 3543,
+      "sha256": "6e5993f8c14efad3f75b4477c9cf6b3819200e7e67ad1e8aa38e9efa2348a393"
+    },
+    {
+      "path": "source/research_state.js",
+      "bytes": 26140,
+      "sha256": "ce8f9b1dd580762fabb9f179d18ba2467f69957fb0bd66a2eb530b362f8a1f7f"
+    },
+    {
+      "path": "source/verification_registry.js",
+      "bytes": 19257,
+      "sha256": "310cb5f7d978135554c77fd51500a1270c561de86c671ca445768c8156f49ead"
+    },
+    {
+      "path": "source/verification_result.js",
+      "bytes": 7144,
+      "sha256": "bb335639fd53e8d49f02e896d789391437ffd1bed1626df976a8748a150319d8"
+    },
+    {
+      "path": "source/verification_schema.js",
+      "bytes": 2683,
+      "sha256": "7c872b62baa326b21e5c00c4bbcfc4b32bfa2d009fda892b191e8a93d06c8d27"
+    },
+    {
+      "path": "source/verifier_catalog.js",
+      "bytes": 1831,
+      "sha256": "0a8c2af7035d5fd0ac58bdcc7fc634dd221398c85f5ec8c94c72efdf464ce58e"
+    },
+    {
+      "path": "source/verifiers/vm_context_audit.js",
+      "bytes": 13806,
+      "sha256": "cb0105c5520e9bb0341947583bb31d994e61f379e823a25b40de9f831ece5c1b"
+    },
+    {
+      "path": "source/verifiers/vm_function_oracle.js",
+      "bytes": 798,
+      "sha256": "61c83c8e6f44a9e37a62409a5197afdc5b506073f2883b38b201b19b148d83e0"
+    },
+    {
+      "path": "source/verifiers/vm_function_verify.js",
+      "bytes": 4018,
+      "sha256": "d2fb9dbdbbe32212b340b7093810cbbd4aedc8af5382949ffe753a980de9a3d3"
+    },
+    {
+      "path": "source/verifiers/vm_recorded_function.js",
+      "bytes": 7231,
+      "sha256": "388af1fe1152020154631d0cf24c2b16545150a301ae4dddd715175dbc7c09a3"
+    },
+    {
+      "path": "source/vm_bytecode.js",
+      "bytes": 8760,
+      "sha256": "ee819d0fb9d7961e956ac459c273d4b6f2e3510adb65e710132e1b795739b562"
+    },
+    {
+      "path": "source/vm_cfg.js",
+      "bytes": 3778,
+      "sha256": "61df13135688fd3e480b84cfb1067e6c306d41153df2cc04ce1da1d9d3dbf6ba"
+    },
+    {
+      "path": "source/vm_function_contract.js",
+      "bytes": 4870,
+      "sha256": "6b2bb4a167b9e101eb4b65cd525b631558e852f7ff52ca67573fd845b434b111"
+    },
+    {
+      "path": "source/vm_phase_context.js",
+      "bytes": 12204,
+      "sha256": "64165be1065ced352447ec59253dec4e677a4500219e554a9289626a07f0e311"
+    },
+    {
+      "path": "source/vm_phase_model.js",
+      "bytes": 10343,
+      "sha256": "2ca29b985e2bef83deba6dc23f37134bcfd85293fb3c52d0079b74181c5b142f"
+    },
+    {
+      "path": "source/vm_program.js",
+      "bytes": 12382,
+      "sha256": "c7ba4aaaf5ac50f77593be7c865b086558829c3805b5170429520856dd8f4166"
+    },
+    {
+      "path": "source/vm_role_compare.js",
+      "bytes": 4722,
+      "sha256": "d785bc51de2822fafb1bb37af7d230522cd94aba064287cb9021ee23cc89108e"
+    },
+    {
+      "path": "source/vm_role_validation.js",
+      "bytes": 8929,
+      "sha256": "d1e4bc40850b23f2ec839168a7495ad9c09f5ceb3a30000132c24ba2ffc9c2e0"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 79638,
+      "sha256": "c91385ea5d3351317f1b32ebd78cbe6feaa005bfb55acbfec35aeef0c766e137"
+    },
+    {
+      "path": "adapters/ghidra/worker.py",
+      "bytes": 82761,
+      "sha256": "c81d2c7d9ff9007494804bb40d12ef4d5f58e5da67690b4bc01c2f29d952101c"
+    },
+    {
+      "path": "analysis_tools.js",
+      "bytes": 31481,
+      "sha256": "65864f1fbaee65d3cd312d6bc05ef170d1b0900bc37de7d41e7b8dd7dd007b22"
+    },
+    {
+      "path": "client.js",
+      "bytes": 204272,
+      "sha256": "90c9ccc49950912a4b4c03f739c6b31346702acaec1886b19c385da18c4f8417"
+    },
+    {
+      "path": "index.js",
+      "bytes": 129859,
+      "sha256": "2f4b2e31190a8e856b9e24dd8c483d0db159f301d1cdfd295d51f9563726f031"
+    },
+    {
+      "path": "package.json",
+      "bytes": 16104,
+      "sha256": "e630ad6c2b3172253502c7d898a1e9c282eec8af99e4394d3babd2f225f0f811"
+    },
+    {
+      "path": "scripts/test_address_ref.mjs",
+      "bytes": 6523,
+      "sha256": "ffbe36015256a702a396965c35c65ff2e049c9ec7c0e6579558d158e910f1355"
+    },
+    {
+      "path": "scripts/test_delegation_control.mjs",
+      "bytes": 5653,
+      "sha256": "137fb7ce93d47f333aa2e885a6ef761202a3b87994c0ea19ccf5f3558e14d999"
+    },
+    {
+      "path": "scripts/test_function_dossier.mjs",
+      "bytes": 16944,
+      "sha256": "65c6c6eed490e087d7ef920bdc26ec97c1851c4c407f91ca254262906e8b8af0"
+    },
+    {
+      "path": "scripts/test_public_tool_catalog.mjs",
+      "bytes": 46934,
+      "sha256": "34b46137ee864198f7101db9949d8f4a54b748877f226d1773db7670e2fbd3ef"
+    },
+    {
+      "path": "source/address_ref.js",
+      "bytes": 9534,
+      "sha256": "906e105abdb002d471ece08b35ca7885132949ce443eec623fa448fa9dafedce"
+    },
+    {
+      "path": "source/analysis_artifacts.js",
+      "bytes": 10997,
+      "sha256": "3643caaff1eb5bdd404c6715011839103755314981af7054a4616ac67208b73b"
+    },
+    {
+      "path": "source/analysis_failure.js",
+      "bytes": 7358,
+      "sha256": "fca1766cecf302207ae9fc70d184d4cc274a04069946cd2b0c3516dae8dc8653"
+    },
+    {
+      "path": "source/analysis_jobs.js",
+      "bytes": 3943,
+      "sha256": "e0f1e5475d893d1c04d24494262e53b4e7f899576c0b8ebc5a08b76843d745a5"
+    },
+    {
+      "path": "source/analysis_worker.js",
+      "bytes": 4120,
+      "sha256": "7a99981c7948aefdb9d5d77ca9d5d170d0deed02228f3091ba9e071197145ea2"
+    },
+    {
+      "path": "source/attachment_lease.js",
+      "bytes": 4260,
+      "sha256": "af8b632a93f1e2ac4264939d687e0de65820c4dfa0fa77e8770adb1505795e92"
+    },
+    {
+      "path": "source/audit_history.js",
+      "bytes": 8962,
+      "sha256": "fcf99f651fda7dd73110b4d08db39d5d57e9536699ba2190f14a191135155f8a"
+    },
+    {
+      "path": "source/autonomy_status.js",
+      "bytes": 1656,
+      "sha256": "25a50e91fd47d4ec7ade7d8bebdb14ef04e266c398e7db1f1884c06015a36ac7"
+    },
+    {
+      "path": "source/capture_ca.js",
+      "bytes": 4698,
+      "sha256": "3f61505d2afa9537ceeb60355c253f5cfe6d8f43f3c07b04f859174cb5e1cda5"
+    },
+    {
+      "path": "source/capture_payload.js",
+      "bytes": 12141,
+      "sha256": "56dea73e88675649a2d0294509b9bf91bd711d0b9bb678dbd9a09f8aaa1e5407"
+    },
+    {
+      "path": "source/capture_proxy.js",
+      "bytes": 32122,
+      "sha256": "1d52b028bb2c6525f4c3927f4b7f9468edd36aad17635866ea9bbe7be944b827"
+    },
+    {
+      "path": "source/capture_review.js",
+      "bytes": 2092,
+      "sha256": "0a764b3eba5e022d062f9f8ab0dddf409c75b1cec18a90e2a86f12513dd5a3bb"
+    },
+    {
+      "path": "source/capture_service.js",
+      "bytes": 27043,
+      "sha256": "0dc196c3d480a497385a19baa716773050b04741e8f76fdee7455baf1d3aac0f"
+    },
+    {
+      "path": "source/capture_state_trace.js",
+      "bytes": 8848,
+      "sha256": "7a22088654fafcd3a116d75c0c6be5d76425c0bba3fb227398bd96d81dc4c8fb"
+    },
+    {
+      "path": "source/composition_chain.js",
+      "bytes": 8877,
+      "sha256": "3bf5fc22926edf10c355140d9e6551ea81baf694580b125915299fa8bbf38aee"
+    },
+    {
+      "path": "source/composition_jobs.js",
+      "bytes": 25551,
+      "sha256": "918a8ef0aeec2eec1d12537004e3821b40c716e2143301b37933feb10aa95e85"
+    },
+    {
+      "path": "source/composition_opaque.js",
+      "bytes": 4942,
+      "sha256": "4a8e4ca178df4fc0a70c4142e41de50508442ea35ff7b7b13d98128cd776198a"
+    },
+    {
+      "path": "source/crypto_analysis.js",
+      "bytes": 15151,
+      "sha256": "90f3412117c7e9b483c1709d49e8da7e12f1b89e3067c7d90b5ac9bc921d5747"
+    },
+    {
+      "path": "source/crypto_recovery.js",
+      "bytes": 31141,
+      "sha256": "6054a52c6f0a2a610a990f5d3f27c8633e18b8bf1f5878ba1d1e7f1204eda461"
+    },
+    {
+      "path": "source/dashboard_projection.js",
+      "bytes": 1972,
+      "sha256": "db6a01846479e26b7192f37c563b793dfc74ca507b0a9e87af29cd30945e7590"
+    },
+    {
+      "path": "source/debug_timeout.js",
+      "bytes": 843,
+      "sha256": "9316b22ab321bb669e66ce914e16afeaeca26d4a55a2de3364ca4ec4c114c2d1"
+    },
+    {
+      "path": "source/debug_trace.js",
+      "bytes": 8130,
+      "sha256": "2dab4a7f2a82cb95a21f124a56f98464dede054c7da2be1ed600545e91b0bede"
+    },
+    {
+      "path": "source/debug_trace_chunks.js",
+      "bytes": 5178,
+      "sha256": "2b20328604498081f57408767fa75d22b8fdb97d952dc60cd7911f94ba9114b9"
+    },
+    {
+      "path": "source/delegation_control.js",
+      "bytes": 11058,
+      "sha256": "4a3311293a19dd1247e1401a3c39728650f21ded2a4f6b626074db6346da4280"
+    },
+    {
+      "path": "source/delivered_payload.js",
+      "bytes": 19461,
+      "sha256": "e7dad5c5c72688fac002d38c9744b669cd9d1a1b151ac58c1d46c0f87cc63716"
+    },
+    {
+      "path": "source/flow_pair_sampling.js",
+      "bytes": 2031,
+      "sha256": "0f42ad8d0c9c5d0c2d7c46cba38246d712958b579f3c77fadf57fc64a62d9583"
+    },
+    {
+      "path": "source/flow_semantics_jobs.js",
+      "bytes": 5319,
+      "sha256": "15383dfd721a035719c72a3f5fc6352d1213d4a40f70bb9308a4abfb0e5b37cd"
+    },
+    {
+      "path": "source/flow_state_eval.js",
+      "bytes": 13076,
+      "sha256": "71ad7d002f4ebea480cc119b86d4e13664177024b2ecd7029780c648b5002455"
+    },
+    {
+      "path": "source/function_dossier.js",
+      "bytes": 16282,
+      "sha256": "bb0898aa60e12fb52320174a8172ca3eea4cb8ae52dd0ad9a9cd2454641e6d8f"
+    },
+    {
+      "path": "source/guest_debug_profile.js",
+      "bytes": 4312,
+      "sha256": "b7f57f56e6c0ede951bb6ffcd9b0a289bcf1c3a44301e4d7c2b3744abc2cd819"
+    },
+    {
+      "path": "source/guest_recovery.js",
+      "bytes": 3689,
+      "sha256": "6bc1b8201b5074627591b8359b23618804818b39c5fa2e0c12eb959d0a729c48"
+    },
+    {
+      "path": "source/history_index.js",
+      "bytes": 6674,
+      "sha256": "c1b9a57c4f88159e6322ad8e2c7aab52f20339085fa53800ac77ea474799f929"
+    },
+    {
+      "path": "source/host_platform.js",
+      "bytes": 2522,
+      "sha256": "ee9d583571b08438459c024fe55ee44079be7d95085fd9fc29110e28ccfea124"
+    },
+    {
+      "path": "source/investigation_store.js",
+      "bytes": 12858,
+      "sha256": "f888330b2dad14966720f4e8cef2623b18c73e21a05aa70c99223615666c41f6"
+    },
+    {
+      "path": "source/investigation_workflow.js",
+      "bytes": 27941,
+      "sha256": "fcfc024cba41316268f48f061174dad59371bf704dad0f13badb7b68650125fd"
+    },
+    {
+      "path": "source/json_output.js",
+      "bytes": 2580,
+      "sha256": "4cd4f1fe4e1ede4f08011efb436b5b6972c1d3624d699dbf8ad60f7e0a8651c8"
+    },
+    {
+      "path": "source/kernel_jobs.js",
+      "bytes": 4563,
+      "sha256": "d075c72eee6aedb9b2c4ed52005c33aad986258e166b260fc72097c42d8a7fd3"
+    },
+    {
+      "path": "source/lift_jobs.js",
+      "bytes": 14051,
+      "sha256": "25ce583c39b71cdd0cc5cca00d02330de384e2b999f819e579cf1e57fe91491f"
+    },
+    {
+      "path": "source/native_store_events.js",
+      "bytes": 4277,
+      "sha256": "983b450ccd08b05e49c8a792fa34ccbc75623caba1b9ce2daba10908278aa067"
+    },
+    {
+      "path": "source/native_trace_encoding.js",
+      "bytes": 1907,
+      "sha256": "6aef2a39ab2f1f626e817f8b332d9c73de332eb7b8e93793a5eac4e9c1cfdc3e"
+    },
+    {
+      "path": "source/observed_decode_jobs.js",
+      "bytes": 3511,
+      "sha256": "6c769fe9ed2ae053b3b9262b38539cd4a30bc4d8871204239443745fb87962ef"
+    },
+    {
+      "path": "source/patch_export.js",
+      "bytes": 10826,
+      "sha256": "28940a2bd1e7e0176ebbe985bb79ae8856179487236d930156366a573abfb2f9"
+    },
+    {
+      "path": "source/path_discovery_jobs.js",
+      "bytes": 10202,
+      "sha256": "6883b511d2712baa6c2fe29b73078a71c0739b688658ec184ebdcbc6befa7cf3"
+    },
+    {
+      "path": "source/project_store.js",
+      "bytes": 27209,
+      "sha256": "e26b6c34466a6aff1fb28a76744170d6e4aef3c252e1d71f496cf1b01b63dd9e"
+    },
+    {
+      "path": "source/projection_decoder.js",
+      "bytes": 3600,
+      "sha256": "bc3ed4effcec6cade6bd1e37a44ec836e63db68272a180bfa3d8c13db7ee850a"
+    },
+    {
+      "path": "source/projection_jobs.js",
+      "bytes": 16366,
+      "sha256": "7d55439ea84dd03b72a32e0014943a1666f95d84aea5f451c3f37dc918771f95"
+    },
+    {
+      "path": "source/projection_opaque.js",
+      "bytes": 9514,
+      "sha256": "9bf44015ffc80eebde77af76d115092aff4412e8b02b720a29480ccc04d7dfcc"
+    },
+    {
+      "path": "source/protocol_analysis.js",
+      "bytes": 49331,
+      "sha256": "0359d377af199d010f28b4d5a046d1b8ffcbc982b47a16692fe0c47e21f5a91b"
+    },
+    {
+      "path": "source/protocol_inference.js",
+      "bytes": 45200,
+      "sha256": "ed4113c034d3288fa1ee2f42f8cb07255176d00fff278d91358988ad2b69b8d5"
+    },
+    {
+      "path": "source/protocol_state.js",
+      "bytes": 23228,
+      "sha256": "11598c40fca48ab6f6c234e0228277f03ac765d1c7691c2703622cf4c073a138"
+    },
+    {
+      "path": "source/recorded_flow_eval.js",
+      "bytes": 9351,
+      "sha256": "a536de54f4d6ff56e8ad41e1b549690112d54d2d5ee2a5825d82eaf72ae15d40"
+    },
+    {
+      "path": "source/recorded_handler_eval.js",
+      "bytes": 12456,
+      "sha256": "f2670207d6ad4fa21413f00dd2c825d89f8c01d61583277bed21fac49c6ebf03"
+    },
+    {
+      "path": "source/recorded_projection_coordinates.js",
+      "bytes": 6484,
+      "sha256": "b4d13df6713ccdcb5f1bcc33aaa5d3bd41a3d57aaee81a3ac131571ff0daaf77"
+    },
+    {
+      "path": "source/remote_execution_store.js",
+      "bytes": 15177,
+      "sha256": "e298b1de0a4522b8d42e006046236724f5fdffd45ff0df72b0ba5c1942e49f86"
+    },
+    {
+      "path": "source/reverse_runtime.js",
+      "bytes": 10090,
+      "sha256": "574b269a45eba0fc075d9dafc04bf196be45df293b0d78ad1bf5693028810abf"
+    },
+    {
+      "path": "source/trace_jobs.js",
+      "bytes": 13568,
+      "sha256": "09f8765d3ac83fd85546429fa6733d984808f399260572e8f5a83030464e47ad"
+    },
+    {
+      "path": "source/vm_address_roles.js",
+      "bytes": 13045,
+      "sha256": "a73875a274585d70a2a8138426083f93a659050948ebe932ff9e13e3d29aa200"
+    },
+    {
+      "path": "source/vm_context_model.js",
+      "bytes": 12214,
+      "sha256": "479fd63d5a2249ebf9b352aa0d9d6cef7592e3498005ed286f7b775e51b85c44"
+    },
+    {
+      "path": "source/vm_context_profile.js",
+      "bytes": 4317,
+      "sha256": "845e2837095c9887bc6a18bbeb16027120f626f3795493d7e6852889cb45a344"
+    },
+    {
+      "path": "source/vm_fetch_flow.js",
+      "bytes": 6664,
+      "sha256": "178387966c28804014150f5c2f9a2b16968998482b10d6bbf01404b4848c877a"
+    },
+    {
+      "path": "source/vm_flow_mapping.js",
+      "bytes": 2746,
+      "sha256": "12b271c37bce02f0bb8c7679793c0cc28a270d19b10dbdf69378d60ace11e54d"
+    },
+    {
+      "path": "source/vm_flow_profile.js",
+      "bytes": 11761,
+      "sha256": "e00b1a7bcf0486981a4c0163b00dc1efad266f2a64b8c7258d184b53d78ab97d"
+    },
+    {
+      "path": "source/vm_flow_recurrences.js",
+      "bytes": 11542,
+      "sha256": "a0b9853108503b77cae7b8df19a4734fa46ecf3fd269201e8aae3fbb0c08e320"
+    },
+    {
+      "path": "source/vm_flow_window.js",
+      "bytes": 2014,
+      "sha256": "ed0bb8520e87236db5897f596672524460a25cc23af26366af26ddb9aae31acb"
+    },
+    {
+      "path": "source/vm_handler_profile.js",
+      "bytes": 15757,
+      "sha256": "fc4650b11176a37f1a55216a6dbc0c36c2ffbbc1f9cd6f8514a42a908549b952"
+    },
+    {
+      "path": "source/vm_handler_window.js",
+      "bytes": 3120,
+      "sha256": "816244041ad7c1211c20232c0a4405e5ea8e692acc9548b1228a99851b448dfc"
+    },
+    {
+      "path": "source/vm_observation_profile.js",
+      "bytes": 21355,
+      "sha256": "1db533b5c6110ea81d130c75e3169b6add3892a7aec36d280ac42202633f1d95"
+    },
+    {
+      "path": "source/vm_observations.js",
+      "bytes": 15182,
+      "sha256": "5b86c65fcd8ad0993916f25944172b0eeb2c66115a353831016de05ac62397e7"
+    },
+    {
+      "path": "source/vm_recovery_case.js",
+      "bytes": 10671,
+      "sha256": "0b63272f6e2707fad79f67f6ff184582a66f68853ed0b265c1259747ac9dadd9"
+    },
+    {
+      "path": "source/vm_recovery_io.js",
+      "bytes": 3180,
+      "sha256": "8bf9e85abb0ecf872a68d947dca162dedaff7f57dc5bee24836c81b007e625a6"
+    },
+    {
+      "path": "source/vm_recovery_plan.js",
+      "bytes": 13858,
+      "sha256": "335c80464c84721732022901df4adc2046b47856dddbee2123ce305a63eb0ac4"
+    },
+    {
+      "path": "source/vm_recovery_profile.js",
+      "bytes": 6473,
+      "sha256": "e7e53c3389e9f30bc62a94fdead3574df6124f3b9c0cb1621e151fd96353f88f"
+    },
+    {
+      "path": "source/vm_recurrence_profile.js",
+      "bytes": 12954,
+      "sha256": "097b409b4e5b8dc9a09e3aa6f4a694cb8f986b378680afe5dd0582f407e3b8de"
+    },
+    {
+      "path": "source/vm_role_profile.js",
+      "bytes": 3716,
+      "sha256": "c8f287aeca7567c375d6688407371e7324d95fe6d5b7681d5df71c5aa605ca3e"
+    },
+    {
+      "path": "source/vm_role_samples.js",
+      "bytes": 2416,
+      "sha256": "b97f6d853dfc70fdaf6ef62ad0da72023ab26fbb37617d961b82ddbf67e7eb32"
+    },
+    {
+      "path": "source/worker_transport.js",
+      "bytes": 14315,
+      "sha256": "a2aa85dd2ffa4460300e45f159a55169eb9f4fdd18cf79b55d2f713d99178479"
+    }
+  ]
+}

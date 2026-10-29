@@ -1,0 +1,7 @@
+diStorm 3.3.3 embedded by ScyllaHide.
+This product includes software developed by Gil Dabah.
+COPYING-diStorm-3.3.3.txt source:
+https://raw.githubusercontent.com/gdabah/distorm/v3.3.3/COPYING
+Bytes: 1657
+SHA-256: 5b753207205759514682a224198196c9f8e6e6a0c340d1d72395505b82613ae9
+Retained separately so the pinned original ScyllaHide source inventory stays intact.

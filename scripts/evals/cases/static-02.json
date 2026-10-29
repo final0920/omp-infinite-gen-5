@@ -1,0 +1,54 @@
+{
+  "schema": "ig5-eval-case-v1",
+  "caseId": "static-02",
+  "category": "static",
+  "partition": "development",
+  "question": "解释边界条件及未覆盖范围",
+  "source": "self-authored specification; not a native recording",
+  "input": {
+    "path": "assets/static-02.json",
+    "sha256": "73f9d46a6a2f3b953d195d119c7f31fbca0ec4397eec11d67222a1833c9cc395",
+    "kind": "specification"
+  },
+  "allowedOperations": [
+    "static-read",
+    "offline-analysis",
+    "explicitly-approved-self-authored-execution-only"
+  ],
+  "acceptance": [
+    "输入身份与完整来源相符",
+    "回答问题并明确未知与覆盖范围",
+    "结论由独立参考检查"
+  ],
+  "reference": {
+    "path": "oracle.mjs",
+    "evaluatorOnly": true,
+    "answerExposure": "exposed",
+    "sha256": "cfd9994a4bcbbbf15e2ad716f94f93f7027652d5d573f929716e52ce4b7611a8"
+  },
+  "requirements": {
+    "provider": "ghidra",
+    "platform": "declared-by-run",
+    "runtime": "compiled target must be frozen before native run",
+    "knownBlock": null
+  },
+  "budget": {
+    "toolCalls": 20,
+    "elapsedMs": 120000,
+    "inlineBytes": 65536,
+    "modelTokens": "unavailable"
+  },
+  "cleanup": [
+    "retain original owner until exit confirmed",
+    "offline-only run declares no native resource created"
+  ],
+  "status": "compiled-target-frozen-not-model-run",
+  "expectedHumanInterventions": 0,
+  "target": {
+    "path": "C:\\Users\\IG5User\\Desktop\\无限五代\\_research\\ig5-eval-compiled-v2-20261021\\static-02.exe",
+    "sha256": "960d354cc382714c6dee40fd0e9c37912fec60d1738cf1065925bf601beeaddb",
+    "mapSha256": "bce0f16d98338b03764cb7c32309484a97e807dac03146f9ee08920fb33e9cc7",
+    "sourceSha256": "25f4a49d0e872c3b838331bd51b95ef028cdbde362b87343a937dd692c61a705",
+    "compilerVersion": "19.51.36260.0"
+  }
+}

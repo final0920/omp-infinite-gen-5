@@ -1,0 +1,85 @@
+{
+  "nativeLaunches": 0,
+  "observations": [
+    {
+      "id": "R1",
+      "undo": {
+        "ok": true,
+        "action": "undo",
+        "kind": "comment",
+        "ea": "0x1000"
+      },
+      "commentsAfterUndo": {
+        "false": "ordinary-old",
+        "true": "repeatable-new"
+      }
+    },
+    {
+      "id": "R2",
+      "registerResult": {
+        "ok": true,
+        "op": "setreg",
+        "reg": "rax",
+        "before": "0x11",
+        "after": "0x22",
+        "state": "suspended",
+        "stateCode": -1
+      },
+      "memoryResult": {
+        "ok": true,
+        "op": "writemem",
+        "ea": "0x1000",
+        "written": 1,
+        "state": "suspended",
+        "stateCode": -1
+      },
+      "writes": [
+        "22"
+      ]
+    },
+    {
+      "id": "R3",
+      "failedApiCalls": 2,
+      "result": {
+        "ok": true,
+        "action": "reanalyze",
+        "ea": "0x1000",
+        "end": "0x2000"
+      }
+    },
+    {
+      "id": "R4",
+      "exports": {
+        "kind": "exports",
+        "total": 1,
+        "offset": 0,
+        "items": [
+          {
+            "ordinal": 1,
+            "ea": "0x1000",
+            "name": "program_entry_only"
+          }
+        ]
+      },
+      "entriesError": "unknown kind: 'entries'"
+    },
+    {
+      "id": "R5",
+      "result": {
+        "code": "ETIMEDOUT",
+        "message": "fixture deadline",
+        "cleanedUp": true,
+        "state": "no-task",
+        "stateCode": -1,
+        "runId": "fixture-run",
+        "stopSeq": 1,
+        "mode": "headless",
+        "debuggerPid": null,
+        "pid": null,
+        "tid": null
+      },
+      "actualExitConfirmed": false,
+      "processHandleRetained": false
+    }
+  ]
+}

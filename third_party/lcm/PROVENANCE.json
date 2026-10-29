@@ -1,0 +1,387 @@
+{
+  "repository": "https://github.com/lossless-claude/lcm",
+  "revision": "0c17dbffda452cf7fae46929af427dff355aeaa3",
+  "version": "0.16.0",
+  "fullHistoryVerified": true,
+  "license": "MIT",
+  "integration": "Unmodified ConversationStore, SummaryStore and migrations; IG5 provides exact event capture, scope, budgets, and DSH bridge. Upstream hooks, daemon, scrubber and model providers are not executed.",
+  "build": {
+    "dependencies": {
+      "esbuild": "0.28.2",
+      "safe-regex": "2.1.1",
+      "regexp-tree": "0.1.27",
+      "js-yaml": "4.1.1",
+      "argparse": "2.0.1"
+    },
+    "entries": {
+      "ConversationStore": "src/store/conversation-store.ts",
+      "SummaryStore": "src/store/summary-store.ts",
+      "runLcmMigrations": "src/db/migration.ts"
+    },
+    "command": "node scripts/build_lcm_vendor.mjs <clean-full-upstream-checkout>"
+  },
+  "files": {
+    "core.mjs": {
+      "sha256": "0b21a7bc5681aada39f24ec5fec5b0cbbf7fc23712a4f9b8cc5df98dcc6eb091",
+      "bytes": 552323
+    },
+    "upstream-source.zip": {
+      "sha256": "27d2d01f91b5c8844252ce6c606b8b6ef87fde620f7690adbdfdc70789360310",
+      "bytes": 3126491
+    },
+    "build-package.json": {
+      "sha256": "51c3e9c85a0ffeae78a0a7ca44006154167e7846e99dab765399d5b9f235a2d0",
+      "bytes": 106
+    },
+    "build-package-lock.json": {
+      "sha256": "65187cd949d78a159b72ec61a55f3a0dced2dd7c6caf5c55ac9bd8744e4975c9",
+      "bytes": 15339
+    },
+    "LICENSE": {
+      "sha256": "56d1a364e45d9698e2a2d000fe0db98d49fac215e5c448be5cc6df7117457816",
+      "bytes": 1111
+    },
+    "safe-regex.LICENSE": {
+      "sha256": "f94984c610492c5a9c5b8a26ae5a409946a335a71d509618888b230a5c53e0fb",
+      "bytes": 1234
+    },
+    "regexp-tree.LICENSE": {
+      "sha256": "0adcee8b9734247b3b836bc6c93096ac44c49ff6ca1a12f72eaf909ba1ad8489",
+      "bytes": 1073
+    },
+    "js-yaml.LICENSE": {
+      "sha256": "a07bc24468b9654ce76a547d47a2db282d07733b715db4c73a98bd63961f9550",
+      "bytes": 1084
+    },
+    "argparse.LICENSE": {
+      "sha256": "de4d1f2d2ad5ad0cfd1657a106476b31cb5db5ef9d1ff842b237c0c81f0c8a23",
+      "bytes": 12775
+    }
+  },
+  "inputs": [
+    {
+      "path": "src/store/summary-lineage.ts",
+      "sha256": "3bea291030f36f2640bd2d4eb186d4e4953bcc4425114eadf2f81cafb6e453db"
+    },
+    {
+      "path": "src/db/project-timeline.ts",
+      "sha256": "03b5f7364a3abc551f810eb6f7e7fb06061f389efe5cbeb598825514e08669e9"
+    },
+    {
+      "path": "src/generated-patterns.ts",
+      "sha256": "9af1100c904f9139cedda592ecf790840056d6fc2298d4a501727a9579ced07e"
+    },
+    {
+      "path": "src/scrub.ts",
+      "sha256": "5098679f72e5de8d542ec235c21552982d4e3b1bbd384560d8ce283c2ed692e7"
+    },
+    {
+      "path": "src/message-content.ts",
+      "sha256": "5fed35269c0680f0be30b2e0d7c52ff28300fb3735bdd3cc1e069e793e79baca"
+    },
+    {
+      "path": "src/worker-markers.ts",
+      "sha256": "cebfefb6241bf37e89c0e7a4ea7743d8d859bbb9a336628eb125d8969a7aee0c"
+    },
+    {
+      "path": "src/compaction-context.ts",
+      "sha256": "a0f71fa35a4b98ef9694d2d938a284b0412a12b170a8e88980babc933249fa7d"
+    },
+    {
+      "path": "src/tool-calls.ts",
+      "sha256": "16f0f894b20893df67dd6018ae2db91fd4529cade464d5d573864e9932ab5098"
+    },
+    {
+      "path": "src/transcript.ts",
+      "sha256": "5397a9521562a4938e136795da51cb455276573980199554f3aab59bf7f6075b"
+    },
+    {
+      "path": "src/claude-rebuild.ts",
+      "sha256": "e82350e6b57380b0032e4b96a5f76ff637562f8e0cfdd9f129f6982a4fca84ca"
+    },
+    {
+      "path": "src/worker-warning.ts",
+      "sha256": "248f7680928dcdba1b6f4ddc425b746f9b00c2bc3a4833ba00b1c2f795f602e7"
+    },
+    {
+      "path": "src/store/worker-store.ts",
+      "sha256": "84a8b5c51bb4b2c047581876438786ce66d30c9d4ccd7df36111160de1850e16"
+    },
+    {
+      "path": "src/daemon/project-queue.ts",
+      "sha256": "3ba0affbed644bdb2204d0aa6389ae29b9d2d7fd172a39650b59cd529103cafe"
+    },
+    {
+      "path": "src/store/commit-store.ts",
+      "sha256": "dda3a6da54c86c45f4b843f1b5c583e33ea71c43a14b31a8909f784e4abb6571"
+    },
+    {
+      "path": "src/promotion/tool-lesson-projection.ts",
+      "sha256": "8b3e49d2797c5d105103fc40de70250a9df580ccc19d5a687f2a0086af4f87ba"
+    },
+    {
+      "path": "src/promotion/tool-lessons.ts",
+      "sha256": "29bfe316378e8f5f8a872f5297a6133c5aa3dcc1b415fdfd455cf5de95a5d013"
+    },
+    {
+      "path": "src/db/sqlite-date.ts",
+      "sha256": "92cf0282ef510b996f8554399ac543d2871a09b30524215e2ebf83879500fb12"
+    },
+    {
+      "path": "src/store/full-text-fallback.ts",
+      "sha256": "b8f055bf0f6732d5508c083583a5dc08dcafe3416400e18748997cbf5e68ffde"
+    },
+    {
+      "path": "dependency/js-yaml/dist/js-yaml.mjs",
+      "sha256": "efbc45850bf15f0c8ee3434983f512be656002d7507dc292c7ade4449b5d57fa"
+    },
+    {
+      "path": "src/prompts/loader.ts",
+      "sha256": "761b2533c8631b3b750c93aa600385a0e13a0f723ebb1732dbceaf207da08729"
+    },
+    {
+      "path": "src/store/language-pack.ts",
+      "sha256": "1553da32ca0ce1fc2240e7df175ef70df0c29dbdb7969214f75718d7cb5d983d"
+    },
+    {
+      "path": "src/store/fts5-query.ts",
+      "sha256": "45f21abdf0a0f8b0166ff564936a83df49ecf38848a007f895fa35ac2cb4ee77"
+    },
+    {
+      "path": "dependency/safe-regex/lib/analyzer.js",
+      "sha256": "986da62f4e13e3c1cca31cb9366a92faae93dfceabd6808de1e7a3dde8fd5680"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/compat-transpiler/transforms/compat-dotall-s-transform.js",
+      "sha256": "138b84f2313d5030afc7e4ef54d92fb686ee1b442895c55e024a7cf1c5eab72b"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/compat-transpiler/transforms/compat-named-capturing-groups-transform.js",
+      "sha256": "88d4079ddb9d9d0d5eedb178ef2a5462a325e86e01472a4d94f3b1d1d96498ac"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/compat-transpiler/transforms/compat-x-flag-transform.js",
+      "sha256": "07108116da226784f1958988759776b15a0e1fed1d661d7a8afad36c20084ad7"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/compat-transpiler/transforms/index.js",
+      "sha256": "ca1ea01e232e9fca69648845770f144e205df8d9bc93e3e065ebe8d7e446ff24"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/generator/index.js",
+      "sha256": "cde48505eaeea163f2711ed37241617da3a2ed4579d623c1bef9807673180191"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/parser/unicode/parser-unicode-properties.js",
+      "sha256": "3d319e9b287e23e1d4fcad6a1e9554078873e87597062ae06bc5c1a6969a9bc3"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/parser/generated/regexp-tree.js",
+      "sha256": "510924a052e96abe459a04ece1075d9813b55b5446c836d13d2b31fb9efb3cf4"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/parser/index.js",
+      "sha256": "d9bd844783d755b5bd38f9a9f6aee05ddcf4e9e03f0566631bb78e5c58e263a5"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/traverse/node-path.js",
+      "sha256": "975644001a1cc711fdffc714608d213c8285abda76636da1b6a4def3d17c6b0e"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/traverse/index.js",
+      "sha256": "c810a59dbe4f21af21e0be2aa8c383955c446cb6ec9f20d2930aa67aeb92dbb7"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/transform/index.js",
+      "sha256": "f429821e6e786ef3c89bb854731371f998b788dacfa8763fdcc7ab22dda5c784"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/compat-transpiler/index.js",
+      "sha256": "a66346cf8080d8061f69f3ffc844ed56f27c34ecc831ff5298beaad87651145b"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/utils/clone.js",
+      "sha256": "df7e5ea20c711b0809519c6dd1203460017f4ca2f232748a0679e3af36182557"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/optimizer/transforms/char-surrogate-pair-to-single-unicode-transform.js",
+      "sha256": "fc14496c8e4c4ceb18f32dabe388b9e495cf6284121af14fb03b76ad4a1fbf62"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/optimizer/transforms/char-code-to-simple-char-transform.js",
+      "sha256": "840432ec7947c094aaebb95d103dfadc8f35e6be46b7028e5fa6005ab9529db4"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/optimizer/transforms/char-case-insensitive-lowercase-transform.js",
+      "sha256": "462f5f85317197349532760ec28885bea275275b10a2c0550e12386889e84900"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/optimizer/transforms/char-class-remove-duplicates-transform.js",
+      "sha256": "38a3925c9dc21589efe6052170a1c9939b9ec3c09f3588019d1b343a1c080501"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/transform/utils.js",
+      "sha256": "c2f7e6c1530becc66460e088144c764bffb53cd89fd4422ff7ff9d871a8d4c2d"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/optimizer/transforms/quantifiers-merge-transform.js",
+      "sha256": "032e72b3a6b01c03f708c25ff20babb4a3a159df69e6f0882ed6caa376a0e83f"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/optimizer/transforms/quantifier-range-to-symbol-transform.js",
+      "sha256": "24e5635640cbb460de04d17b80e4108286b033ba3d9e67afa439e3b3bdf644ae"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/optimizer/transforms/char-class-classranges-to-chars-transform.js",
+      "sha256": "484a3a4fc979e9065438f52040f46cb6f4d244e1b0a1181cd4948a01313a4c06"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/optimizer/transforms/char-class-to-meta-transform.js",
+      "sha256": "cdfafc0fba0836cf31788955cdc504e136f67a4b4c16fabce9fc810413165c80"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/optimizer/transforms/char-class-to-single-char-transform.js",
+      "sha256": "327a9bbd9518923b1a1e66800333af90b36b3f65c5e16e21cc9097f373a1eae5"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/optimizer/transforms/char-escape-unescape-transform.js",
+      "sha256": "7e527fe64b6c4115880fa2f8596218adec0dd39fb0704b588fd8bee367608b2d"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/optimizer/transforms/char-class-classranges-merge-transform.js",
+      "sha256": "e928fb1715cfafaec931ee7b062733b30e89898336bf49661977a155eb577ff7"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/optimizer/transforms/disjunction-remove-duplicates-transform.js",
+      "sha256": "87af51fa5d47423e1871227738533113fbe89dfe4120e9ae6c761cb92783bc2f"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/optimizer/transforms/group-single-chars-to-char-class.js",
+      "sha256": "03f33df8a3d0f1638c0b928b945b9fb0f9dd00276c727ed47827076f2a7f43d4"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/optimizer/transforms/remove-empty-group-transform.js",
+      "sha256": "dd69c38099ec2138bce84c4eb02dc9cd11731a998917930eb6dab77fc1db9ac9"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/optimizer/transforms/ungroup-transform.js",
+      "sha256": "9a511aa666725752179f62802b55d7580a1fe46d12ac313c830b9491ce83c1eb"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/optimizer/transforms/combine-repeating-patterns-transform.js",
+      "sha256": "4c192ff2ebb1b5267acfac3ec3b9341460bd12f5b5245b8f72e5ca46acdc7fb5"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/optimizer/transforms/index.js",
+      "sha256": "b644113af52f3f46f40d591064de6b418ecd7b246cc223ed3ddb0dcfbefac509"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/optimizer/index.js",
+      "sha256": "9ad6a5494e65a4df357d1eb162f0241f4d84a62d2f8aea3406c49af4a89575cc"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/interpreter/finite-automaton/special-symbols.js",
+      "sha256": "1278a22a36da8276be287e0e634a2992690bdd534ffea7d8c5c3eda31076bbbc"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/interpreter/finite-automaton/nfa/nfa.js",
+      "sha256": "202e7e433fa59a9abfd0697ef9caf53fddfbe57169ae81db35b1260e9b030528"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/interpreter/finite-automaton/dfa/dfa-minimizer.js",
+      "sha256": "b2352f148763d8d2fcf04f10fd2155afbce292ffade6a9e9b0e57d71a3350774"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/interpreter/finite-automaton/dfa/dfa.js",
+      "sha256": "8cde9cf67d9027f4570fa2ca0ac5fe38d4ea5e405c113f25ffb2ac49b8f100ed"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/interpreter/finite-automaton/state.js",
+      "sha256": "b1e2bf0e9ec390e9144d806539c7bec426676aa30589b34b3b3713727136929d"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/interpreter/finite-automaton/nfa/nfa-state.js",
+      "sha256": "d6fded5ae97af8c9e31e00d083a6056ed5e1540448528d4ccaa72fe02ea0f9a2"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/interpreter/finite-automaton/nfa/builders.js",
+      "sha256": "ff2d4d439be432c26e34a19ccc521e51b965c812fd7ab30353ffc633165b5625"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/interpreter/finite-automaton/nfa/nfa-from-regexp.js",
+      "sha256": "753d96fcae22c2077a07f8ade964d161f363eef5fee1026c017000490751f8e7"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/interpreter/finite-automaton/index.js",
+      "sha256": "8bb893414cc7b785bc1e6787af5ae3e8b0a57bbc6621dcd4012bd25f4d9a31da"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/compat-transpiler/runtime/index.js",
+      "sha256": "0ae54ab80482841ff0b490ba171e7df5bd9c325e634ba64355036540062a76cf"
+    },
+    {
+      "path": "dependency/regexp-tree/dist/regexp-tree.js",
+      "sha256": "00c059f00431c526a8515dc23b5164aaea8d7c346f13e169cc054fe7b50bb9f0"
+    },
+    {
+      "path": "dependency/regexp-tree/index.js",
+      "sha256": "c68abfc045d0065bc5482a0046b3225dd5a56a81fb7fd7ce302146cb69053f85"
+    },
+    {
+      "path": "dependency/safe-regex/lib/heuristic-analyzer.js",
+      "sha256": "593824fe42657842d3bd98e67df48c00b0df4f76201293afb8c674279c27d377"
+    },
+    {
+      "path": "dependency/safe-regex/lib/analyzer-family.js",
+      "sha256": "bbfdf4cfd5d09305ce9f18c6678c45d9297ddea4f73b1c37a2f79e27d5254625"
+    },
+    {
+      "path": "dependency/safe-regex/index.js",
+      "sha256": "193552769ef0048888ba65cacdb9708c45a48a661f25c6b8593c64469407f319"
+    },
+    {
+      "path": "src/store/regex-safety.ts",
+      "sha256": "c01d97719cded1cbdda5cd58e159c128d155ea1de99e26018d8b26da50e40cc7"
+    },
+    {
+      "path": "src/store/conversation-store.ts",
+      "sha256": "fb46d049e9f85a6a548b738b507252915ae4b0dc932126a278b5ef74b7b46ba6"
+    },
+    {
+      "path": "src/store/summary-store.ts",
+      "sha256": "5988f2919ffe08321da5b5e9812aed5f7d957de882ac98e75515c5abd6f19d39"
+    },
+    {
+      "path": "src/promotion/passive-tags.ts",
+      "sha256": "aea96297405084ce6f6e0a83411a9884805f5d081734f9294a055dbea88b5723"
+    },
+    {
+      "path": "src/db/votes.ts",
+      "sha256": "25ab54dd85187ab3cd13a849b55496f58db42585a839044109b06beda40ce232"
+    },
+    {
+      "path": "src/db/features.ts",
+      "sha256": "9e164c1b9c7d033e2b3018087784d28a3de7c73994a510c42ee4cf8e3761a436"
+    },
+    {
+      "path": "src/db/transcript-cursor.ts",
+      "sha256": "d6cb292678c8ac7f542f707705fcf0cbe60f8f5f9db4c832baec0c6941931ec6"
+    },
+    {
+      "path": "src/db/tool-lesson-schema.ts",
+      "sha256": "16487a840269d8c7069291c8afaa8bef2d2fe62eba6e143c7d3d1f79cf7b1f6d"
+    },
+    {
+      "path": "src/db/recall-usage.ts",
+      "sha256": "67b4cdf4fd90f83c10f7c207436b47f2f6a4da245fba4f245b03e09bc68becfb"
+    },
+    {
+      "path": "src/subagent-attribution.ts",
+      "sha256": "57313d790fd7b20ec3064a033427fbb2602a240d415cea78bb48f083fad54dbb"
+    },
+    {
+      "path": "src/db/migration.ts",
+      "sha256": "87ad4ea76bc3c77870edb205b0b4e7fd7d67967cce2429aacd41126fa23a38d8"
+    }
+  ]
+}

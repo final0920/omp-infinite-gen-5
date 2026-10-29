@@ -1,0 +1,10 @@
+{
+  "schema": "ig5-guest-launcher-build-v1",
+  "sourceSHA256": "3b8d16c69e6423943ac5b42507eed74abefd7f488baff1608cac4481ff7120e0",
+  "exeSHA256": "51f90d157ea22c9aa8d4245f8c6ed4c2b07810fa9b3455e3cbde4f9a434853cd",
+  "compilerVersion": "19.51.36260.0",
+  "subsystem": "Windows GUI",
+  "script": "adapters/vmci/guest.py",
+  "args": "-I -B -X utf8",
+  "arbitraryCommands": false
+}

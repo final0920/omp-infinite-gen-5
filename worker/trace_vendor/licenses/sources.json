@@ -1,0 +1,10 @@
+{
+  "bitwuzla.txt": "https://raw.githubusercontent.com/bitwuzla/bitwuzla/0.7.0/COPYING",
+  "gcc-runtime-exception.txt": "https://raw.githubusercontent.com/gcc-mirror/gcc/releases/gcc-13.3.0/COPYING.RUNTIME",
+  "gcc-gpl3.txt": "https://raw.githubusercontent.com/gcc-mirror/gcc/releases/gcc-13.3.0/COPYING3",
+  "capstone.txt": "https://raw.githubusercontent.com/capstone-engine/capstone/5.0.3/LICENSE.TXT",
+  "capstone-llvm.txt": "https://raw.githubusercontent.com/capstone-engine/capstone/5.0.3/LICENSE_LLVM.TXT",
+  "z3.txt": "https://raw.githubusercontent.com/Z3Prover/z3/z3-4.13.3/LICENSE.txt",
+  "llvm.txt": "https://raw.githubusercontent.com/llvm/llvm-project/llvmorg-16.0.6/llvm/LICENSE.TXT",
+  "microsoft-vc-runtime.docx": "https://visualstudio.microsoft.com/wp-content/uploads/2021/09/Visual-C-Runtime-2015-2022-License-1.docx"
+}
